@@ -7,6 +7,7 @@ import withdrawIcon from '../../image/icons/with.svg'
 import earningIcon from '../../image/icons/earn.svg'
 import downArrow from '../../image/icons/down.svg'
 import rightArrow from '../../image/icons/right.svg'
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
     return (
@@ -27,7 +28,7 @@ const Sidebar = () => {
                             <img src={dashIcon} alt="" />
                         </div>
                         <div>
-                            <h6>Dashboard</h6>
+                            <h6><Link to="/dashboard">Dashboard</Link></h6>
                         </div>
                     </div>
                 </div>
@@ -38,7 +39,7 @@ const Sidebar = () => {
                             <img src={profileIcon} alt="" />
                         </div>
                         <div>
-                            <h6>My Profile</h6>
+                            <h6><Link to="/profile">My Profile</Link></h6>
                         </div>
                     </div>
                 </div>
@@ -49,7 +50,7 @@ const Sidebar = () => {
                             <img src={depositeIcon} alt="" />
                         </div>
                         <div>
-                            <h6>Deposit</h6>
+                            <h6><Link to="/addDeposit">Deposit</Link></h6>
                         </div>
                     </div>
                 </div>
