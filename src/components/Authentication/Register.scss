@@ -1,0 +1,186 @@
+@import '../../styles/authentication/font-definition';
+@import '../../styles/authentication/colour';
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .error-message{
+    color: red;
+  }
+  .select-wrapper {
+    display: flex;
+
+  }
+  .select-country-number{
+    width: 50%;
+    outline: none;
+    border: none;
+    background: none;
+  }
+  .input-field-number{
+    width: 50%;
+    outline: none;
+    border: none;
+    /* padding: 5px 2px; */
+    /* background: none; */
+    /* text-align: center; */
+
+  }
+  .login-form-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 80vh;
+  }
+  .bg {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    bottom: 0;
+    left: 0;
+    opacity: 0.4;
+    z-index: -999;
+    margin: 0 0 0 -240px;
+  }
+  .login-form {
+    width: 60%;
+    margin: 0 auto;
+    z-index: 99999;
+    position: relative;
+  }
+  .register-container {
+    text-align: center;
+    height: 100vh;
+    background-image: url(../../image/IMG_2611.PNG);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100%;
+    background-color: #7432f3;
+  }
+  .caption {
+    color: $button-color;
+    margin-top: 150px;
+  }
+  
+  .welcome-header {
+    margin: 15px 0;
+  }
+  .uto-pain {
+    color: $uto-pain-color !important;
+    font-size: $uto-pain-size;
+  }
+  .pain {
+    font-size: $uto-pain-size;
+  }
+  .input-field {
+    border-radius: 25px;
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: $input-background-color;
+    padding: 8px 12px;
+    margin-bottom: 13px;
+  }
+  .input-first-last-name{
+    display: flex;
+  }
+  .input-first-name{
+    margin-right: 10px;
+  }
+  .checkbox-forget {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 5px;
+  }
+  .social-media-caption {
+    padding: 30px 0px;
+  }
+  .button {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 8px 9px;
+    color: $button-color;
+    font-size: $small-font-size;
+    font-weight: 600;
+    border-radius: 73px;
+    margin-top: 22px;
+  }
+  // .facebook-btn {
+  //   background-color: #3a66c4 !important;
+  // }
+  // .google {
+  //   background-color: #cf4331 !important;
+  // }
+  .login {
+    background: linear-gradient(90.82deg, $login-background1 14.22%, $login-background2 96.31%);
+  }
+  .register {
+    background-color: #6d37ef;
+    /* font-size: 16px;
+    padding: 7px 8px; */
+  }
+  .form-section {
+    padding: 100px 0;
+  }
+  
+ 
+  .caption button {
+    border: none;
+    margin: 10px 0;
+    display: inline-block;
+    padding: 8px 60px;
+    border-radius: 20px;
+    font-size: $small-font-size;
+    font-weight: 600;
+    color: $caption-color;
+    font: Segoe UI;
+    font-style: normal;
+    background: linear-gradient(90.82deg, $button-color 14.22%, $button-color 96.31%);
+  }
+
+  .space-between input {
+    display: inline-block;
+    width: 16px;
+  }
+  label {
+    font-size: $small-font-size;
+    position: relative;
+    // bottom: 3px;
+    font-weight: 600;
+    color: #524f4f;
+    line-height: 20px;
+  }
+ 
+  
+  @media only screen and (max-width: 768px) {
+    .login-form-container {
+      grid-template-columns: repeat(1, 1fr);
+      height: 60vh;
+    }
+    .login-form {
+      width: 80%;
+      padding: 50px 0px;
+    }
+    .register-container {
+      height: 80vh;
+    }
+    .caption {
+      margin-top: 50px;
+    }
+    .input-field {
+      padding: 10px 12px;
+      margin-bottom: 15px;
+    }
+    .social-media-caption {
+      padding: 15px 0px;
+    }
+    .bg {
+      height: 50%;
+      margin: 0 0 0 -200px;
+    }
+  }
