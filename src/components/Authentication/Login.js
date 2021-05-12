@@ -24,7 +24,7 @@ const Login = () => {
             password: data.password
         }
         console.log(userInfo);
-        fetch('https://utopain-backend-test.herokuapp.com/api/users/login', {
+        fetch('https://utopain-backend.herokuapp.com/auth/signIn', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -37,8 +37,9 @@ const Login = () => {
                 // {
                 //     data.token ? history.push('/Profile') : alert(data.massage + " plz sign up fast")
                 // }
-                setLoggedInUser(data)
+
                 localStorage.setItem('token', JSON.stringify(data))
+
                 history.replace(from);
             });
 

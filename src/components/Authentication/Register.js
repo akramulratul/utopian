@@ -15,14 +15,14 @@ const Registration = () => {
         const userInfo = {
             name: fullName,
             email: data.email,
-            username: data.username,
+            userName: data.username,
             referralId: data.referralId,
             phoneNo: data.phoneNo,
             password: data.password
         }
         console.log(userInfo);
         // const url = `https://utopain-backend-test.herokuapp.com/register/`
-        fetch('https://utopain-backend-test.herokuapp.com/api/users/register', {
+        fetch('https://utopain-backend.herokuapp.com/auth/signUp', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -54,7 +54,7 @@ const Registration = () => {
                             <input className="input-field" type="email" {...register("email", { required: true })} name="email" id="" placeholder="Email" />
                             <input className="input-field" type="text" {...register("username", { required: true })} name="username" id="" placeholder="Username" />
 
-                            <input className="input-field" type="text"  {...register("referralId", { required: true })} name="referralId" id="" placeholder="Referral Id" />
+                            <input className="input-field" type="text"  {...register("referralId", { required: false })} name="referralId" id="" placeholder="Referral Id" />
                             <div className="select-wrapper input-field">
                                 <select {...register("phoneNo", { required: true })} name="phoneNo" class="select-country-number">
                                     {/* <option data-countryCode="GB" value="44" Selected>UK (+44)</option>

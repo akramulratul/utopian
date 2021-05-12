@@ -14,11 +14,12 @@ import PrivateRoute from '../privateRoute/privateRoute'
 import Profile from '../Profile/Profile';
 import Test from '../Test';
 
+
 const HandleRouter = () => {
     return (
         <>
             <Router>
-                <Test />
+
                 <Switch>
 
                     <Route exact path="/">
@@ -40,6 +41,7 @@ const HandleRouter = () => {
                     <Route path="/registration">
                         <Register />
                     </Route>
+
                     {/* <Route path="/extra">
                     <Extra />
                 </Route> */}

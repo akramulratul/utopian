@@ -5,9 +5,21 @@ import gear from '../../image/icons/settings.svg'
 import totalDepo from '../../image/icons/total depo.svg'
 import totalWid from '../../image/icons/total wid.svg'
 import totalInc from '../../image/icons/total inc.svg'
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 
-const DashboardContent = () => {
+const DashboardContent = ({ depositeData }) => {
+    const history = useHistory();
+    let totalDeposite = 0;
+    for (let i = 0; i < depositeData.length; i++) {
+        totalDeposite = depositeData[i].depositAmount + totalDeposite;
+    }
+    const logOut = () => {
+        localStorage.removeItem('token');
+        history.push('/login')
+    }
+
     return (
         <div className='dashboard-content'>
             <div >
@@ -17,7 +29,7 @@ const DashboardContent = () => {
                             <img src={toggleIcon} alt="" />
                         </div>
                         <div className="logo px-lg-5">
-                            <h3>UtoPian</h3>
+                            <Link to='/'><h3>UtoPian</h3></Link>
                         </div>
                     </div>
                     <div className="right-content d-flex align-items-center">
@@ -27,7 +39,7 @@ const DashboardContent = () => {
                         <div className=" px-3">
                             <img src={gear} alt="" />
                         </div>
-                        <div className="btn btn-logout pt-2 ml-lg-5">
+                        <div className="btn btn-logout pt-2 ml-lg-5" onClick={logOut}>
                             <h6>Logout</h6>
                         </div>
                     </div>
@@ -40,7 +52,7 @@ const DashboardContent = () => {
                                 <div className="d-flex justify-content-between">
                                     <div className="left-data">
                                         <p><b>TOTAL DEPOSIT</b></p>
-                                        <h3>$2100.96</h3>
+                                        <h3>BDT-{totalDeposite || "0.00"}</h3>
                                     </div>
                                     <div className="right-icon">
                                         <img src={totalDepo} alt="" />
@@ -53,7 +65,7 @@ const DashboardContent = () => {
                                 <div className="d-flex justify-content-between">
                                     <div className="left-data">
                                         <p><b>TOTAL WITHDRAWAL</b></p>
-                                        <h3>$1750.96</h3>
+                                        <h3>BDT-1750.96</h3>
                                     </div>
                                     <div className="right-icon">
                                         <img src={totalWid} alt="" />
@@ -66,7 +78,7 @@ const DashboardContent = () => {
                                 <div className="d-flex justify-content-between">
                                     <div className="left-data">
                                         <p><b>TOTAL INCOME</b></p>
-                                        <h3>$1750.96</h3>
+                                        <h3>BDT-1750.96</h3>
                                     </div>
                                     <div className="right-icon">
                                         <img src={totalInc} alt="" />
