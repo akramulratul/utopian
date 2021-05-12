@@ -63,7 +63,7 @@ const Login = () => {
                     <div className="text-center">
                         <div className='space'>
                             <h2 className="welcome-header">
-                                <span className="uto-pain">Uto</span><span className="pain">Pain</span>
+                                <span className="uto-pain">Uto</span><span className="pain">Pian</span>
                                 <br /><span className="welcome">Welcome Back</span>
                             </h2>
                         </div>
