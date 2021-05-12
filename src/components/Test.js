@@ -1,20 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { UserContext } from '../App';
 
 const Test = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
-    React.useEffect(() => {
-        const data = localStorage.getItem('token')
-        if (data) {
-            setLoggedInUser(JSON.parse(data))
-            // setLoggedInUser("datakjdfjkdsh")
+
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            setLoggedInUser(JSON.parse(localStorage.getItem('token')).data.token)
         }
-
-        console.log(data);
-        console.log("test");
-        console.log(loggedInUser);
-
-    },[])
+    }, [setLoggedInUser])
     return (
         <>
 

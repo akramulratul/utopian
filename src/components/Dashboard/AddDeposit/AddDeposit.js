@@ -1,28 +1,57 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { UserContext } from '../../../App';
 import NavBars from '../../NavBars/NavBars';
 import DepositHistory from '../DepositHistory/DepositHistory';
 import Sidebar from '../Sidebar';
 
 const AddDeposit = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
+    let token = '';
+    if (localStorage.getItem('token')) {
+        token = JSON.parse(localStorage.getItem('token')).data.token;
+    }
     const onSubmit = (data, e) => {
 
-        if (data.depositAmount > 1000) {
-            console.log(data);
+        if (data.depositAmount >= 1000) {
+
             const depositDetails = {
                 depositAmount: data.depositAmount,
-                payment: data.payment,
-                transId: data.transId,
+                paidBy: data.payment,
+                transactionId: data.transId,
                 referralId: data.referralId,
-                phoneNo: data.phoneNo + data.phone,
-                userId: data.userId,
+                sendFrom: data.phoneNo + data.phone,
+
             }
-            console.log(depositDetails);
+
+            // axios.post('https://utopain-backend.herokuapp.com/user/balance', depositDetails, {
+            //     'content-type': 'application/json',
+            //     'authorization': `Bearer ${token}`,
+            // })
+            //     .then(response => {
+            //         console.log(response.data);
+            //     })
+
+            fetch('https://utopain-backend.herokuapp.com/user/balance', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                    'authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(depositDetails)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    e.target.reset();
+                });
         } else {
-            alert("need money 1k up")
+            alert("need money 1000 up")
         }
-        e.target.reset()
+
+
     }
 
 
@@ -41,14 +70,14 @@ const AddDeposit = () => {
                                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 ">
                                     <div className="form-group">
                                         <label htmlFor="userId" className="form-label">User ID</label>
-                                        <input type="number" {...register("userId", { required: true })} name="userId" placeholder="User ID" className="form-control" />
+                                        <input type="text" {...register("userId", { required: true })} name="userId" placeholder="User ID" className="form-control" />
                                         {errors.userId && <span className="text-danger">This field is required</span>}
                                     </div>
                                 </div>
                                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 ">
                                     <div className="form-group ">
                                         <label htmlFor="referralId" className="form-label">Referral ID</label>
-                                        <input type="number" {...register("referralId", { required: true })} name="referralId" placeholder="Referral ID" className="form-control" />
+                                        <input type="text" {...register("referralId", { required: false })} name="referralId" placeholder="Referral ID" className="form-control" />
                                         {errors.referralId && <span className="text-danger">This field is required</span>}
                                     </div>
                                 </div>
