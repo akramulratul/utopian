@@ -17,7 +17,7 @@ const Registration = () => {
             email: data.email,
             userName: data.username,
             referralId: data.referralId,
-            phoneNo: data.phoneNo,
+            phoneNo: data.phone,
             password: data.password
         }
         console.log(userInfo);
