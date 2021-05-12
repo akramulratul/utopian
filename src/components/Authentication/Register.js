@@ -17,7 +17,7 @@ const Registration = () => {
             email: data.email,
             userName: data.username,
             referralId: data.referralId,
-            phoneNo: data.phoneNo,
+            phoneNo: data.phone,
             password: data.password
         }
         console.log(userInfo);
@@ -30,7 +30,13 @@ const Registration = () => {
             body: JSON.stringify(userInfo)
         })
             .then(response => response.json())
-            .then(data => console.log(data));
+            .then(data => {
+                if (data) {
+                    console.log(data);
+                    e.target.reset();
+                }
+
+            });
 
         // e.target.reset();
     };
