@@ -54,7 +54,7 @@ const Login = () => {
                 setLoggedInUser(data)
                 localStorage.setItem('token', JSON.stringify(data))
                 console.log(data);
-                //notification toast
+                //notification toast error
                 if (data.error) {
                     toast.error(`${data.message}`, {
                         position: "top-right",
