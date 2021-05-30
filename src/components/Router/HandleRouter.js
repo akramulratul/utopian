@@ -13,6 +13,8 @@ import Register from '../Authentication/Register'
 import PrivateRoute from '../privateRoute/privateRoute'
 import Profile from '../Profile/Profile';
 import Test from '../Test';
+import Withdraw from '../Dashboard/Withdraw/Withdraw';
+import PaymentMethod from '../Dashboard/Withdraw/PaymentMethod/PaymentMethod';
 
 
 const HandleRouter = () => {
@@ -40,6 +42,12 @@ const HandleRouter = () => {
                     </Route>
                     <Route path="/registration">
                         <Register />
+                    </Route>
+                    <Route path="/withdraw">
+                        <Withdraw />
+                    </Route>
+                    <Route path="/payment-method">
+                        <PaymentMethod/>
                     </Route>
 
                     {/* <Route path="/extra">
