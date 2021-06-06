@@ -1,18 +1,14 @@
 import React, { useState, useMemo } from 'react'
 import Select from 'react-select'
-import CountrySelect from 'react-bootstrap-country-select';
+import countryList from 'react-select-country-list'
 
 
-function SelectCountry({changeHandler,value}) {
-  const options = useMemo(() => CountrySelect().getData(), [])
+function SelectCountry({changeHandler}) {
+  const options = useMemo(() => countryList().getData(), [])
 
 
-  return (
-    <CountrySelect
-      value={value}
-      onChange={changeHandler}
-    />
-  );
+  return <Select options={options}  onChange={changeHandler} />
+
 }
 
 export default SelectCountry

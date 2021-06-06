@@ -2,13 +2,16 @@
 
 .withdraw-btn {
   background: $dashboard-hover-text;
-  border-radius: 15px;
+  border-radius: 25px;
   color: white;
-  height: 48px;
   width: 201.09px;
+  height: 48px;
+  left: 1639.35px;
+  top: 173px;
 
   border: none;
-  padding: 0.5rem 0.7rem;
+  padding-top: 10px;
+  // padding: 0.5rem 0.7rem;
 }
 .withdraw-btn:hover {
   background-color: $dashboard-hover-text;
@@ -16,12 +19,12 @@
 .withdraw-btn a {
   text-decoration: none;
   font-weight: 700;
-  padding: 0.5rem 0.7rem;
-  color: text-color-light;
+  // padding: 0.5rem 0.7rem;
+  color: $text-color-light;
 }
 .withdraw-btn:hover a {
   color: $text-color-light;
-  padding: 0.5rem 0.7rem;
+  // padding: 0.5rem 0.7rem;
   /* background-color: red; */
 }
 .box {
@@ -47,4 +50,51 @@
       cursor: pointer;
     }
   }
+}
+.btn-change {
+  background: $button;
+  width: 142.09px;
+  height: 48px;
+  left: 1528.25px;
+  top: 509px;
+  color: $text-color-light;
+  border-radius: 25px;
+  &:hover {
+    color: $text-color-light;
+  }
+}
+.for-background {
+  background: $dash-body-bg;
+  width: 1020px;
+  height: 100px;
+  left: 500px;
+  top: 465px;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+.btn-next {
+  background: $button;
+  width: 142.09px;
+  height: 48px;
+  left: 1528.25px;
+  top: 509px;
+  color: $text-color-light;
+  border-radius: 25px;
+  &:hover {
+    color: $text-color-light;
+  }
+}
+.btn-confirmWithdrawal {
+  background: $button;
+  width: 205.04px;
+  height: 45.6px;
+  left: 539.69px;
+  top: 775.17px;
+  border-radius: 25px;
+}
+.otpBox {
+  width: 60px;
+  height: 60px;
+  // left: 1148px;
+  // top: 554px;
 }
