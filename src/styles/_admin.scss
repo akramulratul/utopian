@@ -1,0 +1,28 @@
+@import'./colors';
+
+.dashboard-container{
+    background-color: $dash-body-bg;
+    min-height: 100vh;
+}
+.admin-right-area{
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+
+}
+.background{
+    opacity: 0.3;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+   
+}
+.dash-right-content{
+    position: relative;
+
+}
+.dash-right-card{
+    background-color: rgba(255, 255, 255, 0.705);
+}
