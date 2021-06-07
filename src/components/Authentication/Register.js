@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useForm, useWatch } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Link, useHistory } from "react-router-dom";
 import IMG from '../../image/IMG.png';
 import './Register.scss'
@@ -58,7 +58,7 @@ const Registration = () => {
             password: data.password
         }
         console.log(userInfo);
-        const url = `https://utopain-backend-test.herokuapp.com/register/`
+
         fetch('https://utopain-backend.herokuapp.com/auth/signUp', {
             method: 'POST',
             headers: {
@@ -198,27 +198,7 @@ const Registration = () => {
                             <p className="text-muted" style={{ fontSize: "12px" }}>Your password must be between 8 and 30 characters</p>
                             {errors.password_repeat && <p className="error-message">{errors.password_repeat.message}</p>}
 
-                            {/* <input className="input-field input-first-name"
-                                name="password"
-                                type="password"
-                                {...register("password", {
-                                    required: true, minLength: {
-                                        value: 8,
-                                        message: "Password must have at least 8 characters"
-                                    }
-                                })}
-                                placeholder="Password" />
-                            {errors.password && <p class="error-message">{errors.password.message}</p>} */}
 
-                            {/* <input className="input-field" type="text"
-                                name="password_repeat"
-                                type="password"
-                                placeholder="confirm password"
-                                {...register("password_repeat", {
-                                    required: true, validate: value =>
-                                        value === password.current || "The passwords do not match"
-                                })} />
-                            {errors.password_repeat && <p className="error-message">{errors.password_repeat.message}</p>} */}
                             <div className="password-box">
                                 <input
                                     className="password-field"
