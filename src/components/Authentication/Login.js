@@ -7,8 +7,8 @@ import { UserContext } from '../../App';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
-
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+// import jwt_decode from "jwt-decode";
 
 const Login = () => {
     //show and hide password
@@ -32,12 +32,12 @@ const Login = () => {
     // auth-redirect
     let history = useHistory();
     let location = useLocation();
-    let { from } = location.state || { from: { pathname: "/" } };   // jey components theke asci oi components e pataiya dive 
+    let { from } = location.state || { from: { pathname: "/" } };
 
     const onSubmit = (data) => {
         console.log(data);
         const userInfo = {
-            email: data.email,
+            username: data.username,
             password: data.password
         }
         console.log(userInfo);
@@ -56,7 +56,7 @@ const Login = () => {
                 console.log(data);
                 //notification toast error
                 if (data.error) {
-                    toast.error(`${data.message}`, {
+                    toast.error("password not match", {
                         position: "top-right",
                         autoClose: 1000,
                         hideProgressBar: false,
@@ -79,7 +79,6 @@ const Login = () => {
             });
 
     }
-    console.log(loggedInUser);
     React.useEffect(() => {
         const data = localStorage.getItem('token')
         if (data) {
@@ -112,13 +111,7 @@ const Login = () => {
                         </div>
                         <div className="">
                             <form onSubmit={handleSubmit(onSubmit)}>
-                                <input className="input-field" {...register("email", { required: true })} name="email" placeholder="Email/Username" required />
-
-                                {/* <input className="input-field" type="password" {...register("password", { required: true })} name="password" id="" placeholder="Password" required />
-
-                                {
-                                    loggedInUser && <p className="text-danger">{loggedInUser.massage}</p>
-                                } */}
+                                <input className="input-field" {...register("username", { required: true })} name="username" placeholder="username" required />
                                 <div className="password-box">
                                     <input
                                         className="password-field input-first-name"
@@ -135,7 +128,7 @@ const Login = () => {
                                         onClick={hideIcon1}
 
                                     />
-                                    {/* <i class={showPassword ? 'fas fa-eye password-icon' : 'fas fa-eye-slash password-icon'} onClick={passwordHandle}></i> */}
+
                                     {
                                         iconHide1 ? showPassword ? <FontAwesomeIcon icon={faEye} onClick={showPasswordHandle} /> : <FontAwesomeIcon icon={faEyeSlash} onClick={showPasswordHandle} /> : ""
 
