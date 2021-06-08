@@ -13,6 +13,7 @@ import Register from '../Authentication/Register'
 import PrivateRoute from '../privateRoute/privateRoute'
 import Profile from '../Profile/Profile';
 import Test from '../Test';
+import AdminDashboard from '../Admin/AdminDashboard/AdminDashboard';
 
 
 const HandleRouter = () => {
@@ -28,6 +29,9 @@ const HandleRouter = () => {
                     </Route>
                     <PrivateRoute path="/dashboard">
                         <Dashboard />
+                    </PrivateRoute>
+                    <PrivateRoute path="/admin/dashboard">
+                        <AdminDashboard />
                     </PrivateRoute>
                     <PrivateRoute path="/addDeposit">
                         <AddDeposit />
