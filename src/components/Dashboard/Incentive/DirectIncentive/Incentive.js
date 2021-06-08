@@ -1,10 +1,18 @@
 import React from "react";
+import Sidebar from "../../Sidebar";
+import "../../../../styles/_incentive.scss";
+import TopIncentive from "./TopIncentive";
 
 const Incentive = () => {
   return (
     <div class="row">
-      <div class="col-sm-3">col-sm-4</div>
-      <div class="col-sm-9">col-sm-8</div>
+      <div class="col-sm-3">
+        <Sidebar />
+      </div>
+      <div class="col-sm-9">
+        <h1>nav BAR</h1>
+        <TopIncentive />
+      </div>
     </div>
   );
 };
