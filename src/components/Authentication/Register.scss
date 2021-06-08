@@ -19,6 +19,15 @@ body {
     border: none;
     background: none;
   }
+  .PhoneInputInput {
+    flex: 1 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    width: 100%;
+    background-color: transparent;
+    
+}
   .input-field-number{
     width: 50%;
     outline: none;
@@ -79,7 +88,7 @@ body {
     outline: none;
     border: none;
     background-color: $input-background-color;
-    padding: 8px 12px;
+    padding: 7px 12px;
     margin-bottom: 13px;
   }
   .input-first-last-name{
@@ -88,6 +97,30 @@ body {
   .input-first-name{
     margin-right: 10px;
   }
+.password-box{
+    border-radius: 25px;
+    width: 100%;
+    background-color: $input-background-color;
+    padding: 8px 12px;
+    margin-bottom: 13px;
+    display: flex;
+    align-items: center;
+}
+.password-field{
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: $input-background-color;
+}
+
+.password-icon{
+  color: #8b8989;
+  transition: all 0.1s ease-in;
+  cursor: pointer;
+}
+.password-icon:hover{
+  color: #000000;
+}
   .checkbox-forget {
     display: flex;
     justify-content: space-between;

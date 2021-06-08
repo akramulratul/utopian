@@ -31,9 +31,12 @@ const HandleRouter = () => {
                     <PrivateRoute exact path="/dashboard">
                         <Dashboard />
                     </PrivateRoute>
-                    <Route path="/addDeposit">
+                    {/* <PrivateRoute path="/admin/dashboard">
+                        <AdminDashboard />
+                    </PrivateRoute> */}
+                    <PrivateRoute path="/addDeposit">
                         <AddDeposit />
-                    </Route>
+                    </PrivateRoute>
                     <Route path="/dashboard/user/profile">
                         <Profile />
                     </Route>
