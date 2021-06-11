@@ -112,7 +112,7 @@ const Registration = () => {
                 <div className="text-center">
                     <div>
                         <h2 className="welcome-header">
-                            <span className="uto-pain">Uto</span><span className="pain">Pain</span>
+                            <span className="uto-pain">Uto</span><span className="pain">Pian</span>
                             <br />Create An Account
                     </h2>
                     </div>
