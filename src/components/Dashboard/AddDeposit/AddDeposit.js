@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { UserContext } from '../../../App';
 import NavBars from '../../NavBars/NavBars';
+import DashboardNav from '../DashboardNav';
 import DepositHistory from '../DepositHistory/DepositHistory';
 import Sidebar from '../Sidebar';
 
@@ -62,6 +63,7 @@ const AddDeposit = () => {
                 <div className="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
                     <div className="card ">
                         <div className="card-body">
+                            <DashboardNav />
                             <form className="row gutters" onSubmit={handleSubmit(onSubmit)}>
                                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
                                     <h2 className="mb-2 text-primary">Deposit</h2>
