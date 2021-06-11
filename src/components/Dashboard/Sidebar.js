@@ -39,7 +39,7 @@ const Sidebar = () => {
                             <img src={profileIcon} alt="" />
                         </div>
                         <div>
-                            <h6><Link to="/profile">My Profile</Link></h6>
+                            <h6><Link to="/dashboard/user/profile/details">My Profile</Link></h6>
                         </div>
                     </div>
                 </div>

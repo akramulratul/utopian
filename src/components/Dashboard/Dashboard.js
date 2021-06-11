@@ -31,12 +31,12 @@ const Dashboard = () => {
     return (
         <div>
             <div className="row mr-0">
-                <div className="col-lg-3 p-0">
+                <div className="col-lg-2 p-0">
 
                     <Sidebar />
 
                 </div>
-                <div className="col-lg-9 p-0">
+                <div className="col-lg-10 p-0">
                     <div>
                         <DashboardContent depositeData={depositeData} />
                     </div>

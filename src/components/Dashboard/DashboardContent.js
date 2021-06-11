@@ -1,92 +1,25 @@
 import React from 'react';
-import toggleIcon from '../../image/icons/toggle nav icon.svg'
-import notificationIcon from '../../image/icons/noti.svg'
-import gear from '../../image/icons/settings.svg'
-import totalDepo from '../../image/icons/total depo.svg'
-import totalWid from '../../image/icons/total wid.svg'
-import totalInc from '../../image/icons/total inc.svg'
 import { useHistory } from 'react-router';
-import { Link } from 'react-router-dom';
+import DashboardNav from './DashboardNav';
+import DashboardTopInfo from './Shared/DashboardTopInfo';
+
 
 
 const DashboardContent = ({ depositeData }) => {
-    const history = useHistory();
+
     let totalDeposite = 0;
     for (let i = 0; i < depositeData.length; i++) {
         totalDeposite = depositeData[i].depositAmount + totalDeposite;
     }
-    const logOut = () => {
-        localStorage.removeItem('token');
-        history.push('/login')
-    }
+
 
     return (
         <div className='dashboard-content'>
             <div >
-                <div className="header px-4 py-3 d-flex justify-content-between">
-                    <div className="left-content d-flex align-items-center ">
-                        <div className="toogle-b pr-3">
-                            <img src={toggleIcon} alt="" />
-                        </div>
-                        <div className="logo px-lg-5">
-                            <Link to='/'><h3>UtoPian</h3></Link>
-                        </div>
-                    </div>
-                    <div className="right-content d-flex align-items-center">
-                        <div className=" px-3">
-                            <img src={notificationIcon} alt="" />
-                        </div>
-                        <div className=" px-3">
-                            <img src={gear} alt="" />
-                        </div>
-                        <div className="btn btn-logout pt-2 ml-lg-5" onClick={logOut}>
-                            <h6>Logout</h6>
-                        </div>
-                    </div>
-                </div>
+                <DashboardNav />
                 <div className="body-content px-4 pt-4">
 
-                    <div className="top-cards-wrapper row">
-                        <div className="col-lg-4">
-                            <div className='top-card m-1'>
-                                <div className="d-flex justify-content-between">
-                                    <div className="left-data">
-                                        <p><b>TOTAL DEPOSIT</b></p>
-                                        <h3>BDT-{totalDeposite || "0.00"}</h3>
-                                    </div>
-                                    <div className="right-icon">
-                                        <img src={totalDepo} alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div >
-                        <div className="col-lg-4">
-                            <div className='top-card  m-1'>
-                                <div className="d-flex justify-content-between">
-                                    <div className="left-data">
-                                        <p><b>TOTAL WITHDRAWAL</b></p>
-                                        <h3>BDT-1750.96</h3>
-                                    </div>
-                                    <div className="right-icon">
-                                        <img src={totalWid} alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-4">
-                            <div className='top-card m-1'>
-                                <div className="d-flex justify-content-between">
-                                    <div className="left-data">
-                                        <p><b>TOTAL INCOME</b></p>
-                                        <h3>BDT-1750.96</h3>
-                                    </div>
-                                    <div className="right-icon">
-                                        <img src={totalInc} alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div >
+                    <DashboardTopInfo totalDeposite={totalDeposite} />
 
 
                     <div className="body-data">

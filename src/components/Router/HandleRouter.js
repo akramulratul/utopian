@@ -13,7 +13,8 @@ import Register from '../Authentication/Register'
 import PrivateRoute from '../privateRoute/privateRoute'
 import Profile from '../Profile/Profile';
 import Test from '../Test';
-import AdminDashboard from '../Admin/AdminDashboard/AdminDashboard';
+import Admin from '../Dashboard/Admin/Admin';
+
 
 
 const HandleRouter = () => {
@@ -27,24 +28,29 @@ const HandleRouter = () => {
                         <Home />
 
                     </Route>
-                    <PrivateRoute path="/dashboard">
+                    <PrivateRoute exact path="/dashboard">
                         <Dashboard />
                     </PrivateRoute>
-                    <PrivateRoute path="/admin/dashboard">
+                    {/* <PrivateRoute path="/admin/dashboard">
                         <AdminDashboard />
-                    </PrivateRoute>
+                    </PrivateRoute> */}
                     <PrivateRoute path="/addDeposit">
                         <AddDeposit />
                     </PrivateRoute>
-                    <PrivateRoute path="/profile">
+                    <Route path="/dashboard/user/profile">
                         <Profile />
-                    </PrivateRoute>
+                    </Route>
                     <Route path="/login">
                         <Login />
                     </Route>
                     <Route path="/registration">
                         <Register />
                     </Route>
+                    <Route path="/admin">
+                        <Admin />
+                    </Route>
+
+
 
                     {/* <Route path="/extra">
                     <Extra />
