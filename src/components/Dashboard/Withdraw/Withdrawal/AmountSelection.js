@@ -7,7 +7,7 @@ const AmountSelection = () => {
     <div className="block-example">
       <br />
       <div className="container block-example border border-light">
-        <Card border="primary" style={{ width: "70rem" }}>
+        <Card border="primary" style={{ width: "65rem" }}>
           <Card.Body>
             <Card.Title>
               <NumberCheck />

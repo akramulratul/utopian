@@ -3,6 +3,7 @@ import "../../../styles/_Withdraw.scss";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "react-bootstrap-country-select/dist/react-bootstrap-country-select.css";
+import { Button } from "react-bootstrap";
 
 const WithdrawNow = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -10,14 +11,28 @@ const WithdrawNow = () => {
     setIsClicked(!isClicked);
   };
   return (
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8">
-          <h6>Dashboard /Withdrawal</h6>
+    <div className="header bg-white mt-3 mr-3 ml-3 d-flex justify-content-between rounded">
+      <div className="left-content d-flex align-items-center ">
+        <div className="pt-2">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-white">
+              <li class="breadcrumb-item">
+                <a href="#">Dashboard</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Withdrawal
+              </li>
+            </ol>
+          </nav>
         </div>
-        <div class="col-sm-4 d-flex ">
-          <h4>$220</h4>
-          <button onClick={buttonClicked} className="withdraw-btn ml-5">
+      </div>
+      <div className="right-content d-flex align-items-center m-3 p-2 border-left">
+        <div className="px-3">
+          <h2>৳2100.96</h2>
+          <small>Availabale for Withdrawal</small>
+        </div>
+        <div className="px-3">
+          <Button onClick={buttonClicked} className="withdraw-btn ml-5">
             {isClicked ? (
               <Link to="/payment-method">
                 <p>Back To Withdraw</p>
@@ -27,7 +42,7 @@ const WithdrawNow = () => {
                 <p>Withdrawal Now</p>
               </Link>
             )}
-          </button>
+          </Button>
         </div>
       </div>
     </div>

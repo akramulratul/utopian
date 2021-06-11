@@ -12,7 +12,6 @@ import Withdraw from "../Dashboard/Withdraw/Withdraw";
 import PaymentMethod from "../Dashboard/Withdraw/PaymentMethod/PaymentMethod";
 import Withdrawal from "../Dashboard/Withdraw/Withdrawal/Withdrawal";
 import WithdrawOtp from "../Dashboard/Withdraw/WithdrawOtp/WithdrawOtp";
-import Incentive from "../Dashboard/Incentive/DirectIncentive/Incentive";
 const HandleRouter = () => {
   return (
     <>
@@ -47,9 +46,6 @@ const HandleRouter = () => {
           </Route>
           <Route path="/otp">
             <WithdrawOtp />
-          </Route>
-          <Route path="/incentive">
-            <Incentive />
           </Route>
         </Switch>
       </Router>

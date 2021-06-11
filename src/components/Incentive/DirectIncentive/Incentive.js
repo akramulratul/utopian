@@ -2,6 +2,7 @@ import React from "react";
 import Sidebar from "../../Sidebar";
 import "../../../../styles/_incentive.scss";
 import TopIncentive from "./TopIncentive";
+import DashboardNav from "../../Dashboard/DashboardNav";
 
 const Incentive = () => {
   return (
@@ -10,7 +11,7 @@ const Incentive = () => {
         <Sidebar />
       </div>
       <div class="col-sm-9">
-        <h1>nav BAR</h1>
+        <DashboardNav />
         <TopIncentive />
       </div>
     </div>
