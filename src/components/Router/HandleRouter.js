@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "../Home/Home/Home";
@@ -52,9 +51,10 @@ const HandleRouter = () => {
           <Route path="/incentive">
             <Incentive />
           </Route>
-          </Switch>
-          </Router>
- </>
-    
-);
-  };
+        </Switch>
+      </Router>
+    </>
+  );
+};
+
+export default HandleRouter;
