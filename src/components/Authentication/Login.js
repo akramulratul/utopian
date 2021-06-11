@@ -4,9 +4,26 @@ import IMG1 from '../../image/IMG.png'
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { UserContext } from '../../App';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+// import jwt_decode from "jwt-decode";
 
 const Login = () => {
+    //show and hide password
+    const [showPassword, setShowPassword] = React.useState(false)
+    const showPasswordHandle = () => {
+        setShowPassword(!showPassword)
+        console.log(showPassword);
+    }
+    //click input field thn hidden icon show 
+    const [iconHide1, setIconHide1] = React.useState(false)
+    const hideIcon1 = () => {
+        setIconHide1(true)
+        console.log(iconHide1);
+    }
+
     const { register, handleSubmit, formState: { errors } } = useForm();
     // const history = useHistory()
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
@@ -15,12 +32,12 @@ const Login = () => {
     // auth-redirect
     let history = useHistory();
     let location = useLocation();
-    let { from } = location.state || { from: { pathname: "/" } };   // jey components theke asci oi components e pataiya dive 
+    let { from } = location.state || { from: { pathname: "/" } };
 
     const onSubmit = (data) => {
         console.log(data);
         const userInfo = {
-            email: data.email,
+            username: data.username,
             password: data.password
         }
         console.log(userInfo);
@@ -34,13 +51,31 @@ const Login = () => {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                // {
-                //     data.token ? history.push('/Profile') : alert(data.massage + " plz sign up fast")
-                // }
-
+                setLoggedInUser(data)
                 localStorage.setItem('token', JSON.stringify(data))
-
-                history.replace(from);
+                console.log(data);
+                //notification toast error
+                if (data.error) {
+                    toast.error("password not match", {
+                        position: "top-right",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                } else {
+                    toast.success(`${data.message}`, {
+                        position: "top-right",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                }
             });
 
     }
@@ -54,8 +89,14 @@ const Login = () => {
         console.log(loggedInUser);
 
     }, [])
-    console.log(loggedInUser);
 
+    //toast status check
+    if (loggedInUser.statusCode == 200) {
+        setTimeout(() => {
+            history.replace(from);
+        }, 1000);
+
+    }
 
     return (
         <div>
@@ -70,16 +111,32 @@ const Login = () => {
                         </div>
                         <div className="">
                             <form onSubmit={handleSubmit(onSubmit)}>
-                                <input className="input-field" {...register("email", { required: true })} name="email" placeholder="Email/Username" required />
+                                <input className="input-field" {...register("username", { required: true })} name="username" placeholder="username" required />
+                                <div className="password-box">
+                                    <input
+                                        className="password-field input-first-name"
+                                        name="password"
+                                        type={showPassword ? 'text' : 'password'}
+                                        {...register("password", {
+                                            required: true,
+                                            minLength: {
+                                                value: 8,
+                                                message: "Password must have at least 8 characters",
+                                            },
+                                        })}
+                                        placeholder="Password"
+                                        onClick={hideIcon1}
 
-                                <input className="input-field" type="password" {...register("password", { required: true })} name="password" id="" placeholder="Password" required />
+                                    />
 
-                                {
-                                    loggedInUser && <p className="text-danger">{loggedInUser.massage}</p>
-                                }
+                                    {
+                                        iconHide1 ? showPassword ? <FontAwesomeIcon icon={faEye} onClick={showPasswordHandle} /> : <FontAwesomeIcon icon={faEyeSlash} onClick={showPasswordHandle} /> : ""
+
+                                    }
+                                </div>
                                 <div className="checkbox-forget">
                                     <div>
-                                        <input type="checkbox" id="newUser" required />
+                                        <input type="checkbox" id="newUser" />
                                         <label className="px-2" for="newUser">Keep Me Login</label>
                                     </div>
                                     <div>
@@ -116,6 +173,7 @@ const Login = () => {
                         <Link to="/registration"><button>Register</button></Link>
                     </div>
                 </div>
+                <ToastContainer />
             </div>
         </div>
     );
