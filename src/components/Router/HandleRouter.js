@@ -52,9 +52,12 @@ const HandleRouter = () => {
           <Route path="/incentive">
             <Incentive />
           </Route>
+<<<<<<< HEAD
           <Route path="/team-incentive">
             <TeamIncentive />
           </Route>
+=======
+>>>>>>> main
         </Switch>
       </Router>
     </>
