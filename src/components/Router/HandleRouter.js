@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "../Home/Home/Home";
 import Dashboard from "../Dashboard/Dashboard";
 import AddDeposit from "../Dashboard/AddDeposit/AddDeposit";
@@ -12,6 +12,8 @@ import Withdraw from "../Dashboard/Withdraw/Withdraw";
 import PaymentMethod from "../Dashboard/Withdraw/PaymentMethod/PaymentMethod";
 import Withdrawal from "../Dashboard/Withdraw/Withdrawal/Withdrawal";
 import WithdrawOtp from "../Dashboard/Withdraw/WithdrawOtp/WithdrawOtp";
+import Incentive from "../Incentive/DirectIncentive/Incentive";
+import TeamIncentive from "../Incentive/TeamIncentive/TeamIncentive";
 const HandleRouter = () => {
   return (
     <>
@@ -46,6 +48,12 @@ const HandleRouter = () => {
           </Route>
           <Route path="/otp">
             <WithdrawOtp />
+          </Route>
+          <Route path="/incentive">
+            <Incentive />
+          </Route>
+          <Route path="/team-incentive">
+            <TeamIncentive />
           </Route>
         </Switch>
       </Router>

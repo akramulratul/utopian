@@ -1,21 +1,36 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "../../../../styles/_incentive.scss";
+import "../../../styles/_incentive.scss";
 const TopIncentive = () => {
   return (
-    <div class="container d-flex row">
-      <div class="col">
-        <h3>Dashboard/Incentive</h3>
+    <div className="header bg-white mt-3 mr-3 ml-3 d-flex justify-content-between rounded">
+      <div className="left-content d-flex align-items-center ">
+        <div className="pt-2">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-white">
+              <li class="breadcrumb-item">
+                <a href="#">Dashboard</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Incentive
+              </li>
+            </ol>
+          </nav>
+        </div>
       </div>
-      <div class="col-md-auto">
-        <h3>৳2100.96</h3>
-        <small>Current Incentive Balance</small>
-      </div>
-      <div class="col col-lg-2 incentive-btn">
-        <Link to="/dashboard">
-          <Button>Incentive Balance</Button>
-        </Link>
+      <div className="right-content d-flex align-items-center m-3 p-2 border-left">
+        <div className="px-3">
+          <h2>৳2100.96</h2>
+          <small>Current Incentive Balance</small>
+        </div>
+        <div className="px-3">
+          <Button className="withdraw-btn ml-5">
+            <Link to="/dashboard">
+              <p>Incentive Balance</p>
+            </Link>
+          </Button>
+        </div>
       </div>
     </div>
   );
