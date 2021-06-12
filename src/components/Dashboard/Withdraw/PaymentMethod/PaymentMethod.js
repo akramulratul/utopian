@@ -7,6 +7,7 @@ import { useState } from "react";
 import SelectCountry from "./SelectCountry";
 import security from "../../../../image/icons/security 1.svg";
 import WithdrawGateway from "./WithdrawGateway";
+import DashboardNav from "../../DashboardNav";
 
 const PaymentMethod = () => {
   const [value, setValue] = useState("");
@@ -22,18 +23,18 @@ const PaymentMethod = () => {
 
   console.log(value);
   return (
-    <div>
-      <div className="row mr-0">
-        <div className="col-lg-3 p-0">
-          <Sidebar />
-        </div>
-        <div className="col-lg-9 p-0">
-          <div>
-            <h1>Nav Bar</h1>
-            <WithdrawNow />
+    <div className="row mr-0">
+      <div className="col-lg-3 p-0">
+        <Sidebar />
+      </div>
+      <div className="col-lg-9 p-0 witdraw-background">
+        <div>
+          <DashboardNav />
+          <WithdrawNow />
+          <div className="bg-white container ml-3 mr-3 mt-3">
+            {" "}
             <NavPayment />
-            <br />
-            <div className="row d-flex justify-content-between p-5">
+            <div className="row d-flex justify-content-between m-3 p-3 bg-white">
               <div className="col-lg-6 col-12">
                 <h4 className="text-center">Select Country</h4>
                 <h6>
@@ -48,13 +49,13 @@ const PaymentMethod = () => {
                 {value !== "" ? (
                   <WithdrawGateway />
                 ) : (
-                  <div>
+                  <div className="border-left">
                     <img
                       className="rounded mx-auto d-block"
                       src={security}
                       alt=""
                     />
-                    <h3 className="text-center border-left">
+                    <h3 className="text-center">
                       Payment method will be available after selecting country
                     </h3>
                   </div>

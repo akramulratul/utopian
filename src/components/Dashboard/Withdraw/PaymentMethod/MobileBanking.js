@@ -16,14 +16,8 @@ const MobileBanking = (e) => {
   const buttonClicked = () => {
     setIsClicked(true);
   };
-  return ["Secondary"].map((variant, idx) => (
-    <Card
-      bg={variant.toLowerCase()}
-      key={idx}
-      text={variant.toLowerCase() === "light" ? "dark" : "white"}
-      style={{ width: "32rem" }}
-      className="mb-2"
-    >
+  return (
+    <Card className="witdraw-background">
       <Card.Body>
         <Form>
           <Form.Group controlId="formBasicEmail">
@@ -35,19 +29,20 @@ const MobileBanking = (e) => {
             </Form.Text>
           </Form.Group>
           <Link to="/withdrawal">
-            <Button
-              className="btn-next"
-              onClick={buttonClicked}
-              variant="primary"
-              type="submit"
-            >
+            <Button className="btn-next" onClick={buttonClicked} type="submit">
               Next
             </Button>
           </Link>
         </Form>
       </Card.Body>
     </Card>
-  ));
+    // ["Secondary"].map((variant, idx) =>
+    // bg={variant.toLowerCase()}
+    //     key={idx}
+    //     text={variant.toLowerCase() === "light" ? "dark" : "white"}
+    //     style={{ width: "3rem" }}
+    //     className="mb-2"
+  );
 };
 
 export default MobileBanking;

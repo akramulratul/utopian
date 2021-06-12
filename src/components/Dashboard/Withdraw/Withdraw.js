@@ -3,6 +3,7 @@ import Sidebar from "../Sidebar";
 import { useHistory } from "react-router";
 import WithdrawNow from "./WithdrawNow";
 import WithdrawHistory from "./WithdrawHistory/WithdrawHistory";
+import DashboardNav from "../DashboardNav";
 const Withdraw = () => {
   const history = useHistory();
   let totalWithdraw = 0;
@@ -19,8 +20,8 @@ const Withdraw = () => {
         <div className="col-lg-3 p-0">
           <Sidebar />
         </div>
-        <div className="col-lg-9 p-0">
-          <h1>nav bar</h1>
+        <div className="col-lg-9 p-0 witdraw-background">
+          <DashboardNav />
           <WithdrawNow />
           <WithdrawHistory />
         </div>

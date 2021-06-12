@@ -1,7 +1,7 @@
 @import "./colors";
 
 .withdraw-btn {
-  background: $dashboard-hover-text;
+  background: $button;
   border-radius: 25px;
   color: white;
   width: 201.09px;
@@ -14,7 +14,7 @@
   // padding: 0.5rem 0.7rem;
 }
 .withdraw-btn:hover {
-  background-color: $dashboard-hover-text;
+  background-color: $button;
 }
 .withdraw-btn a {
   text-decoration: none;
@@ -23,7 +23,7 @@
   color: $text-color-light;
 }
 .withdraw-btn:hover a {
-  color: $text-color-light;
+  color: $button;
   // padding: 0.5rem 0.7rem;
   /* background-color: red; */
 }
@@ -97,4 +97,13 @@
   height: 60px;
   // left: 1148px;
   // top: 554px;
+}
+.witdraw-background {
+  background: $background;
+}
+.card-size {
+  width: 600px;
+  height: 172px;
+  left: 1095px;
+  top: 608px;
 }
