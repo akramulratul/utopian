@@ -2,6 +2,7 @@ import React from "react";
 import "../../../styles/_Withdraw.scss";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Button } from "react-bootstrap";
 
 const WithdrawNow = () => {
   const [isClicked, setIsClicked] = useState(false);

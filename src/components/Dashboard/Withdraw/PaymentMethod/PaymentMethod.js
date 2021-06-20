@@ -36,11 +36,12 @@ const PaymentMethod = () => {
             <NavPayment />
             <div className="row d-flex justify-content-between m-3 p-3 bg-white">
               <div className="col-lg-6 col-12">
-                <h4 className="text-center">Select Country</h4>
-                <h6>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero,
-                  nesciunt?{" "}
-                </h6>
+                <h2 className="text-center">
+                  <b>Select Country</b>
+                </h2>
+                <h4 className="text-center">
+                  Choose your country for your withdraw
+                </h4>
 
                 <SelectCountry changeHandler={changeHandler} value={value} />
               </div>

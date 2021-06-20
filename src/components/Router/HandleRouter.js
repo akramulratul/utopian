@@ -14,6 +14,8 @@ import Withdrawal from "../Dashboard/Withdraw/Withdrawal/Withdrawal";
 import WithdrawOtp from "../Dashboard/Withdraw/WithdrawOtp/WithdrawOtp";
 import Incentive from "../Incentive/DirectIncentive/Incentive";
 import TeamIncentive from "../Incentive/TeamIncentive/TeamIncentive";
+import Earning from "../Earning/Earning";
+import ViewAdd from "../Earning/ViewAdd";
 const HandleRouter = () => {
   return (
     <>
@@ -51,6 +53,15 @@ const HandleRouter = () => {
           </Route>
           <Route path="/incentive">
             <Incentive />
+          </Route>
+          <Route path="teamincentive">
+            <TeamIncentive />
+          </Route>
+          <Route path="/earning">
+            <Earning />
+          </Route>
+          <Route path="/viewadd">
+            <ViewAdd />
           </Route>
         </Switch>
       </Router>
