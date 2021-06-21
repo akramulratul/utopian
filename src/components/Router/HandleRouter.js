@@ -16,6 +16,8 @@ import Incentive from "../Incentive/DirectIncentive/Incentive";
 import TeamIncentive from "../Incentive/TeamIncentive/TeamIncentive";
 import Earning from "../Earning/Earning";
 import ViewAdd from "../Earning/ViewAdd";
+import Deposit from "../Deposit/Deposit";
+import DepositNow from "../Deposit/DepositContent/DepositNow";
 const HandleRouter = () => {
   return (
     <>
@@ -62,6 +64,12 @@ const HandleRouter = () => {
           </Route>
           <Route path="/viewadd">
             <ViewAdd />
+          </Route>
+          <Route path="/Deposit">
+            <Deposit />
+          </Route>
+          <Route path="/DepositNow">
+            <DepositNow />
           </Route>
         </Switch>
       </Router>
