@@ -24,22 +24,26 @@ const DepositTop = () => {
           </nav>
         </div>
       </div>
-      <div className="right-content d-flex  align-items-center m-3 p-2">
+      <div className="right-content d-flex  align-items-center m-3 p-2 border-left">
         <div className="px-3">
           <h2>৳2100.96</h2>
           <small>Available for Withdrawal</small>
         </div>
-      </div>
-      <div className="align-items-center pt-1">
-        <Button className="Deposit-btn " type="button" onClick={ButtonHandler}>
-          {isDeposit ? (
-            <Link to="/DepositNow">
-              <p>Back to Deposit History</p>
-            </Link>
-          ) : (
-            <p>Deposit Now</p>
-          )}
-        </Button>
+        <div className="px-3">
+          <Button
+            className="Deposit-btn ml-5"
+            type="button"
+            onClick={ButtonHandler}
+          >
+            {isDeposit ? (
+              <Link to="/DepositNow">
+                <p>Back to Deposit History</p>
+              </Link>
+            ) : (
+              <p>Deposit Now</p>
+            )}
+          </Button>
+        </div>
       </div>
     </div>
   );
