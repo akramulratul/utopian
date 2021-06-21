@@ -34,44 +34,6 @@ const Sidebar = () => {
             </div>
           </div>
         </div>
-
-        <div className="dashboard-menu">
-          <div className="d-flex py-3">
-            <div className="px-5">
-              <img src={profileIcon} alt="" />
-            </div>
-            <div>
-              <h6>
-                <Link to="/dashboard/user/profile/details">My Profile</Link>
-              </h6>
-            </div>
-          </div>
-        </div>
-
-        <div className="dashboard-menu">
-          <div className="d-flex py-3">
-            <div className="px-5">
-              <img src={depositeIcon} alt="" />
-            </div>
-            <div>
-              <h6>
-                <Link to="/addDeposit">Deposit</Link>
-              </h6>
-            </div>
-          </div>
-        </div>
-
-        <div className="dashboard-menu">
-          <div className="d-flex py-3">
-            <div className="px-5">
-              <img src={withdrawIcon} alt="" />
-            </div>
-            <div>
-              <h6>Withdrawal</h6>
-            </div>
-          </div>
-        </div>
-
         <div className="dashboard-menu">
           <div className="d-flex py-3">
             <div className="px-5">
@@ -92,7 +54,7 @@ const Sidebar = () => {
             </div>
             <div>
               <h6>
-                <Link to="/addDeposit">Deposit</Link>
+                <Link to="/Deposit">Deposit</Link>
               </h6>
             </div>
           </div>
