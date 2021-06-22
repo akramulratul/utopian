@@ -5,12 +5,11 @@ import axios from 'axios';
 import SubNav from '../Dashboard/Shared/SubNav';
 import { Route } from 'react-router-dom';
 import ProfileCard from './ProfileCard';
-import ProfileDetails from './ProfileDetails'
 import UpdateProfile from './UpdateProfile'
-import ChangePassword from './ChangePassword'
 
 
-const Profile = () => {
+
+const ProfileUpdate = () => {
 
     useEffect(() => {
         axios.get('')
@@ -36,7 +35,7 @@ const Profile = () => {
                                     />
                                 </div>
                                 <div className="profile-content-detail rounded">
-
+                                    <UpdateProfile />
                                 </div>
                             </div>
                         </div>
@@ -51,4 +50,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default ProfileUpdate;

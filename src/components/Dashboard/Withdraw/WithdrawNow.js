@@ -6,8 +6,9 @@ import { useState } from "react";
 const WithdrawNow = () => {
   const [isClicked, setIsClicked] = useState(false);
   const buttonClicked = () => {
-    setIsClicked(!isClicked);
+    isClicked ? setIsClicked(false) : setIsClicked(true)
   };
+  console.log(isClicked);
   return (
     <div className="header bg-white mt-3 mr-3 ml-3 d-flex justify-content-between rounded">
       <div className="left-content d-flex align-items-center ">
@@ -30,20 +31,26 @@ const WithdrawNow = () => {
           <small>Availabale for Withdrawal</small>
         </div>
         <div className="px-3">
-          <Button onClick={buttonClicked} className="withdraw-btn ml-5">
-            {isClicked ? (
-              <Link to="/payment-method">
+
+          {isClicked ? (
+
+            <Link to="/payment-method">
+              <button className="withdraw-btn ml-5" onClick={buttonClicked} >
                 <p>Back To Withdraw</p>
-              </Link>
-            ) : (
+              </button>
+            </Link>
+          ) : (
               <Link to="/withdraw">
-                <p>Withdrawal Now</p>
+                <button onClick={buttonClicked} className="withdraw-btn ml-5">
+
+                  <p>Withdrawal History </p>
+                </button>
               </Link>
             )}
-          </Button>
+
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

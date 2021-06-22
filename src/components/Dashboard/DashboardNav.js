@@ -4,11 +4,14 @@ import notificationIcon from '../../image/icons/noti.svg'
 import gear from '../../image/icons/settings.svg'
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logout } from '../Redux/Actions/userAction';
 const DashboardNav = () => {
     const history = useHistory();
+    const dispatch = useDispatch()
 
     const logOut = () => {
-        localStorage.removeItem('token');
+        dispatch(logout())
         history.push('/login')
     }
     return (
