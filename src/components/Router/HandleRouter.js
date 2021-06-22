@@ -19,6 +19,11 @@ import ChangePassword from "../Profile/ChangePassword";
 import PasswordChange from "../Profile/PasswordChange";
 import { Suspense } from "react";
 // import ProfileDetails from "../Profile/ProfileDetails";
+import Earning from "../Earning/Earning";
+import ViewAdd from "../Earning/ViewAdd";
+import Deposit from "../Deposit/Deposit";
+import DepositNow from "../Deposit/DepositContent/DepositNow";
+
 const ProfileDetails = lazy(() => import('../Profile/ProfileDetails'));
 const HandleRouter = () => {
   return (
@@ -71,6 +76,21 @@ const HandleRouter = () => {
           </Route>
           <Route path='/dashboard/user/profile/change-password'>
             <PasswordChange />
+          </Route>
+          <Route path="teamincentive">
+            <TeamIncentive />
+          </Route>
+          <Route path="/earning">
+            <Earning />
+          </Route>
+          <Route path="/viewadd">
+            <ViewAdd />
+          </Route>
+          <Route path="/Deposit">
+            <Deposit />
+          </Route>
+          <Route path="/DepositNow">
+            <DepositNow />
           </Route>
         </Switch>
       </Router>

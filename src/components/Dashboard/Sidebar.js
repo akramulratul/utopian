@@ -14,101 +14,118 @@ const Sidebar = () => {
     <div className='sidebar'>
       <div className="profile-info py-5  d-flex justify-content-center flex-column align-items-center" >
         <div className='profile-image pb-3'>
-          <img src={avater} alt="" />
-        </div>
-        <div className="profile-name">
-          <h5>Regina Cooper</h5>
-          <small>User lavel</small>
-        </div>
-      </div>
-      <div className="dashbord-menu-wrapper">
-        <div className="dashboard-menu">
-          <div className="d-flex py-3">
-            <div className='px-5'>
-              <img src={dashIcon} alt="" />
+          <div className="sidebar">
+            <div className="profile-info py-5  d-flex justify-content-center flex-column align-items-center">
+              <div className="profile-image pb-3">
+                <img src={avater} alt="" />
+              </div>
+              <div className="profile-name">
+                <h5>Regina Cooper</h5>
+                <small>User lavel</small>
+              </div>
             </div>
-            <div>
-              <h6><Link to="/dashboard">Dashboard</Link></h6>
+            <div className="dashbord-menu-wrapper">
+              <div className="dashboard-menu">
+                <div className="d-flex py-3">
+                  <div className='px-5'>
+                    <img src={dashIcon} alt="" />
+                  </div>
+                  <div>
+                    <h6><Link to="/dashboard">Dashboard</Link></h6>
+                  </div>
+                </div>
+              </div>
+
+              <div className="px-5">
+                <img src={dashIcon} alt="" />
+              </div>
+              <div>
+                <h6>
+                  <Link to="/dashboard">Dashboard</Link>
+                </h6>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div className="dashboard-menu">
-          <div className="d-flex py-3">
-            <div className='px-5'>
-              <img src={profileIcon} alt="" />
-            </div>
-            <div>
-              <h6><Link to="/dashboard/user/profile/details">My Profile</Link></h6>
-            </div>
-          </div>
-        </div>
-
-        <div className="dashboard-menu">
-          <div className="d-flex py-3">
-            <div className='px-5'>
-              <img src={depositeIcon} alt="" />
-            </div>
-            <div>
-              <h6><Link to="/addDeposit">Deposit</Link></h6>
+          <div className="dashboard-menu">
+            <div className="d-flex py-3">
+              <div className='px-5'>
+                <img src={profileIcon} alt="" />
+              </div>
+              <div>
+                <h6><Link to="/dashboard/user/profile/details">My Profile</Link></h6>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="dashboard-menu">
-          <div className="d-flex py-3">
-            <div className='px-5'>
-              <img src={withdrawIcon} alt="" />
-            </div>
-            <div>
-              <h6><Link to="/payment-method">Withdrawal</Link></h6>
+          <div className="dashboard-menu">
+            <div className="d-flex py-3">
+              <div className='px-5'>
+                <img src={depositeIcon} alt="" />
+              </div>
+              <div>
+                <h6><Link to="/addDeposit">Deposit</Link></h6>
+                <h6>
+                  <Link to="/Deposit">Deposit</Link>
+                </h6>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="dashboard-menu">
-          <div className="d-flex py-3">
-            <div className="px-5">
-              <img src={earningIcon} alt="" />
-            </div>
-            <div className="pr-5">
-              <h6>Earning</h6>
-            </div>
-            <div className="pl-5 ml-5">
-              <img src={downArrow} alt="" />
+          <div className="dashboard-menu">
+            <div className="d-flex py-3">
+              <div className='px-5'>
+                <img src={withdrawIcon} alt="" />
+              </div>
+              <div>
+                <h6><Link to="/payment-method">Withdrawal</Link></h6>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="down-menu pl-4">
-          <div className="d-flex py-3">
-            <div className="px-5">
-              <img src={rightArrow} alt="" />
-            </div>
-            <div>
-              <h6>Earning</h6>
+          <div className="dashboard-menu">
+            <div className="d-flex py-3">
+              <div className="px-5">
+                <img src={earningIcon} alt="" />
+              </div>
+              <div className="pr-5">
+                <h6>Earning</h6>
+              </div>
+              <div className="pl-5 ml-5">
+                <img src={downArrow} alt="" />
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="down-menu pl-4">
-          <div className="d-flex py-3">
-            <div className="px-5">
-              <img src={rightArrow} alt="" />
-            </div>
-            <div>
-              <h6>Referance Bonus</h6>
+          <div className="down-menu pl-4">
+            <div className="d-flex py-3">
+              <div className="px-5">
+                <img src={rightArrow} alt="" />
+              </div>
+              <div>
+                <Link to="/earning">Earning</Link>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="down-menu pl-4">
-          <div className="d-flex py-3">
-            <div className="px-5">
-              <img src={rightArrow} alt="" />
+          <div className="down-menu pl-4">
+            <div className="d-flex py-3">
+              <div className="px-5">
+                <img src={rightArrow} alt="" />
+              </div>
+              <div>
+                <h6>Referance Bonus</h6>
+              </div>
             </div>
-            <div>
-              <h6>Generation Bonus</h6>
+          </div>
+
+          <div className="down-menu pl-4">
+            <div className="d-flex py-3">
+              <div className="px-5">
+                <img src={rightArrow} alt="" />
+              </div>
+              <div>
+                <h6>Generation Bonus</h6>
+              </div>
             </div>
           </div>
         </div>
