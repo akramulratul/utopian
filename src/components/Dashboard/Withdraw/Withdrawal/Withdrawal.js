@@ -5,6 +5,7 @@ import WithdrawNow from "../WithdrawNow";
 import AmountSelection from "./AmountSelection";
 import ConfirmWithdrawal from "./ConfirmWithdrawal";
 import DashboardNav from "../../DashboardNav";
+import SubNav from "../../Shared/SubNav";
 
 const Withdrawal = () => {
   return (
@@ -17,7 +18,11 @@ const Withdrawal = () => {
           <DashboardNav />
           <WithdrawNow />
           <div className="bg-white container ml-3 mr-3 mt-3">
-            <NavPayment />
+            <SubNav
+              firstOption={{ link: "/payment-method", title: "Payment Method" }}
+              secondOption={{ link: "/withdrawal", title: "Withdrawal" }}
+              thirdOption={{ link: "/otp", title: "OTP" }}
+            />
             <AmountSelection />
             <ConfirmWithdrawal />
           </div>

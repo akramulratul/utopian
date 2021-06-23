@@ -86,7 +86,7 @@ const HandleRouter = () => {
           <Route path="/viewadd">
             <ViewAdd />
           </Route>
-          <Route path="/Deposit">
+          <Route path="/deposit">
             <Deposit />
           </Route>
           <Route path="/DepositNow">

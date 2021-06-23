@@ -8,9 +8,12 @@ import SelectCountry from "./SelectCountry";
 import security from "../../../../image/icons/security 1.svg";
 import WithdrawGateway from "./WithdrawGateway";
 import DashboardNav from "../../DashboardNav";
+import SubNav from "../../Shared/SubNav";
 
 const PaymentMethod = () => {
   const [value, setValue] = useState("");
+  const [method, setMethod] = useState("")
+  const [phoneNumber, setPhoneNumber] = useState("")
 
   const changeHandler = (value) => {
     if (value.value === "BD") {
@@ -18,10 +21,21 @@ const PaymentMethod = () => {
     } else {
       setValue("");
     }
-    console.log(value);
-  };
 
-  console.log(value);
+  };
+  const paymentMethod = {
+    method: method,
+    number: phoneNumber
+  }
+  const setPementMethod = (method) => {
+    console.log(method);
+    setMethod(method)
+  }
+  const setNumber = (number) => {
+    setPhoneNumber(number);
+  }
+
+  console.log(paymentMethod);
   return (
     <div className="row mr-0">
       <div className="col-lg-3 p-0">
@@ -33,7 +47,12 @@ const PaymentMethod = () => {
           <WithdrawNow />
           <div className="bg-white container ml-3 mr-3 mt-3">
             {" "}
-            <NavPayment />
+            {/* <NavPayment /> */}
+            <SubNav
+              firstOption={{ link: "/payment-method", title: "Payment Method" }}
+              secondOption={{ link: "/withdrawal", title: "Withdrawal" }}
+              thirdOption={{ link: "/otp", title: "OTP" }}
+            />
             <div className="row d-flex justify-content-between m-3 p-3 bg-white">
               <div className="col-lg-6 col-12">
                 <h2 className="text-center">
@@ -48,19 +67,19 @@ const PaymentMethod = () => {
 
               <div className="col-lg-6 col-12 ">
                 {value !== "" ? (
-                  <WithdrawGateway />
+                  <WithdrawGateway setPementMethod={setPementMethod} setNumber={setNumber} />
                 ) : (
-                  <div className="border-left">
-                    <img
-                      className="rounded mx-auto d-block"
-                      src={security}
-                      alt=""
-                    />
-                    <h3 className="text-center">
-                      Payment method will be available after selecting country
+                    <div className="border-left">
+                      <img
+                        className="rounded mx-auto d-block"
+                        src={security}
+                        alt=""
+                      />
+                      <h3 className="text-center">
+                        Payment method will be available after selecting country
                     </h3>
-                  </div>
-                )}
+                    </div>
+                  )}
               </div>
             </div>
           </div>
