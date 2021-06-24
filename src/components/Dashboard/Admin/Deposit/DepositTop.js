@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
+import { useDispatch } from "react-redux";
 
 const DepositTop = () => {
-    const [isDeposit, SetDeposit] = useState(false);
-  const ButtonHandler = () => {
-    SetDeposit(!isDeposit);
-    console.log("isDeposit");
-  };
+  // const history = useHistory();
+  // const dispatch = useDispatch();
+  // const [Deposit, SetAllDeposit] = useState(false);
+
+  // const ButtonHandler = () => {
+  //   SetAllDeposit(!Deposit);
+  //   console.log("Deposit");
+  //   history.push("/admin/deposit");
+  //   dispatch.push(ButtonHandler());
+  // };
   return (
     <div className="bg-white d-flex justify-content-between rounded mt-3 ml-4 mr-4">
       <div className="left-content d-flex align-items-center ">
@@ -30,23 +37,13 @@ const DepositTop = () => {
           <small>Available for Withdrawal</small>
         </div>
         <div className="px-3">
-          <Button
-            className="Deposit-btn ml-5"
-            type="button"
-            onClick={ButtonHandler}
-          >
-            {isDeposit ? (
-              <Link to="/DepositNow">
-                <p>Back to Deposit History</p>
-              </Link>
-            ) : (
-              <p>Deposit Now</p>
-            )}
+          <Button className="Deposit-btn ml-5" type="button">
+            Deposit
           </Button>
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default DepositTop;

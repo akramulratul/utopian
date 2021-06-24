@@ -1,23 +1,33 @@
-import React from 'react';
-import DashboardNav from '../../DashboardNav';
-import Sidebar from '../../Sidebar';
+import React from "react";
+import DashboardNav from "../../DashboardNav";
+import AdminSidebar from "../AdminSidebar";
+import DepositTop from "../../../Dashboard/Admin/Deposit/DepositTop";
+import ADHistory from "./ADHistory";
+import Paginations from "../Paginations/Paginations";
 const Deposit = () => {
-    return (
-        <div>
-            <div className="row mr-0">
-                <div className="col-lg-3 p-0">
-
-                    <Sidebar />
-
-                </div>
-                <div className="col-lg-9 p-0">
-                    <div>
-                        <DashboardNav/>
-                    </div>
-                </div>
-            </div>
+  return (
+    <div>
+      <div className="row mr-0">
+        <div className="col-lg-3 p-0">
+          <AdminSidebar />
         </div>
-    );
+        <div className="col-lg-9 p-0 witdraw-background">
+          <div>
+            <DashboardNav />
+          </div>
+          <div>
+            <DepositTop />
+          </div>
+          <div>
+            <ADHistory />
+          </div>
+          <div>
+            <Paginations />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Deposit;

@@ -7,7 +7,7 @@ import Login from "../Authentication/Login";
 import Register from "../Authentication/Register";
 import PrivateRoute from "../privateRoute/privateRoute";
 import Profile from "../Profile/Profile";
-import Admin from '../Dashboard/Admin/Admin'
+import Admin from "../Dashboard/Admin/Admin";
 import Withdraw from "../Dashboard/Withdraw/Withdraw";
 import PaymentMethod from "../Dashboard/Withdraw/PaymentMethod/PaymentMethod";
 import Withdrawal from "../Dashboard/Withdraw/Withdrawal/Withdrawal";
@@ -24,7 +24,8 @@ import ViewAdd from "../Earning/ViewAdd";
 import Deposit from "../Deposit/Deposit";
 import DepositNow from "../Deposit/DepositContent/DepositNow";
 import AdminDeposit from "../Dashboard/Admin/Deposit/AdminDeposit";
-const ProfileDetails = lazy(() => import('../Profile/ProfileDetails'));
+import TodayDeposit from "../Dashboard/Admin/Deposit/TodayDeposit/TodayDeposit";
+const ProfileDetails = lazy(() => import("../Profile/ProfileDetails"));
 const HandleRouter = () => {
   return (
     <>
@@ -66,15 +67,15 @@ const HandleRouter = () => {
           <Route path="/incentive">
             <Incentive />
           </Route>
-          <Route path='/dashboard/user/profile/details'>
+          <Route path="/dashboard/user/profile/details">
             <Suspense fallback={<p>Loading...</p>}>
               <ProfileDetails />
             </Suspense>
           </Route>
-          <Route path='/dashboard/user/profile/update-profile'>
+          <Route path="/dashboard/user/profile/update-profile">
             <ProfileUpdate />
           </Route>
-          <Route path='/dashboard/user/profile/change-password'>
+          <Route path="/dashboard/user/profile/change-password">
             <PasswordChange />
           </Route>
           <Route path="teamincentive">
@@ -94,6 +95,9 @@ const HandleRouter = () => {
           </Route>
           <Route path="/admin/deposit">
             <AdminDeposit />
+          </Route>
+          <Route path="/today/deposit">
+            <TodayDeposit />
           </Route>
         </Switch>
       </Router>
