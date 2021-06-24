@@ -69,7 +69,7 @@ const WithdrawGateway = ({ setPementMethod, setNumber }) => {
             Nagad
           </label>
           <br />
-          {isNagadChecked && <MobileBanking />}
+          {isNagadChecked && <MobileBanking setNumber={setNumber}/>}
         </div>
         <div className="radio">
           <label>
@@ -82,7 +82,7 @@ const WithdrawGateway = ({ setPementMethod, setNumber }) => {
             Rocket
           </label>
           <br />
-          {isRocketChecked && <MobileBanking />}
+          {isRocketChecked && <MobileBanking setNumber={setNumber}/>}
         </div>
       </form>
     </div>
