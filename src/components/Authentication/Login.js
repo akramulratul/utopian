@@ -104,7 +104,7 @@ const Login = () => {
                                         <label className="px-2" for="newUser">Keep Me Login</label>
                                     </div>
                                     <div>
-                                        <Link className="forget-password">Forget password?</Link>
+                                        <Link className="forget-password" to="/forgot_password">Forget password?</Link>
                                     </div>
                                 </div>
                                 <button type="submit" name="submit" className="button login">Login</button>
