@@ -1,7 +1,14 @@
 import React from "react";
 import SelectCountry from "../../Dashboard/Withdraw/PaymentMethod/SelectCountry";
 import { Form, Button } from "react-bootstrap";
-const DepositLeft = () => {
+import { useState } from "react";
+const DepositLeft = ({SetAmount,SetTrnsNumber}) => {
+  const evenhandler=(e)=>{
+    SetAmount(e.target.value)
+    SetTrnsNumber(e.target.value)
+      }
+  
+
   return (
     // <div className="row mr-0 d-flex mr-2 ml-2 pb-2 ">
 
@@ -22,7 +29,7 @@ const DepositLeft = () => {
         <div className="mt-5 mb-5">
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>
+              <Form.Label >
                 <h4>Give Your transection Number</h4>
               </Form.Label>
             </Form.Group>
@@ -31,6 +38,7 @@ const DepositLeft = () => {
               size="lg"
               type="text"
               placeholder="Trans ID"
+              onChange={evenhandler}
             />
           </Form>
         </div>
@@ -48,6 +56,7 @@ const DepositLeft = () => {
               size="lg"
               type="text"
               placeholder="Give Your Amount"
+              onChange={evenhandler}
             />
           </Form>
           <div className="mt-4">

@@ -3,7 +3,7 @@ import "../../../../styles/_Withdraw.scss";
 import { useState } from "react";
 import MobileBanking from "./MobileBanking";
 
-const WithdrawGateway = () => {
+const WithdrawGateway = ({ setPementMethod, setNumber }) => {
   const [value, setValue] = useState("");
   const [isBkashChecked, setIsBkashChecked] = useState(false);
   const [isNagadChecked, setIsNagadChecked] = useState(false);
@@ -11,6 +11,7 @@ const WithdrawGateway = () => {
 
   const onChange = (e) => {
     setValue(e.target.value);
+    setPementMethod(e.target.value);
     if (e.target.value === "bkash") {
       setIsBkashChecked(true);
       setIsNagadChecked(false);
@@ -28,8 +29,10 @@ const WithdrawGateway = () => {
       setIsBkashChecked(false);
       setIsNagadChecked(false);
     }
+
   };
-  console.log(value);
+
+
 
   return (
     <div className="Container border-left pl-5">
@@ -52,7 +55,7 @@ const WithdrawGateway = () => {
             B-kash
           </label>
           <br />
-          {isBkashChecked && <MobileBanking />}
+          {isBkashChecked && <MobileBanking setNumber={setNumber} />}
         </div>
 
         <div className="radio">
@@ -66,7 +69,7 @@ const WithdrawGateway = () => {
             Nagad
           </label>
           <br />
-          {isNagadChecked && <MobileBanking />}
+          {isNagadChecked && <MobileBanking setNumber={setNumber}/>}
         </div>
         <div className="radio">
           <label>
@@ -79,7 +82,7 @@ const WithdrawGateway = () => {
             Rocket
           </label>
           <br />
-          {isRocketChecked && <MobileBanking />}
+          {isRocketChecked && <MobileBanking setNumber={setNumber}/>}
         </div>
       </form>
     </div>

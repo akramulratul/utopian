@@ -1,16 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useEffect } from 'react';
 import './Login.scss'
 import IMG1 from '../../image/IMG.png'
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { UserContext } from '../../App';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../Redux/Actions/userAction';
 // import jwt_decode from "jwt-decode";
 
 const Login = () => {
+
+    const userLogin = useSelector(state => state.userLogin)
+    const { loading, error, userInfo } = userLogin
+    const dispatch = useDispatch()
     //show and hide password
     const [showPassword, setShowPassword] = React.useState(false)
     const showPasswordHandle = () => {
@@ -25,79 +30,38 @@ const Login = () => {
     }
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-    // const history = useHistory()
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
-    console.log(loggedInUser);
 
-    // auth-redirect
+
     let history = useHistory();
     let location = useLocation();
     let { from } = location.state || { from: { pathname: "/" } };
 
-    const onSubmit = (data) => {
-        console.log(data);
-        const userInfo = {
-            username: data.username,
-            password: data.password
-        }
-        console.log(userInfo);
-        fetch('https://utopain-backend.herokuapp.com/auth/signIn', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(userInfo)
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                setLoggedInUser(data)
-                localStorage.setItem('token', JSON.stringify(data))
-                console.log(data);
-                //notification toast error
-                if (data.error) {
-                    toast.error("password not match", {
-                        position: "top-right",
-                        autoClose: 1000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    });
-                } else {
-                    toast.success(`${data.message}`, {
-                        position: "top-right",
-                        autoClose: 1000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    });
-                }
-            });
+    const redirect = location.search ? location.search.split('=')[1] : '/'
 
-    }
-    React.useEffect(() => {
-        const data = localStorage.getItem('token')
-        if (data) {
-            setLoggedInUser(JSON.parse(data))
-        }
-        console.log(data);
-        console.log("test");
-        console.log(loggedInUser);
-
-    }, [])
-
-    //toast status check
-    if (loggedInUser.statusCode == 200) {
+    useEffect(() => {
         setTimeout(() => {
-            history.replace(from);
-        }, 1000);
+            if (userInfo) {
+                if (userInfo.statusCode === 200) {
+                    history.push(redirect)
+                    console.log(userInfo);
+                }
+            }
+        }, 2000);
 
+    }, [history, userInfo, redirect])
+    const onSubmit = (data, e) => {
+        e.preventDefault();
+        console.log(data);
+        dispatch(login(data.username, data.password))
+        console.log(userInfo);
+
+        // if (userInfo.statusCode === 200) {
+        //     setTimeout(() => {
+        //         history.replace(from);
+        //     }, 2000);
+
+        // }
     }
-
     return (
         <div>
             <div className="login-form-container">

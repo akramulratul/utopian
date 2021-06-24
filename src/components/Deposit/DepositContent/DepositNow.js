@@ -1,16 +1,33 @@
-import React from "react";
+import React,{useState} from "react";
 import Sidebar from "../../Dashboard/Sidebar";
 import DashboardNav from "../../Dashboard/DashboardNav";
 import DepositTop from "../DepositTop";
 import DepositLeft from "./DepositLeft";
 import DepositRight from "./DepositRight";
 const DepositNow = () => {
+  const [TransNumber,SetTrnsNumber]=useState("")
+  const [Amount,SetAmount]=useState("")
+  
+  
+const DepositNow={
+  string: TransNumber,
+  number: Amount
+}
+  const DepositAmount=(number)=>{
+SetAmount(number)
+  }
+
+  const transectionNumber=(string)=>{
+    SetTrnsNumber(string)
+  }
+  console.log(transectionNumber);
+
   return (
     <div className="row m-0 p-0 ">
-      <div className="col-lg-2 m-0 p-0">
+      <div className="col-lg-3 m-0 p-0">
         <Sidebar />
       </div>
-      <div className="content-holder col-lg-10 m-0 p-0 Deposit-bg">
+      <div className="content-holder col-lg-9 m-0 p-0 Deposit-bg">
         <div>
           <DashboardNav />
         </div>
@@ -18,7 +35,7 @@ const DepositNow = () => {
           <DepositTop />
         </div>
         <div className=" ml-4 mt-3 mr-4 d-flex">
-          <DepositLeft />
+          <DepositLeft SetAmount={SetAmount} SetTrnsNumber={SetTrnsNumber}/>
           <DepositRight />
         </div>
       </div>

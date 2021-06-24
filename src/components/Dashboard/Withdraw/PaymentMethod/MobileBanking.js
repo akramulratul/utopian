@@ -11,11 +11,19 @@ import {
   NavLink,
 } from "react-bootstrap";
 
-const MobileBanking = (e) => {
+const MobileBanking = ({ setNumber }) => {
+  const [selectedNumber, setSelectedNumber] = useState('')
   const [isClicked, setIsClicked] = useState(false);
   const buttonClicked = () => {
     setIsClicked(true);
+
   };
+  const changeHandler = (e) => {
+    setSelectedNumber((e.target.value).toString())
+    setNumber(e.target.value);
+
+  }
+
   return (
     <Card className="witdraw-background">
       <Card.Body>
@@ -23,7 +31,7 @@ const MobileBanking = (e) => {
           <Form.Group controlId="formBasicEmail">
             <h3>Give Your Number</h3>
             <p>Lorem ipsum amet consectetur adipisicing elit.</p>
-            <Form.Control type="string" placeholder="Enter your number" />
+            <Form.Control type="string" onChange={changeHandler} placeholder="Enter your number" />
             <Form.Text className="text-muted">
               We'll never share your number with anyone else.
             </Form.Text>

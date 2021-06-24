@@ -3,23 +3,25 @@ import { Nav, Navbar } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import './NavBars.css'
 import jwt_decode from "jwt-decode";
-import { UserContext } from '../../App';
+import { useDispatch } from 'react-redux';
+import { logout } from '../Redux/Actions/userAction';
+
 
 const NavBars = () => {
+    const dispatch = useDispatch();
     const history = useHistory();
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
-    // const [isAdmin, setIsAdmin] = useState(false)
     let token = '';
     let isAdmin = false
-    if (localStorage.getItem('token')) {
-        token = JSON.parse(localStorage.getItem('token')).data.token;
+    if (localStorage.getItem('userInfo')) {
+        const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+        token = userInfo.data.token;
         let decoded = jwt_decode(token);
         console.log(decoded);
-        console.log(decoded.scopes == "USER");
+        console.log(decoded.scopes === "USER");
         // let a = decoded.scopes
         // let b = "ADMIN"
         // let c = a = b
-        if (decoded.scopes == "ADMIN") {
+        if (decoded.scopes === "ADMIN") {
             isAdmin = true
         } else {
             isAdmin = false
@@ -33,7 +35,8 @@ const NavBars = () => {
         history.push('/login')
     }
     const logOut = () => {
-        localStorage.removeItem('token');
+        dispatch(logout())
+        window.location.reload(false);
     }
     return (
         <Navbar className="w-100 px-5 nav-holder" expand="lg">

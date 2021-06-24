@@ -5,8 +5,23 @@ import WithdrawNow from "../WithdrawNow";
 import AmountSelection from "./AmountSelection";
 import ConfirmWithdrawal from "./ConfirmWithdrawal";
 import DashboardNav from "../../DashboardNav";
+import SubNav from "../../Shared/SubNav";
+import { useState } from "react";
 
 const Withdrawal = () => {
+  const [value, setValue] = useState("");
+  const [method, setMethod] = useState("")
+  const [Amount, setAmount] = useState("")
+  const WithdrawalMethod = {
+    method: method ,
+    number: Amount
+  }
+ 
+  const WithdrawAmount =(number)=>{
+    setAmount(number);
+
+  }
+console.log(WithdrawalMethod);
   return (
     <div>
       <div className="row mr-0">
@@ -17,9 +32,13 @@ const Withdrawal = () => {
           <DashboardNav />
           <WithdrawNow />
           <div className="bg-white container ml-3 mr-3 mt-3">
-            <NavPayment />
+            <SubNav
+              firstOption={{ link: "/payment-method", title: "Payment Method" }}
+              secondOption={{ link: "/withdrawal", title: "Withdrawal" }}
+              thirdOption={{ link: "/otp", title: "OTP" }}
+            />
             <AmountSelection />
-            <ConfirmWithdrawal />
+            <ConfirmWithdrawal setAmount={setAmount}/>
           </div>
         </div>
       </div>

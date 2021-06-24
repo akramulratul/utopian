@@ -1,32 +1,28 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { Redirect, Route } from 'react-router';
-import { UserContext } from '../../App';
+
 
 
 
 const PrivateRoute = ({ children, ...rest }) => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
-    useEffect(() => {
-        if (localStorage.getItem('token')) {
-            setLoggedInUser(JSON.parse(localStorage.getItem('token')).data.token)
-        }
-    }, [])
-    console.log(loggedInUser);
+
+    const [login, setLogin] = useState(false)
 
     return (
         <Route
             {...rest}
             render={({ location }) =>
-                loggedInUser.token || localStorage.getItem('token') ? (
+                localStorage.getItem('userInfo') ? (
                     children
                 ) : (
-                    <Redirect
-                        to={{
-                            pathname: "/login",
-                            state: { from: location }
-                        }}
-                    />
-                )
+                        <Redirect
+                            to={{
+                                pathname: "/login",
+                                state: { from: location }
+                            }}
+                        />
+                    )
             }
         />
     );

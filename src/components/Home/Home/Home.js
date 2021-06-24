@@ -6,6 +6,7 @@ import './Home.css'
 import HomeMain from './HomeMain';
 
 const Home = () => {
+
     return (
         <div className='home-main'>
 

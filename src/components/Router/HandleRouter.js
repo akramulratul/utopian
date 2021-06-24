@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "../Home/Home/Home";
 import Dashboard from "../Dashboard/Dashboard";
@@ -7,17 +7,24 @@ import Login from "../Authentication/Login";
 import Register from "../Authentication/Register";
 import PrivateRoute from "../privateRoute/privateRoute";
 import Profile from "../Profile/Profile";
-import Test from "../Test";
+import Admin from '../Dashboard/Admin/Admin'
 import Withdraw from "../Dashboard/Withdraw/Withdraw";
 import PaymentMethod from "../Dashboard/Withdraw/PaymentMethod/PaymentMethod";
 import Withdrawal from "../Dashboard/Withdraw/Withdrawal/Withdrawal";
 import WithdrawOtp from "../Dashboard/Withdraw/WithdrawOtp/WithdrawOtp";
 import Incentive from "../Incentive/DirectIncentive/Incentive";
 import TeamIncentive from "../Incentive/TeamIncentive/TeamIncentive";
+import ProfileUpdate from "../Profile/ProfileUpdate";
+import ChangePassword from "../Profile/ChangePassword";
+import PasswordChange from "../Profile/PasswordChange";
+import { Suspense } from "react";
+// import ProfileDetails from "../Profile/ProfileDetails";
 import Earning from "../Earning/Earning";
 import ViewAdd from "../Earning/ViewAdd";
 import Deposit from "../Deposit/Deposit";
 import DepositNow from "../Deposit/DepositContent/DepositNow";
+import AdminDeposit from "../Dashboard/Admin/Deposit/AdminDeposit";
+const ProfileDetails = lazy(() => import('../Profile/ProfileDetails'));
 const HandleRouter = () => {
   return (
     <>
@@ -26,13 +33,16 @@ const HandleRouter = () => {
           <Route exact path="/">
             <Home />
           </Route>
-          <PrivateRoute path="/dashboard">
+          <PrivateRoute path="/dashboard" exact>
             <Dashboard />
+          </PrivateRoute>
+          <PrivateRoute path="/admin/dashboard">
+            <Admin />
           </PrivateRoute>
           <Route path="/addDeposit">
             <AddDeposit />
           </Route>
-          <Route path="/profile">
+          <Route path="/dashboard/profile">
             <Profile />
           </Route>
           <Route path="/login">
@@ -56,6 +66,17 @@ const HandleRouter = () => {
           <Route path="/incentive">
             <Incentive />
           </Route>
+          <Route path='/dashboard/user/profile/details'>
+            <Suspense fallback={<p>Loading...</p>}>
+              <ProfileDetails />
+            </Suspense>
+          </Route>
+          <Route path='/dashboard/user/profile/update-profile'>
+            <ProfileUpdate />
+          </Route>
+          <Route path='/dashboard/user/profile/change-password'>
+            <PasswordChange />
+          </Route>
           <Route path="teamincentive">
             <TeamIncentive />
           </Route>
@@ -65,11 +86,14 @@ const HandleRouter = () => {
           <Route path="/viewadd">
             <ViewAdd />
           </Route>
-          <Route path="/Deposit">
+          <Route path="/deposit">
             <Deposit />
           </Route>
           <Route path="/DepositNow">
             <DepositNow />
+          </Route>
+          <Route path="/admin/deposit">
+            <AdminDeposit />
           </Route>
         </Switch>
       </Router>

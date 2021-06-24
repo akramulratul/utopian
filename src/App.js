@@ -6,14 +6,11 @@ import HandleRouter from './components/Router/HandleRouter'
 export const UserContext = React.createContext();
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState({})
-
-
 
   return (
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+    <>
       <HandleRouter />
-    </UserContext.Provider>
+    </>
   );
 }
 

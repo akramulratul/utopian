@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import IMG from '../../image/IMG.png';
 import './Register.scss'
 import "react-phone-number-input/style.css";
@@ -9,11 +9,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useDispatch, useSelector } from "react-redux";
+import { registerNewUser } from "../Redux/Actions/userAction";
 
 
 const Registration = () => {
-    const [notification, setNotification] = React.useState("");
+    const userRegister = useSelector(state => state.userRegister)
+    const { loading, error, userInfo } = userRegister
+    const dispatch = useDispatch()
+
     const history = useHistory()
+    let location = useLocation();
     //show and hide password
     const [showPassword, setShowPassword] = React.useState(false)
     const showPasswordHandle = () => {
@@ -46,10 +52,27 @@ const Registration = () => {
     const password = useRef({});
     password.current = watch("password", "");
 
+    useEffect(() => {
+
+        if (userInfo) {
+            if (userInfo.statusCode === 201) {
+                setTimeout(() => {
+                    history.push('/login');
+                }, 2000);
+            } else {
+                setTimeout(() => {
+                    history.push('/registration');
+                }, 2000);
+            }
+        }
+
+
+    }, [history])
+
     const onSubmit = async (data, e) => {
         console.log(data);
         const fullName = data.first_name + " " + data.last_name
-        const userInfo = {
+        const userData = {
             name: fullName,
             email: data.email,
             userName: data.username,
@@ -57,55 +80,12 @@ const Registration = () => {
             phoneNo: phoneNumber,
             password: data.password
         }
-        console.log(userInfo);
 
-        fetch('https://utopain-backend.herokuapp.com/auth/signUp', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(userInfo)
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if (data.error) {
-                    toast.error(`${data.message}`, {
-                        position: "top-right",
-                        autoClose: 1000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    });
-                } else {
-                    toast.success(`${data.message}`, {
-                        position: "top-right",
-                        autoClose: 1000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    });
-                }
-                setNotification(data)
-            });
+        dispatch(registerNewUser(userData))
 
-        // e.target.reset();
     };
-    if (notification.message) {
-        if (notification.status == 400 || notification.status == 500) {
-            setTimeout(() => {
-                history.push('/registration');
-            }, 1000);
-        } else {
-            setTimeout(() => {
-                history.push('/login');
-            }, 1000);
-        }
-    }
+
+
     return (
         <div className="login-form-container">
             <div className="login-form">
