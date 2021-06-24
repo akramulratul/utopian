@@ -50,7 +50,7 @@ const Sidebar = () => {
               <img src={depositeIcon} alt="" />
             </div>
             <div>
-              <h6><Link to="/DepositNow">Deposit</Link></h6>
+              <h6><Link to="/Deposit">Deposit</Link></h6>
             </div>
           </div>
         </div>
