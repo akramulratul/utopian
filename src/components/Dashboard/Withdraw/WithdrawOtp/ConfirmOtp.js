@@ -1,8 +1,15 @@
-import React from "react";
-import { Form, Col, a } from "react-bootstrap";
+import React, { useState } from "react";
+import { Form, Col } from "react-bootstrap";
 import frame from "../../../../image/Frame.svg";
 
-const ConfirmOtp = () => {
+const ConfirmOtp = ({setOtp}) => {
+
+
+const evenhandler=(e)=>{
+
+  setOtp(e.target.value)
+
+}
   return (
     <div class="container">
       <div class="row">
@@ -18,7 +25,7 @@ const ConfirmOtp = () => {
               <Form>
                 <Form.Row>
                   <Col>
-                    <Form.Control placeholder="0" />
+                    <Form.Control placeholder="0" onChange={evenhandler}/>
                   </Col>
                 </Form.Row>
               </Form>
@@ -27,7 +34,7 @@ const ConfirmOtp = () => {
               <Form>
                 <Form.Row>
                   <Col>
-                    <Form.Control placeholder="0" />
+                    <Form.Control placeholder="0" onChange={evenhandler}/>
                   </Col>
                 </Form.Row>
               </Form>
@@ -36,7 +43,7 @@ const ConfirmOtp = () => {
               <Form>
                 <Form.Row>
                   <Col>
-                    <Form.Control placeholder="0" />
+                    <Form.Control placeholder="0" onChange={evenhandler}/>
                   </Col>
                 </Form.Row>
               </Form>
@@ -45,7 +52,7 @@ const ConfirmOtp = () => {
               <Form>
                 <Form.Row>
                   <Col>
-                    <Form.Control placeholder="0" />
+                    <Form.Control placeholder="0" onChange={evenhandler}/>
                   </Col>
                 </Form.Row>
               </Form>

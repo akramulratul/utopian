@@ -23,7 +23,7 @@ import Earning from "../Earning/Earning";
 import ViewAdd from "../Earning/ViewAdd";
 import Deposit from "../Deposit/Deposit";
 import DepositNow from "../Deposit/DepositContent/DepositNow";
-
+import AdminDeposit from "../Dashboard/Admin/Deposit/AdminDeposit";
 const ProfileDetails = lazy(() => import('../Profile/ProfileDetails'));
 const HandleRouter = () => {
   return (
@@ -91,6 +91,9 @@ const HandleRouter = () => {
           </Route>
           <Route path="/DepositNow">
             <DepositNow />
+          </Route>
+          <Route path="/admin/deposit">
+            <AdminDeposit />
           </Route>
         </Switch>
       </Router>

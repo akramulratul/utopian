@@ -14,7 +14,6 @@ const PaymentMethod = () => {
   const [value, setValue] = useState("");
   const [method, setMethod] = useState("")
   const [phoneNumber, setPhoneNumber] = useState("")
-
   const changeHandler = (value) => {
     if (value.value === "BD") {
       setValue(value.label);
@@ -27,6 +26,7 @@ const PaymentMethod = () => {
     method: method,
     number: phoneNumber
   }
+
   const setPementMethod = (method) => {
     console.log(method);
     setMethod(method)
