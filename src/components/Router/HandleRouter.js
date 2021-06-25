@@ -70,7 +70,7 @@ const HandleRouter = () => {
           <Route path="/registration">
             <Register />
           </Route>
-          <Route path="/forgot_password">
+          <Route path="/forgot-password">
             <ForgetPassword />
           </Route>
           <Route path="/withdraw">

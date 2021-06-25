@@ -1,56 +1,79 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import updownIcon from "../../image/icons/updown on table.svg";
+import { getDepositeHistory } from "../Redux/Actions/depositeAction";
 const DepositHistory = () => {
-  const [depositData, setDepositData] = useState([]);
+  const [isloading, setIsloading] = useState(true);
+  const dispatch = useDispatch();
+  const depositHistory = useSelector((state) => state.depositHistory);
+  const { loading, error, depositInfo } = depositHistory;
+
+  const stopLoading = () => {
+    setIsloading(false);
+  };
+
+  useEffect(() => {
+    dispatch(getDepositeHistory());
+    stopLoading();
+  }, [dispatch]);
+
   return (
-    <div className="bg-white  rounded p-3 mr-2 ml-2">
-      <table className="table table-hover">
-        <thead className="table-light">
-          <tr>
-            <th scope="col">
-              <div className="d-flex">
-                TXN Id{" "}
-                <div>
-                  <img src={updownIcon} alt="" />
-                </div>
-              </div>
-            </th>
-            <th scope="col">
-              <div>Status </div>
-            </th>
-            <th scope="col">
-              <div className="d-flex">
-                Amount{" "}
-                <div>
-                  <img src={updownIcon} alt="" />
-                </div>
-              </div>
-            </th>
-            <th scope="col">
-              <div className="d-flex">
-                Date{" "}
-                <div>
-                  <img src={updownIcon} alt="" />
-                </div>
-              </div>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {depositData.map((withdrawInfo) => {
-            return (
+    <>
+      {isloading ? (
+        <p>Loading...</p>
+      ) : loading ? (
+        <p>Loading...</p>
+      ) : (
+        <div className="bg-white  rounded p-3 mr-2 ml-2">
+          <table className="table table-hover">
+            <thead className="table-light">
               <tr>
-                <td>txn-8F254TRCFDS</td>
-                <td>completed</td>
-                <td>৳1000.00</td>
-                <td>10m ago</td>
+                <th scope="col">
+                  <div className="d-flex">
+                    TXN Id{" "}
+                    <div>
+                      <img src={updownIcon} alt="" />
+                    </div>
+                  </div>
+                </th>
+                <th scope="col">
+                  <div>Status </div>
+                </th>
+                <th scope="col">
+                  <div className="d-flex">
+                    Amount{" "}
+                    <div>
+                      <img src={updownIcon} alt="" />
+                    </div>
+                  </div>
+                </th>
+                <th scope="col">
+                  <div className="d-flex">
+                    Date{" "}
+                    <div>
+                      <img src={updownIcon} alt="" />
+                    </div>
+                  </div>
+                </th>
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
+            </thead>
+            <tbody>
+              {depositInfo.data.map((deposite) => {
+                return (
+                  <tr>
+                    <td>{deposite.transactionId}</td>
+                    <td>{deposite.status}</td>
+                    <td>৳{deposite.depositAmount}</td>
+                    <td>10m ago</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </>
   );
 };
 

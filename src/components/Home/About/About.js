@@ -5,8 +5,8 @@ import img2 from "../../../image/landingPage/img2.png";
 import Vector1 from "../../../image/landingPage/Vector1.png";
 import Vector2 from "../../../image/landingPage/Vector2.png";
 import Vector3 from "../../../image/landingPage/Vector3.png";
-import HomeFooter from "../HomeFooter/HomeFooter";
 import LandingNavTop from "../../LandingPage/LandingNavTop/LandingNavTop";
+import CopywriteFooter from "../../CopywriteFooter/CopywriteFooter";
 
 const About = () => {
   return (
@@ -95,7 +95,7 @@ const About = () => {
         </section>
       </main>
       <hr />
-      <HomeFooter />
+      <CopywriteFooter />
     </>
   );
 };

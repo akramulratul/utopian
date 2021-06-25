@@ -1,7 +1,6 @@
 import React from "react";
+import CopywriteFooter from "../../CopywriteFooter/CopywriteFooter";
 import LandingNavTop from "../../LandingPage/LandingNavTop/LandingNavTop";
-import NavBars from "../../NavBars/NavBars";
-import HomeFooter from "../HomeFooter/HomeFooter";
 import "./Contact.css";
 
 const Contact = () => {
@@ -58,7 +57,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      <HomeFooter />
+      <CopywriteFooter />
     </div>
   );
 };
