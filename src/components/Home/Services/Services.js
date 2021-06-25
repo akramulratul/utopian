@@ -6,9 +6,8 @@ import box from "../../../image/LandingPage/services/box.png";
 import writing from "../../../image/LandingPage/services/writing.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import HomeFooter from "../HomeFooter/HomeFooter";
-import NavBars from "../../NavBars/NavBars";
 import LandingNavTop from "../../LandingPage/LandingNavTop/LandingNavTop";
+import CopywriteFooter from "../../CopywriteFooter/CopywriteFooter";
 
 const Services = () => {
   return (
@@ -161,7 +160,7 @@ const Services = () => {
         </div>
       </div>
 
-      <HomeFooter />
+      <CopywriteFooter />
     </div>
   );
 };

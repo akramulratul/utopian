@@ -1,27 +1,20 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import Sidebar from "../../Dashboard/Sidebar";
 import DashboardNav from "../../Dashboard/DashboardNav";
 import DepositTop from "../DepositTop";
 import DepositLeft from "./DepositLeft";
 import DepositRight from "./DepositRight";
+import { ToastContainer } from "react-toastify";
 const DepositNow = () => {
-  const [TransNumber,SetTrnsNumber]=useState("")
-  const [Amount,SetAmount]=useState("")
-  
-  
-const DepositNow={
-  string: TransNumber,
-  number: Amount
-}
-  const DepositAmount=(number)=>{
-SetAmount(number)
-  }
+  const [depositeData, setDepositeData] = useState({});
+  const [method, setMethod] = useState();
 
-  const transectionNumber=(string)=>{
-    SetTrnsNumber(string)
-  }
-  console.log(transectionNumber);
-
+  const data = {
+    depositAmount: depositeData.depositAmount,
+    paidBy: method,
+    transactionId: depositeData.transectionId,
+    sendFrom: depositeData.sentFrom,
+  };
   return (
     <div className="row m-0 p-0 ">
       <div className="col-lg-3 m-0 p-0">
@@ -35,10 +28,15 @@ SetAmount(number)
           <DepositTop />
         </div>
         <div className=" ml-4 mt-3 mr-4 d-flex">
-          <DepositLeft SetAmount={SetAmount} SetTrnsNumber={SetTrnsNumber}/>
-          <DepositRight />
+          <DepositLeft
+            data={data}
+            method={method}
+            setDepositeData={setDepositeData}
+          />
+          <DepositRight setMethod={setMethod} />
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

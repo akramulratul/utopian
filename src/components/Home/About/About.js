@@ -1,12 +1,21 @@
 import React from "react";
 import "./About.css";
+<<<<<<< HEAD
 import img1 from "../../../image/LandingPage/img1.svg";
 import img2 from "../../../image/LandingPage/img2.png";
 import Vector1 from "../../../image/LandingPage/Vector1.png";
 import Vector2 from "../../../image/LandingPage/Vector2.png";
 import Vector3 from "../../../image/LandingPage/Vector3.png";
 import HomeFooter from "../HomeFooter/HomeFooter";
+=======
+import img1 from "../../../image/landingPage/img1.svg";
+import img2 from "../../../image/landingPage/img2.png";
+import Vector1 from "../../../image/landingPage/Vector1.png";
+import Vector2 from "../../../image/landingPage/Vector2.png";
+import Vector3 from "../../../image/landingPage/Vector3.png";
+>>>>>>> cfcd60deab1496849b4ee316aee561f701f93dd0
 import LandingNavTop from "../../LandingPage/LandingNavTop/LandingNavTop";
+import CopywriteFooter from "../../CopywriteFooter/CopywriteFooter";
 
 const About = () => {
   return (
@@ -95,7 +104,7 @@ const About = () => {
         </section>
       </main>
       <hr />
-      <HomeFooter />
+      <CopywriteFooter />
     </>
   );
 };
