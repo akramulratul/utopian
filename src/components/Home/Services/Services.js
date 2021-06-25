@@ -1,9 +1,9 @@
 import React from "react";
 import "./Services.css";
-import sign from "../../../image/landingPage/services/sing.png";
-import hardwork from "../../../image/landingPage/services/hardwork.png";
-import box from "../../../image/landingPage/services/box.png";
-import writing from "../../../image/landingPage/services/writing.png";
+import sign from "../../../image/LandingPage/services/sing.png";
+import hardwork from "../../../image/LandingPage/services/hardwork.png";
+import box from "../../../image/LandingPage/services/box.png";
+import writing from "../../../image/LandingPage/services/writing.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import HomeFooter from "../HomeFooter/HomeFooter";
