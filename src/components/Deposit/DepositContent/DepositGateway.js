@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import MobileBanking from "../../Dashboard/Withdraw/PaymentMethod/MobileBanking";
 import DepositBanking from "./DepositGateWay/DepositBanking";
-const DepositGateway = () => {
+const DepositGateway = ({ setMethod }) => {
   const [value, setValue] = useState("");
   const [isBkashChecked, setIsBkashChecked] = useState(false);
   const [isNagadChecked, setIsNagadChecked] = useState(false);
@@ -28,7 +28,7 @@ const DepositGateway = () => {
       setIsNagadChecked(false);
     }
   };
-  console.log(value);
+  setMethod(value);
 
   return (
     <div className="Container pl-5">

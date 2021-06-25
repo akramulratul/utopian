@@ -81,7 +81,7 @@ const Sidebar = () => {
               <img src={rightArrow} alt="" />
             </div>
             <div>
-              <Link to="admin/deposit">
+              <Link to="/admin/deposit">
                 <h6>Deposits</h6>
               </Link>
             </div>
