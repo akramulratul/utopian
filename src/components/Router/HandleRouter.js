@@ -30,6 +30,16 @@ import DepositDetails from "../Dashboard/Admin/AdminDeposit/DepositDetails/Depos
 import TodayDeposit from "../Dashboard/Admin/AdminDeposit/TodayDeposit/TodayDeposit";
 import WithdrawDetails from "../Dashboard/Admin/AdminWithdraw/WithdrawDetails/WithdrawDetails";
 const ProfileDetails = lazy(() => import("../Profile/ProfileDetails"));
+import ForgetPassword from "../Authentication/ForgetPassword";
+import About from "../Home/About/About";
+import Contact from "../Home/Contact/Contact";
+import Services from "../Home/Services/Services";
+
+
+import AdminDeposit from "../Dashboard/Admin/Deposit/AdminDeposit";
+
+const ProfileDetails = lazy(() => import('../Profile/ProfileDetails'));
+
 const HandleRouter = () => {
   return (
     <>
@@ -37,6 +47,15 @@ const HandleRouter = () => {
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/service">
+            <Services />
           </Route>
           <PrivateRoute path="/dashboard" exact>
             <Dashboard />
@@ -55,6 +74,9 @@ const HandleRouter = () => {
           </Route>
           <Route path="/registration">
             <Register />
+          </Route>
+          <Route path="/forgot_password">
+            <ForgetPassword />
           </Route>
           <Route path="/withdraw">
             <Withdraw />
