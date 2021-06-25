@@ -1,128 +1,128 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  .contact-background {
-    height: 40vh;
-    background-color: #6044de;
-  }
-  
-  .main-contact-background {
-    background: url(../../../image/landingPage/contact-bg.png) no-repeat fixed top center;
-    position: relative;
-    background-size: fixed;
-    background-size: cover;
-    padding: 100px 0;
-    object-fit: cover;
-    position: relative;
-  }
-  .main-contact-background::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(128, 128, 128, 0.096);
-  }
-  .contact-form h1 {
-    font-weight: 600;
-    font-size: 40px;
-  }
-  .need-perfect-width {
-    width: 92%;
-    margin: 0 auto;
-    padding-bottom: 35px;
-    padding-top: 5px;
-  }
-  .input-div {
-    display: flex;
-    justify-content: space-between;
-  }
-  .input-div input {
-    width: 48%;
-    border: none;
-    outline: none;
-    background: #ddd;
-    padding: 10px 36px 10px 14px;
-    border-radius: 3px;
-  }
-  input.email {
-    width: 100%;
-    border: none;
-    outline: none;
-    background: #ddd;
-    padding: 10px 36px 10px 14px;
-    border-radius: 3px;
-  }
-  textarea.text-input {
-    width: 100%;
-    border: none;
-    background: #ddd;
-    border-radius: 3px;
-    outline: none;
-    padding: 10px 36px 10px 14px;
-  }
-  
-  input.form-submit-button {
-    width: 100%;
-    background: #5f47e6;
-    border: none;
-    color: #fafafa;
-    padding: 10px 8px 10px 8px;
-    border-radius: 24px;
-    margin-top: 10px;
-    font-size: 15px;
-    font-weight: 400;
-    margin-bottom: 35px !important;
-  }
-  .need-perfect-width {
-    width: 92%;
-    margin: 0 auto;
-    padding-bottom: 35px;
-    color: #767676;
-    font-weight: 400;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.contact-background {
+  height: 40vh;
+  background-color: #6044de;
+}
+
+.main-contact-background {
+  background: url(../../../image/LandingPage/contact-bg.png) no-repeat fixed top
+    center;
+  position: relative;
+  background-size: fixed;
+  background-size: cover;
+  padding: 100px 0;
+  object-fit: cover;
+  position: relative;
+}
+.main-contact-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(128, 128, 128, 0.096);
+}
+.contact-form h1 {
+  font-weight: 600;
+  font-size: 40px;
+}
+.need-perfect-width {
+  width: 92%;
+  margin: 0 auto;
+  padding-bottom: 35px;
+  padding-top: 5px;
+}
+.input-div {
+  display: flex;
+  justify-content: space-between;
+}
+.input-div input {
+  width: 48%;
+  border: none;
+  outline: none;
+  background: #ddd;
+  padding: 10px 36px 10px 14px;
+  border-radius: 3px;
+}
+input.email {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: #ddd;
+  padding: 10px 36px 10px 14px;
+  border-radius: 3px;
+}
+textarea.text-input {
+  width: 100%;
+  border: none;
+  background: #ddd;
+  border-radius: 3px;
+  outline: none;
+  padding: 10px 36px 10px 14px;
+}
+
+input.form-submit-button {
+  width: 100%;
+  background: #5f47e6;
+  border: none;
+  color: #fafafa;
+  padding: 10px 8px 10px 8px;
+  border-radius: 24px;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 35px !important;
+}
+.need-perfect-width {
+  width: 92%;
+  margin: 0 auto;
+  padding-bottom: 35px;
+  color: #767676;
+  font-weight: 400;
+}
+
+.contact-form {
+  background: #fff;
+  padding: 28px 38px;
+  width: 78%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.footer {
+  background: #fff;
+  padding: 30px 0;
+}
+footer.footer p {
+  font-size: 14px;
+  padding-top: 8px;
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 981px) {
   .contact-form {
     background: #fff;
     padding: 28px 38px;
-    width: 78%;
+    width: 100%;
     margin: 0 auto;
     position: relative;
   }
-  
-  .footer {
-    background: #fff;
-    padding: 30px 0;
+}
+@media only screen and (max-width: 600px) {
+  .contact-form h1 {
+    font-weight: 700;
+    font-size: 25px;
   }
-  footer.footer p {
-    font-size: 14px;
-    padding-top: 8px;
+  .need-perfect-width {
+    padding-bottom: 35px;
+    font-size: 15px;
+    margin: 0 auto;
+    color: #767676;
     font-weight: 400;
   }
-  
-  @media only screen and (max-width: 981px) {
-    .contact-form {
-      background: #fff;
-      padding: 28px 38px;
-      width: 100%;
-      margin: 0 auto;
-      position: relative;
-    }
-  }
-  @media only screen and (max-width: 600px) {
-    .contact-form h1 {
-      font-weight: 700;
-      font-size: 25px;
-    }
-    .need-perfect-width {
-      padding-bottom: 35px;
-      font-size: 15px;
-      margin: 0 auto;
-      color: #767676;
-      font-weight: 400;
-    }
-  }
-  
+}

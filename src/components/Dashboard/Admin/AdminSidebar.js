@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 const Sidebar = () => {
   return (
     <div className="sidebar">
-      <div className="profile-info py-5  d-flex justify-content-center flex-column align-items-center">
+      <div className="admin-info py-5  d-flex justify-content-center flex-column align-items-center">
         <div className="profile-image pb-3">
           <img src={avater} alt="" />
         </div>
