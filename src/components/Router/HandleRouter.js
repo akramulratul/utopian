@@ -1,13 +1,12 @@
 import React, { lazy } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "../Home/Home/Home";
 import Dashboard from "../Dashboard/Dashboard";
 import AddDeposit from "../Dashboard/AddDeposit/AddDeposit";
 import Login from "../Authentication/Login";
 import Register from "../Authentication/Register";
 import PrivateRoute from "../privateRoute/privateRoute";
 import Profile from "../Profile/Profile";
-import Admin from '../Dashboard/Admin/Admin'
+import Admin from "../Dashboard/Admin/Admin";
 import Withdraw from "../Dashboard/Withdraw/Withdraw";
 import PaymentMethod from "../Dashboard/Withdraw/PaymentMethod/PaymentMethod";
 import Withdrawal from "../Dashboard/Withdraw/Withdrawal/Withdrawal";
@@ -23,15 +22,16 @@ import Earning from "../Earning/Earning";
 import ViewAdd from "../Earning/ViewAdd";
 import Deposit from "../Deposit/Deposit";
 import DepositNow from "../Deposit/DepositContent/DepositNow";
+import Landing from "../LandingPage/Landing";
 
-const ProfileDetails = lazy(() => import('../Profile/ProfileDetails'));
+const ProfileDetails = lazy(() => import("../Profile/ProfileDetails"));
 const HandleRouter = () => {
   return (
     <>
       <Router>
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Landing />
           </Route>
           <PrivateRoute path="/dashboard" exact>
             <Dashboard />
@@ -66,15 +66,15 @@ const HandleRouter = () => {
           <Route path="/incentive">
             <Incentive />
           </Route>
-          <Route path='/dashboard/user/profile/details'>
+          <Route path="/dashboard/user/profile/details">
             <Suspense fallback={<p>Loading...</p>}>
               <ProfileDetails />
             </Suspense>
           </Route>
-          <Route path='/dashboard/user/profile/update-profile'>
+          <Route path="/dashboard/user/profile/update-profile">
             <ProfileUpdate />
           </Route>
-          <Route path='/dashboard/user/profile/change-password'>
+          <Route path="/dashboard/user/profile/change-password">
             <PasswordChange />
           </Route>
           <Route path="teamincentive">
