@@ -17,14 +17,17 @@ import TeamIncentive from "../Incentive/TeamIncentive/TeamIncentive";
 import ProfileUpdate from "../Profile/ProfileUpdate";
 import ChangePassword from "../Profile/ChangePassword";
 import PasswordChange from "../Profile/PasswordChange";
+import AdminWithdrawals from "../Dashboard/Admin/AdminWithdraw/AllWithdrawals/AdminWithdrawals";
+import TodaysWithdraw from "../Dashboard/Admin/AdminWithdraw/TodaysWithdraw/TodaysWithdraw";
 import { Suspense } from "react";
 // import ProfileDetails from "../Profile/ProfileDetails";
 import Earning from "../Earning/Earning";
 import ViewAdd from "../Earning/ViewAdd";
 import Deposit from "../Deposit/Deposit";
 import DepositNow from "../Deposit/DepositContent/DepositNow";
-import AdminDeposit from "../Dashboard/Admin/Deposit/AdminDeposit";
-import TodayDeposit from "../Dashboard/Admin/Deposit/TodayDeposit/TodayDeposit";
+import AdminDeposit from "../Dashboard/Admin/AdminDeposit/AdminDeposit";
+import DepositDetails from "../Dashboard/Admin/AdminDeposit/DepositDetails/DepositDetails";
+import TodayDeposit from "../Dashboard/Admin/AdminDeposit/TodayDeposit/TodayDeposit";
 const ProfileDetails = lazy(() => import("../Profile/ProfileDetails"));
 const HandleRouter = () => {
   return (
@@ -98,6 +101,15 @@ const HandleRouter = () => {
           </Route>
           <Route path="/today/deposit">
             <TodayDeposit />
+          </Route>
+          <PrivateRoute path="/admin/details">
+            <DepositDetails />
+          </PrivateRoute>
+          <Route path="/admin/withdrawal">
+            <AdminWithdrawals />
+          </Route>
+          <Route path="/admin/todays/withdrawal">
+            <TodaysWithdraw />
           </Route>
         </Switch>
       </Router>

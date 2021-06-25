@@ -16,7 +16,7 @@ const DepositTop = () => {
   //   dispatch.push(ButtonHandler());
   // };
   return (
-    <div className="bg-white d-flex justify-content-between rounded mt-3 ml-4 mr-4">
+    <div className="bg-white d-flex justify-content-between rounded mt-3 ml-3 mr-3">
       <div className="left-content d-flex align-items-center ">
         <div>
           <nav aria-label="breadcrumb">
@@ -37,7 +37,10 @@ const DepositTop = () => {
           <small>Available for Withdrawal</small>
         </div>
         <div className="px-3">
-          <Button className="Deposit-btn ml-5" type="button">
+          <Button
+            className="Deposit-btn btn btn-brand w-100 py-2 mt-2"
+            type="button"
+          >
             Deposit
           </Button>
         </div>

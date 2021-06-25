@@ -118,9 +118,11 @@ const Sidebar = () => {
             <div className="px-5">
               <img src={rightArrow} alt="" />
             </div>
-            <div>
-              <h6>Withdrawals</h6>
-            </div>
+            <Link to="/admin/withdrawal">
+              <div>
+                <h6>Withdrawals</h6>
+              </div>
+            </Link>
           </div>
         </div>
 
@@ -129,9 +131,11 @@ const Sidebar = () => {
             <div className="px-5">
               <img src={rightArrow} alt="" />
             </div>
-            <div>
-              <h6>Todays Withdraw</h6>
-            </div>
+            <Link to="/admin/todays/withdrawal">
+              <div>
+                <h6>Todays Withdraw</h6>
+              </div>
+            </Link>
           </div>
         </div>
         <div className="dashboard-menu">

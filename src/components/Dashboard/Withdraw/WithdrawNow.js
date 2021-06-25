@@ -7,7 +7,7 @@ import { Button } from "react-bootstrap";
 const WithdrawNow = () => {
   const [isClicked, setIsClicked] = useState(false);
   const buttonClicked = () => {
-    isClicked ? setIsClicked(false) : setIsClicked(true)
+    isClicked ? setIsClicked(false) : setIsClicked(true);
   };
   console.log(isClicked);
   return (
@@ -32,26 +32,28 @@ const WithdrawNow = () => {
           <small>Availabale for Withdrawal</small>
         </div>
         <div className="px-3">
-
           {isClicked ? (
-
             <Link to="/payment-method">
-              <button className="withdraw-btn ml-5" onClick={buttonClicked} >
+              <button
+                className="withdraw-btn btn btn-brand w-100 py-2 mt-2"
+                onClick={buttonClicked}
+              >
                 <p>Back To Withdraw</p>
               </button>
             </Link>
           ) : (
-              <Link to="/withdraw">
-                <button onClick={buttonClicked} className="withdraw-btn ml-5">
-
-                  <p>Withdrawal History </p>
-                </button>
-              </Link>
-            )}
-
+            <Link to="/withdraw">
+              <button
+                onClick={buttonClicked}
+                className="withdraw-btn btn btn-brand w-100 py-2 mt-2"
+              >
+                <p>Withdrawal History </p>
+              </button>
+            </Link>
+          )}
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 

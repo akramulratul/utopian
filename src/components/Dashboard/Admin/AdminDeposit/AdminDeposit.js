@@ -1,7 +1,7 @@
 import React from "react";
 import DashboardNav from "../../DashboardNav";
 import AdminSidebar from "../AdminSidebar";
-import DepositTop from "../../../Dashboard/Admin/Deposit/DepositTop";
+import DepositTop from "../../Admin/AdminDeposit/DepositTop";
 import ADHistory from "./ADHistory";
 import Paginations from "../Paginations/Paginations";
 const Deposit = () => {

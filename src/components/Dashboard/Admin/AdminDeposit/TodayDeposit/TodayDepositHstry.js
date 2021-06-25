@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import updownIcon from "../../../../image/icons/updown_icon.svg";
-import setting from "../../../../image/settings.svg";
-const ADHistory = () => {
+import updownIcon from "../../../../../image/icons/updown on table.svg";
+import setting from "../../../../../image/icons/settings.svg";
+
+const TodayDepositHstry = () => {
   const [withdrawData, setWithdrawData] = useState([]);
   return (
     <div>
@@ -26,9 +27,7 @@ const ADHistory = () => {
                   </div>
                 </div>
               </th>
-              <th scope="col">
-                <div className="d-flex">Status </div>
-              </th>
+
               <th scope="col">
                 <div className="d-flex">
                   Amount{" "}
@@ -36,6 +35,9 @@ const ADHistory = () => {
                     <img src={updownIcon} alt="" />
                   </div>
                 </div>
+              </th>
+              <th scope="col">
+                <div className="d-flex">Status </div>
               </th>
               <th scope="col">
                 <div className="d-flex">
@@ -59,14 +61,13 @@ const ADHistory = () => {
             {withdrawData.map(() => {
               return (
                 <tr>
-                  <td>BKash</td>
+                  <td>Name</td>
                   <td>txn</td>
-                  <td>complete</td>
-                  <td>BD</td>
-                  <td>time</td>
+                  <td>Amount</td>
+                  <td>Status</td>
+                  <td>Created At</td>
                   <td>
-                    <img src={setting} alt="" />
-                    Image
+                    <img src={setting} alt="" />3 piece dropdown
                   </td>
                 </tr>
               );
@@ -78,4 +79,4 @@ const ADHistory = () => {
   );
 };
 
-export default ADHistory;
+export default TodayDepositHstry;
