@@ -1,29 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../../../styles/_Withdraw.scss";
 
 import {
   Card,
-  Container,
   Form,
   Button,
-  FormControl,
-  ControlLabel,
-  NavLink,
+  
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const ConfirmWithdrawal = () => {
+const ConfirmWithdrawal = ({setAmount}) => {
+
+
+  const changeHandler = (e)=>{
+    setAmount(e.target.value);
+
+  }
+  
   return (
     <div>
       <div className="row container m-2 ">
         <div className="col-lg-6 container border border-light">
-          <Card border="primary" style={{ width: "30rem" }}>
+          <Card style={{ width: "30rem" }}>
             <Card.Body>
               <Card.Title>Withdrawal Amount (৳)</Card.Title>
               <Card.Text>
                 <Form>
                   <Form.Group controlId="formBasicEmail">
-                    <Form.Control type="string" placeholder="Give Amount" />
+                    <Form.Control type="string" placeholder="Give Amount" onChange={changeHandler} />
                     <br />
                     <Link to="/otp">
                       <Button

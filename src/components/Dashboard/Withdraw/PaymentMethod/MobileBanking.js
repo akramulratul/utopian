@@ -20,9 +20,10 @@ const MobileBanking = ({ setNumber }) => {
   };
   const changeHandler = (e) => {
     setSelectedNumber((e.target.value).toString())
+    setNumber(e.target.value);
 
   }
-  setNumber(selectedNumber);
+
   return (
     <Card className="witdraw-background">
       <Card.Body>

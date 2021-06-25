@@ -61,13 +61,13 @@ const NavBars = () => {
               </Link>
             ))}
 
-          <Link className="link mx-lg-3" to="/landing-page">
+          <Link className="link mx-lg-3" to="/about">
             About
           </Link>
-          <Link className="link mx-lg-3" to="/checkout">
+          <Link className="link mx-lg-3" to="/projects">
             Project
           </Link>
-          <Link className="link mx-lg-3" to="/checkout">
+          <Link className="link mx-lg-3" to="/contact">
             Contact Us
           </Link>
           <button

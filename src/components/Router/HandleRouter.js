@@ -16,6 +16,8 @@ import TeamIncentive from "../Incentive/TeamIncentive/TeamIncentive";
 import ProfileUpdate from "../Profile/ProfileUpdate";
 import ChangePassword from "../Profile/ChangePassword";
 import PasswordChange from "../Profile/PasswordChange";
+import AdminWithdrawals from "../Dashboard/Admin/AdminWithdraw/AllWithdrawals/AdminWithdrawals";
+import TodaysWithdraw from "../Dashboard/Admin/AdminWithdraw/TodaysWithdraw/TodaysWithdraw";
 import { Suspense } from "react";
 // import ProfileDetails from "../Profile/ProfileDetails";
 import Earning from "../Earning/Earning";
@@ -23,6 +25,14 @@ import ViewAdd from "../Earning/ViewAdd";
 import Deposit from "../Deposit/Deposit";
 import DepositNow from "../Deposit/DepositContent/DepositNow";
 import Landing from "../LandingPage/Landing";
+import AdminDeposit from "../Dashboard/Admin/AdminDeposit/AdminDeposit";
+import DepositDetails from "../Dashboard/Admin/AdminDeposit/DepositDetails/DepositDetails";
+import TodayDeposit from "../Dashboard/Admin/AdminDeposit/TodayDeposit/TodayDeposit";
+import WithdrawDetails from "../Dashboard/Admin/AdminWithdraw/WithdrawDetails/WithdrawDetails";
+import ForgetPassword from "../Authentication/ForgetPassword";
+import About from "../Home/About/About";
+import Contact from "../Home/Contact/Contact";
+import Services from "../Home/Services/Services";
 
 const ProfileDetails = lazy(() => import("../Profile/ProfileDetails"));
 const HandleRouter = () => {
@@ -32,6 +42,15 @@ const HandleRouter = () => {
         <Switch>
           <Route exact path="/">
             <Landing />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/projects">
+            <Services />
           </Route>
           <PrivateRoute path="/dashboard" exact>
             <Dashboard />
@@ -50,6 +69,9 @@ const HandleRouter = () => {
           </Route>
           <Route path="/registration">
             <Register />
+          </Route>
+          <Route path="/forgot_password">
+            <ForgetPassword />
           </Route>
           <Route path="/withdraw">
             <Withdraw />
@@ -91,6 +113,24 @@ const HandleRouter = () => {
           </Route>
           <Route path="/DepositNow">
             <DepositNow />
+          </Route>
+          <Route path="/admin/deposit">
+            <AdminDeposit />
+          </Route>
+          <Route path="/today/deposit">
+            <TodayDeposit />
+          </Route>
+          <PrivateRoute path="/admin/details">
+            <DepositDetails />
+          </PrivateRoute>
+          <Route path="/admin/withdrawal">
+            <AdminWithdrawals />
+          </Route>
+          <Route path="/admin/todays/withdrawal">
+            <TodaysWithdraw />
+          </Route>
+          <Route path="/Details">
+            <WithdrawDetails />
           </Route>
         </Switch>
       </Router>
