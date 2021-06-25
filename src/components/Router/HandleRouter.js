@@ -28,6 +28,7 @@ import DepositNow from "../Deposit/DepositContent/DepositNow";
 import AdminDeposit from "../Dashboard/Admin/AdminDeposit/AdminDeposit";
 import DepositDetails from "../Dashboard/Admin/AdminDeposit/DepositDetails/DepositDetails";
 import TodayDeposit from "../Dashboard/Admin/AdminDeposit/TodayDeposit/TodayDeposit";
+import WithdrawDetails from "../Dashboard/Admin/AdminWithdraw/WithdrawDetails/WithdrawDetails";
 const ProfileDetails = lazy(() => import("../Profile/ProfileDetails"));
 const HandleRouter = () => {
   return (
@@ -110,6 +111,9 @@ const HandleRouter = () => {
           </Route>
           <Route path="/admin/todays/withdrawal">
             <TodaysWithdraw />
+          </Route>
+          <Route path="/Details">
+            <WithdrawDetails />
           </Route>
         </Switch>
       </Router>
