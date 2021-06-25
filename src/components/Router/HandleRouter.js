@@ -99,7 +99,7 @@ const HandleRouter = () => {
           <Route path="/dashboard/user/profile/change-password">
             <PasswordChange />
           </Route>
-          <Route path="teamincentive">
+          <Route path="/teamincentive">
             <TeamIncentive />
           </Route>
           <Route path="/earning">
