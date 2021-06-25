@@ -31,7 +31,7 @@ const DepositTop = () => {
         </div>
         <div className="px-3">
           {isDeposit ? (
-            <Link to="/DepositNow">
+            <Link to="/deposit">
               <Button
                 className="Deposit-btn btn btn-brand w-100 py-2 mt-2"
                 type="button"
@@ -41,7 +41,7 @@ const DepositTop = () => {
               </Button>
             </Link>
           ) : (
-            <Link to="/deposit">
+            <Link to="/DepositNow">
               <Button
                 className="Deposit-btn btn btn-brand w-100 py-2 mt-2"
                 type="button"

@@ -1,0 +1,25 @@
+@import "./colors";
+.reason-container {
+  margin-top: 10rem;
+  text-align: center;
+}
+.reason-icon img {
+  padding: 1.5rem;
+  filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%)
+    contrast(0%);
+  transition: 0.3s;
+}
+.reason-card:hover img {
+  filter: invert(0%) sepia(100%) saturate(2878%) hue-rotate(346deg)
+    brightness(1%) contrast(100%);
+}
+.reason-card {
+  border: 1px solid $dash-body-bg;
+  padding: 1.5rem;
+  margin: 1rem 0rem;
+  transition: 0.3s;
+}
+.reason-card:hover {
+  background-color: $main;
+  color: white;
+}

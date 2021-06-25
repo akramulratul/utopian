@@ -1,6 +1,5 @@
 import React, { lazy } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "../Home/Home/Home";
 import Dashboard from "../Dashboard/Dashboard";
 import AddDeposit from "../Dashboard/AddDeposit/AddDeposit";
 import Login from "../Authentication/Login";
@@ -25,10 +24,16 @@ import Earning from "../Earning/Earning";
 import ViewAdd from "../Earning/ViewAdd";
 import Deposit from "../Deposit/Deposit";
 import DepositNow from "../Deposit/DepositContent/DepositNow";
+import Landing from "../LandingPage/Landing";
 import AdminDeposit from "../Dashboard/Admin/AdminDeposit/AdminDeposit";
 import DepositDetails from "../Dashboard/Admin/AdminDeposit/DepositDetails/DepositDetails";
 import TodayDeposit from "../Dashboard/Admin/AdminDeposit/TodayDeposit/TodayDeposit";
 import WithdrawDetails from "../Dashboard/Admin/AdminWithdraw/WithdrawDetails/WithdrawDetails";
+import ForgetPassword from "../Authentication/ForgetPassword";
+import About from "../Home/About/About";
+import Contact from "../Home/Contact/Contact";
+import Services from "../Home/Services/Services";
+
 const ProfileDetails = lazy(() => import("../Profile/ProfileDetails"));
 const HandleRouter = () => {
   return (
@@ -36,7 +41,16 @@ const HandleRouter = () => {
       <Router>
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Landing />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/projects">
+            <Services />
           </Route>
           <PrivateRoute path="/dashboard" exact>
             <Dashboard />
@@ -55,6 +69,9 @@ const HandleRouter = () => {
           </Route>
           <Route path="/registration">
             <Register />
+          </Route>
+          <Route path="/forgot_password">
+            <ForgetPassword />
           </Route>
           <Route path="/withdraw">
             <Withdraw />
@@ -82,7 +99,7 @@ const HandleRouter = () => {
           <Route path="/dashboard/user/profile/change-password">
             <PasswordChange />
           </Route>
-          <Route path="teamincentive">
+          <Route path="/teamincentive">
             <TeamIncentive />
           </Route>
           <Route path="/earning">
