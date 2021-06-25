@@ -1,7 +1,6 @@
 import React, { lazy } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Dashboard from "../Dashboard/Dashboard";
-import AddDeposit from "../Dashboard/AddDeposit/AddDeposit";
 import Login from "../Authentication/Login";
 import Register from "../Authentication/Register";
 import PrivateRoute from "../privateRoute/privateRoute";
@@ -58,9 +57,6 @@ const HandleRouter = () => {
           <PrivateRoute path="/admin/dashboard">
             <Admin />
           </PrivateRoute>
-          <Route path="/addDeposit">
-            <AddDeposit />
-          </Route>
           <Route path="/dashboard/profile">
             <Profile />
           </Route>
