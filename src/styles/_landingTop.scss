@@ -1,3 +1,4 @@
+@import "./colors";
 .landing-top-container {
   min-height: 90.5vh;
   background-image: url("../image/LandingPage/image-bg.svg");
@@ -9,4 +10,23 @@
 .page-container {
   min-height: 90.5vh;
   padding: 0rem 4rem;
+}
+.landing-nav-top {
+  min-height: 45vh;
+  background-image: url("../image/LandingNavTop/image\ 6.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #5f47e6;
+}
+.landing-nav-top-title {
+  h1 {
+    font-size: 3rem;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+}
+.text-highlight {
+  color: $second;
 }
