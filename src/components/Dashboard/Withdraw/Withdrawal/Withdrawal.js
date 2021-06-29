@@ -10,18 +10,17 @@ import { useState } from "react";
 
 const Withdrawal = () => {
   const [value, setValue] = useState("");
-  const [method, setMethod] = useState("")
-  const [Amount, setAmount] = useState("")
+  const [method, setMethod] = useState("");
+  const [Amount, setAmount] = useState("");
   const WithdrawalMethod = {
-    method: method ,
-    number: Amount
-  }
- 
-  const WithdrawAmount =(number)=>{
-    setAmount(number);
+    method: method,
+    number: Amount,
+  };
 
-  }
-console.log(WithdrawalMethod);
+  const WithdrawAmount = (number) => {
+    setAmount(number);
+  };
+  console.log(WithdrawalMethod);
   return (
     <div>
       <div className="row mr-0">
@@ -31,14 +30,14 @@ console.log(WithdrawalMethod);
         <div className="col-lg-9 p-0 witdraw-background">
           <DashboardNav />
           <WithdrawNow />
-          <div className="bg-white container ml-3 mr-3 mt-3">
+          <div className="bg-white ml-3 mr-3 mt-3">
             <SubNav
               firstOption={{ link: "/payment-method", title: "Payment Method" }}
               secondOption={{ link: "/withdrawal", title: "Withdrawal" }}
               thirdOption={{ link: "/otp", title: "OTP" }}
             />
             <AmountSelection />
-            <ConfirmWithdrawal setAmount={setAmount}/>
+            <ConfirmWithdrawal setAmount={setAmount} />
           </div>
         </div>
       </div>

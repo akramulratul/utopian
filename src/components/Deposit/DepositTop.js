@@ -30,19 +30,27 @@ const DepositTop = () => {
           <small>Available for Withdrawal</small>
         </div>
         <div className="px-3">
-          <Button
-            className="Deposit-btn ml-5"
-            type="button"
-            onClick={ButtonHandler}
-          >
-            {isDeposit ? (
-              <Link to="/DepositNow">
+          {isDeposit ? (
+            <Link to="/deposit">
+              <Button
+                className="Deposit-btn btn btn-brand w-100 py-2 mt-2"
+                type="button"
+                onClick={ButtonHandler}
+              >
                 <p>Back to Deposit History</p>
-              </Link>
-            ) : (
-              <p>Deposit Now</p>
-            )}
-          </Button>
+              </Button>
+            </Link>
+          ) : (
+            <Link to="/DepositNow">
+              <Button
+                className="Deposit-btn btn btn-brand w-100 py-2 mt-2"
+                type="button"
+                onClick={ButtonHandler}
+              >
+                <p>Deposit Now</p>
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
     </div>

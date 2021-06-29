@@ -65,12 +65,12 @@
 }
 .for-background {
   background: $dash-body-bg;
-  width: 1020px;
-  height: 100px;
-  left: 500px;
-  top: 465px;
-  border-radius: 10px;
-  padding-left: 10px;
+  // width: 1020px;
+  // height: 100px;
+  // left: 500px;
+  // top: 465px;
+  // border-radius: 10px;
+  // padding-left: 10px;
 }
 .btn-next {
   background: $button;
@@ -106,4 +106,7 @@
   height: 172px;
   left: 1095px;
   top: 608px;
+}
+.main-background {
+  background-color: $background;
 }

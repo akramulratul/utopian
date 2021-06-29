@@ -1,13 +1,11 @@
 import React, { lazy } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "../Home/Home/Home";
 import Dashboard from "../Dashboard/Dashboard";
-import AddDeposit from "../Dashboard/AddDeposit/AddDeposit";
 import Login from "../Authentication/Login";
 import Register from "../Authentication/Register";
 import PrivateRoute from "../privateRoute/privateRoute";
 import Profile from "../Profile/Profile";
-import Admin from '../Dashboard/Admin/Admin'
+import Admin from "../Dashboard/Admin/Admin";
 import Withdraw from "../Dashboard/Withdraw/Withdraw";
 import PaymentMethod from "../Dashboard/Withdraw/PaymentMethod/PaymentMethod";
 import Withdrawal from "../Dashboard/Withdraw/Withdrawal/Withdrawal";
@@ -17,29 +15,32 @@ import TeamIncentive from "../Incentive/TeamIncentive/TeamIncentive";
 import ProfileUpdate from "../Profile/ProfileUpdate";
 import ChangePassword from "../Profile/ChangePassword";
 import PasswordChange from "../Profile/PasswordChange";
+import AdminWithdrawals from "../Dashboard/Admin/AdminWithdraw/AllWithdrawals/AdminWithdrawals";
+import TodaysWithdraw from "../Dashboard/Admin/AdminWithdraw/TodaysWithdraw/TodaysWithdraw";
 import { Suspense } from "react";
 // import ProfileDetails from "../Profile/ProfileDetails";
 import Earning from "../Earning/Earning";
 import ViewAdd from "../Earning/ViewAdd";
 import Deposit from "../Deposit/Deposit";
 import DepositNow from "../Deposit/DepositContent/DepositNow";
-
+import Landing from "../LandingPage/Landing";
+import AdminDeposit from "../Dashboard/Admin/AdminDeposit/AdminDeposit";
+import DepositDetails from "../Dashboard/Admin/AdminDeposit/DepositDetails/DepositDetails";
+import TodayDeposit from "../Dashboard/Admin/AdminDeposit/TodayDeposit/TodayDeposit";
+import WithdrawDetails from "../Dashboard/Admin/AdminWithdraw/WithdrawDetails/WithdrawDetails";
 import ForgetPassword from "../Authentication/ForgetPassword";
 import About from "../Home/About/About";
 import Contact from "../Home/Contact/Contact";
 import Services from "../Home/Services/Services";
 
-
-import AdminDeposit from "../Dashboard/Admin/Deposit/AdminDeposit";
-
-const ProfileDetails = lazy(() => import('../Profile/ProfileDetails'));
+const ProfileDetails = lazy(() => import("../Profile/ProfileDetails"));
 const HandleRouter = () => {
   return (
     <>
       <Router>
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Landing />
           </Route>
           <Route path="/about">
             <About />
@@ -47,7 +48,7 @@ const HandleRouter = () => {
           <Route path="/contact">
             <Contact />
           </Route>
-          <Route path="/service">
+          <Route path="/projects">
             <Services />
           </Route>
           <PrivateRoute path="/dashboard" exact>
@@ -56,9 +57,6 @@ const HandleRouter = () => {
           <PrivateRoute path="/admin/dashboard">
             <Admin />
           </PrivateRoute>
-          <Route path="/addDeposit">
-            <AddDeposit />
-          </Route>
           <Route path="/dashboard/profile">
             <Profile />
           </Route>
@@ -68,7 +66,7 @@ const HandleRouter = () => {
           <Route path="/registration">
             <Register />
           </Route>
-          <Route path="/forgot_password">
+          <Route path="/forgot-password">
             <ForgetPassword />
           </Route>
           <Route path="/withdraw">
@@ -86,18 +84,18 @@ const HandleRouter = () => {
           <Route path="/incentive">
             <Incentive />
           </Route>
-          <Route path='/dashboard/user/profile/details'>
+          <Route path="/dashboard/user/profile/details">
             <Suspense fallback={<p>Loading...</p>}>
               <ProfileDetails />
             </Suspense>
           </Route>
-          <Route path='/dashboard/user/profile/update-profile'>
+          <Route path="/dashboard/user/profile/update-profile">
             <ProfileUpdate />
           </Route>
-          <Route path='/dashboard/user/profile/change-password'>
+          <Route path="/dashboard/user/profile/change-password">
             <PasswordChange />
           </Route>
-          <Route path="teamincentive">
+          <Route path="/teamincentive">
             <TeamIncentive />
           </Route>
           <Route path="/earning">
@@ -114,6 +112,21 @@ const HandleRouter = () => {
           </Route>
           <Route path="/admin/deposit">
             <AdminDeposit />
+          </Route>
+          <Route path="/today/deposit">
+            <TodayDeposit />
+          </Route>
+          <PrivateRoute path="/admin/details">
+            <DepositDetails />
+          </PrivateRoute>
+          <Route path="/admin/withdrawal">
+            <AdminWithdrawals />
+          </Route>
+          <Route path="/admin/todays/withdrawal">
+            <TodaysWithdraw />
+          </Route>
+          <Route path="/Details">
+            <WithdrawDetails />
           </Route>
         </Switch>
       </Router>

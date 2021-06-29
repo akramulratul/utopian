@@ -1,0 +1,29 @@
+@import "./colors";
+.affiliate-container {
+  min-height: 60vh;
+  background-image: url("../image/Affiliate/affiliate-bg.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #5f47e6;
+  position: relative;
+}
+.affiliate-banner-image {
+  //   padding: 4rem 0rem 4rem 4rem;
+  min-height: 60vh;
+}
+.affiliate-banner-image img {
+  width: 80%;
+}
+.comission-text {
+  background-color: white;
+  padding: 1rem 5rem;
+  color: $main;
+  h1 {
+    font-size: 5rem;
+    font-weight: 800;
+  }
+  p {
+    font-size: 1rem;
+  }
+}

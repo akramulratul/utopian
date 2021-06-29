@@ -4,16 +4,11 @@ import { Form, Button, Card, NavLink } from "react-bootstrap";
 import NumberCheck from "./NumberCheck";
 const AmountSelection = () => {
   return (
-    <div className="block-example">
-      <br />
-      <div className="container block-example border border-light">
-        <Card style={{ width: "65rem" }}>
-          <Card.Body>
-            <Card.Title>
-              <NumberCheck />
-            </Card.Title>
-          </Card.Body>
-        </Card>
+    <div className="for-background border">
+      <div className="border border-light">
+        <div className="col-lg-9 p-0">
+          <NumberCheck />
+        </div>
       </div>
     </div>
   );

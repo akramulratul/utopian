@@ -1,0 +1,15 @@
+@import "./colors";
+
+.type-of-income-container {
+  min-height: 60vh;
+  background-image: url("../image/TypeOfIncome/image7-bg.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #5f47e6;
+  position: relative;
+}
+.image-holder {
+  position: relative;
+  top: 5rem;
+}

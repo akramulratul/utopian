@@ -1,6 +1,6 @@
 import React from "react";
 import DepositGateway from "./DepositGateway";
-const DepositRight = () => {
+const DepositRight = ({ setMethod }) => {
   return (
     <div className="bg-white col-lg-6 p-0 shadow-sm p-3 mb-5 bg-body rounded">
       <div className="m-4">
@@ -13,7 +13,7 @@ const DepositRight = () => {
         </p>
       </div>
       <div>
-        <DepositGateway />
+        <DepositGateway setMethod={setMethod} />
       </div>
     </div>
   );
