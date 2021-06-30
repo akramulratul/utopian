@@ -107,7 +107,7 @@ const HandleRouter = () => {
           <Route path="/deposit">
             <Deposit />
           </Route>
-          <Route path="/DepositNow">
+          <Route path="/depositnow">
             <DepositNow />
           </Route>
           <Route path="/admin/deposit">
@@ -125,7 +125,7 @@ const HandleRouter = () => {
           <Route path="/admin/todays/withdrawal">
             <TodaysWithdraw />
           </Route>
-          <Route path="/Details">
+          <Route path="/details">
             <WithdrawDetails />
           </Route>
         </Switch>

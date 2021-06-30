@@ -146,6 +146,29 @@ const Sidebar = () => {
             <div>
               <h6>Ads</h6>
             </div>
+            <div className="pl-3 ml-2">
+              <img src={downArrow} alt="" />
+            </div>
+          </div>
+        </div>
+        <div className="down-menu pl-4">
+          <div className="d-flex py-3">
+            <div className="px-5">
+              <img src={rightArrow} alt="" />
+            </div>
+            <div>
+              <h6>Ads List</h6>
+            </div>
+          </div>
+        </div>
+        <div className="down-menu pl-4">
+          <div className="d-flex py-3">
+            <div className="px-5">
+              <img src={rightArrow} alt="" />
+            </div>
+            <div>
+              <h6>Create New Ads</h6>
+            </div>
           </div>
         </div>
         <div className="dashboard-menu">
