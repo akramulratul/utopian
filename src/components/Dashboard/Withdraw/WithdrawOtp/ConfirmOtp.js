@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Col } from "react-bootstrap";
 import frame from "../../../../image/Frame.svg";
-
+import OTPInput, { ResendOTP } from "otp-input-react";
 const ConfirmOtp = ({ setOtp }) => {
   const evenhandler = (e) => {
     setOtp(e.target.value);
@@ -16,7 +16,7 @@ const ConfirmOtp = ({ setOtp }) => {
           <h4>Confirm OTP</h4>
           <small>Enter OTP we just sent to your phone number.</small>
           <br />
-          <div className="container pl-1 m-1 d-flex justify-content-start">
+          {/* <div className="container pl-1 m-1 d-flex justify-content-start">
             <div className="otpBox p-2">
               <Form>
                 <Form.Row>
@@ -53,8 +53,20 @@ const ConfirmOtp = ({ setOtp }) => {
                 </Form.Row>
               </Form>
             </div>
+          </div> */}
+          <div>
+            {" "}
+            <OTPInput
+              value={evenhandler}
+              onChange={evenhandler}
+              autoFocus
+              OTPLength={4}
+              otpType="number"
+              disabled={false}
+              secure
+            />
+            <ResendOTP onResendClick={() => console.log("Resend clicked")} />
           </div>
-
           <div className="d-flex align-item-around">
             <small className="m-2">Time remaining :1.38sec</small>
             <button type="button" className="btn btn-link ml-4 pb-5">
