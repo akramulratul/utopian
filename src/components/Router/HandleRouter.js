@@ -137,7 +137,10 @@ const HandleRouter = () => {
           <PrivateRoute path="/admin/editAd/:id">
             <EditAds />
           </PrivateRoute>
-          
+          <Route path="/getSignUp/referral/:referralId">
+            <Register />
+          </Route>
+
           <Route path="/details">
             <WithdrawDetails />
           </Route>
