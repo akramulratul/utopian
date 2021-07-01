@@ -3,6 +3,7 @@ import DashboardNav from "../Dashboard/DashboardNav";
 import Sidebar from "../Dashboard/Sidebar";
 import Advertise from "./Advertise";
 import EarningBar from "./EarningBar";
+import { ToastContainer } from "react-toastify";
 
 const Earning = () => {
   return (
@@ -21,6 +22,7 @@ const Earning = () => {
           <Advertise />
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

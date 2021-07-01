@@ -20,7 +20,6 @@ const Sidebar = () => {
           <img src={avater} alt="" />
         </div>
         <div className="profile-name">
-          <h5>Regina Cooper</h5>
           <small>Admin</small>
         </div>
       </div>
@@ -32,7 +31,7 @@ const Sidebar = () => {
             </div>
             <div>
               <h6>
-                <Link to="admin/dashboard">Dashboard</Link>
+                <Link to="/admin/dashboard">Dashboard</Link>
               </h6>
             </div>
           </div>
@@ -45,7 +44,7 @@ const Sidebar = () => {
             </div>
             <div>
               <h6>
-                <Link to="/dashboard/user/profile/details">My Profile</Link>
+                <Link to="/dashboard/user/profile/details">Admin Profile</Link>
               </h6>
             </div>
           </div>
@@ -57,7 +56,7 @@ const Sidebar = () => {
               <img src={users} alt="" />
             </div>
             <div>
-              <h6>Users</h6>
+              <h6>All Users</h6>
             </div>
           </div>
         </div>
@@ -144,10 +143,49 @@ const Sidebar = () => {
               <img src={ads} alt="" />
             </div>
             <div>
-              <h6>Ads</h6>
+              <Link to="/admin/createAds">
+                <h6>Create Ads</h6>
+              </Link>
+            </div>
+            <div className="pl-3 ml-2">
+              <img src={downArrow} alt="" />
             </div>
           </div>
         </div>
+        <div className="down-menu pl-4">
+          <div className="d-flex py-3">
+            <div className="px-5">
+              <img src={rightArrow} alt="" />
+            </div>
+            <div>
+              <h6>Ads List</h6>
+            </div>
+          </div>
+        </div>
+        <div className="down-menu pl-4">
+          <div className="d-flex py-3">
+            <div className="px-5">
+              <img src={rightArrow} alt="" />
+            </div>
+            <div>
+              <h6>Create New Ads</h6>
+            </div>
+          </div>
+        </div>
+
+        <div className="dashboard-menu">
+          <div className="d-flex py-3">
+            <div className="px-5">
+              <img src={ads} alt="" />
+            </div>
+            <div>
+              <Link to="/admin/allAds">
+                <h6>All Ads</h6>
+              </Link>
+            </div>
+          </div>
+        </div>
+
         <div className="dashboard-menu">
           <div className="d-flex py-3">
             <div className="px-5">

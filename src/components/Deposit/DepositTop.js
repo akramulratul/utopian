@@ -41,7 +41,7 @@ const DepositTop = () => {
               </Button>
             </Link>
           ) : (
-            <Link to="/DepositNow">
+            <Link to="/depositnow">
               <Button
                 className="Deposit-btn btn btn-brand w-100 py-2 mt-2"
                 type="button"
