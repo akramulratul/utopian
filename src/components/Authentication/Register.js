@@ -94,7 +94,7 @@ const Registration = () => {
                         <h2 className="welcome-header">
                             <span className="uto-pain">Uto</span><span className="pain">Pian</span>
                             <br />Create An Account
-                    </h2>
+                        </h2>
                     </div>
                     <div className="">
                         <form onSubmit={handleSubmit(onSubmit)}>
@@ -235,8 +235,8 @@ const Registration = () => {
                     <h3>Have an Account?</h3>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-                    deserunt <br />temporibus magni
-                </p>
+                        deserunt <br />temporibus magni
+                    </p>
                     <Link to="/login"><button>Login</button></Link>
                 </div>
             </div>
