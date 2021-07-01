@@ -5,7 +5,7 @@ import hardwork from "../../../image/LandingPage/services/hardwork.png";
 import box from "../../../image/LandingPage/services/box.png";
 import writing from "../../../image/LandingPage/services/writing.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import LandingNavTop from "../../LandingPage/LandingNavTop/LandingNavTop";
 import CopywriteFooter from "../../CopywriteFooter/CopywriteFooter";
 

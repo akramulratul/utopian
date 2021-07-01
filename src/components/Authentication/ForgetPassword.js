@@ -1,12 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Login.scss";
 import IMG1 from "../../image/IMG.png";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "../Redux/Actions/userAction";
 import PhoneInput from "react-phone-number-input";
 
 const ForgetPassword = () => {
@@ -24,7 +22,6 @@ const ForgetPassword = () => {
         phoneNumber: phoneNumber,
       };
       console.log(forgetData);
-      
     } else {
       toast.error("please add all the fields", {
         position: "top-right",
@@ -62,15 +59,6 @@ const ForgetPassword = () => {
                     name="phone"
                   />
                 </div>
-<<<<<<< HEAD
-=======
-                {/* <div className="checkbox-forget">
-
-                                    <div>
-                                        <Link className="forget-password" to="/login">Login</Link>
-                                    </div>
-                                </div> */}
->>>>>>> main
                 <button type="submit" name="submit" className="button login">
                   Forget Password
                 </button>

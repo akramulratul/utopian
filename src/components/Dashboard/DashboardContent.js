@@ -1,16 +1,9 @@
 import React from "react";
-import { useHistory } from "react-router";
 import DashboardNav from "./DashboardNav";
 import DashboardTopInfo from "./Shared/DashboardTopInfo";
 import Graph from "./Graph";
 
 const DashboardContent = ({ depositeData }) => {
-  // let totalDeposite = 0;
-  // for (let i = 0; i < depositeData.length; i++) {
-  //     totalDeposite = depositeData[i].depositAmount + totalDeposite;
-  // }
-  console.log(depositeData);
-
   return (
     <div className="dashboard-content">
       <div>
@@ -35,7 +28,7 @@ const DashboardContent = ({ depositeData }) => {
                   <div>
                     <div className="dash-right-card bg-white d-flex justify-content-between mx-1 my-3 py-4 rounded px-3">
                       <div className="title pt-1">
-                        <h6> INCENTIVE WITHDRAWAL</h6>
+                        <h6>AD REWARD</h6>
                       </div>
                       <div className="balance">
                         <h4>৳ {depositeData.incentiveWithdrawal}</h4>

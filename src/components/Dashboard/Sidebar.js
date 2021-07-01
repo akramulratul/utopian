@@ -5,7 +5,6 @@ import profileIcon from "../../image/icons/profile.svg";
 import depositeIcon from "../../image/icons/depo.svg";
 import withdrawIcon from "../../image/icons/with.svg";
 import earningIcon from "../../image/icons/earn.svg";
-import downArrow from "../../image/icons/down.svg";
 import rightArrow from "../../image/icons/right.svg";
 import { Link } from "react-router-dom";
 import { DropdownButton, Dropdown } from "react-bootstrap";
@@ -16,7 +15,7 @@ const Sidebar = () => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const getProfile = useSelector((state) => state.getProfile);
-  const { loading, error, userInfo } = getProfile;
+  const { loading, userInfo } = getProfile;
   const stopLoading = () => {
     setIsLoading(false);
   };
