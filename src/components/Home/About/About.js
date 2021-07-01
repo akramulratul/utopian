@@ -1,10 +1,12 @@
 import React from "react";
 import "./About.css";
-import img1 from "../../../image/landingPage/img1.svg";
-import img2 from "../../../image/landingPage/img2.png";
-import Vector1 from "../../../image/landingPage/Vector1.png";
-import Vector2 from "../../../image/landingPage/Vector2.png";
-import Vector3 from "../../../image/landingPage/Vector3.png";
+
+import img1 from "../../../image/LandingPage/img1.svg";
+import img2 from "../../../image/LandingPage/img2.png";
+import Vector1 from "../../../image/LandingPage/Vector1.png";
+import Vector2 from "../../../image/LandingPage/Vector2.png";
+import Vector3 from "../../../image/LandingPage/Vector3.png";
+
 import LandingNavTop from "../../LandingPage/LandingNavTop/LandingNavTop";
 import CopywriteFooter from "../../CopywriteFooter/CopywriteFooter";
 
