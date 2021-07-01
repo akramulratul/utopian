@@ -14,13 +14,31 @@ const Withdrawal = () => {
   const [Amount, setAmount] = useState("");
   const WithdrawalMethod = {
     method: method,
-    number: Amount,
+    amount: Amount,
   };
 
   const WithdrawAmount = (number) => {
-    setAmount(number);
+    if (number < 500) {
+      alert("plz required")
+    } else {
+      setAmount(number);
+    }
+
   };
-  console.log(WithdrawalMethod);
+  // console.log(WithdrawalMethod);
+  console.log(Amount);
+
+  if (sessionStorage.getItem("withdraw")) {
+    const { method, number } = JSON.parse(sessionStorage.getItem("withdraw"));
+    const withdrawInfo = {
+      method, number, Amount
+    }
+    console.log(withdrawInfo);
+    sessionStorage.setItem('Withdrawal', JSON.stringify(withdrawInfo))
+  }
+
+
+
   return (
     <div>
       <div className="row mr-0">
