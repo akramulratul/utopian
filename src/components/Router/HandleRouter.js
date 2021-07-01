@@ -33,6 +33,9 @@ import ForgetPassword from "../Authentication/ForgetPassword";
 import About from "../Home/About/About";
 import Contact from "../Home/Contact/Contact";
 import Services from "../Home/Services/Services";
+import CreateAds from "../Dashboard/Admin/Ads/CreateAds";
+import AllAds from "../Dashboard/Admin/Ads/AllAds";
+import EditAds from "../Dashboard/Admin/Ads/EditAds";
 
 const ProfileDetails = lazy(() => import("../Profile/ProfileDetails"));
 const HandleRouter = () => {
@@ -105,7 +108,7 @@ const HandleRouter = () => {
           <Route path="/earning">
             <Earning />
           </Route>
-          <Route path="/viewadd">
+          <Route path="/viewad/:id">
             <ViewAdd />
           </Route>
           <Route path="/deposit">
@@ -129,6 +132,15 @@ const HandleRouter = () => {
           <Route path="/admin/todays/withdrawal">
             <TodaysWithdraw />
           </Route>
+          <PrivateRoute path="/admin/createAds">
+            <CreateAds />
+          </PrivateRoute>
+          <PrivateRoute path="/admin/allAds">
+            <AllAds />
+          </PrivateRoute>
+          <PrivateRoute path="/admin/editAd/:id">
+            <EditAds />
+          </PrivateRoute>
           <Route path="/Details">
             <WithdrawDetails />
           </Route>

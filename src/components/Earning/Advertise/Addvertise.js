@@ -1,9 +1,8 @@
 import React from "react";
-import AddPic from "../../../image/AdsThumbail/image 4.svg";
-const Addvertise = () => {
+const Addvertise = ({ adDetails }) => {
   return (
-    <div className="float-sm-start">
-      <img src={AddPic} alt="" />
+    <div className="d-flex justify-content-center align-items-center">
+      <img className="w-75" src={adDetails.thumbnailImage} alt="" />
     </div>
   );
 };

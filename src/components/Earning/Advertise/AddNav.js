@@ -1,8 +1,28 @@
 import React from "react";
 import toggleIcon from "../../../image/icons/toggle nav icon.svg";
-import { Link } from "react-router-dom";
+import useCountDown from "react-countdown-hook";
+import { Link, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { watchedAd } from "../../Redux/Actions/adControl";
 
-const AddNav = () => {
+const AddNav = ({ adDetails }) => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const initialTime = adDetails.duration; // initial time in milliseconds, defaults to 60000
+  const interval = 1000;
+  const [timeLeft, { start, pause, resume, reset }] = useCountDown(
+    initialTime,
+    interval
+  );
+  React.useEffect(() => {
+    start();
+  }, []);
+  const closeAdd = (id) => {
+    dispatch(watchedAd(id));
+    setTimeout(() => {
+      history.push("/earning");
+    }, 2000);
+  };
   return (
     <div className="bg-white  px-4 py-3 d-flex justify-content-between">
       <div className="left-content d-flex align-content-between">
@@ -20,21 +40,26 @@ const AddNav = () => {
           <h4>Remaining Time</h4>
         </div>
         <div className="d-flex">
-          <div className="border border-1">
-            <h4>0</h4>
-          </div>
-          <div className="ml-2 mr-2 border border-1">
-            <h4>2</h4>
+          <div className="border px-2 pt-2 mx-2 border-1">
+            <h4>{timeLeft / 1000}</h4>
           </div>
         </div>
         <div className="mr-2">
           <h3>Seconds</h3>
         </div>
-        <Link to="/earning">
-          <div className="btn btn-brand pt-2 ml-lg-5">
+
+        {timeLeft === 0 ? (
+          <button
+            onClick={() => closeAdd(adDetails.id)}
+            className="btn btn-brand pt-2 ml-lg-5"
+          >
             <h6>Close</h6>
-          </div>
-        </Link>
+          </button>
+        ) : (
+          <button className="btn disabled btn-brand pt-2 ml-lg-5">
+            <h6>Close</h6>
+          </button>
+        )}
       </div>
     </div>
   );

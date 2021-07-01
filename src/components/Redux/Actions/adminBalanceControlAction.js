@@ -69,7 +69,9 @@ export const adminDepositeManageAction = (depositData) => async (dispatch) => {
       type: "ADMIN_DEPOSITE_MANAGE_SUCCESS",
       payload: data.data,
     });
-    console.log(data.data);
+    if (data.data) {
+      window.location.reload();
+    }
   } catch (error) {
     dispatch({
       type: "ADMIN_DEPOSITE_MANAGE_FAIL",
