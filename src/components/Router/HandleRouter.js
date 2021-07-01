@@ -13,7 +13,6 @@ import WithdrawOtp from "../Dashboard/Withdraw/WithdrawOtp/WithdrawOtp";
 import Incentive from "../Incentive/DirectIncentive/Incentive";
 import TeamIncentive from "../Incentive/TeamIncentive/TeamIncentive";
 import ProfileUpdate from "../Profile/ProfileUpdate";
-import ChangePassword from "../Profile/ChangePassword";
 import PasswordChange from "../Profile/PasswordChange";
 import AdminWithdrawals from "../Dashboard/Admin/AdminWithdraw/AllWithdrawals/AdminWithdrawals";
 import TodaysWithdraw from "../Dashboard/Admin/AdminWithdraw/TodaysWithdraw/TodaysWithdraw";
@@ -137,7 +136,7 @@ const HandleRouter = () => {
           <PrivateRoute path="/admin/editAd/:id">
             <EditAds />
           </PrivateRoute>
-          
+
           <Route path="/details">
             <WithdrawDetails />
           </Route>

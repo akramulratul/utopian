@@ -1,11 +1,7 @@
 import React, { useState } from "react";
-import { Card, Button, Row, Col } from "react-bootstrap";
-import addOne from "../../image/AdsThumbail/add1.svg";
+import { Card, Button } from "react-bootstrap";
 import "../../styles/_Earning.scss";
-import { Link, useHistory } from "react-router-dom";
-import ViewAdd from "../Earning/ViewAdd";
-import { Route } from "react-router-dom";
-import { watchedAd } from "../Redux/Actions/adControl";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 const AddContent = ({ ad }) => {
