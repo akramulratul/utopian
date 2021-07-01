@@ -26,6 +26,8 @@ const PaymentMethod = () => {
     number: phoneNumber,
   };
 
+  sessionStorage.setItem('withdraw', JSON.stringify(paymentMethod))
+
   const setPementMethod = (method) => {
     console.log(method);
     setMethod(method);

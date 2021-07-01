@@ -135,6 +135,7 @@ export const registerNewUser = (userData) => async (dispatch) => {
     }
 }
 
+
 export const getUserProfile = () => async (dispatch) => {
     const userInfo = JSON.parse(localStorage.getItem('userInfo'))
     const { data: { token } } = userInfo

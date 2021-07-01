@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../../../styles/_Withdraw.scss";
 
 import { Card, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addWithdraw } from "../../../Redux/Actions/withdrawReducer";
 
 const ConfirmWithdrawal = ({ setAmount }) => {
   const changeHandler = (e) => {
     setAmount(e.target.value);
   };
+  const dispatch = useDispatch()
+
+
+
+  const handleSubmit = () => {
+    dispatch(addWithdraw())
+  }
+
+
 
   return (
     <div>
@@ -28,7 +39,7 @@ const ConfirmWithdrawal = ({ setAmount }) => {
                     <Link to="/otp">
                       <Button
                         className="btn-confirmWithdrawal"
-                        variant="success"
+                        variant="success" onClick={handleSubmit}
                       >
                         Confirm Withdraw
                       </Button>{" "}
