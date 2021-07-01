@@ -38,8 +38,12 @@ const DepositLeft = ({ data, setDepositeData, method }) => {
       data.sendFrom &&
       data.transactionId
     ) {
-      dispatch(addDeposit(data));
-      setIntError("");
+      if (data.depositAmount >= 1000) {
+        dispatch(addDeposit(data));
+        setIntError("");
+      } else {
+        setIntError("Deposit Must Be Greater than 999TK");
+      }
     } else {
       setIntError("Please fill up all required Data");
     }

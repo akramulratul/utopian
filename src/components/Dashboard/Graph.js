@@ -38,8 +38,8 @@ const Graph = () => {
             },
           ],
         }}
-        height={430}
-        width={900}
+        height={450}
+        width={780}
         options={{
           maintainAspectRatio: false,
           scales: {

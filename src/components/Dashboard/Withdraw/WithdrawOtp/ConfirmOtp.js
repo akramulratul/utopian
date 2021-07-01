@@ -1,11 +1,9 @@
-import React, { useState } from "react";
-import { Form, Col } from "react-bootstrap";
+import React from "react";
+
 import frame from "../../../../image/Frame.svg";
 import OTPInput, { ResendOTP } from "otp-input-react";
 const ConfirmOtp = ({ setOtp }) => {
-  const evenhandler = (e) => {
-    setOtp(e.target.value);
-  };
+  const evenhandler = (e) => {};
   return (
     <div class="container">
       <div class="row d-flex">
@@ -16,44 +14,6 @@ const ConfirmOtp = ({ setOtp }) => {
           <h4>Confirm OTP</h4>
           <small>Enter OTP we just sent to your phone number.</small>
           <br />
-          {/* <div className="container pl-1 m-1 d-flex justify-content-start">
-            <div className="otpBox p-2">
-              <Form>
-                <Form.Row>
-                  <Col>
-                    <Form.Control placeholder="0" onChange={evenhandler} />
-                  </Col>
-                </Form.Row>
-              </Form>
-            </div>
-            <div className="otpBox p-2">
-              <Form>
-                <Form.Row>
-                  <Col>
-                    <Form.Control placeholder="0" onChange={evenhandler} />
-                  </Col>
-                </Form.Row>
-              </Form>
-            </div>
-            <div className="otpBox p-2">
-              <Form>
-                <Form.Row>
-                  <Col>
-                    <Form.Control placeholder="0" onChange={evenhandler} />
-                  </Col>
-                </Form.Row>
-              </Form>
-            </div>
-            <div className="otpBox p-2">
-              <Form>
-                <Form.Row>
-                  <Col>
-                    <Form.Control placeholder="0" onChange={evenhandler} />
-                  </Col>
-                </Form.Row>
-              </Form>
-            </div>
-          </div> */}
           <div>
             {" "}
             <OTPInput
@@ -67,12 +27,7 @@ const ConfirmOtp = ({ setOtp }) => {
             />
             <ResendOTP onResendClick={() => console.log("Resend clicked")} />
           </div>
-          <div className="d-flex align-item-around">
-            <small className="m-2">Time remaining :1.38sec</small>
-            <button type="button" className="btn btn-link ml-4 pb-5">
-              Resent
-            </button>
-          </div>
+
           <div>
             <button type="button" className="btn btn-primary btn-change">
               Confirm
