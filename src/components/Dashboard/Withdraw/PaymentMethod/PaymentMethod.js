@@ -12,28 +12,27 @@ import SubNav from "../../Shared/SubNav";
 
 const PaymentMethod = () => {
   const [value, setValue] = useState("");
-  const [method, setMethod] = useState("")
-  const [phoneNumber, setPhoneNumber] = useState("")
+  const [method, setMethod] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const changeHandler = (value) => {
     if (value.value === "BD") {
       setValue(value.label);
     } else {
       setValue("");
     }
-
   };
   const paymentMethod = {
     method: method,
-    number: phoneNumber
-  }
+    number: phoneNumber,
+  };
 
   const setPementMethod = (method) => {
     console.log(method);
-    setMethod(method)
-  }
+    setMethod(method);
+  };
   const setNumber = (number) => {
     setPhoneNumber(number);
-  }
+  };
 
   console.log(paymentMethod);
   return (
@@ -45,7 +44,7 @@ const PaymentMethod = () => {
         <div>
           <DashboardNav />
           <WithdrawNow />
-          <div className="bg-white container ml-3 mr-3 mt-3">
+          <div className="bg-white ml-3 mr-3 mt-3">
             {" "}
             {/* <NavPayment /> */}
             <SubNav
@@ -67,19 +66,22 @@ const PaymentMethod = () => {
 
               <div className="col-lg-6 col-12 ">
                 {value !== "" ? (
-                  <WithdrawGateway setPementMethod={setPementMethod} setNumber={setNumber} />
+                  <WithdrawGateway
+                    setPementMethod={setPementMethod}
+                    setNumber={setNumber}
+                  />
                 ) : (
-                    <div className="border-left">
-                      <img
-                        className="rounded mx-auto d-block"
-                        src={security}
-                        alt=""
-                      />
-                      <h3 className="text-center">
-                        Payment method will be available after selecting country
+                  <div className="border-left">
+                    <img
+                      className="rounded mx-auto d-block"
+                      src={security}
+                      alt=""
+                    />
+                    <h3 className="text-center">
+                      Payment method will be available after selecting country
                     </h3>
-                    </div>
-                  )}
+                  </div>
+                )}
               </div>
             </div>
           </div>

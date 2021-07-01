@@ -3,9 +3,9 @@ import React from "react";
 const DepositBanking = () => {
   return (
     <div>
-      <h3>Deposit Details</h3>
-      <p>Send money from the given number</p>
-      <h4>Number List From APIIIII</h4>
+      <h3>Deposit details</h3>
+      <p>bKash Personal</p>
+      <h4>01303194150</h4>
     </div>
   );
 };

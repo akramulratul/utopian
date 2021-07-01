@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 const Sidebar = () => {
   return (
     <div className="sidebar">
-      <div className="profile-info py-5  d-flex justify-content-center flex-column align-items-center">
+      <div className="admin-info py-5  d-flex justify-content-center flex-column align-items-center">
         <div className="profile-image pb-3">
           <img src={avater} alt="" />
         </div>
@@ -146,6 +146,29 @@ const Sidebar = () => {
               <Link to="/admin/createAds">
                 <h6>Create Ads</h6>
               </Link>
+            </div>
+            <div className="pl-3 ml-2">
+              <img src={downArrow} alt="" />
+            </div>
+          </div>
+        </div>
+        <div className="down-menu pl-4">
+          <div className="d-flex py-3">
+            <div className="px-5">
+              <img src={rightArrow} alt="" />
+            </div>
+            <div>
+              <h6>Ads List</h6>
+            </div>
+          </div>
+        </div>
+        <div className="down-menu pl-4">
+          <div className="d-flex py-3">
+            <div className="px-5">
+              <img src={rightArrow} alt="" />
+            </div>
+            <div>
+              <h6>Create New Ads</h6>
             </div>
           </div>
         </div>
