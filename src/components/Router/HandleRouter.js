@@ -72,62 +72,62 @@ const HandleRouter = () => {
           <Route path="/forgot-password">
             <ForgetPassword />
           </Route>
-          <Route path="/withdraw">
+          <PrivateRoute path="/withdraw">
             <Withdraw />
-          </Route>
-          <Route path="/payment-method">
+          </PrivateRoute>
+          <PrivateRoute path="/payment-method">
             <PaymentMethod />
-          </Route>
-          <Route path="/withdrawal">
+          </PrivateRoute>
+          <PrivateRoute path="/withdrawal">
             <Withdrawal />
-          </Route>
-          <Route path="/otp">
+          </PrivateRoute>
+          <PrivateRoute path="/otp">
             <WithdrawOtp />
-          </Route>
-          <Route path="/incentive">
+          </PrivateRoute>
+          <PrivateRoute path="/incentive">
             <Incentive />
-          </Route>
-          <Route path="/dashboard/user/profile/details">
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/user/profile/details">
             <Suspense fallback={<p>Loading...</p>}>
               <ProfileDetails />
             </Suspense>
-          </Route>
-          <Route path="/dashboard/user/profile/update-profile">
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/user/profile/update-profile">
             <ProfileUpdate />
-          </Route>
-          <Route path="/dashboard/user/profile/change-password">
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/user/profile/change-password">
             <PasswordChange />
-          </Route>
-          <Route path="/teamincentive">
+          </PrivateRoute>
+          <PrivateRoute path="/teamincentive">
             <TeamIncentive />
-          </Route>
-          <Route path="/earning">
+          </PrivateRoute>
+          <PrivateRoute path="/earning">
             <Earning />
-          </Route>
-          <Route path="/viewad/:id">
+          </PrivateRoute>
+          <PrivateRoute path="/viewad/:id">
             <ViewAdd />
-          </Route>
-          <Route path="/deposit">
+          </PrivateRoute>
+          <PrivateRoute path="/deposit">
             <Deposit />
-          </Route>
-          <Route path="/depositnow">
+          </PrivateRoute>
+          <PrivateRoute path="/depositnow">
             <DepositNow />
-          </Route>
-          <Route path="/admin/deposit">
+          </PrivateRoute>
+          <PrivateRoute path="/admin/deposit">
             <AdminDeposit />
-          </Route>
-          <Route path="/today/deposit">
+          </PrivateRoute>
+          <PrivateRoute path="/today/deposit">
             <TodayDeposit />
-          </Route>
+          </PrivateRoute>
           <PrivateRoute path="/admin/details">
             <DepositDetails />
           </PrivateRoute>
-          <Route path="/admin/withdrawal">
+          <PrivateRoute path="/admin/withdrawal">
             <AdminWithdrawals />
-          </Route>
-          <Route path="/admin/todays/withdrawal">
+          </PrivateRoute>
+          <PrivateRoute path="/admin/todays/withdrawal">
             <TodaysWithdraw />
-          </Route>
+          </PrivateRoute>
           <PrivateRoute path="/admin/createAds">
             <CreateAds />
           </PrivateRoute>
@@ -141,9 +141,9 @@ const HandleRouter = () => {
             <Register />
           </Route>
 
-          <Route path="/details">
+          <PrivateRoute path="/admin/withdrawDetails">
             <WithdrawDetails />
-          </Route>
+          </PrivateRoute>
         </Switch>
       </Router>
     </>
