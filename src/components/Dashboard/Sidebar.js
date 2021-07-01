@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import avater from "../../image/avatar.png";
+import avater from "../../image/bp.png";
 import dashIcon from "../../image/icons/dash.svg";
 import profileIcon from "../../image/icons/profile.svg";
 import depositeIcon from "../../image/icons/depo.svg";

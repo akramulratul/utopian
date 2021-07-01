@@ -21,6 +21,7 @@ import {
   userGetAllAdsReducer,
   watchedAddReducer,
 } from "./Reducers/adControllReducer";
+import { withdrawHistoryReducer, withdrawReducer } from "./Reducers/withdrawReducer";
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
@@ -37,6 +38,8 @@ const reducer = combineReducers({
   editAd: editAdReducer,
   userGetAds: userGetAllAdsReducer,
   watchedAd: watchedAddReducer,
+  withdrawInfo: withdrawReducer,
+  withdrawHistory: withdrawHistoryReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

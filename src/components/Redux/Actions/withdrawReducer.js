@@ -1,15 +1,22 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-export const addDeposit = (addDepositeData) => async (dispatch) => {
+export const addWithdraw = () => async (dispatch) => {
+  const withdraw = JSON.parse(sessionStorage.getItem("Withdrawal"));
+  const withdrawInfo = {
+    amount: parseInt(withdraw.Amount),
+    contactNo: withdraw.number,
+    withdrawMethod: withdraw.method,
+  };
+  console.log(withdrawInfo);
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const {
     data: { token },
   } = userInfo;
-  console.log(addDepositeData);
+
   try {
     dispatch({
-      type: "ADD_DEPOSITE_REQUEST",
+      type: "ADD_WITHDRAW_REQUEST",
       payload: {},
     });
 
@@ -22,15 +29,16 @@ export const addDeposit = (addDepositeData) => async (dispatch) => {
 
     axios
       .post(
-        "http://api.utopiansglobal.com/user/balance/deposits",
-        addDepositeData,
+        "http://api.utopiansglobal.com/user/balance/withdraws",
+        withdrawInfo,
         config
       )
       .then((response) => {
         dispatch({
-          type: "ADD_DEPOSITE_SUCCESS",
+          type: "ADD_WITHDRAW_SUCCESS",
           payload: response.data,
         });
+        console.log(response);
         if (response.data.statusCode !== 201) {
           toast.error(`${response.data.message}`, {
             position: "top-right",
@@ -56,7 +64,7 @@ export const addDeposit = (addDepositeData) => async (dispatch) => {
       });
   } catch (error) {
     dispatch({
-      type: "ADD_DEPOSITE_FAIL",
+      type: "ADD_WITHDRAW_FAIL",
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
@@ -65,7 +73,7 @@ export const addDeposit = (addDepositeData) => async (dispatch) => {
   }
 };
 
-export const getDepositeHistory = () => async (dispatch) => {
+export const getWithdrawHistory = () => async (dispatch) => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const {
     data: { token },
@@ -73,7 +81,7 @@ export const getDepositeHistory = () => async (dispatch) => {
 
   try {
     dispatch({
-      type: "DEPOSITE_HISTORY_REQUEST",
+      type: "WITHDRAW_HISTORY_REQUEST",
       payload: {},
     });
 
@@ -85,16 +93,16 @@ export const getDepositeHistory = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/user/balance/deposits",
+      "http://api.utopiansglobal.com/user/balance/withdraws",
       config
     );
     dispatch({
-      type: "DEPOSITE_HISTORY_SUCCESS",
+      type: "WITHDRAW_HISTORY_SUCCESS",
       payload: data.data,
     });
   } catch (error) {
     dispatch({
-      type: "DEPOSITE_HISTORY_FAIL",
+      type: "WITHDRAW_HISTORY_FAIL",
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

@@ -20,7 +20,7 @@ export const getAdminDepositeHistory = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "https://utopain-backend.herokuapp.com/admin/balance/deposits",
+      "http://api.utopiansglobal.com/admin/balance/deposits",
       config
     );
     dispatch({
@@ -61,7 +61,7 @@ export const adminDepositeManageAction = (depositData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `https://utopain-backend.herokuapp.com/admin/balance/deposits/${depositData.id}/manage`,
+      `http://api.utopiansglobal.com/admin/balance/deposits/${depositData.id}/manage`,
       statusData,
       config
     );
