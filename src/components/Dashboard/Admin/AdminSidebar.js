@@ -56,7 +56,9 @@ const Sidebar = () => {
               <img src={users} alt="" />
             </div>
             <div>
-              <h6>All Users</h6>
+              <h6>
+                <Link to="/admin/allusers">All Users</Link>
+              </h6>
             </div>
           </div>
         </div>
@@ -185,7 +187,18 @@ const Sidebar = () => {
             </div>
           </div>
         </div>
-
+        <div className="dashboard-menu">
+          <div className="d-flex py-3">
+            <div className="px-5">
+              <img src={support} alt="" />
+            </div>
+            <div>
+              <Link to="/admin/incentive">
+                <h6>Incentive</h6>
+              </Link>
+            </div>
+          </div>
+        </div>
         <div className="dashboard-menu">
           <div className="d-flex py-3">
             <div className="px-5">
