@@ -12,7 +12,7 @@ export const login = (userName, password) => async (dispatch) => {
       username: userName,
     };
 
-    fetch("http://api.utopiansglobal.com/auth/signIn", {
+    fetch("https://utopain-backend.herokuapp.com/auth/signIn", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -79,7 +79,7 @@ export const registerNewUser = (userData) => async (dispatch) => {
       type: "USER_REGISTRATION_REQUEST",
     });
 
-    fetch("http://api.utopiansglobal.com/auth/signUp", {
+    fetch("https://utopain-backend.herokuapp.com/auth/signUp", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -148,7 +148,7 @@ export const getUserProfile = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/auth/profile",
+      "https://utopain-backend.herokuapp.com/auth/profile",
       config
     );
     dispatch({
@@ -158,6 +158,45 @@ export const getUserProfile = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: "USER_PROFILEDETAILS_FAIL",
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const userProfileUpdate = (userData) => async (dispatch) => {
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const {
+    data: { token },
+  } = userInfo;
+  console.log(token);
+  try {
+    dispatch({
+      type: "USER_PROFILE_UPDATE_REQUEST",
+      payload: {},
+    });
+
+    const config = {
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    };
+
+    const { data } = await axios.put(
+      "https://utopain-backend.herokuapp.com/auth/profile",
+      userData,
+      config
+    );
+    dispatch({
+      type: "USER_PROFILE_UPDATE_SUCCESS",
+      payload: data.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: "USER_PROFILE_UPDATE_FAIL",
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

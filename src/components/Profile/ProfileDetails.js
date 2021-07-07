@@ -63,10 +63,7 @@ const ProfileDetails = () => {
                         title="Current Level"
                         data={userInfo.userLevel}
                       />
-                      <TableRow
-                        title="About"
-                        data="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-                      />
+                      <TableRow title="About" data={userInfo.thana} />
                       <TableRow title="Address" data={userInfo.address} />
                       <TableRow title="City" data={userInfo.district} />
                       <TableRow title="Country" data="Bangladesh" />

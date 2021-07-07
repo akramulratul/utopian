@@ -5,6 +5,7 @@ import {
   userLoginReducer,
   userRegisterReducer,
   getUserProfileReducer,
+  updateProfileReducer,
 } from "./Reducers/userReducer";
 import {
   addDepositeReducer,
@@ -21,7 +22,10 @@ import {
   userGetAllAdsReducer,
   watchedAddReducer,
 } from "./Reducers/adControllReducer";
-import { withdrawHistoryReducer, withdrawReducer } from "./Reducers/withdrawReducer";
+import {
+  withdrawHistoryReducer,
+  withdrawReducer,
+} from "./Reducers/withdrawReducer";
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
@@ -40,6 +44,7 @@ const reducer = combineReducers({
   watchedAd: watchedAddReducer,
   withdrawInfo: withdrawReducer,
   withdrawHistory: withdrawHistoryReducer,
+  updateProfile: updateProfileReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

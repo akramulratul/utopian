@@ -24,7 +24,7 @@ const ForgetPassword = () => {
         phoneNumber: phoneNumber,
       };
       console.log(forgetData);
-      // fetch('http://api.utopiansglobal.com/auth/signIn', {
+      // fetch('https://utopain-backend.herokuapp.com/auth/signIn', {
       //     method: 'POST',
       //     headers: {
       //         'content-type': 'application/json'

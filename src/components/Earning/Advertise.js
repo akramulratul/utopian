@@ -26,9 +26,7 @@ const Advertise = () => {
         <h5>Loading Ads...</h5>
       ) : (
         <div className="bg-white row">
-          {allAds.map((ad) => (
-            <AddContent ad={ad} />
-          ))}
+          {allAds && allAds.map((ad) => <AddContent ad={ad} />)}
         </div>
       )}
     </>
