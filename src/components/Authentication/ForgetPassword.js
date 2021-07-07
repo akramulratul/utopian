@@ -1,12 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Login.scss";
 import IMG1 from "../../image/IMG.png";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "../Redux/Actions/userAction";
 import PhoneInput from "react-phone-number-input";
 
 const ForgetPassword = () => {
@@ -24,45 +22,6 @@ const ForgetPassword = () => {
         phoneNumber: phoneNumber,
       };
       console.log(forgetData);
-      // fetch('http://api.utopiansglobal.com/auth/signIn', {
-      //     method: 'POST',
-      //     headers: {
-      //         'content-type': 'application/json'
-      //     },
-      //     body: JSON.stringify(resetData)
-      // })
-      //     .then(res => res.json())
-      //     .then(data => {
-
-      //         if (data.statusCode !== 200) {
-      //             toast.error(`${data.message}`, {
-      //                 position: "top-right",
-      //                 autoClose: 2000,
-      //                 hideProgressBar: false,
-      //                 closeOnClick: true,
-      //                 pauseOnHover: true,
-      //                 draggable: true,
-      //                 progress: undefined,
-      //             });
-      //         } else {
-      //             toast.success(`${data.message}`, {
-      //                 position: "top-right",
-      //                 autoClose: 2000,
-      //                 hideProgressBar: false,
-      //                 closeOnClick: true,
-      //                 pauseOnHover: true,
-      //                 draggable: true,
-      //                 progress: undefined,
-      //             });
-      //         }
-      //         // });
-      //         console.log(data);
-
-      //         // if (data.statusCode === 200) {
-      //         //     localStorage.setItem('userInfo', JSON.stringify(data))
-      //         // }
-      //     })
-      // e.preventDefault();
     } else {
       toast.error("please add all the fields", {
         position: "top-right",
@@ -100,12 +59,6 @@ const ForgetPassword = () => {
                     name="phone"
                   />
                 </div>
-                {/* <div className="checkbox-forget">
-
-                                    <div>
-                                        <Link className="forget-password" to="/login">Login</Link>
-                                    </div>
-                                </div> */}
                 <button type="submit" name="submit" className="button login">
                   Forget Password
                 </button>

@@ -10,10 +10,7 @@ const AddNav = ({ adDetails }) => {
   const dispatch = useDispatch();
   const initialTime = adDetails.duration; // initial time in milliseconds, defaults to 60000
   const interval = 1000;
-  const [timeLeft, { start, pause, resume, reset }] = useCountDown(
-    initialTime,
-    interval
-  );
+  const [timeLeft, { start }] = useCountDown(initialTime, interval);
   React.useEffect(() => {
     start();
   }, []);

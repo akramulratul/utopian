@@ -29,7 +29,7 @@ export const addWithdraw = () => async (dispatch) => {
 
     axios
       .post(
-        "http://api.utopiansglobal.com/user/balance/withdraws",
+        "https://utopain-backend.herokuapp.com/user/balance/withdraws",
         withdrawInfo,
         config
       )
@@ -93,7 +93,7 @@ export const getWithdrawHistory = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/user/balance/withdraws",
+      "https://utopain-backend.herokuapp.com/user/balance/withdraws",
       config
     );
     dispatch({

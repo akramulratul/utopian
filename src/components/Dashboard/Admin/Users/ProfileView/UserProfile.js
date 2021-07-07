@@ -1,19 +1,13 @@
-import React, { useEffect } from "react";
-import Sidebar from "../Dashboard/Sidebar";
-import DashboardNav from "../Dashboard/DashboardNav";
-import axios from "axios";
-import SubNav from "../Dashboard/Shared/SubNav";
-import ProfileCard from "./ProfileCard";
-
-const Profile = () => {
-  useEffect(() => {
-    axios.get("");
-  }, []);
+import React from "react";
+import AdminSidebar from "../../AdminSidebar";
+import DashboardNav from "../../../DashboardNav";
+import UserSubnav from "../ProfileView/UserSubnav";
+const UserProfile = () => {
   return (
     <div className="profile-container">
       <div className="row m-0 p-0">
         <div className="col-lg-3 m-0 p-0">
-          <Sidebar />
+          <AdminSidebar />
         </div>
         <div className="content-holder col-lg-9 m-0 p-0">
           <div className="dash-nav">
@@ -23,27 +17,21 @@ const Profile = () => {
             <div className="col-lg-8 m-0 p-0 p-lg-3">
               <div className="profile-content">
                 <div className="profile-nav">
-                  <SubNav
+                  <UserSubnav
                     firstOption={{
-                      link: "/dashboard/user/profile/details",
+                      link: "/admin/users/profile/details",
                       title: "Profile",
                     }}
                     secondOption={{
-                      link: "/dashboard/user/profile/update-profile",
+                      link: "/admin/users/profile/update-profile",
                       title: "Update Profile",
-                    }}
-                    thirdOption={{
-                      link: "/dashboard/user/profile/change-password",
-                      title: "Change Password",
                     }}
                   />
                 </div>
                 <div className="profile-content-detail rounded"></div>
               </div>
             </div>
-            <div className="col-lg-4 p-lg-3">
-              <ProfileCard />
-            </div>
+            <div className="col-lg-4 p-lg-3"></div>
           </div>
         </div>
       </div>
@@ -51,4 +39,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default UserProfile;

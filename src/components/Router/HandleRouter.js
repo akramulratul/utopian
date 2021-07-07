@@ -13,7 +13,6 @@ import WithdrawOtp from "../Dashboard/Withdraw/WithdrawOtp/WithdrawOtp";
 import Incentive from "../Incentive/DirectIncentive/Incentive";
 import TeamIncentive from "../Incentive/TeamIncentive/TeamIncentive";
 import ProfileUpdate from "../Profile/ProfileUpdate";
-import ChangePassword from "../Profile/ChangePassword";
 import PasswordChange from "../Profile/PasswordChange";
 import AdminWithdrawals from "../Dashboard/Admin/AdminWithdraw/AllWithdrawals/AdminWithdrawals";
 import TodaysWithdraw from "../Dashboard/Admin/AdminWithdraw/TodaysWithdraw/TodaysWithdraw";
@@ -35,6 +34,9 @@ import Services from "../Home/Services/Services";
 import CreateAds from "../Dashboard/Admin/Ads/CreateAds";
 import AllAds from "../Dashboard/Admin/Ads/AllAds";
 import EditAds from "../Dashboard/Admin/Ads/EditAds";
+import AdminIncentive from "../Dashboard/Admin/AdminIncentive/AdminIncentive";
+import Users from "../Dashboard/Admin/Users/Users";
+import UserProfile from "../Dashboard/Admin/Users/ProfileView/UserProfile";
 
 const ProfileDetails = lazy(() => import("../Profile/ProfileDetails"));
 const HandleRouter = () => {
@@ -143,6 +145,15 @@ const HandleRouter = () => {
 
           <PrivateRoute path="/admin/withdrawDetails">
             <WithdrawDetails />
+          </PrivateRoute>
+          <PrivateRoute path="/admin/allusers">
+            <Users />
+          </PrivateRoute>
+          <PrivateRoute path="/admin/userprofile">
+            <UserProfile />
+          </PrivateRoute>
+          <PrivateRoute path="/admin/incentive">
+            <AdminIncentive />
           </PrivateRoute>
         </Switch>
       </Router>
