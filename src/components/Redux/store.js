@@ -11,8 +11,12 @@ import {
   addDepositeReducer,
   depositHistoryReducer,
 } from "./Reducers/depositeReducer";
-import { adminDepositHistoryReducer } from "./Reducers/adminBalanceControlReducer";
-import { adminDepositeManageAction } from "./Actions/adminBalanceControlAction";
+import {
+  adminDepositHistoryReducer,
+  adminWithdrawHistoryReducer,
+  adminDepositManageReducer,
+  adminWithdrawManageReducer,
+} from "./Reducers/adminBalanceControlReducer";
 import {
   createAdreducer,
   deleteAdReducer,
@@ -23,6 +27,7 @@ import {
   watchedAddReducer,
 } from "./Reducers/adControllReducer";
 import {
+  sendWithdrawOtp,
   withdrawHistoryReducer,
   withdrawReducer,
 } from "./Reducers/withdrawReducer";
@@ -34,7 +39,9 @@ const reducer = combineReducers({
   addDeposite: addDepositeReducer,
   depositHistory: depositHistoryReducer,
   adminDeposit: adminDepositHistoryReducer,
-  depositManage: adminDepositeManageAction,
+  adminWithdraw: adminWithdrawHistoryReducer,
+  depositManage: adminDepositManageReducer,
+  wihdrawManage: adminWithdrawManageReducer,
   createAd: createAdreducer,
   getAds: getAdsReducer,
   deleteAd: deleteAdReducer,
@@ -45,6 +52,7 @@ const reducer = combineReducers({
   withdrawInfo: withdrawReducer,
   withdrawHistory: withdrawHistoryReducer,
   updateProfile: updateProfileReducer,
+  sendOtp: sendWithdrawOtp,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

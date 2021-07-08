@@ -15,9 +15,7 @@ const Deposit = () => {
           <div>
             <DashboardNav />
           </div>
-          <div>
-            <AdminWithdrawTop />
-          </div>
+          <div>{/* <AdminWithdrawTop /> */}</div>
           <div>
             <AdminWithdrawHistory />
           </div>

@@ -65,7 +65,11 @@ const DepositHistory = () => {
                     <td>{deposite.transactionId}</td>
                     <td>{deposite.status}</td>
                     <td>৳{deposite.depositAmount}</td>
-                    <td>10m ago</td>
+                    <td>
+                      {new Date(deposite.createdOn).getDate()} /
+                      {new Date(deposite.createdOn).getMonth()} /
+                      {new Date(deposite.createdOn).getFullYear()}
+                    </td>
                   </tr>
                 );
               })}

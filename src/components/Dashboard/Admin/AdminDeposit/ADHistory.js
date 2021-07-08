@@ -11,7 +11,6 @@ import {
 } from "../../../Redux/Actions/adminBalanceControlAction";
 
 const ADHistory = () => {
-  const [withdrawData, setWithdrawData] = useState([]);
   const [isloading, setIsloading] = useState(true);
   const dispatch = useDispatch();
   const adminDeposit = useSelector((state) => state.adminDeposit);

@@ -43,3 +43,49 @@ export const adminDepositManageReducer = (state = {}, action) => {
       return state;
   }
 };
+
+export const adminWithdrawHistoryReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "ADMIN_WITHDRAW_HISTORY_REQUEST":
+      return {
+        loading: true,
+        withdrawInfo: action.payload,
+      };
+    case "ADMIN_WITHDRAW_HISTORY_SUCCESS":
+      return {
+        loading: false,
+        withdrawInfo: action.payload,
+      };
+    case "ADMIN_WITHDRAW_HISTORY_FAIL":
+      return {
+        loading: false,
+        error: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};
+
+export const adminWithdrawManageReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "ADMIN_WITHDRAW_MANAGE_REQUEST":
+      return {
+        loading: true,
+        withdrawStatus: action.payload,
+      };
+    case "ADMIN_WITHDRAW_MANAGE_SUCCESS":
+      return {
+        loading: false,
+        withdrawStatus: action.payload,
+      };
+    case "ADMIN_WITHDRAW_MANAGE_FAIL":
+      return {
+        loading: false,
+        error: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};

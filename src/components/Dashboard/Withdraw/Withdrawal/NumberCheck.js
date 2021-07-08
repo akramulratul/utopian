@@ -8,15 +8,19 @@ const NumberCheck = (props) => {
   const buttonClicked = () => {
     SetIsClicked(!isClicked);
   };
+  const withdrawinfo = JSON.parse(sessionStorage.getItem("Withdrawal"));
+
   return (
     <div className=" d-flex justify-content-between rounded mt-3 ml-4 mr-4 border">
       <div className="left-content d-flex align-items-center">
-        Payment Method:Bkash
+        {withdrawinfo && <p>Payment Method: {withdrawinfo.method || ""}</p>}
       </div>
       <div className="right-content d-flex  align-items-center  border-left">
         <div className="px-3 ">
-          <small>Bkash Number</small>
-          <h4>01780192178</h4>
+          <small>
+            {withdrawinfo && <span>{withdrawinfo.method || ""}</span>} Number
+          </small>
+          {withdrawinfo && <h4>{withdrawinfo.number || ""}</h4>}
         </div>
         <div className="align-items-end">
           <Link to="/payment-method">

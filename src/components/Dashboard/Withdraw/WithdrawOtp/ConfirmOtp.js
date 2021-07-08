@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 
 import frame from "../../../../image/Frame.svg";
 import OTPInput, { ResendOTP } from "otp-input-react";
-const ConfirmOtp = ({ setOtp }) => {
-  const evenhandler = (e) => {};
+import { useDispatch } from "react-redux";
+import { addWithdraw, sendOtp } from "../../../Redux/Actions/withdrawAction";
+import { ToastContainer } from "react-toastify";
+const ConfirmOtp = () => {
+  const [otp, setOtp] = useState();
+  const dispatch = useDispatch();
+
+  const confirmClicked = () => {
+    const withdrawInfo = JSON.parse(sessionStorage.getItem("Withdrawal"));
+    const newWithdrawInfo = {
+      withdrawMethod: withdrawInfo.method,
+      amount: parseInt(withdrawInfo.Amount),
+      contactNo: withdrawInfo.number,
+      otp: otp,
+    };
+    dispatch(addWithdraw(newWithdrawInfo));
+  };
+
+  const evenhandler = (e) => {
+    setOtp(e);
+  };
   return (
     <div class="container">
       <div class="row d-flex">
@@ -17,24 +36,32 @@ const ConfirmOtp = ({ setOtp }) => {
           <div>
             {" "}
             <OTPInput
-              value={evenhandler}
-              onChange={evenhandler}
+              value={otp}
+              onChange={(e) => evenhandler(e)}
               autoFocus
-              OTPLength={4}
+              OTPLength={6}
               otpType="number"
               disabled={false}
               secure
             />
-            <ResendOTP onResendClick={() => console.log("Resend clicked")} />
+            <ResendOTP
+              className="btn-brand py-2 my-2"
+              onResendClick={() => dispatch(sendOtp())}
+            />
           </div>
 
           <div>
-            <button type="button" className="btn btn-primary btn-change">
+            <button
+              type="button"
+              onClick={confirmClicked}
+              className="btn btn-primary btn-change"
+            >
               Confirm
             </button>
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
