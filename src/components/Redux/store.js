@@ -5,6 +5,7 @@ import {
   userLoginReducer,
   userRegisterReducer,
   getUserProfileReducer,
+  passwordChangeReducer,
 } from "./Reducers/userReducer";
 import {
   addDepositeReducer,
@@ -22,6 +23,8 @@ import {
   watchedAddReducer,
 } from "./Reducers/adControllReducer";
 import { withdrawHistoryReducer, withdrawReducer } from "./Reducers/withdrawReducer";
+import { incentiveHistoryReducer } from "./Reducers/incentiveReducer";
+import { adminDashboardReducer } from "./Reducers/adminDashboardReducer";
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
@@ -40,6 +43,9 @@ const reducer = combineReducers({
   watchedAd: watchedAddReducer,
   withdrawInfo: withdrawReducer,
   withdrawHistory: withdrawHistoryReducer,
+  passChange: passwordChangeReducer,
+  incentiveHistory: incentiveHistoryReducer,
+  adminDashboardData: adminDashboardReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

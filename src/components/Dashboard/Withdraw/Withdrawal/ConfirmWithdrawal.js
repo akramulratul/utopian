@@ -4,7 +4,7 @@ import "../../../../styles/_Withdraw.scss";
 import { Card, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addWithdraw } from "../../../Redux/Actions/withdrawReducer";
+import { addWithdraw } from "../../../Redux/Actions/withdrawAction";
 
 const ConfirmWithdrawal = ({ setAmount }) => {
   const changeHandler = (e) => {

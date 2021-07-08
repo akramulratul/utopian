@@ -60,3 +60,24 @@ export const getUserProfileReducer = (state = {}, action) => {
 
 
 }
+export const passwordChangeReducer = (state = {}, action) => {
+    switch (action.type) {
+        case "USER_PASSWORDCHANGE_REQUEST":
+            return {
+                loading: true, response: action.payload
+            }
+        case "USER_PASSWORDCHANGE_SUCCESS":
+            return {
+                loading: false, response: action.payload
+
+            }
+        case "USER_PASSWORDCHANGE_FAIL":
+            return {
+                loading: false, error: action.payload
+            }
+        default:
+            return state;
+    }
+
+
+}

@@ -137,8 +137,8 @@ const HandleRouter = () => {
           <PrivateRoute path="/admin/editAd/:id">
             <EditAds />
           </PrivateRoute>
-          
-          <Route path="/details">
+
+          <Route path="/admin/depositdetails/:id">
             <WithdrawDetails />
           </Route>
         </Switch>
