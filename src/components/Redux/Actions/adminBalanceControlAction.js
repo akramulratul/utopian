@@ -65,6 +65,7 @@ export const adminDepositeManageAction = (depositData) => async (dispatch) => {
       statusData,
       config
     );
+    console.log(data);
     dispatch({
       type: "ADMIN_DEPOSITE_MANAGE_SUCCESS",
       payload: data.data,

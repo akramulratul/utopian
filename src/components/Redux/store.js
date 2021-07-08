@@ -5,6 +5,7 @@ import {
   userLoginReducer,
   userRegisterReducer,
   getUserProfileReducer,
+  passwordChangeReducer,
   updateProfileReducer,
 } from "./Reducers/userReducer";
 import {
@@ -26,11 +27,16 @@ import {
   userGetAllAdsReducer,
   watchedAddReducer,
 } from "./Reducers/adControllReducer";
+
+import { incentiveHistoryReducer } from "./Reducers/incentiveReducer";
+import { adminDashboardReducer } from "./Reducers/adminDashboardReducer";
+
 import {
   sendWithdrawOtp,
   withdrawHistoryReducer,
   withdrawReducer,
 } from "./Reducers/withdrawReducer";
+
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
@@ -51,6 +57,9 @@ const reducer = combineReducers({
   watchedAd: watchedAddReducer,
   withdrawInfo: withdrawReducer,
   withdrawHistory: withdrawHistoryReducer,
+  passChange: passwordChangeReducer,
+  incentiveHistory: incentiveHistoryReducer,
+  adminDashboardData: adminDashboardReducer,
   updateProfile: updateProfileReducer,
   sendOtp: sendWithdrawOtp,
 });
