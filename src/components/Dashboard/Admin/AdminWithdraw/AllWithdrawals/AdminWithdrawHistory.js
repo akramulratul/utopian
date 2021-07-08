@@ -69,6 +69,14 @@ const AdminWithdrawHistory = () => {
               </th>
               <th scope="col">
                 <div className="d-flex">
+                  Payment{" "}
+                  <div>
+                    <img src={updownIcon} alt="" />
+                  </div>
+                </div>
+              </th>
+              <th scope="col">
+                <div className="d-flex">
                   Status{" "}
                   <div>
                     <img src={updownIcon} alt="" />
@@ -102,6 +110,7 @@ const AdminWithdrawHistory = () => {
                       {info.contactNo} ( {info.withdrawMethod} )
                     </td>
                     <td>{info.amount} TK</td>
+                    <td>{info.amount - info.amount * 0.05} TK</td>
                     <td>{info.status}</td>
                     <td>
                       {new Date(info.createdOn).getDate()}/
