@@ -9,9 +9,9 @@ import { useDispatch } from "react-redux";
 import { userProfileUpdate } from "../Redux/Actions/userAction";
 
 const UpdateProfile = ({ userInfo }) => {
-  const [country, setCountry] = useState([]);
+  const [country, setCountry] = useState("");
   const dispatch = useDispatch();
-  const [region, setRegion] = useState([]);
+  const [region, setRegion] = useState("");
   const {
     register,
     handleSubmit,
@@ -117,6 +117,7 @@ const UpdateProfile = ({ userInfo }) => {
               className="form-control"
               country={country}
               value={region}
+              defaultValue={userInfo.district}
               onChange={(val) => setRegion(val)}
             />
           </div>

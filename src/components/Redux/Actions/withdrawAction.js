@@ -28,7 +28,7 @@ export const addWithdraw = (newWithdrawInfo) => async (dispatch) => {
           payload: data,
         });
 
-        if (data.status !== 201) {
+        if (data.statusCode !== 201) {
           toast.error(`${data.message}`, {
             position: "top-right",
             autoClose: 2000,

@@ -171,7 +171,6 @@ export const userProfileUpdate = (userData) => async (dispatch) => {
   const {
     data: { token },
   } = userInfo;
-  console.log(token);
   try {
     dispatch({
       type: "USER_PROFILE_UPDATE_REQUEST",
@@ -185,15 +184,21 @@ export const userProfileUpdate = (userData) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.put(
-      "https://utopain-backend.herokuapp.com/auth/profile",
-      userData,
-      config
-    );
-    dispatch({
-      type: "USER_PROFILE_UPDATE_SUCCESS",
-      payload: data.data,
-    });
+    fetch("https://utopain-backend.herokuapp.com/auth/profile", {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch({
+          type: "USER_PROFILE_UPDATE_SUCCESS",
+          payload: data,
+        });
+      });
   } catch (error) {
     dispatch({
       type: "USER_PROFILE_UPDATE_FAIL",

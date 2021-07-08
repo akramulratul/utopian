@@ -25,9 +25,6 @@ const Withdraw = () => {
           <WithdrawNow />
           <WithdrawHistory />
         </div>
-        {/* <div className="col-lg-9 p-0">
-          <div></div>
-        </div> */}
       </div>
     </div>
   );

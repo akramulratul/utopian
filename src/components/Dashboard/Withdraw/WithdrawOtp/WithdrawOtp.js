@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import DashboardNav from "../../DashboardNav";
 import SubNav from "../../Shared/SubNav";
 import Sidebar from "../../Sidebar";
-import NavPayment from "../PaymentMethod/NavPayment";
 import WithdrawNow from "../WithdrawNow";
 import ConfirmOtp from "./ConfirmOtp";
 

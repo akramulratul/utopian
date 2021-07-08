@@ -267,15 +267,6 @@ export const watchedAd = (id) => async (dispatch, getState) => {
       },
     };
 
-    // const { data } = await axios.post(
-    //   `https://utopain-backend.herokuapp.com/users/ads/watch/${id}`,
-    //   config
-    // );
-    // dispatch({
-    //   type: "WATCHED_AD_SUCCESS",
-    //   payload: data.data,
-    // });
-
     fetch(`https://utopain-backend.herokuapp.com/users/ads/watch/${id}`, {
       method: "POST",
       headers: {

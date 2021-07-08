@@ -1,10 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
-
-const EarningBar = () => {
-  const userGetAds = useSelector((state) => state.userGetAds);
-  const { loading, allAds } = userGetAds;
-
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+const TopAdminIncentive = () => {
   return (
     <div className="header bg-white mt-3 mr-3 ml-3 d-flex justify-content-between rounded">
       <div className="left-content d-flex align-items-center ">
@@ -15,24 +12,27 @@ const EarningBar = () => {
                 <a href="#">Dashboard</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
-                Earning
+                Incentive
               </li>
             </ol>
           </nav>
         </div>
       </div>
-      <div className="right-content d-flex align-items-center m-3 p-2">
+      <div className="right-content d-flex align-items-center m-3 p-2 border-left">
         <div className="px-3">
-          <h2>৳100</h2>
-          <small>Today Earning</small>
+          <h2>৳2100.96</h2>
+          <small>Current Incentive Balance</small>
         </div>
         <div className="px-3">
-          <h2>{allAds && allAds.length}</h2>
-          <small>Available Ads</small>
+          <Button className="withdraw-btn ml-5">
+            <Link to="/dashboard">
+              <p>Incentive Balance</p>
+            </Link>
+          </Button>
         </div>
       </div>
     </div>
   );
 };
 
-export default EarningBar;
+export default TopAdminIncentive;

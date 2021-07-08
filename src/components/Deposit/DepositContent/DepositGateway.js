@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import MobileBanking from "../../Dashboard/Withdraw/PaymentMethod/MobileBanking";
 import DepositBanking from "./DepositGateWay/DepositBanking";
 const DepositGateway = ({ setMethod }) => {
   const [value, setValue] = useState("");
