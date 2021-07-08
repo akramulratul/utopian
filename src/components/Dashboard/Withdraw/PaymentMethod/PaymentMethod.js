@@ -2,7 +2,6 @@ import React from "react";
 import "../../../../styles/_Withdraw.scss";
 import Sidebar from "../../Sidebar";
 import WithdrawNow from "../WithdrawNow";
-import NavPayment from "./NavPayment";
 import { useState } from "react";
 import SelectCountry from "./SelectCountry";
 import security from "../../../../image/icons/security 1.svg";
@@ -26,7 +25,7 @@ const PaymentMethod = () => {
     number: phoneNumber,
   };
 
-  sessionStorage.setItem('withdraw', JSON.stringify(paymentMethod))
+  sessionStorage.setItem("withdraw", JSON.stringify(paymentMethod));
 
   const setPementMethod = (method) => {
     console.log(method);

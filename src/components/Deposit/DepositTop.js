@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const DepositTop = () => {
   const [isDeposit, SetDeposit] = useState(false);
+  const getProfile = useSelector((state) => state.getProfile);
+  const { userInfo } = getProfile;
   const ButtonHandler = () => {
     SetDeposit(!isDeposit);
     console.log("isDeposit");
@@ -26,7 +29,7 @@ const DepositTop = () => {
       </div>
       <div className="right-content d-flex  align-items-center m-3 p-2 border-left">
         <div className="px-3">
-          <h2>৳2100.96</h2>
+          <h2>৳{(userInfo && userInfo.incomeTotal) || 0}</h2>
           <small>Available for Withdrawal</small>
         </div>
         <div className="px-3">

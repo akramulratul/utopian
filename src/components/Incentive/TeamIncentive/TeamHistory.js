@@ -3,7 +3,7 @@ import { Table } from "react-bootstrap";
 import { useState } from "react";
 import updownIcon from "../../../image/icons/updown_icon.svg";
 const IncentiveHistory = () => {
-  const [incentiveData, setIncentiveData] = useState([]);
+  const [incentiveData] = useState([]);
   return (
     <div className="bg-white mt-2 ml-2 p-3 m-3">
       <Table striped bordered hover>

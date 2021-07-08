@@ -8,11 +8,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserProfile } from "../Redux/Actions/userAction";
 
 const ProfileDetails = () => {
-  const [user, setUser] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const getProfile = useSelector((state) => state.getProfile);
-  const { loading, error, userInfo } = getProfile;
+  const { loading, userInfo } = getProfile;
   const stopLoading = () => {
     setIsLoading(false);
   };
@@ -63,10 +62,7 @@ const ProfileDetails = () => {
                         title="Current Level"
                         data={userInfo.userLevel}
                       />
-                      <TableRow
-                        title="About"
-                        data="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-                      />
+                      <TableRow title="About" data={userInfo.thana} />
                       <TableRow title="Address" data={userInfo.address} />
                       <TableRow title="City" data={userInfo.district} />
                       <TableRow title="Country" data="Bangladesh" />

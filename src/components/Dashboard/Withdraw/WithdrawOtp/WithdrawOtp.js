@@ -2,22 +2,10 @@ import React, { useState } from "react";
 import DashboardNav from "../../DashboardNav";
 import SubNav from "../../Shared/SubNav";
 import Sidebar from "../../Sidebar";
-import NavPayment from "../PaymentMethod/NavPayment";
 import WithdrawNow from "../WithdrawNow";
 import ConfirmOtp from "./ConfirmOtp";
 
 const WithdrawOtp = () => {
-  const [method, setMethod] = useState("");
-  const [Otp, setOtp] = useState("");
-  const WithdrawalOtp = {
-    method: method,
-    number: Otp,
-  };
-
-  const WithdrawOtp = (number) => {
-    setOtp(number);
-  };
-  console.log(WithdrawalOtp);
   return (
     <div>
       <div className="row mr-0">
@@ -33,7 +21,7 @@ const WithdrawOtp = () => {
               secondOption={{ link: "/withdrawal", title: "Withdrawal" }}
               thirdOption={{ link: "/otp", title: "OTP" }}
             />
-            <ConfirmOtp setOtp={setOtp} />
+            <ConfirmOtp />
           </div>
         </div>
       </div>

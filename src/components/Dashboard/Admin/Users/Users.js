@@ -1,10 +1,10 @@
 import React from "react";
-import DashboardNav from "../../../DashboardNav";
-import AdminSidebar from "../../AdminSidebar";
-import Paginations from "../../Paginations/Paginations";
-import AdminWithdrawHistory from "./AdminWithdrawHistory";
-import AdminWithdrawTop from "./AdminWithdrawTop";
-const Deposit = () => {
+import AdminSidebar from "../AdminSidebar";
+import DashboardNav from "../../DashboardNav";
+import UsersTop from "./UsersTop";
+import Paginations from "../Paginations/Paginations";
+import UsersHistory from "../Users/UsersHistory";
+const Users = () => {
   return (
     <div>
       <div className="row mr-0">
@@ -15,9 +15,11 @@ const Deposit = () => {
           <div>
             <DashboardNav />
           </div>
-          <div>{/* <AdminWithdrawTop /> */}</div>
           <div>
-            <AdminWithdrawHistory />
+            <UsersTop />
+          </div>
+          <div>
+            <UsersHistory />
           </div>
           <div>
             <Paginations />
@@ -28,4 +30,4 @@ const Deposit = () => {
   );
 };
 
-export default Deposit;
+export default Users;

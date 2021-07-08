@@ -1,6 +1,5 @@
 import React from "react";
 import "../../../../styles/_Withdraw.scss";
-import { Form, Button, Card, NavLink } from "react-bootstrap";
 import NumberCheck from "./NumberCheck";
 const AmountSelection = () => {
   return (

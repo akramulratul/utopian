@@ -1,6 +1,5 @@
 import React from "react";
 import Sidebar from "../../Sidebar";
-import NavPayment from "../PaymentMethod/NavPayment";
 import WithdrawNow from "../WithdrawNow";
 import AmountSelection from "./AmountSelection";
 import ConfirmWithdrawal from "./ConfirmWithdrawal";
@@ -9,7 +8,6 @@ import SubNav from "../../Shared/SubNav";
 import { useState } from "react";
 
 const Withdrawal = () => {
-  const [value, setValue] = useState("");
   const [method, setMethod] = useState("");
   const [Amount, setAmount] = useState("");
   const WithdrawalMethod = {
@@ -19,11 +17,10 @@ const Withdrawal = () => {
 
   const WithdrawAmount = (number) => {
     if (number < 500) {
-      alert("plz required")
+      alert("plz required");
     } else {
       setAmount(number);
     }
-
   };
   // console.log(WithdrawalMethod);
   console.log(Amount);
@@ -31,13 +28,13 @@ const Withdrawal = () => {
   if (sessionStorage.getItem("withdraw")) {
     const { method, number } = JSON.parse(sessionStorage.getItem("withdraw"));
     const withdrawInfo = {
-      method, number, Amount
-    }
+      method,
+      number,
+      Amount,
+    };
     console.log(withdrawInfo);
-    sessionStorage.setItem('Withdrawal', JSON.stringify(withdrawInfo))
+    sessionStorage.setItem("Withdrawal", JSON.stringify(withdrawInfo));
   }
-
-
 
   return (
     <div>

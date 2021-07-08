@@ -12,7 +12,6 @@ import {
 import Withdrawal from "../../Withdraw/Withdrawal/Withdrawal";
 
 const ADHistory = () => {
-  const [withdrawData, setWithdrawData] = useState([]);
   const [isloading, setIsloading] = useState(true);
   const dispatch = useDispatch();
   const adminDeposit = useSelector((state) => state.adminDeposit);

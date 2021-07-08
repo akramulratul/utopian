@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 
 const Paginations = () => {
-  const [users, setUsers] = useState(0, 15);
-  const [pageNumber, setPageNumber] = useState(0);
+  const [users] = useState(0, 15);
+  const [setPageNumber] = useState(0);
 
   const usersPerPage = 10;
-  const pagesVisited = pageNumber * usersPerPage;
+  // const pagesVisited = pageNumber * usersPerPage;
 
   //   const displayUsers = users
   //     .slice(pagesVisited, pagesVisited + usersPerPage)

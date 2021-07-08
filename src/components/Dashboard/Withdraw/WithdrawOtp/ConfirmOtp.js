@@ -1,10 +1,27 @@
 import React, { useState } from "react";
-import { Form, Col } from "react-bootstrap";
+
 import frame from "../../../../image/Frame.svg";
 import OTPInput, { ResendOTP } from "otp-input-react";
-const ConfirmOtp = ({ setOtp }) => {
+import { useDispatch } from "react-redux";
+import { addWithdraw, sendOtp } from "../../../Redux/Actions/withdrawAction";
+import { ToastContainer } from "react-toastify";
+const ConfirmOtp = () => {
+  const [otp, setOtp] = useState();
+  const dispatch = useDispatch();
+
+  const confirmClicked = () => {
+    const withdrawInfo = JSON.parse(sessionStorage.getItem("Withdrawal"));
+    const newWithdrawInfo = {
+      withdrawMethod: withdrawInfo.method,
+      amount: parseInt(withdrawInfo.Amount),
+      contactNo: withdrawInfo.number,
+      otp: otp,
+    };
+    dispatch(addWithdraw(newWithdrawInfo));
+  };
+
   const evenhandler = (e) => {
-    setOtp(e.target.value);
+    setOtp(e);
   };
   return (
     <div class="container">
@@ -16,70 +33,35 @@ const ConfirmOtp = ({ setOtp }) => {
           <h4>Confirm OTP</h4>
           <small>Enter OTP we just sent to your phone number.</small>
           <br />
-          {/* <div className="container pl-1 m-1 d-flex justify-content-start">
-            <div className="otpBox p-2">
-              <Form>
-                <Form.Row>
-                  <Col>
-                    <Form.Control placeholder="0" onChange={evenhandler} />
-                  </Col>
-                </Form.Row>
-              </Form>
-            </div>
-            <div className="otpBox p-2">
-              <Form>
-                <Form.Row>
-                  <Col>
-                    <Form.Control placeholder="0" onChange={evenhandler} />
-                  </Col>
-                </Form.Row>
-              </Form>
-            </div>
-            <div className="otpBox p-2">
-              <Form>
-                <Form.Row>
-                  <Col>
-                    <Form.Control placeholder="0" onChange={evenhandler} />
-                  </Col>
-                </Form.Row>
-              </Form>
-            </div>
-            <div className="otpBox p-2">
-              <Form>
-                <Form.Row>
-                  <Col>
-                    <Form.Control placeholder="0" onChange={evenhandler} />
-                  </Col>
-                </Form.Row>
-              </Form>
-            </div>
-          </div> */}
           <div>
             {" "}
             <OTPInput
-              value={evenhandler}
-              onChange={evenhandler}
+              value={otp}
+              onChange={(e) => evenhandler(e)}
               autoFocus
-              OTPLength={4}
+              OTPLength={6}
               otpType="number"
               disabled={false}
               secure
             />
-            <ResendOTP onResendClick={() => console.log("Resend clicked")} />
+            <ResendOTP
+              className="btn-brand py-2 my-2"
+              onResendClick={() => dispatch(sendOtp())}
+            />
           </div>
-          <div className="d-flex align-item-around">
-            <small className="m-2">Time remaining :1.38sec</small>
-            <button type="button" className="btn btn-link ml-4 pb-5">
-              Resent
-            </button>
-          </div>
+
           <div>
-            <button type="button" className="btn btn-primary btn-change">
+            <button
+              type="button"
+              onClick={confirmClicked}
+              className="btn btn-primary btn-change"
+            >
               Confirm
             </button>
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

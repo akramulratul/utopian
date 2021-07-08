@@ -13,7 +13,6 @@ import WithdrawOtp from "../Dashboard/Withdraw/WithdrawOtp/WithdrawOtp";
 import Incentive from "../Incentive/DirectIncentive/Incentive";
 import TeamIncentive from "../Incentive/TeamIncentive/TeamIncentive";
 import ProfileUpdate from "../Profile/ProfileUpdate";
-import ChangePassword from "../Profile/ChangePassword";
 import PasswordChange from "../Profile/PasswordChange";
 import AdminWithdrawals from "../Dashboard/Admin/AdminWithdraw/AllWithdrawals/AdminWithdrawals";
 import TodaysWithdraw from "../Dashboard/Admin/AdminWithdraw/TodaysWithdraw/TodaysWithdraw";
@@ -35,6 +34,9 @@ import Services from "../Home/Services/Services";
 import CreateAds from "../Dashboard/Admin/Ads/CreateAds";
 import AllAds from "../Dashboard/Admin/Ads/AllAds";
 import EditAds from "../Dashboard/Admin/Ads/EditAds";
+import AdminIncentive from "../Dashboard/Admin/AdminIncentive/AdminIncentive";
+import Users from "../Dashboard/Admin/Users/Users";
+import UserProfile from "../Dashboard/Admin/Users/ProfileView/UserProfile";
 
 const ProfileDetails = lazy(() => import("../Profile/ProfileDetails"));
 const HandleRouter = () => {
@@ -72,62 +74,62 @@ const HandleRouter = () => {
           <Route path="/forgot-password">
             <ForgetPassword />
           </Route>
-          <Route path="/withdraw">
+          <PrivateRoute path="/withdraw">
             <Withdraw />
-          </Route>
-          <Route path="/payment-method">
+          </PrivateRoute>
+          <PrivateRoute path="/payment-method">
             <PaymentMethod />
-          </Route>
-          <Route path="/withdrawal">
+          </PrivateRoute>
+          <PrivateRoute path="/withdrawal">
             <Withdrawal />
-          </Route>
-          <Route path="/otp">
+          </PrivateRoute>
+          <PrivateRoute path="/otp">
             <WithdrawOtp />
-          </Route>
-          <Route path="/incentive">
+          </PrivateRoute>
+          <PrivateRoute path="/incentive">
             <Incentive />
-          </Route>
-          <Route path="/dashboard/user/profile/details">
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/user/profile/details">
             <Suspense fallback={<p>Loading...</p>}>
               <ProfileDetails />
             </Suspense>
-          </Route>
-          <Route path="/dashboard/user/profile/update-profile">
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/user/profile/update-profile">
             <ProfileUpdate />
-          </Route>
-          <Route path="/dashboard/user/profile/change-password">
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/user/profile/change-password">
             <PasswordChange />
-          </Route>
-          <Route path="/teamincentive">
+          </PrivateRoute>
+          <PrivateRoute path="/teamincentive">
             <TeamIncentive />
-          </Route>
-          <Route path="/earning">
+          </PrivateRoute>
+          <PrivateRoute path="/earning">
             <Earning />
-          </Route>
-          <Route path="/viewad/:id">
+          </PrivateRoute>
+          <PrivateRoute path="/viewad/:id">
             <ViewAdd />
-          </Route>
-          <Route path="/deposit">
+          </PrivateRoute>
+          <PrivateRoute path="/deposit">
             <Deposit />
-          </Route>
-          <Route path="/depositnow">
+          </PrivateRoute>
+          <PrivateRoute path="/depositnow">
             <DepositNow />
-          </Route>
-          <Route path="/admin/deposit">
+          </PrivateRoute>
+          <PrivateRoute path="/admin/deposit">
             <AdminDeposit />
-          </Route>
-          <Route path="/today/deposit">
+          </PrivateRoute>
+          <PrivateRoute path="/today/deposit">
             <TodayDeposit />
-          </Route>
+          </PrivateRoute>
           <PrivateRoute path="/admin/details">
             <DepositDetails />
           </PrivateRoute>
-          <Route path="/admin/withdrawal">
+          <PrivateRoute path="/admin/withdrawal">
             <AdminWithdrawals />
-          </Route>
-          <Route path="/admin/todays/withdrawal">
+          </PrivateRoute>
+          <PrivateRoute path="/admin/todays/withdrawal">
             <TodaysWithdraw />
-          </Route>
+          </PrivateRoute>
           <PrivateRoute path="/admin/createAds">
             <CreateAds />
           </PrivateRoute>
@@ -141,6 +143,22 @@ const HandleRouter = () => {
           <Route path="/admin/depositdetails/:id">
             <WithdrawDetails />
           </Route>
+          <Route path="/getSignUp/referral/:referralId">
+            <Register />
+          </Route>
+
+          <PrivateRoute path="/admin/withdrawDetails">
+            <WithdrawDetails />
+          </PrivateRoute>
+          <PrivateRoute path="/admin/allusers">
+            <Users />
+          </PrivateRoute>
+          <PrivateRoute path="/admin/userprofile">
+            <UserProfile />
+          </PrivateRoute>
+          <PrivateRoute path="/admin/incentive">
+            <AdminIncentive />
+          </PrivateRoute>
         </Switch>
       </Router>
     </>
