@@ -134,16 +134,18 @@ const Sidebar = () => {
                     </Dropdown.Item>
 
                     <Dropdown.Item>
-                      <div className="down">
-                        <div className="d-flex py-">
-                          <div className="px-2">
-                            <img src={rightArrow} alt="" />
-                          </div>
-                          <div>
-                            <h6 className="pt-1">Refrence Bonus</h6>
+                      <Link to="/dashboard/referral">
+                        <div className="down">
+                          <div className="d-flex py-">
+                            <div className="px-2">
+                              <img src={rightArrow} alt="" />
+                            </div>
+                            <div>
+                              <h6 className="pt-1">Refrence Bonus</h6>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </Link>
                     </Dropdown.Item>
 
                     <Dropdown.Item>
@@ -153,7 +155,7 @@ const Sidebar = () => {
                             <img src={rightArrow} alt="" />
                           </div>
                           <div>
-                            <h6 className="pt-1">Generation Bonus</h6>
+                            <h6 className="pt-1">Generations</h6>
                           </div>
                         </div>
                       </div>

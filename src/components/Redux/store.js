@@ -36,7 +36,7 @@ import {
   withdrawHistoryReducer,
   withdrawReducer,
 } from "./Reducers/withdrawReducer";
-
+import { referralReducers } from "./Reducers/referralReducers";
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
@@ -62,6 +62,7 @@ const reducer = combineReducers({
   adminDashboardData: adminDashboardReducer,
   updateProfile: updateProfileReducer,
   sendOtp: sendWithdrawOtp,
+  getReferral: referralReducers,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")
