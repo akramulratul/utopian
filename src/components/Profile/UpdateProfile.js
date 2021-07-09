@@ -1,18 +1,35 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
+import {
+  CountryDropdown,
+  RegionDropdown,
+  CountryRegionData,
+} from "react-country-region-selector";
+import { useDispatch } from "react-redux";
+import { userProfileUpdate } from "../Redux/Actions/userAction";
 
-const UpdateProfile = () => {
-  const [country, setCountry] = useState([]);
-  const [region, setRegion] = useState([]);
+const UpdateProfile = ({ userInfo }) => {
+  const [country, setCountry] = useState("");
+  const dispatch = useDispatch();
+  const [region, setRegion] = useState("");
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
     data = { ...data, country, region };
-    console.log(data);
+    const userData = {
+      address: data.address,
+      district: data.region,
+      email: data.email,
+      name: data.name,
+      phoneNo: data.phone,
+      thana: data.about,
+    };
+    dispatch(userProfileUpdate(userData));
+    console.log(userData);
   };
 
   //
@@ -21,24 +38,25 @@ const UpdateProfile = () => {
     <div className="p-1 p-lg-3">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="name-row row">
-          <div className="col-lg-6">
-            <label htmlFor="firstName">First Name</label>
+          <div className="col-lg-12">
+            <label htmlFor="name">Name</label>
             <input
+              defaultValue={userInfo.name}
               className="form-control"
-              {...register("firstName", { required: true })}
+              {...register("name", { required: true })}
             />
             {errors.firstName && <span className="text-danger">*</span>}
             <br />
           </div>
 
-          <div className="col-lg-6">
+          {/* <div className="col-lg-6">
             <label htmlFor="lastName">Last Name</label>
             <input
               className="form-control"
               {...register("lastName", { required: true })}
             />
             {errors.lastName && <span className="text-danger">*</span>}
-          </div>
+          </div> */}
         </div>
 
         <div className="email-phone row">
@@ -47,6 +65,7 @@ const UpdateProfile = () => {
             <input
               className="form-control"
               {...register("email", { required: true })}
+              value={userInfo.email}
             />
             {errors.email && <span className="text-danger">*</span>}
             <br />
@@ -57,6 +76,7 @@ const UpdateProfile = () => {
             <input
               className="form-control"
               {...register("phone", { required: true })}
+              value={userInfo.phoneNo}
             />
             {errors.phone && <span className="text-danger">*</span>}
             <br />
@@ -67,7 +87,7 @@ const UpdateProfile = () => {
           <textarea
             className="form-control"
             cols="100"
-            defaultValue=""
+            defaultValue={userInfo.thana}
             {...register("about")}
           />
         </div>
@@ -76,7 +96,7 @@ const UpdateProfile = () => {
           <textarea
             className="form-control"
             cols="100"
-            defaultValue=""
+            defaultValue={userInfo.address}
             {...register("address")}
           />
         </div>
@@ -97,6 +117,7 @@ const UpdateProfile = () => {
               className="form-control"
               country={country}
               value={region}
+              defaultValue={userInfo.district}
               onChange={(val) => setRegion(val)}
             />
           </div>

@@ -1,15 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../Dashboard/Sidebar";
 import DashboardNav from "../Dashboard/DashboardNav";
 import axios from "axios";
 import SubNav from "../Dashboard/Shared/SubNav";
+import { Route } from "react-router-dom";
 import ProfileCard from "./ProfileCard";
 import UpdateProfile from "./UpdateProfile";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserProfile } from "../Redux/Actions/userAction";
 
 const ProfileUpdate = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
+  const getProfile = useSelector((state) => state.getProfile);
+  const { loading, error, userInfo } = getProfile;
+  const stopLoading = () => {
+    setIsLoading(false);
+  };
+
   useEffect(() => {
-    axios.get("");
-  }, []);
+    dispatch(getUserProfile());
+    stopLoading();
+  }, [dispatch]);
   return (
     <div className="profile-container">
       <div className="row m-0 p-0">
@@ -40,7 +52,13 @@ const ProfileUpdate = () => {
                   />
                 </div>
                 <div className="profile-content-detail rounded">
-                  <UpdateProfile />
+                  {isLoading ? (
+                    <h4>Loading Profile...</h4>
+                  ) : loading ? (
+                    <h4>Loading Profile...</h4>
+                  ) : (
+                    <UpdateProfile userInfo={userInfo} />
+                  )}
                 </div>
               </div>
             </div>

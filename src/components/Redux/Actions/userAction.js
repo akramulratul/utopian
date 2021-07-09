@@ -12,7 +12,7 @@ export const login = (userName, password) => async (dispatch) => {
       username: userName,
     };
 
-    fetch("https://utopain-backend.herokuapp.com/auth/signIn", {
+    fetch("http://api.utopiansglobal.com/auth/signIn", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -79,7 +79,7 @@ export const registerNewUser = (userData) => async (dispatch) => {
       type: "USER_REGISTRATION_REQUEST",
     });
 
-    fetch("https://utopain-backend.herokuapp.com/auth/signUp", {
+    fetch("http://api.utopiansglobal.com/auth/signUp", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -128,6 +128,112 @@ export const registerNewUser = (userData) => async (dispatch) => {
   }
 };
 
+// export const getUserProfile = () => async (dispatch) => {
+//     const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+//     const { data: { token } } = userInfo
+//     console.log(token);
+//     try {
+//         dispatch({
+//           type: "USER_REGISTRATION_SUCCESS",
+//           payload: data,
+//         });
+//         if (data.statusCode !== 201) {
+//           toast.error(`${data.message}`, {
+//             position: "top-right",
+//             autoClose: 2000,
+//             hideProgressBar: false,
+//             closeOnClick: true,
+//             pauseOnHover: true,
+//             draggable: true,
+//             progress: undefined,
+//           });
+//         } else {
+//           toast.success(`${data.message}`, {
+//             position: "top-right",
+//             autoClose: 2000,
+//             hideProgressBar: false,
+//             closeOnClick: true,
+//             pauseOnHover: true,
+//             draggable: true,
+//             progress: undefined,
+//           });
+//         }
+//         // localStorage.setItem('userInfo', JSON.stringify(data))
+//       });
+//   } catch (error) {
+//     console.log(error);
+//     dispatch({
+//       type: "USER_REGISTRATION_FAIL",
+//       payload:
+//         error.response && error.response.data.message
+//           ? error.response.data.message
+//           : error.message,
+//     });
+//   }
+// };
+
+export const changePassword = (confirmPass) => async (dispatch) => {
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const {
+    data: { token },
+  } = userInfo;
+
+  try {
+    dispatch({
+      type: "USER_PASSWORDCHANGE_REQUEST",
+    });
+
+    fetch("http://api.utopiansglobal.com/auth/changePass", {
+      method: "PUT",
+      headers: {
+        authorization: `Bearer ${token}`,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(confirmPass),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        dispatch({
+          type: "USER_PASSWORDCHANGE_SUCCESS",
+          payload: data,
+        });
+        if (data.statusCode !== 200) {
+          toast.error(`${data.message}`, {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        } else {
+          toast.success(`${data.message}`, {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+        // });
+        console.log(data);
+      });
+  } catch (error) {
+    console.log(error);
+    dispatch({
+      type: "USER_PASSWORDCHANGE_FAIL",
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
 export const getUserProfile = () => async (dispatch) => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const {
@@ -148,7 +254,7 @@ export const getUserProfile = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "https://utopain-backend.herokuapp.com/auth/profile",
+      "http://api.utopiansglobal.com/auth/profile",
       config
     );
     dispatch({
@@ -158,6 +264,50 @@ export const getUserProfile = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: "USER_PROFILEDETAILS_FAIL",
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const userProfileUpdate = (userData) => async (dispatch) => {
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const {
+    data: { token },
+  } = userInfo;
+  try {
+    dispatch({
+      type: "USER_PROFILE_UPDATE_REQUEST",
+      payload: {},
+    });
+
+    const config = {
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    };
+
+    fetch("http://api.utopiansglobal.com/auth/profile", {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch({
+          type: "USER_PROFILE_UPDATE_SUCCESS",
+          payload: data,
+        });
+      });
+  } catch (error) {
+    dispatch({
+      type: "USER_PROFILE_UPDATE_FAIL",
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

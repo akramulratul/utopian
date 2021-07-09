@@ -22,6 +22,45 @@ const ForgetPassword = () => {
         phoneNumber: phoneNumber,
       };
       console.log(forgetData);
+      // fetch('http://api.utopiansglobal.com/auth/signIn', {
+      //     method: 'POST',
+      //     headers: {
+      //         'content-type': 'application/json'
+      //     },
+      //     body: JSON.stringify(resetData)
+      // })
+      //     .then(res => res.json())
+      //     .then(data => {
+
+      //         if (data.statusCode !== 200) {
+      //             toast.error(`${data.message}`, {
+      //                 position: "top-right",
+      //                 autoClose: 2000,
+      //                 hideProgressBar: false,
+      //                 closeOnClick: true,
+      //                 pauseOnHover: true,
+      //                 draggable: true,
+      //                 progress: undefined,
+      //             });
+      //         } else {
+      //             toast.success(`${data.message}`, {
+      //                 position: "top-right",
+      //                 autoClose: 2000,
+      //                 hideProgressBar: false,
+      //                 closeOnClick: true,
+      //                 pauseOnHover: true,
+      //                 draggable: true,
+      //                 progress: undefined,
+      //             });
+      //         }
+      //         // });
+      //         console.log(data);
+
+      //         // if (data.statusCode === 200) {
+      //         //     localStorage.setItem('userInfo', JSON.stringify(data))
+      //         // }
+      //     })
+      // e.preventDefault();
     } else {
       toast.error("please add all the fields", {
         position: "top-right",

@@ -3,9 +3,13 @@ import "../../../styles/_Withdraw.scss";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 const WithdrawNow = () => {
   const [isClicked, setIsClicked] = useState(false);
+
+  const getProfile = useSelector((state) => state.getProfile);
+  const { userInfo } = getProfile;
   const buttonClicked = () => {
     isClicked ? setIsClicked(false) : setIsClicked(true);
   };
@@ -28,7 +32,7 @@ const WithdrawNow = () => {
       </div>
       <div className="right-content d-flex align-items-center m-3 p-2 border-left">
         <div className="px-3">
-          <h2>৳2100.96</h2>
+          <h2>৳{(userInfo && userInfo.incomeTotal) || 0}</h2>
           <small>Availabale for Withdrawal</small>
         </div>
         <div className="px-3">

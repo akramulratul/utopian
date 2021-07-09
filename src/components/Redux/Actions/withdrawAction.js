@@ -1,14 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-export const addWithdraw = () => async (dispatch) => {
-  const withdraw = JSON.parse(sessionStorage.getItem("Withdrawal"));
-  const withdrawInfo = {
-    amount: parseInt(withdraw.Amount),
-    contactNo: withdraw.number,
-    withdrawMethod: withdraw.method,
-  };
-  console.log(withdrawInfo);
+export const addWithdraw = (newWithdrawInfo) => async (dispatch) => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const {
     data: { token },
@@ -20,27 +13,23 @@ export const addWithdraw = () => async (dispatch) => {
       payload: {},
     });
 
-    const config = {
+    fetch("http://api.utopiansglobal.com/user/balance/withdraws", {
+      method: "POST",
       headers: {
         "content-type": "application/json",
         authorization: `Bearer ${token}`,
       },
-    };
-
-    axios
-      .post(
-        "https://utopain-backend.herokuapp.com/user/balance/withdraws",
-        withdrawInfo,
-        config
-      )
-      .then((response) => {
+      body: JSON.stringify(newWithdrawInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
         dispatch({
           type: "ADD_WITHDRAW_SUCCESS",
-          payload: response.data,
+          payload: data,
         });
-        console.log(response);
-        if (response.data.statusCode !== 201) {
-          toast.error(`${response.data.message}`, {
+
+        if (data.statusCode !== 201) {
+          toast.error(`${data.message}`, {
             position: "top-right",
             autoClose: 2000,
             hideProgressBar: false,
@@ -50,7 +39,7 @@ export const addWithdraw = () => async (dispatch) => {
             progress: undefined,
           });
         } else {
-          toast.success(`${response.data.message}`, {
+          toast.success(`${data.message}`, {
             position: "top-right",
             autoClose: 2000,
             hideProgressBar: false,
@@ -60,7 +49,6 @@ export const addWithdraw = () => async (dispatch) => {
             progress: undefined,
           });
         }
-        console.log(response.data);
       });
   } catch (error) {
     dispatch({
@@ -93,16 +81,53 @@ export const getWithdrawHistory = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "https://utopain-backend.herokuapp.com/user/balance/withdraws",
+      "http://api.utopiansglobal.com/user/balance/withdraws",
       config
     );
     dispatch({
       type: "WITHDRAW_HISTORY_SUCCESS",
-      payload: data.data,
+      payload: data.data.data,
     });
   } catch (error) {
     dispatch({
       type: "WITHDRAW_HISTORY_FAIL",
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const sendOtp = () => async (dispatch) => {
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const {
+    data: { token },
+  } = userInfo;
+
+  try {
+    dispatch({
+      type: "WITHDRAW_OTP_REQUEST",
+      payload: {},
+    });
+
+    fetch("http://api.utopiansglobal.com/user/balance/withdraws/generate/otp", {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${token}`,
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch({
+          type: "WITHDRAW_OTP_SUCCESS",
+          payload: data,
+        });
+      });
+  } catch (error) {
+    dispatch({
+      type: "WITHDRAW_OTP_FAIL",
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

@@ -5,13 +5,19 @@ import {
   userLoginReducer,
   userRegisterReducer,
   getUserProfileReducer,
+  passwordChangeReducer,
+  updateProfileReducer,
 } from "./Reducers/userReducer";
 import {
   addDepositeReducer,
   depositHistoryReducer,
 } from "./Reducers/depositeReducer";
-import { adminDepositHistoryReducer } from "./Reducers/adminBalanceControlReducer";
-import { adminDepositeManageAction } from "./Actions/adminBalanceControlAction";
+import {
+  adminDepositHistoryReducer,
+  adminWithdrawHistoryReducer,
+  adminDepositManageReducer,
+  adminWithdrawManageReducer,
+} from "./Reducers/adminBalanceControlReducer";
 import {
   createAdreducer,
   deleteAdReducer,
@@ -21,7 +27,16 @@ import {
   userGetAllAdsReducer,
   watchedAddReducer,
 } from "./Reducers/adControllReducer";
-import { withdrawHistoryReducer, withdrawReducer } from "./Reducers/withdrawReducer";
+
+import { incentiveHistoryReducer } from "./Reducers/incentiveReducer";
+import { adminDashboardReducer } from "./Reducers/adminDashboardReducer";
+
+import {
+  sendWithdrawOtp,
+  withdrawHistoryReducer,
+  withdrawReducer,
+} from "./Reducers/withdrawReducer";
+import { referralReducers } from "./Reducers/referralReducers";
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
@@ -30,7 +45,9 @@ const reducer = combineReducers({
   addDeposite: addDepositeReducer,
   depositHistory: depositHistoryReducer,
   adminDeposit: adminDepositHistoryReducer,
-  depositManage: adminDepositeManageAction,
+  adminWithdraw: adminWithdrawHistoryReducer,
+  depositManage: adminDepositManageReducer,
+  wihdrawManage: adminWithdrawManageReducer,
   createAd: createAdreducer,
   getAds: getAdsReducer,
   deleteAd: deleteAdReducer,
@@ -40,6 +57,12 @@ const reducer = combineReducers({
   watchedAd: watchedAddReducer,
   withdrawInfo: withdrawReducer,
   withdrawHistory: withdrawHistoryReducer,
+  passChange: passwordChangeReducer,
+  incentiveHistory: incentiveHistoryReducer,
+  adminDashboardData: adminDashboardReducer,
+  updateProfile: updateProfileReducer,
+  sendOtp: sendWithdrawOtp,
+  getReferral: referralReducers,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

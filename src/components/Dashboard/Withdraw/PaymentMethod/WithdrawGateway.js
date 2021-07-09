@@ -12,15 +12,15 @@ const WithdrawGateway = ({ setPementMethod, setNumber }) => {
   const onChange = (e) => {
     setValue(e.target.value);
     setPementMethod(e.target.value);
-    if (e.target.value === "bkash") {
+    if (e.target.value === "Bkash") {
       setIsBkashChecked(true);
       setIsNagadChecked(false);
       setIsRocketChecked(false);
-    } else if (e.target.value === "nagad") {
+    } else if (e.target.value === "Nagad") {
       setIsNagadChecked(true);
       setIsBkashChecked(false);
       setIsRocketChecked(false);
-    } else if (e.target.value === "rocket") {
+    } else if (e.target.value === "Rocket") {
       setIsRocketChecked(true);
       setIsBkashChecked(false);
       setIsNagadChecked(false);
@@ -29,10 +29,7 @@ const WithdrawGateway = ({ setPementMethod, setNumber }) => {
       setIsBkashChecked(false);
       setIsNagadChecked(false);
     }
-
   };
-
-
 
   return (
     <div className="Container border-left pl-5">
@@ -48,8 +45,8 @@ const WithdrawGateway = ({ setPementMethod, setNumber }) => {
           <label>
             <input
               type="radio"
-              value="bkash"
-              checked={value === "bkash"}
+              value="Bkash"
+              checked={value === "Bkash"}
               onClick={onChange}
             />
             B-kash
@@ -62,27 +59,27 @@ const WithdrawGateway = ({ setPementMethod, setNumber }) => {
           <label>
             <input
               type="radio"
-              value="nagad"
-              checked={value === "nagad"}
+              value="Nagad"
+              checked={value === "Nagad"}
               onClick={onChange}
             />
             Nagad
           </label>
           <br />
-          {isNagadChecked && <MobileBanking setNumber={setNumber}/>}
+          {isNagadChecked && <MobileBanking setNumber={setNumber} />}
         </div>
         <div className="radio">
           <label>
             <input
               type="radio"
-              value="rocket"
-              checked={value === "rocket"}
+              value="Rocket"
+              checked={value === "Rocket"}
               onClick={onChange}
             />
             Rocket
           </label>
           <br />
-          {isRocketChecked && <MobileBanking setNumber={setNumber}/>}
+          {isRocketChecked && <MobileBanking setNumber={setNumber} />}
         </div>
       </form>
     </div>

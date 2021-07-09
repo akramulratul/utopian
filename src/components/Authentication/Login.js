@@ -31,12 +31,12 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    formState: {},
+    formState: { },
   } = useForm();
 
   let history = useHistory();
   let location = useLocation();
-  let {} = location.state || { from: { pathname: "/" } };
+  let { } = location.state || { from: { pathname: "/" } };
 
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
@@ -125,7 +125,7 @@ const Login = () => {
                     </label>
                   </div>
                   <div>
-                    <Link className="forget-password" to="/forgot_password">
+                    <Link className="forget-password" to="/forgot-password">
                       Forget password?
                     </Link>
                   </div>
