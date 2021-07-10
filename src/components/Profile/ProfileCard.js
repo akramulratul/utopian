@@ -36,7 +36,7 @@ const ProfileCard = () => {
           <div className="profile-card-info">
             <div>
               <div className="profile-card-img  d-flex justify-content-center align-items-center mt-3 pt-4">
-                <img src={profilePhoto} alt="" />
+                <img src={userInfo.profilePhotoLink} alt="" />
               </div>
               <div className="name-level p-2 text-center">
                 <h4>{userInfo.name}</h4>
