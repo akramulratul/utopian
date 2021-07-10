@@ -283,6 +283,7 @@ export const getUserProfile = () => async (dispatch) => {
 };
 
 export const userProfileUpdate = (userData) => async (dispatch) => {
+  console.log(userData);
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const {
     data: { token },
@@ -314,6 +315,29 @@ export const userProfileUpdate = (userData) => async (dispatch) => {
           type: "USER_PROFILE_UPDATE_SUCCESS",
           payload: data,
         });
+        console.log(data);
+        if (data.statusCode === 200) {
+          toast.success(`${data.message}`, {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        } else {
+          toast.error(`${data.message}`, {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+
       });
   } catch (error) {
     dispatch({
@@ -326,3 +350,136 @@ export const userProfileUpdate = (userData) => async (dispatch) => {
   }
 };
 
+
+export const userProfileUpdateByPictureAction = (userData) => async (dispatch) => {
+  console.log(userData);
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const {
+    data: { token },
+  } = userInfo;
+  try {
+    dispatch({
+      type: "USER_PROFILE_UPDATE_REQUEST",
+      payload: {},
+    });
+
+    const config = {
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    };
+
+    fetch(`http://api.utopiansglobal.com/auth/uploadProfile?imageLink=${userData}`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+      // body: JSON.stringify(userData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch({
+          type: "USER_PROFILE_UPDATE_SUCCESS",
+          payload: data,
+        });
+        console.log(data);
+        if (data.statusCode === 200) {
+          toast.success(`${data.message}`, {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        } else {
+          toast.error(`${data.message}`, {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+
+      });
+  } catch (error) {
+    dispatch({
+      type: "USER_PROFILE_UPDATE_FAIL",
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+// export const userProfileUpdateByPicture = (confirmPass) => async (dispatch) => {
+//   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+//   const {
+//     data: { token },
+//   } = userInfo;
+
+//   try {
+//     dispatch({
+//       type: 'USER_PASSWORDCHANGE_REQUEST',
+//     })
+
+
+//     fetch('http://api.utopiansglobal.com/auth/changePass', {
+//       method: 'PUT',
+//       headers: {
+//         authorization: `Bearer ${token}`,
+//         'content-type': 'application/json'
+//       },
+//       body: JSON.stringify(confirmPass)
+//     })
+//       .then(res => res.json())
+//       .then(data => {
+//         console.log(data);
+//         dispatch({
+//           type: 'USER_PASSWORDCHANGE_SUCCESS',
+//           payload: data
+//         })
+//         if (data.statusCode !== 200) {
+//           toast.error(`${data.message}`, {
+//             position: "top-right",
+//             autoClose: 2000,
+//             hideProgressBar: false,
+//             closeOnClick: true,
+//             pauseOnHover: true,
+//             draggable: true,
+//             progress: undefined,
+//           });
+//         } else {
+//           toast.success(`${data.message}`, {
+//             position: "top-right",
+//             autoClose: 2000,
+//             hideProgressBar: false,
+//             closeOnClick: true,
+//             pauseOnHover: true,
+//             draggable: true,
+//             progress: undefined,
+//           });
+//         }
+//         // });
+//         console.log(data);
+
+//       })
+
+
+//   } catch (error) {
+//     console.log(error);
+//     dispatch({
+//       type: 'USER_PASSWORDCHANGE_FAIL',
+//       payload: error.response && error.response.data.message ?
+//         error.response.data.message :
+//         error.message
+//     })
+//   }
+// }
