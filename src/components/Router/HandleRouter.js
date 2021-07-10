@@ -27,7 +27,7 @@ import AdminDeposit from "../Dashboard/Admin/AdminDeposit/AdminDeposit";
 import DepositDetails from "../Dashboard/Admin/AdminDeposit/DepositDetails/DepositDetails";
 import TodayDeposit from "../Dashboard/Admin/AdminDeposit/TodayDeposit/TodayDeposit";
 import WithdrawDetails from "../Dashboard/Admin/AdminWithdraw/WithdrawDetails/WithdrawDetails";
-import ForgetPassword from "../Authentication/ForgetPassword";
+import ForgetPassword from "../Authentication/ForgetPassword/ForgetPassword";
 import About from "../Home/About/About";
 import Contact from "../Home/Contact/Contact";
 import Services from "../Home/Services/Services";
@@ -37,7 +37,12 @@ import EditAds from "../Dashboard/Admin/Ads/EditAds";
 import AdminIncentive from "../Dashboard/Admin/AdminIncentive/AdminIncentive";
 import Users from "../Dashboard/Admin/Users/Users";
 import UserProfile from "../Dashboard/Admin/Users/ProfileView/UserProfile";
+
+import VerifyOtp from "../Authentication/ForgetPassword/VerifyOtp";
+import ChangePassword from "../Authentication/ForgetPassword/ConfirmPassword";
+
 import Referral from "../Referral/Referral";
+
 
 const ProfileDetails = lazy(() => import("../Profile/ProfileDetails"));
 const HandleRouter = () => {
@@ -77,6 +82,12 @@ const HandleRouter = () => {
           </Route>
           <Route path="/forgot-password">
             <ForgetPassword />
+          </Route>
+          <Route path="/verify-otp">
+            <VerifyOtp/>
+          </Route>
+          <Route path="/confirm-password">
+            <ChangePassword/>
           </Route>
           <PrivateRoute path="/withdraw">
             <Withdraw />

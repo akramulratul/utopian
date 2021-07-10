@@ -7,6 +7,7 @@ import {
   getUserProfileReducer,
   passwordChangeReducer,
   updateProfileReducer,
+  userProfileUpdateByPicture,
 } from "./Reducers/userReducer";
 import {
   addDepositeReducer,
@@ -36,7 +37,12 @@ import {
   withdrawHistoryReducer,
   withdrawReducer,
 } from "./Reducers/withdrawReducer";
+
+import { confirmPasswordReducer, forgetPasswordByPhoneNumberReducer, forgetPasswordByVerifyOtpReducer } from "./Reducers/forgetPasswordReducer";
+
+
 import { referralReducers } from "./Reducers/referralReducers";
+
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
@@ -61,8 +67,15 @@ const reducer = combineReducers({
   incentiveHistory: incentiveHistoryReducer,
   adminDashboardData: adminDashboardReducer,
   updateProfile: updateProfileReducer,
+  userProfileUpdateByPicture : userProfileUpdateByPicture,
   sendOtp: sendWithdrawOtp,
+
+  forgetPassByNum: forgetPasswordByPhoneNumberReducer,
+  forgetPassByVerifyOtp: forgetPasswordByVerifyOtpReducer,
+  confirmPassword: confirmPasswordReducer,
+
   getReferral: referralReducers,
+
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

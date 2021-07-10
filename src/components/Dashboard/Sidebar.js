@@ -16,6 +16,7 @@ const Sidebar = () => {
   const dispatch = useDispatch();
   const getProfile = useSelector((state) => state.getProfile);
   const { loading, userInfo } = getProfile;
+  console.log(userInfo);
   const stopLoading = () => {
     setIsLoading(false);
   };
@@ -34,7 +35,7 @@ const Sidebar = () => {
         <div className="sidebar">
           <div className="profile-info py-5  d-flex justify-content-center flex-column align-items-center">
             <div className="profile-image pb-3">
-              <img src={avater} alt="" />
+              <img src={userInfo.profilePhotoLink} alt="" />
             </div>
             <div className="profile-name">
               <h5>{userInfo.name}</h5>
