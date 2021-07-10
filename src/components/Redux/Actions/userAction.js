@@ -76,23 +76,23 @@ export const registerNewUser = (userData) => async (dispatch) => {
   console.log(userData);
   try {
     dispatch({
-      type: 'USER_REGISTRATION_REQUEST'
-    })
+      type: "USER_REGISTRATION_REQUEST",
+    });
 
-    fetch('http://api.utopiansglobal.com/auth/signUp', {
-      method: 'POST',
+    fetch("http://api.utopiansglobal.com/auth/signUp", {
+      method: "POST",
       headers: {
-        'content-type': 'application/json'
+        "content-type": "application/json",
       },
-      body: JSON.stringify(userData)
+      body: JSON.stringify(userData),
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         console.log(data);
         dispatch({
-          type: 'USER_REGISTRATION_SUCCESS',
-          payload: data
-        })
+          type: "USER_REGISTRATION_SUCCESS",
+          payload: data,
+        });
         if (data.statusCode !== 201) {
           toast.error(`${data.message}`, {
             position: "top-right",
@@ -115,20 +115,18 @@ export const registerNewUser = (userData) => async (dispatch) => {
           });
         }
         // localStorage.setItem('userInfo', JSON.stringify(data))
-      })
-
-
+      });
   } catch (error) {
     console.log(error);
     dispatch({
-      type: 'USER_REGISTRATION_FAIL',
-      payload: error.response && error.response.data.message ?
-        error.response.data.message :
-        error.message
-    })
+      type: "USER_REGISTRATION_FAIL",
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
   }
-}
-
+};
 
 // export const getUserProfile = () => async (dispatch) => {
 //     const userInfo = JSON.parse(localStorage.getItem('userInfo'))
@@ -174,11 +172,6 @@ export const registerNewUser = (userData) => async (dispatch) => {
 //   }
 // };
 
-
-
-
-
-
 export const changePassword = (confirmPass) => async (dispatch) => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const {
@@ -187,25 +180,24 @@ export const changePassword = (confirmPass) => async (dispatch) => {
 
   try {
     dispatch({
-      type: 'USER_PASSWORDCHANGE_REQUEST',
-    })
+      type: "USER_PASSWORDCHANGE_REQUEST",
+    });
 
-
-    fetch('http://api.utopiansglobal.com/auth/changePass', {
-      method: 'PUT',
+    fetch("http://api.utopiansglobal.com/auth/changePass", {
+      method: "PUT",
       headers: {
         authorization: `Bearer ${token}`,
-        'content-type': 'application/json'
+        "content-type": "application/json",
       },
-      body: JSON.stringify(confirmPass)
+      body: JSON.stringify(confirmPass),
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         console.log(data);
         dispatch({
-          type: 'USER_PASSWORDCHANGE_SUCCESS',
-          payload: data
-        })
+          type: "USER_PASSWORDCHANGE_SUCCESS",
+          payload: data,
+        });
         if (data.statusCode !== 200) {
           toast.error(`${data.message}`, {
             position: "top-right",
@@ -229,20 +221,18 @@ export const changePassword = (confirmPass) => async (dispatch) => {
         }
         // });
         console.log(data);
-
-      })
-
-
+      });
   } catch (error) {
     console.log(error);
     dispatch({
-      type: 'USER_PASSWORDCHANGE_FAIL',
-      payload: error.response && error.response.data.message ?
-        error.response.data.message :
-        error.message
-    })
+      type: "USER_PASSWORDCHANGE_FAIL",
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
   }
-}
+};
 
 export const getUserProfile = () => async (dispatch) => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -419,67 +409,3 @@ export const userProfileUpdateByPictureAction = (userData) => async (dispatch) =
   }
 };
 
-// export const userProfileUpdateByPicture = (confirmPass) => async (dispatch) => {
-//   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-//   const {
-//     data: { token },
-//   } = userInfo;
-
-//   try {
-//     dispatch({
-//       type: 'USER_PASSWORDCHANGE_REQUEST',
-//     })
-
-
-//     fetch('http://api.utopiansglobal.com/auth/changePass', {
-//       method: 'PUT',
-//       headers: {
-//         authorization: `Bearer ${token}`,
-//         'content-type': 'application/json'
-//       },
-//       body: JSON.stringify(confirmPass)
-//     })
-//       .then(res => res.json())
-//       .then(data => {
-//         console.log(data);
-//         dispatch({
-//           type: 'USER_PASSWORDCHANGE_SUCCESS',
-//           payload: data
-//         })
-//         if (data.statusCode !== 200) {
-//           toast.error(`${data.message}`, {
-//             position: "top-right",
-//             autoClose: 2000,
-//             hideProgressBar: false,
-//             closeOnClick: true,
-//             pauseOnHover: true,
-//             draggable: true,
-//             progress: undefined,
-//           });
-//         } else {
-//           toast.success(`${data.message}`, {
-//             position: "top-right",
-//             autoClose: 2000,
-//             hideProgressBar: false,
-//             closeOnClick: true,
-//             pauseOnHover: true,
-//             draggable: true,
-//             progress: undefined,
-//           });
-//         }
-//         // });
-//         console.log(data);
-
-//       })
-
-
-//   } catch (error) {
-//     console.log(error);
-//     dispatch({
-//       type: 'USER_PASSWORDCHANGE_FAIL',
-//       payload: error.response && error.response.data.message ?
-//         error.response.data.message :
-//         error.message
-//     })
-//   }
-// }

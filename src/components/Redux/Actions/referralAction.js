@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const adminDashboardHistory = () => async (dispatch) => {
+export const referralAction = () => async (dispatch) => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const {
     data: { token },
@@ -8,7 +8,7 @@ export const adminDashboardHistory = () => async (dispatch) => {
 
   try {
     dispatch({
-      type: "ADMINDASHBOARD_HISTORY_REQUEST",
+      type: "GET_REFERRAL_REQUEST",
       payload: {},
     });
 
@@ -20,16 +20,16 @@ export const adminDashboardHistory = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/dashboard/admin",
+      "http://api.utopiansglobal.com/auth/profile/referrals",
       config
     );
     dispatch({
-      type: "ADMINDASHBOARD_HISTORY_SUCCESS",
+      type: "GET_REFERRAL_SUCCESS",
       payload: data.data,
     });
   } catch (error) {
     dispatch({
-      type: "ADMINDASHBOARD_HISTORY_FAIL",
+      type: "GET_REFERRAL_FAIL",
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

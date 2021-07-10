@@ -37,7 +37,11 @@ import {
   withdrawHistoryReducer,
   withdrawReducer,
 } from "./Reducers/withdrawReducer";
+
 import { confirmPasswordReducer, forgetPasswordByPhoneNumberReducer, forgetPasswordByVerifyOtpReducer } from "./Reducers/forgetPasswordReducer";
+
+
+import { referralReducers } from "./Reducers/referralReducers";
 
 
 const reducer = combineReducers({
@@ -65,9 +69,13 @@ const reducer = combineReducers({
   updateProfile: updateProfileReducer,
   userProfileUpdateByPicture : userProfileUpdateByPicture,
   sendOtp: sendWithdrawOtp,
+
   forgetPassByNum: forgetPasswordByPhoneNumberReducer,
   forgetPassByVerifyOtp: forgetPasswordByVerifyOtpReducer,
   confirmPassword: confirmPasswordReducer,
+
+  getReferral: referralReducers,
+
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

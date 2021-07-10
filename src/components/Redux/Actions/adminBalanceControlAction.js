@@ -145,8 +145,10 @@ export const adminWithdrawManageAction = (withdrawData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
+
       `http://api.utopiansglobal.com
 /admin/balance/withdraws/${withdrawData.id}/manage`,
+
       statusData,
       config
     );

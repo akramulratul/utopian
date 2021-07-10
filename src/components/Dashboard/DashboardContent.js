@@ -76,7 +76,7 @@ const DashboardContent = ({ depositeData }) => {
                           <h6> TEAM DEPOSIT</h6>
                         </div>
                         <div className="balance">
-                          <h4>৳1750.50</h4>
+                          <h4>৳ 0</h4>
                         </div>
                       </div>
                     </div>

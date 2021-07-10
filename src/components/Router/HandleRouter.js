@@ -37,8 +37,12 @@ import EditAds from "../Dashboard/Admin/Ads/EditAds";
 import AdminIncentive from "../Dashboard/Admin/AdminIncentive/AdminIncentive";
 import Users from "../Dashboard/Admin/Users/Users";
 import UserProfile from "../Dashboard/Admin/Users/ProfileView/UserProfile";
+
 import VerifyOtp from "../Authentication/ForgetPassword/VerifyOtp";
 import ChangePassword from "../Authentication/ForgetPassword/ConfirmPassword";
+
+import Referral from "../Referral/Referral";
+
 
 const ProfileDetails = lazy(() => import("../Profile/ProfileDetails"));
 const HandleRouter = () => {
@@ -64,9 +68,12 @@ const HandleRouter = () => {
           <PrivateRoute path="/admin/dashboard">
             <Admin />
           </PrivateRoute>
-          <Route path="/dashboard/profile">
+          <PrivateRoute path="/dashboard/profile">
             <Profile />
-          </Route>
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/referral">
+            <Referral />
+          </PrivateRoute>
           <Route path="/login">
             <Login />
           </Route>
