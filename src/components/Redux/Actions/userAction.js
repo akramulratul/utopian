@@ -12,7 +12,7 @@ export const login = (userName, password) => async (dispatch) => {
       username: userName,
     };
 
-    fetch("https://utopain-backend.herokuapp.com/auth/signIn", {
+    fetch("http://api.utopiansglobal.com/auth/signIn", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -79,7 +79,7 @@ export const registerNewUser = (userData) => async (dispatch) => {
       type: "USER_REGISTRATION_REQUEST",
     });
 
-    fetch("https://utopain-backend.herokuapp.com/auth/signUp", {
+    fetch("http://api.utopiansglobal.com/auth/signUp", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -183,7 +183,7 @@ export const changePassword = (confirmPass) => async (dispatch) => {
       type: "USER_PASSWORDCHANGE_REQUEST",
     });
 
-    fetch("https://utopain-backend.herokuapp.com/auth/changePass", {
+    fetch("http://api.utopiansglobal.com/auth/changePass", {
       method: "PUT",
       headers: {
         authorization: `Bearer ${token}`,
@@ -254,7 +254,7 @@ export const getUserProfile = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "https://utopain-backend.herokuapp.com/auth/profile",
+      "http://api.utopiansglobal.com/auth/profile",
       config
     );
     dispatch({
@@ -291,7 +291,7 @@ export const userProfileUpdate = (userData) => async (dispatch) => {
       },
     };
 
-    fetch("https://utopain-backend.herokuapp.com/auth/profile", {
+    fetch("http://api.utopiansglobal.com/auth/profile", {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -360,7 +360,7 @@ export const userProfileUpdateByPictureAction =
       };
 
       fetch(
-        `https://utopain-backend.herokuapp.com/auth/uploadProfile?imageLink=${userData}`,
+        `http://api.utopiansglobal.com/auth/uploadProfile?imageLink=${userData}`,
         {
           method: "POST",
           headers: {
