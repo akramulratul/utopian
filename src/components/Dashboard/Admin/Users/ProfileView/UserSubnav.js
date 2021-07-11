@@ -13,7 +13,7 @@ const UserSubnav = ({ firstOption, secondOption }) => {
           </div>
         </Link>
       </div>
-      <div className="col-lg-4 m-0   p-0">
+      <div className="col-lg-8 m-0   p-0">
         <Link to={secondOption.link}>
           <div className="profile-nav border text-center py-3">
             <small>
