@@ -7,7 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { adminUserListAction } from "../../../Redux/Actions/adminDashboardAction";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+
+import { Link, useHistory } from "react-router-dom";
+const UsersHistory = () => {
+  const dispatch = useDispatch()
+  const history = useHistory()
+
 
 const UsersHistory = () => {
   const dispatch = useDispatch();
@@ -79,6 +84,7 @@ const UsersHistory = () => {
               </tr>
             </thead>
             <tbody>
+
               {userListInfo.data.map((user) => {
                 return (
                   <tr>
@@ -105,6 +111,7 @@ const UsersHistory = () => {
                           <Dropdown.Item className="dropdown">
                             <b>Suspend</b>
                           </Dropdown.Item>
+
 
                           <Dropdown.Item className="dropdown">
                             Deposits
