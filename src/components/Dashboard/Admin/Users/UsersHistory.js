@@ -9,17 +9,13 @@ import { adminUserListAction } from "../../../Redux/Actions/adminDashboardAction
 import { useState } from "react";
 
 import { Link, useHistory } from "react-router-dom";
-const UsersHistory = () => {
-  const dispatch = useDispatch()
-  const history = useHistory()
-
 
 const UsersHistory = () => {
   const dispatch = useDispatch();
   const allUserList = useSelector((state) => state.adminUserList);
-  console.log(allUserList.adminInfo);
+  // console.log(allUserList.adminInfo);
   const { loading, error, userListInfo } = allUserList;
-  console.log(userListInfo);
+  // console.log(userListInfo);
   const [isloading, setIsloading] = useState(true);
   const stopLoading = () => {
     setIsloading(false);
@@ -104,7 +100,7 @@ const UsersHistory = () => {
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                           <Dropdown.Item className="dropdown">
-                            <Link to="/admin/users/profile/details">
+                            <Link to={`/admin/users/profile/details/${user.username}`}>
                               <b>View Details</b>
                             </Link>
                           </Dropdown.Item>

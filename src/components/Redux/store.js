@@ -31,7 +31,7 @@ import {
 } from "./Reducers/adControllReducer";
 
 import { incentiveHistoryReducer } from "./Reducers/incentiveReducer";
-import { adminDashboardReducer, adminUserListReducer } from "./Reducers/adminDashboardReducer";
+import { adminDashboardReducer, adminUserDetailsListReducer, adminUserListReducer } from "./Reducers/adminDashboardReducer";
 
 import {
   sendWithdrawOtp,
@@ -78,6 +78,7 @@ const reducer = combineReducers({
 
   getReferral: referralReducers,
   adminUserList: adminUserListReducer,
+  adminUserDetailsList: adminUserDetailsListReducer,
 
 });
 
