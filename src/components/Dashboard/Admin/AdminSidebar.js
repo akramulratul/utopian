@@ -10,6 +10,7 @@ import support from "../../../image/icons/support.png";
 import rightArrow from "../../../image/icons/right.svg";
 import ads from "../../../image/icons/adds.svg";
 import setting from "../../../image/icons/settings.svg";
+import deposit from "../../../image/icons/Deposit Method.svg";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
@@ -96,6 +97,18 @@ const Sidebar = () => {
             <div>
               <Link to="/today/deposit">
                 <h6>Today Deposit</h6>
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className="dashboard-menu">
+          <div className="d-flex py-3">
+            <div className="px-5">
+              <img src={deposit} alt="" />
+            </div>
+            <div>
+              <Link to="/admin/depositmethod">
+                <h6>Deposit Method</h6>
               </Link>
             </div>
           </div>

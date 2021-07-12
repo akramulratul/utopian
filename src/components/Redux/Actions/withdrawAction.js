@@ -8,6 +8,7 @@ export const addWithdraw = (newWithdrawInfo) => async (dispatch) => {
     } = userInfo;
 
     try {
+
         dispatch({
             type: "ADD_WITHDRAW_REQUEST",
             payload: {},
@@ -80,6 +81,7 @@ export const getWithdrawHistory = () => async (dispatch) => {
             },
         };
 
+
         const { data } = await axios.get(
             "http://api.utopiansglobal.com/user/balance/withdraws",
             config
@@ -97,6 +99,8 @@ export const getWithdrawHistory = () => async (dispatch) => {
                     : error.message,
         });
     }
+
+  
 };
 
 export const sendOtp = () => async (dispatch) => {
@@ -126,6 +130,7 @@ export const sendOtp = () => async (dispatch) => {
                 });
             });
     } catch (error) {
+
         dispatch({
             type: "WITHDRAW_OTP_FAIL",
             payload:

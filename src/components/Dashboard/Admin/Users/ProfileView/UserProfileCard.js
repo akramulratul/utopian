@@ -38,12 +38,11 @@ const ProfileCard = () => {
             </div>
           </div>
         </div>
-        <div className="btn btn-brand w-100 py-2 mt-2">
-          <h6>Get Referral ID</h6>
+        <div className="btn button-decline btn-brand w-100 py-2 mt-2">
+          <h6>Suspend</h6>
         </div>
         <div></div>
       </div>
-      )}
     </>
   );
 };
