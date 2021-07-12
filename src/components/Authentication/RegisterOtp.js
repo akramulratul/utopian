@@ -48,7 +48,7 @@ const RegisterOtp = () => {
                 setLoading(true)
                 setTimeout(() => {
                     setLoading(false)
-                }, 10000);
+                }, 60000);
 
             } else {
                 toast.error("please add all the fields", {

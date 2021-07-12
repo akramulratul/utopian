@@ -90,7 +90,7 @@ const Registration = () => {
     setLoader(true)
     setTimeout(() => {
       setLoader(false)
-    }, 40000);
+    }, 60000);
     sessionStorage.setItem("verifyData", JSON.stringify(userData));
     const phone = {
       phoneNo: phoneNumber
@@ -252,7 +252,7 @@ const Registration = () => {
 
               <div className="checkbox-forget">
                 <div>
-                  <input type="checkbox" id="newUser" required />
+                  <input type="checkbox" id="newUser" />
                   <label for="newUser" className="px-2">
                     Accepts all terms and condition
                   </label>
