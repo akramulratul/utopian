@@ -39,3 +39,24 @@ export const adminUserListReducer = (state = {}, action) => {
     }
 }
 
+export const adminUserDetailsListReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'ADMIN_USER_LIST_DETAILS_REQUEST':
+            return {
+                loading: true, userListInfo: action.payload
+            }
+        case 'ADMIN_USER_LIST_DETAILS_SUCCESS':
+            return {
+                loading: false, userListInfo: action.payload
+            }
+        case 'ADMIN_USER_LIST_DETAILS_FAIL':
+            return {
+                loading: false, error: action.payload
+            }
+
+        default:
+            return state;
+    }
+}
+
+
