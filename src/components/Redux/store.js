@@ -8,6 +8,7 @@ import {
   passwordChangeReducer,
   updateProfileReducer,
   userProfileUpdateByPicture,
+  userRegisterOtpVerification,
 } from "./Reducers/userReducer";
 import {
   addDepositeReducer,
@@ -30,7 +31,7 @@ import {
 } from "./Reducers/adControllReducer";
 
 import { incentiveHistoryReducer } from "./Reducers/incentiveReducer";
-import { adminDashboardReducer } from "./Reducers/adminDashboardReducer";
+import { adminDashboardReducer, adminUserListReducer } from "./Reducers/adminDashboardReducer";
 
 import {
   sendWithdrawOtp,
@@ -47,6 +48,7 @@ import { referralReducers } from "./Reducers/referralReducers";
 const reducer = combineReducers({
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
+  userRegisterOtpVerify: userRegisterOtpVerification,
   getProfile: getUserProfileReducer,
   addDeposite: addDepositeReducer,
   depositHistory: depositHistoryReducer,
@@ -67,7 +69,7 @@ const reducer = combineReducers({
   incentiveHistory: incentiveHistoryReducer,
   adminDashboardData: adminDashboardReducer,
   updateProfile: updateProfileReducer,
-  userProfileUpdateByPicture : userProfileUpdateByPicture,
+  userProfileUpdateByPicture: userProfileUpdateByPicture,
   sendOtp: sendWithdrawOtp,
 
   forgetPassByNum: forgetPasswordByPhoneNumberReducer,
@@ -75,6 +77,7 @@ const reducer = combineReducers({
   confirmPassword: confirmPasswordReducer,
 
   getReferral: referralReducers,
+  adminUserList: adminUserListReducer,
 
 });
 

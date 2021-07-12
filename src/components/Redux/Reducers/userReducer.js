@@ -130,4 +130,27 @@ export const userProfileUpdateByPicture = (state = {}, action) => {
       return state;
   }
 };
+export const userRegisterOtpVerification = (state = {}, action) => {
+  switch (action.type) {
+    case "USER_REGISTER_OTP_VERIFY_REQUEST":
+      return {
+        loading: true,
+        userInfo: action.payload,
+      };
+    case "USER_REGISTER_OTP_VERIFY_SUCCESS":
+      return {
+        loading: false,
+        userInfo: action.payload,
+      };
+    case "USER_REGISTER_OTP_VERIFY_FAIL":
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+
 
