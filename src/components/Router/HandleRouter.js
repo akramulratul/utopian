@@ -37,12 +37,15 @@ import EditAds from "../Dashboard/Admin/Ads/EditAds";
 import AdminIncentive from "../Dashboard/Admin/AdminIncentive/AdminIncentive";
 import Users from "../Dashboard/Admin/Users/Users";
 import UserProfile from "../Dashboard/Admin/Users/ProfileView/UserProfile";
-
 import VerifyOtp from "../Authentication/ForgetPassword/VerifyOtp";
 import ChangePassword from "../Authentication/ForgetPassword/ConfirmPassword";
-
 import Referral from "../Referral/Referral";
+
 import RegisterOtp from "../Authentication/RegisterOtp";
+
+
+import DepositMethod from "../Dashboard/Admin/AdminPaymentMethod/DepositMethod";
+import AddPaymentMethod from "../Dashboard/Admin/AdminPaymentMethod/AddPaymentMethod";
 
 
 const ProfileDetails = lazy(() => import("../Profile/ProfileDetails"));
@@ -172,11 +175,17 @@ const HandleRouter = () => {
           <PrivateRoute path="/admin/allusers">
             <Users />
           </PrivateRoute>
-          <PrivateRoute path="/admin/userprofile">
+          <PrivateRoute path="/admin/user/details/:id">
             <UserProfile />
           </PrivateRoute>
           <PrivateRoute path="/admin/incentive">
             <AdminIncentive />
+          </PrivateRoute>
+          <PrivateRoute path="/admin/depositmethod">
+            <DepositMethod />
+          </PrivateRoute>
+          <PrivateRoute path="/admin/addnew">
+            <AddPaymentMethod />
           </PrivateRoute>
         </Switch>
       </Router>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import DepositBanking from "./DepositGateWay/DepositBanking";
+import Rocket from "./DepositGateWay/Rocket";
 const DepositGateway = ({ setMethod }) => {
   const [value, setValue] = useState("");
   const [isBkashChecked, setIsBkashChecked] = useState(false);
@@ -70,7 +71,7 @@ const DepositGateway = ({ setMethod }) => {
             Rocket
           </label>
           <br />
-          {isRocketChecked && <DepositBanking />}
+          {isRocketChecked && <Rocket />}
         </div>
       </form>
     </div>
