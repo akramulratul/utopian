@@ -42,6 +42,7 @@ import VerifyOtp from "../Authentication/ForgetPassword/VerifyOtp";
 import ChangePassword from "../Authentication/ForgetPassword/ConfirmPassword";
 
 import Referral from "../Referral/Referral";
+import RegisterOtp from "../Authentication/RegisterOtp";
 
 
 const ProfileDetails = lazy(() => import("../Profile/ProfileDetails"));
@@ -80,14 +81,17 @@ const HandleRouter = () => {
           <Route path="/registration">
             <Register />
           </Route>
+          <Route path="/registration-verify-otp">
+            <RegisterOtp />
+          </Route>
           <Route path="/forgot-password">
             <ForgetPassword />
           </Route>
           <Route path="/verify-otp">
-            <VerifyOtp/>
+            <VerifyOtp />
           </Route>
           <Route path="/confirm-password">
-            <ChangePassword/>
+            <ChangePassword />
           </Route>
           <PrivateRoute path="/withdraw">
             <Withdraw />
