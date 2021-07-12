@@ -232,6 +232,7 @@ export const userGetAllAds = () => async (dispatch, getState) => {
     const response = await axios.get(
       `http://api.utopiansglobal.com/users/ads`
     );
+
     dispatch({
       type: "USER_GET_ADS_SUCCESS",
       payload: response.data.data,

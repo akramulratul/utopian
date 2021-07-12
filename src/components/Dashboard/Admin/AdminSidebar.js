@@ -228,7 +228,9 @@ const Sidebar = () => {
               <img src={setting} alt="" />
             </div>
             <div>
-              <h6>Settings</h6>
+              <Link to="/admin/setting">
+                <h6>Settings</h6>
+              </Link>
             </div>
           </div>
         </div>

@@ -103,7 +103,9 @@ export const registerNewUser = (userData, history) => async (dispatch) => {
             draggable: true,
             progress: undefined,
           });
-          setTimeout(function () { history.push('/login') }, 2000);
+          setTimeout(function () {
+            history.push("/login");
+          }, 2000);
         } else {
           toast.error(`${data.message}`, {
             position: "top-right",
@@ -129,64 +131,66 @@ export const registerNewUser = (userData, history) => async (dispatch) => {
   }
 };
 
-export const userRegisterOtpVerifyAction = (phoneNumber, history) => async (dispatch) => {
-  console.log(phoneNumber);
-  try {
-    dispatch({
-      type: "USER_REGISTER_OTP_VERIFY_REQUEST",
-    });
-
-    fetch(`http://api.utopiansglobal.com/auth/signUp/generateOtp`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(phoneNumber),
-
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        dispatch({
-          type: "USER_REGISTER_OTP_VERIFY_SUCCESS",
-          payload: data,
-        });
-        console.log(data);
-        if (data.statusCode === 200) {
-          setTimeout(function () { history.push('/registration-verify-otp') }, 2000);
-          toast.success(`${data.message}`, {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-        } else {
-          toast.error(`${data.message}`, {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-        }
-        // localStorage.setItem('userInfo', JSON.stringify(data))
+export const userRegisterOtpVerifyAction =
+  (phoneNumber, history) => async (dispatch) => {
+    console.log(phoneNumber);
+    try {
+      dispatch({
+        type: "USER_REGISTER_OTP_VERIFY_REQUEST",
       });
-  } catch (error) {
-    console.log(error);
-    dispatch({
-      type: "USER_REGISTER_OTP_VERIFY_FAIL",
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    });
-  }
-};
+
+      fetch(`http://api.utopiansglobal.com/auth/signUp/generateOtp`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(phoneNumber),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          dispatch({
+            type: "USER_REGISTER_OTP_VERIFY_SUCCESS",
+            payload: data,
+          });
+          console.log(data);
+          if (data.statusCode === 200) {
+            setTimeout(function () {
+              history.push("/registration-verify-otp");
+            }, 2000);
+            toast.success(`${data.message}`, {
+              position: "top-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+          } else {
+            toast.error(`${data.message}`, {
+              position: "top-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+          }
+          // localStorage.setItem('userInfo', JSON.stringify(data))
+        });
+    } catch (error) {
+      console.log(error);
+      dispatch({
+        type: "USER_REGISTER_OTP_VERIFY_FAIL",
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };
 
 // export const getUserProfile = () => async (dispatch) => {
 //     const userInfo = JSON.parse(localStorage.getItem('userInfo'))
