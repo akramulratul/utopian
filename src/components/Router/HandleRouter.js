@@ -189,7 +189,7 @@ const HandleRouter = () => {
           <PrivateRoute path="/admin/setting">
             <AdminSetting />
           </PrivateRoute>
-          <PrivateRoute path="/admin/users/profile/details">
+          <PrivateRoute path="/admin/users/profile/details/:username">
             <Suspense fallback={<p>Loading...</p>}>
               <UserProfileDetails />
             </Suspense>
