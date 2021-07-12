@@ -23,10 +23,6 @@ const UserProfile = () => {
                       link: "/admin/users/profile/details",
                       title: "Profile",
                     }}
-                    secondOption={{
-                      link: "/admin/users/profile/update-profile",
-                      title: "Update Profile",
-                    }}
                   />
                 </div>
                 <div className="profile-content-detail rounded"></div>

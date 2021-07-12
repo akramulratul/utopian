@@ -7,13 +7,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { adminUserListAction } from "../../../Redux/Actions/adminDashboardAction";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 const UsersHistory = () => {
-  const dispatch = useDispatch()
-
-
-  const allUserList = useSelector(state => state.adminUserList)
+  const dispatch = useDispatch();
+  const allUserList = useSelector((state) => state.adminUserList);
   console.log(allUserList.adminInfo);
-  const { loading, error, userListInfo } = allUserList
+  const { loading, error, userListInfo } = allUserList;
   console.log(userListInfo);
   const [isloading, setIsloading] = useState(true);
   const stopLoading = () => {
@@ -21,9 +21,9 @@ const UsersHistory = () => {
   };
 
   useEffect(() => {
-    dispatch(adminUserListAction())
+    dispatch(adminUserListAction());
     stopLoading();
-  }, [dispatch])
+  }, [dispatch]);
   // const { data } = allUserList.adminInfo
   // console.log(data);
 
@@ -79,43 +79,45 @@ const UsersHistory = () => {
               </tr>
             </thead>
             <tbody>
-              {
-                userListInfo.data.map((user) => {
-                  return (
-                    <tr>
-                      <td>{user.name}</td>
-                      <td>{user.email}</td>
-                      <td>{user.userLevel}</td>
-                      <td>Active</td>
-                      <td>
-                        {new Date(user.createdOn).getDate()}/
-                        {new Date(user.createdOn).getMonth()}/
-                        {new Date(user.createdOn).getFullYear()}
-                      </td>
-                      <td>
-                        <Dropdown>
-                          <Dropdown.Toggle variant="" id="dropdown-basic">
-                            <img src={setting} alt="" />
-                          </Dropdown.Toggle>
-                          <Dropdown.Menu>
-                            <Dropdown.Item className="dropdown">
+              {userListInfo.data.map((user) => {
+                return (
+                  <tr>
+                    <td>{user.name}</td>
+                    <td>{user.email}</td>
+                    <td>{user.userLevel}</td>
+                    <td>Active</td>
+                    <td>
+                      {new Date(user.createdOn).getDate()}/
+                      {new Date(user.createdOn).getMonth()}/
+                      {new Date(user.createdOn).getFullYear()}
+                    </td>
+                    <td>
+                      <Dropdown>
+                        <Dropdown.Toggle variant="" id="dropdown-basic">
+                          <img src={setting} alt="" />
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                          <Dropdown.Item className="dropdown">
+                            <Link to="/admin/users/profile/details">
                               <b>View Details</b>
-                            </Dropdown.Item>
-                            <Dropdown.Item className="dropdown">
-                              <b>Suspend</b>
-                            </Dropdown.Item>
+                            </Link>
+                          </Dropdown.Item>
+                          <Dropdown.Item className="dropdown">
+                            <b>Suspend</b>
+                          </Dropdown.Item>
 
-                            <Dropdown.Item className="dropdown">Deposits</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3" className="dropdown">
-                              Withdrawals
-                            </Dropdown.Item>
-                          </Dropdown.Menu>
-                        </Dropdown>
-                      </td>
-                    </tr>
-                  )
-                })
-              }
+                          <Dropdown.Item className="dropdown">
+                            Deposits
+                          </Dropdown.Item>
+                          <Dropdown.Item href="#/action-3" className="dropdown">
+                            Withdrawals
+                          </Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    </td>
+                  </tr>
+                );
+              })}
               {/* <tr>
                 <td>Regina Cooper</td>
                 <td>admin@email.com</td>

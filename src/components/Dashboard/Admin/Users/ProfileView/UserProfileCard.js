@@ -41,6 +41,9 @@ const ProfileCard = () => {
         <div className="btn button-decline btn-brand w-100 py-2 mt-2">
           <h6>Suspend</h6>
         </div>
+        <div className="btn btn-warning w-100 py-2 mt-2">
+          <h6>Temporary Suspend</h6>
+        </div>
         <div></div>
       </div>
     </>

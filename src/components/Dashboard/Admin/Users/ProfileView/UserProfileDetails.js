@@ -2,8 +2,8 @@ import React from "react";
 import UserTableRow from "./UserTableRow";
 import UserProfileCard from "./UserProfileCard";
 import UserSubnav from "./UserSubnav";
-import AdminSidebar from "./AdminSidebar";
-import DashboardNav from "./DashboardNav";
+import AdminSidebar from "../../AdminSidebar";
+import DashboardNav from "../../../DashboardNav";
 const UserProfileDetails = () => {
   return (
     <div className="profile-container">
@@ -24,39 +24,24 @@ const UserProfileDetails = () => {
                       link: "/admin/users/profile/details",
                       title: "Profile",
                     }}
-                    secondOption={{
-                      link: "/admin/users/profile/update-profile",
-                      title: "Update Profile",
-                    }}
                   />
                 </div>
-                {!isLoading ? (
-                  loading ? (
-                    <p>loading...</p>
-                  ) : (
-                    <div className="details-wrapper bg-white">
-                      <UserTableRow title="Full Name" data={userInfo.name} />
-                      <UserTableRow title="Email" data={userInfo.email} />
-                      <UserTableRow
-                        title="Phone Number"
-                        data={userInfo.phoneNo}
-                      />
-                      <UserTableRow
-                        title="Current Level"
-                        data={userInfo.userLevel}
-                      />
-                      <UserTableRow
-                        title="About"
-                        data="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-                      />
-                      <UserTableRow title="Address" data={userInfo.address} />
-                      <UserTableRow title="City" data={userInfo.district} />
-                      <UserTableRow title="Country" data="Bangladesh" />
-                    </div>
-                  )
-                ) : (
-                  <p>Loading...</p>
-                )}
+
+                <div className="details-wrapper bg-white">
+                  <UserTableRow title="Full Name" data="Full Name" />
+                  <UserTableRow title="Email" data="{userInfo.email}" />
+                  <UserTableRow
+                    title="Phone Number"
+                    data="{userInfo.phoneNo}"
+                  />
+                  <UserTableRow
+                    title="Current Level"
+                    data="{userInfo.userLevel}"
+                  />
+                  <UserTableRow title="Address" data="Address" />
+                  <UserTableRow title="City" data="City" />
+                  <UserTableRow title="Country" data="Bangladesh" />
+                </div>
               </div>
             </div>
             <div className="col-lg-4 p-lg-3">

@@ -43,11 +43,10 @@ import Referral from "../Referral/Referral";
 
 import RegisterOtp from "../Authentication/RegisterOtp";
 
-
 import DepositMethod from "../Dashboard/Admin/AdminPaymentMethod/DepositMethod";
 import AddPaymentMethod from "../Dashboard/Admin/AdminPaymentMethod/AddPaymentMethod";
-
-
+import AdminSetting from "../Dashboard/Admin/AdminSetting/AdminSetting";
+import UserProfileDetails from "../Dashboard/Admin/Users/ProfileView/UserProfileDetails";
 const ProfileDetails = lazy(() => import("../Profile/ProfileDetails"));
 const HandleRouter = () => {
   return (
@@ -186,6 +185,14 @@ const HandleRouter = () => {
           </PrivateRoute>
           <PrivateRoute path="/admin/addnew">
             <AddPaymentMethod />
+          </PrivateRoute>
+          <PrivateRoute path="/admin/setting">
+            <AdminSetting />
+          </PrivateRoute>
+          <PrivateRoute path="/admin/users/profile/details">
+            <Suspense fallback={<p>Loading...</p>}>
+              <UserProfileDetails />
+            </Suspense>
           </PrivateRoute>
         </Switch>
       </Router>
