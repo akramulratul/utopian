@@ -1,48 +1,69 @@
-@import './colors';
-.content-holder{
-    background-color: $dash-body-bg;
-    min-height: 99.9vh;
+@import "./colors";
+.content-holder {
+  background-color: $dash-body-bg;
+  min-height: 99.9vh;
 }
-.profile-nav{
-    background:$white-bg;
-    transition: 0.3s;
-    color: black;
-    &:hover{
-        background: $dashboard-hover-text;
-        color: $text-color-light;
-        cursor: pointer;
-    }
+.profile-nav {
+  background: $white-bg;
+  transition: 0.3s;
+  color: black;
+  &:hover {
+    background: $dashboard-hover-text;
+    color: $text-color-light;
+    cursor: pointer;
+  }
 }
-.profile-content{
-    border-radius: 15px;
-    overflow: hidden;
-    // border: .5px solid rgba(128, 128, 128, 0.308);
+.profile-content {
+  border-radius: 15px;
+  overflow: hidden;
+  // border: .5px solid rgba(128, 128, 128, 0.308);
 }
-.profile-container{
+.profile-container {
   min-height: 98.7vh;
 }
-.profile-content-detail{
-    background-color: white;
+.profile-content-detail {
+  background-color: white;
 }
 
-.profile-card-info{
-    width: 100%;
-    
-    background-color: $white-bg;
-    border-radius: 10px;
-    .profile-card-img{
-        position: relative;
-    }
-  
-    
-    img{
-        width: 200px;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 50%;
-    }
+.profile-card-info {
+  width: 100%;
+
+  background-color: $white-bg;
+  border-radius: 10px;
+  .profile-card-img {
+    position: relative;
+    overflow: hidden;
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
 }
-.account-info{
-    background:$white-bg;
-    border-radius: 10px;
+.account-info {
+  background: $white-bg;
+  border-radius: 10px;
+}
+.my_file {
+  position: absolute;
+  bottom: 0;
+  outline: none;
+  color: transparent;
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: 220px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.my_file::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.my_file::before {
+  content: "\f030";
+  font-family: fontAwesome;
+  font-size: 65px;
+  background-image: url("../image/icons/camera.svg");
+  background-repeat: no-repeat;
 }
