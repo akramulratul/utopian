@@ -20,7 +20,7 @@ export const referralAction = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "https://utopain-backend.herokuapp.com/auth/profile/referrals",
+      "http://api.utopiansglobal.com/auth/profile/referrals",
       config
     );
     dispatch({

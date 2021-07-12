@@ -7,9 +7,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { adminUserListAction } from "../../../Redux/Actions/adminDashboardAction";
 import { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 const UsersHistory = () => {
   const dispatch = useDispatch()
-
+  const history = useHistory()
 
   const allUserList = useSelector(state => state.adminUserList)
   console.log(allUserList.adminInfo);
@@ -98,8 +99,9 @@ const UsersHistory = () => {
                             <img src={setting} alt="" />
                           </Dropdown.Toggle>
                           <Dropdown.Menu>
-                            <Dropdown.Item className="dropdown">
-                              <b>View Details</b>
+                            <Dropdown.Item className="dropdown" >
+                              <Link to={`/admin/user/details/${user.id}`}><b>View Details</b></Link>
+
                             </Dropdown.Item>
                             <Dropdown.Item className="dropdown">
                               <b>Suspend</b>

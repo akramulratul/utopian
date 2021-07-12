@@ -175,7 +175,7 @@ const HandleRouter = () => {
           <PrivateRoute path="/admin/allusers">
             <Users />
           </PrivateRoute>
-          <PrivateRoute path="/admin/userprofile">
+          <PrivateRoute path="/admin/user/details/:id">
             <UserProfile />
           </PrivateRoute>
           <PrivateRoute path="/admin/incentive">

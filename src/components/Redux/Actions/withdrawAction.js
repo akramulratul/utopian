@@ -100,7 +100,7 @@ export const getWithdrawHistory = () => async (dispatch) => {
         });
     }
 
-  
+
 };
 
 export const sendOtp = () => async (dispatch) => {
