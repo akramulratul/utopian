@@ -10,14 +10,17 @@ export const forgetPasswordByPhoneNumber =
         payload: {},
       });
 
-      fetch("http://api.utopiansglobal.com/auth/forgetPass/generateOtp", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          // authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(forgetData),
-      })
+      fetch(
+        "https://utopain-backend.herokuapp.com/auth/forgetPass/generateOtp",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            // authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(forgetData),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           dispatch({
@@ -71,7 +74,7 @@ export const forgetPasswordByVerifyOtp =
         payload: {},
       });
 
-      fetch("http://api.utopiansglobal.com/auth/forgetPass/verifyOTP", {
+      fetch("https://utopain-backend.herokuapp.com/auth/forgetPass/verifyOTP", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -131,13 +134,16 @@ export const confirmPasswordAction =
         payload: {},
       });
 
-      fetch("http://api.utopiansglobal.com/auth/forgetPass/changePass", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(confirmDataInfo),
-      })
+      fetch(
+        "https://utopain-backend.herokuapp.com/auth/forgetPass/changePass",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(confirmDataInfo),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           dispatch({

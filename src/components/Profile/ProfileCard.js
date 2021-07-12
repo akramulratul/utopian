@@ -35,9 +35,11 @@ const ProfileCard = () => {
         <div className="profile-card-container">
           <div className="profile-card-info">
             <div>
-              <div className="profile-card-img  d-flex justify-content-center align-items-center mt-3 pt-4">
-                <img src={userInfo.profilePhotoLink} alt="" />
+              <div className="profile-card-img d-flex justify-content-center align-items-center mt-3 pt-4">
+                <img src={profilePhoto} alt="" />
+                <input type="file" class="my_file" />
               </div>
+              <div className="d-flex justify-content-center align-items-center profile-card-img"></div>
               <div className="name-level p-2 text-center">
                 <h4>{userInfo.name}</h4>
                 <h6>{userInfo.userLevel}</h6>

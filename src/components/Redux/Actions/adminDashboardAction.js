@@ -20,7 +20,7 @@ export const adminDashboardHistory = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/dashboard/admin",
+      "https://utopain-backend.herokuapp.com/dashboard/admin",
       config
     );
     dispatch({
@@ -58,7 +58,7 @@ export const adminUserListAction = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/auth/profile/admin/users",
+      "https://utopain-backend.herokuapp.com/auth/profile/admin/users",
       config
     );
     dispatch({

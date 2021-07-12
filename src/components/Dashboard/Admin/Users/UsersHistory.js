@@ -10,11 +10,6 @@ import { useState } from "react";
 
 import { Link, useHistory } from "react-router-dom";
 const UsersHistory = () => {
-  const dispatch = useDispatch()
-  const history = useHistory()
-
-
-const UsersHistory = () => {
   const dispatch = useDispatch();
   const allUserList = useSelector((state) => state.adminUserList);
   console.log(allUserList.adminInfo);
@@ -84,7 +79,6 @@ const UsersHistory = () => {
               </tr>
             </thead>
             <tbody>
-
               {userListInfo.data.map((user) => {
                 return (
                   <tr>
@@ -112,7 +106,6 @@ const UsersHistory = () => {
                             <b>Suspend</b>
                           </Dropdown.Item>
 
-
                           <Dropdown.Item className="dropdown">
                             Deposits
                           </Dropdown.Item>
@@ -125,33 +118,6 @@ const UsersHistory = () => {
                   </tr>
                 );
               })}
-              {/* <tr>
-                <td>Regina Cooper</td>
-                <td>admin@email.com</td>
-                <td>Level One</td>
-                <td>Active</td>
-                <td>10m ago</td>
-                <td>
-                  <Dropdown>
-                    <Dropdown.Toggle variant="" id="dropdown-basic">
-                      <img src={setting} alt="" />
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                      <Dropdown.Item className="dropdown">
-                        <b>View Details</b>
-                      </Dropdown.Item>
-                      <Dropdown.Item className="dropdown">
-                        <b>Suspend</b>
-                      </Dropdown.Item>
-
-                      <Dropdown.Item className="dropdown">Deposits</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3" className="dropdown">
-                        Withdrawals
-                      </Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
-                </td>
-              </tr> */}
             </tbody>
           </Table>
         </div>
