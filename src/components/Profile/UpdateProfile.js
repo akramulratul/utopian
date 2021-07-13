@@ -8,7 +8,10 @@ import {
   CountryRegionData,
 } from "react-country-region-selector";
 import { useDispatch } from "react-redux";
-import { userProfileUpdate, userProfileUpdateByPictureAction } from "../Redux/Actions/userAction";
+import {
+  userProfileUpdate,
+  userProfileUpdateByPictureAction,
+} from "../Redux/Actions/userAction";
 import { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import { Button } from "react-bootstrap";
@@ -17,41 +20,38 @@ const UpdateProfile = ({ userInfo }) => {
   const [country, setCountry] = useState("");
   const dispatch = useDispatch();
 
-
   //
-  const [image, setImage] = useState("")
+  const [image, setImage] = useState("");
   console.log(image);
-  const [url, setUrl] = useState()
+  const [url, setUrl] = useState();
   console.log("url", url);
 
   const postDetails = () => {
-    const data = new FormData()
-    data.append("file", image)
-    data.append("upload_preset", "iypf1xxa")
-    data.append("cloud_name", "utopiansglobal")
+    const data = new FormData();
+    data.append("file", image);
+    data.append("upload_preset", "iypf1xxa");
+    data.append("cloud_name", "utopiansglobal");
     console.log(image);
     if (image) {
       fetch("https://api.cloudinary.com/v1_1/utopiansglobal/image/upload", {
         method: "post",
-        body: data
+        body: data,
       })
-        .then(res => res.json())
-        .then(data => {
-          console.log(data)
-          setUrl(data.url)
-          dispatch(userProfileUpdateByPictureAction(data.url))
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setUrl(data.url);
+          dispatch(userProfileUpdateByPictureAction(data.url));
         })
-        .catch(err => {
-          console.log(err)
-        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
-
-  }
-
+  };
 
   const updatePhoto = (file) => {
-    setImage(file)
-  }
+    setImage(file);
+  };
 
   const [region, setRegion] = useState("");
   const {
@@ -154,7 +154,6 @@ const UpdateProfile = ({ userInfo }) => {
           />
         </div> */}
 
-
         <div className="name-row mt-2 row">
           <div className="col-lg-6">
             <label htmlFor="address">Country</label>
@@ -180,13 +179,15 @@ const UpdateProfile = ({ userInfo }) => {
         <button className="btn-brand border-0 py-2 px-5 mt-3" type="submit">
           Save Changes
         </button>
-
-
       </form>
       <div>
         <div class="mb-3">
-          <label for="formFile" class="form-label">Picture</label>
-          <input class="form-control" type="file"
+          <label for="formFile" class="form-label mt-3">
+            Picture
+          </label>
+          <input
+            class="form-control"
+            type="file"
             accept="image/png, image/jpg, image/jpeg, image/pdf"
             name="pictures"
             mode="append"
@@ -194,7 +195,10 @@ const UpdateProfile = ({ userInfo }) => {
             onChange={(e) => updatePhoto(e.target.files[0])}
           />
         </div>
-        <Button onClick={() => postDetails()}>
+        <Button
+          className="btn-update border-0 py-2 px-5 mt-3"
+          onClick={() => postDetails()}
+        >
           Profile Update
         </Button>
       </div>

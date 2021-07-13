@@ -18,7 +18,7 @@ const DashboardContent = ({ depositeData }) => {
                   {/* This section will remove */}
                   <div className="graph-holder d-flex justify-content-center align-items-center">
                     {/* Graph will add here */}
-                    <div className="pt-0 mt-4 ml-2 bg-white mr-2 border">
+                    <div className="col-lg-8 pt-0 mt-4  bg-white border">
                       <Graph />
                     </div>
                   </div>

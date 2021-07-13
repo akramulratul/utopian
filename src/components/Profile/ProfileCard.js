@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import profilePhoto from "../../image/bp.png";
-import { getUserProfile, userProfileUpdateByPictureAction } from "../Redux/Actions/userAction";
+import {
+  getUserProfile,
+  userProfileUpdateByPictureAction,
+} from "../Redux/Actions/userAction";
 import ReferalModal from "./ReferalModal";
 
 const ProfileCard = () => {
@@ -27,35 +30,34 @@ const ProfileCard = () => {
     setIsModalOpen(false);
   };
 
-  const [image, setImage] = useState("")
+  const [image, setImage] = useState("");
   console.log(image);
-  const [url, setUrl] = useState()
+  const [url, setUrl] = useState();
   console.log("url", url);
   const updatePhoto = (file) => {
-    setImage(file)
-  }
+    setImage(file);
+  };
   const postDetails = () => {
-    const data = new FormData()
-    data.append("file", image)
-    data.append("upload_preset", "iypf1xxa")
-    data.append("cloud_name", "utopiansglobal")
+    const data = new FormData();
+    data.append("file", image);
+    data.append("upload_preset", "iypf1xxa");
+    data.append("cloud_name", "utopiansglobal");
     if (image) {
       fetch("https://api.cloudinary.com/v1_1/utopiansglobal/image/upload", {
         method: "post",
-        body: data
+        body: data,
       })
-        .then(res => res.json())
-        .then(data => {
-          console.log(data)
-          setUrl(data.url)
-          dispatch(userProfileUpdateByPictureAction(data.url))
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setUrl(data.url);
+          dispatch(userProfileUpdateByPictureAction(data.url));
         })
-        .catch(err => {
-          console.log(err)
-        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
-
-  }
+  };
 
   return (
     <>
@@ -68,8 +70,18 @@ const ProfileCard = () => {
           <div className="profile-card-info">
             <div>
               <div className="profile-card-img d-flex justify-content-center align-items-center mt-3 pt-4">
-                <img src={userInfo.profilePhotoLink ? userInfo.profilePhotoLink : profilePhoto} alt="" />
-                <input type="file" class="my_file" onChange={(e) => updatePhoto(e.target.files[0])}
+                <img
+                  src={
+                    userInfo.profilePhotoLink
+                      ? userInfo.profilePhotoLink
+                      : profilePhoto
+                  }
+                  alt=""
+                />
+                <input
+                  type="file"
+                  class="my_file"
+                  onChange={(e) => updatePhoto(e.target.files[0])}
                   onBlur={() => postDetails()}
                 />
               </div>
