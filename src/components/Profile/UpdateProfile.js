@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { userProfileUpdate, userProfileUpdateByPictureAction } from "../Redux/Actions/userAction";
 import { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
+import { Button } from "react-bootstrap";
 
 const UpdateProfile = ({ userInfo }) => {
   const [country, setCountry] = useState("");
@@ -28,6 +29,7 @@ const UpdateProfile = ({ userInfo }) => {
     data.append("file", image)
     data.append("upload_preset", "iypf1xxa")
     data.append("cloud_name", "utopiansglobal")
+    console.log(image);
     if (image) {
       fetch("https://api.cloudinary.com/v1_1/utopiansglobal/image/upload", {
         method: "post",
@@ -140,7 +142,7 @@ const UpdateProfile = ({ userInfo }) => {
           />
         </div>
 
-        <div class="mb-3">
+        {/* <div class="mb-3">
           <label for="formFile" class="form-label">Picture</label>
           <input class="form-control" type="file"
             accept="image/png, image/jpg, image/jpeg, image/pdf"
@@ -150,7 +152,7 @@ const UpdateProfile = ({ userInfo }) => {
             onChange={(e) => updatePhoto(e.target.files[0])}
             onBlur={() => postDetails()}
           />
-        </div>
+        </div> */}
 
 
         <div className="name-row mt-2 row">
@@ -178,7 +180,24 @@ const UpdateProfile = ({ userInfo }) => {
         <button className="btn-brand border-0 py-2 px-5 mt-3" type="submit">
           Save Changes
         </button>
+
+
       </form>
+      <div>
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Picture</label>
+          <input class="form-control" type="file"
+            accept="image/png, image/jpg, image/jpeg, image/pdf"
+            name="pictures"
+            mode="append"
+            id="formFile"
+            onChange={(e) => updatePhoto(e.target.files[0])}
+          />
+        </div>
+        <Button onClick={() => postDetails()}>
+          Profile Update
+        </Button>
+      </div>
       <ToastContainer />
     </div>
   );
