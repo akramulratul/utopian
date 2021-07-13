@@ -113,4 +113,3 @@ export const adminUserDetailsListAction = (username) => async (dispatch) => {
     });
   }
 };
-
