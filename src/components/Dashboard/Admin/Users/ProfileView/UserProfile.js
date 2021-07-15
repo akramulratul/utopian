@@ -2,6 +2,7 @@ import React from "react";
 import AdminSidebar from "../../AdminSidebar";
 import DashboardNav from "../../../DashboardNav";
 import UserSubnav from "../ProfileView/UserSubnav";
+import UserProfileCard from "./UserProfileCard";
 const UserProfile = () => {
   return (
     <div className="profile-container">
@@ -22,16 +23,14 @@ const UserProfile = () => {
                       link: "/admin/users/profile/details",
                       title: "Profile",
                     }}
-                    secondOption={{
-                      link: "/admin/users/profile/update-profile",
-                      title: "Update Profile",
-                    }}
                   />
                 </div>
                 <div className="profile-content-detail rounded"></div>
               </div>
             </div>
-            <div className="col-lg-4 p-lg-3"></div>
+            <div className="col-lg-4 p-lg-3">
+              <UserProfileCard />
+            </div>
           </div>
         </div>
       </div>

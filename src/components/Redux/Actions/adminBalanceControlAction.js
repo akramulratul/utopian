@@ -65,6 +65,7 @@ export const adminDepositeManageAction = (depositData) => async (dispatch) => {
       statusData,
       config
     );
+    console.log(data);
     dispatch({
       type: "ADMIN_DEPOSITE_MANAGE_SUCCESS",
       payload: data.data,
@@ -144,8 +145,9 @@ export const adminWithdrawManageAction = (withdrawData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `https://utopain-backend.herokuapp.com
+      `http://api.utopiansglobal.com
 /admin/balance/withdraws/${withdrawData.id}/manage`,
+
       statusData,
       config
     );

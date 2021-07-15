@@ -18,7 +18,7 @@ const DashboardContent = ({ depositeData }) => {
                   {/* This section will remove */}
                   <div className="graph-holder d-flex justify-content-center align-items-center">
                     {/* Graph will add here */}
-                    <div className="pt-0 mt-4 ml-2 bg-white mr-2 border">
+                    <div className="col-lg-8 pt-0 mt-4  bg-white border">
                       <Graph />
                     </div>
                   </div>
@@ -76,7 +76,7 @@ const DashboardContent = ({ depositeData }) => {
                           <h6> TEAM DEPOSIT</h6>
                         </div>
                         <div className="balance">
-                          <h4>৳1750.50</h4>
+                          <h4>৳ 0</h4>
                         </div>
                       </div>
                     </div>

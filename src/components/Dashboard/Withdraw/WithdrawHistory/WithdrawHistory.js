@@ -47,6 +47,14 @@ const WithdrawHistory = () => {
             </th>
             <th scope="col">
               <div className="d-flex">
+                Payment{" "}
+                <div>
+                  <img src={updownIcon} alt="" />
+                </div>
+              </div>
+            </th>
+            <th scope="col">
+              <div className="d-flex">
                 Date{" "}
                 <div>
                   <img src={updownIcon} alt="" />
@@ -76,6 +84,7 @@ const WithdrawHistory = () => {
                     <b>{info.status}</b>
                   </td>
                   <td>BDT {info.amount}/-</td>
+                  <td>BDT {info.amount - info.amount * 0.05}/-</td>
                   <td>
                     {new Date(info.createdOn).getDate()} /
                     {new Date(info.createdOn).getMonth()} /

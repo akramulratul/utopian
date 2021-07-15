@@ -23,7 +23,7 @@ const EarningBar = () => {
       </div>
       <div className="right-content d-flex align-items-center m-3 p-2">
         <div className="px-3">
-          <h2>৳100</h2>
+          <h2>0</h2>
           <small>Today Earning</small>
         </div>
         <div className="px-3">

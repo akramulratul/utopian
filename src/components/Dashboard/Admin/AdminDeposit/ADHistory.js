@@ -9,6 +9,7 @@ import {
   adminDepositeManageAction,
   getAdminDepositeHistory,
 } from "../../../Redux/Actions/adminBalanceControlAction";
+import Withdrawal from "../../Withdraw/Withdrawal/Withdrawal";
 
 const ADHistory = () => {
   const [isloading, setIsloading] = useState(true);
@@ -40,6 +41,14 @@ const ADHistory = () => {
     };
     dispatch(adminDepositeManageAction(data));
   };
+  const viewHandler = (id) => {
+    const data = {
+      id: id,
+      // status: "Rejected",
+    };
+    // dispatch(adminDepositeManageAction(data));
+  };
+
   return (
     <div>
       {isloading ? (
@@ -128,8 +137,8 @@ const ADHistory = () => {
                           >
                             Decline
                           </Dropdown.Item>
-                          <Dropdown.Item href="#/action-3">
-                            View Details
+                          <Dropdown.Item onClick={() => viewHandler(deposite.id)} >
+                            <Link to={`/admin/depositdetails/${deposite.id}`} >View Details</Link>
                           </Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>

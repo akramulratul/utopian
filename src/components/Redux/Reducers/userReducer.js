@@ -65,6 +65,28 @@ export const getUserProfileReducer = (state = {}, action) => {
   }
 };
 
+
+export const passwordChangeReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "USER_PASSWORDCHANGE_REQUEST":
+      return {
+        loading: true, response: action.payload
+      }
+    case "USER_PASSWORDCHANGE_SUCCESS":
+      return {
+        loading: false, response: action.payload
+
+      }
+    case "USER_PASSWORDCHANGE_FAIL":
+      return {
+        loading: false, error: action.payload
+      }
+    default:
+      return state;
+  }
+
+
+}
 export const updateProfileReducer = (state = {}, action) => {
   switch (action.type) {
     case "USER_PROFILE_UPDATE_REQUEST":
@@ -86,3 +108,49 @@ export const updateProfileReducer = (state = {}, action) => {
       return state;
   }
 };
+
+export const userProfileUpdateByPicture = (state = {}, action) => {
+  switch (action.type) {
+    case "USER_PROFILE_UPDATE_REQUEST":
+      return {
+        loading: true,
+        userInfo: action.payload,
+      };
+    case "USER_PROFILE_UPDATE_SUCCESS":
+      return {
+        loading: false,
+        userInfo: action.payload,
+      };
+    case "USER_PROFILE_UPDATE_FAIL":
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+export const userRegisterOtpVerification = (state = {}, action) => {
+  switch (action.type) {
+    case "USER_REGISTER_OTP_VERIFY_REQUEST":
+      return {
+        loading: true,
+        userInfo: action.payload,
+      };
+    case "USER_REGISTER_OTP_VERIFY_SUCCESS":
+      return {
+        loading: false,
+        userInfo: action.payload,
+      };
+    case "USER_REGISTER_OTP_VERIFY_FAIL":
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+
+

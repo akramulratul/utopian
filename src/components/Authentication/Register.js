@@ -10,7 +10,7 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
-import { registerNewUser } from "../Redux/Actions/userAction";
+import { userRegisterOtpVerifyAction } from "../Redux/Actions/userAction";
 
 const Registration = () => {
   const userRegister = useSelector((state) => state.userRegister);
@@ -71,6 +71,10 @@ const Registration = () => {
     }
   }, [history]);
 
+  const [loader, setLoader] = useState(false)
+
+
+
   const onSubmit = async (data, e) => {
     console.log(data);
     const fullName = data.first_name + " " + data.last_name;
@@ -83,7 +87,16 @@ const Registration = () => {
       password: data.password,
     };
 
-    dispatch(registerNewUser(userData));
+    setLoader(true)
+    setTimeout(() => {
+      setLoader(false)
+    }, 60000);
+    sessionStorage.setItem("verifyData", JSON.stringify(userData));
+    const phone = {
+      phoneNo: phoneNumber
+    }
+
+    dispatch(userRegisterOtpVerifyAction(phone, history));
   };
 
   return (
@@ -239,14 +252,20 @@ const Registration = () => {
 
               <div className="checkbox-forget">
                 <div>
-                  <input type="checkbox" id="newUser" required />
+                  <input type="checkbox" id="newUser" />
                   <label for="newUser" className="px-2">
                     Accepts all terms and condition
                   </label>
                 </div>
               </div>
-              <button type="submit" className="button register">
+              {/* <button type="submit" className="button register">
                 Register
+              </button> */}
+              <button type="submit" name="submit" className="button login" disabled={loader}>
+                {loader ? <div class="spinner-border spinner-border-sm" role="status" style={{ width: "2rem", height: "2rem" }}>
+                  <span class="visually-hidden"></span>
+                </div> : "Register"}
+
               </button>
             </form>
             {/* <div class="">

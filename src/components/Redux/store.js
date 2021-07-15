@@ -5,7 +5,10 @@ import {
   userLoginReducer,
   userRegisterReducer,
   getUserProfileReducer,
+  passwordChangeReducer,
   updateProfileReducer,
+  userProfileUpdateByPicture,
+  userRegisterOtpVerification,
 } from "./Reducers/userReducer";
 import {
   addDepositeReducer,
@@ -26,15 +29,26 @@ import {
   userGetAllAdsReducer,
   watchedAddReducer,
 } from "./Reducers/adControllReducer";
+
+import { incentiveHistoryReducer } from "./Reducers/incentiveReducer";
+import { adminDashboardReducer, adminUserDetailsListReducer, adminUserListReducer } from "./Reducers/adminDashboardReducer";
+
 import {
   sendWithdrawOtp,
   withdrawHistoryReducer,
   withdrawReducer,
 } from "./Reducers/withdrawReducer";
 
+import { confirmPasswordReducer, forgetPasswordByPhoneNumberReducer, forgetPasswordByVerifyOtpReducer } from "./Reducers/forgetPasswordReducer";
+
+
+import { referralReducers } from "./Reducers/referralReducers";
+
+
 const reducer = combineReducers({
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
+  userRegisterOtpVerify: userRegisterOtpVerification,
   getProfile: getUserProfileReducer,
   addDeposite: addDepositeReducer,
   depositHistory: depositHistoryReducer,
@@ -51,8 +65,21 @@ const reducer = combineReducers({
   watchedAd: watchedAddReducer,
   withdrawInfo: withdrawReducer,
   withdrawHistory: withdrawHistoryReducer,
+  passChange: passwordChangeReducer,
+  incentiveHistory: incentiveHistoryReducer,
+  adminDashboardData: adminDashboardReducer,
   updateProfile: updateProfileReducer,
+  userProfileUpdateByPicture: userProfileUpdateByPicture,
   sendOtp: sendWithdrawOtp,
+
+  forgetPassByNum: forgetPasswordByPhoneNumberReducer,
+  forgetPassByVerifyOtp: forgetPasswordByVerifyOtpReducer,
+  confirmPassword: confirmPasswordReducer,
+
+  getReferral: referralReducers,
+  adminUserList: adminUserListReducer,
+  adminUserDetailsList: adminUserDetailsListReducer,
+
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

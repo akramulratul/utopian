@@ -4,8 +4,8 @@ const DepositBanking = () => {
   return (
     <div>
       <h3>Deposit details</h3>
-      <p>bKash Personal</p>
-      <h4>01303194150</h4>
+      <p>Please cashout on this number</p>
+      <h4>01792223414</h4>
     </div>
   );
 };

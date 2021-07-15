@@ -27,7 +27,7 @@ import AdminDeposit from "../Dashboard/Admin/AdminDeposit/AdminDeposit";
 import DepositDetails from "../Dashboard/Admin/AdminDeposit/DepositDetails/DepositDetails";
 import TodayDeposit from "../Dashboard/Admin/AdminDeposit/TodayDeposit/TodayDeposit";
 import WithdrawDetails from "../Dashboard/Admin/AdminWithdraw/WithdrawDetails/WithdrawDetails";
-import ForgetPassword from "../Authentication/ForgetPassword";
+import ForgetPassword from "../Authentication/ForgetPassword/ForgetPassword";
 import About from "../Home/About/About";
 import Contact from "../Home/Contact/Contact";
 import Services from "../Home/Services/Services";
@@ -37,7 +37,16 @@ import EditAds from "../Dashboard/Admin/Ads/EditAds";
 import AdminIncentive from "../Dashboard/Admin/AdminIncentive/AdminIncentive";
 import Users from "../Dashboard/Admin/Users/Users";
 import UserProfile from "../Dashboard/Admin/Users/ProfileView/UserProfile";
+import VerifyOtp from "../Authentication/ForgetPassword/VerifyOtp";
+import ChangePassword from "../Authentication/ForgetPassword/ConfirmPassword";
+import Referral from "../Referral/Referral";
 
+import RegisterOtp from "../Authentication/RegisterOtp";
+
+import DepositMethod from "../Dashboard/Admin/AdminPaymentMethod/DepositMethod";
+import AddPaymentMethod from "../Dashboard/Admin/AdminPaymentMethod/AddPaymentMethod";
+import AdminSetting from "../Dashboard/Admin/AdminSetting/AdminSetting";
+import UserProfileDetails from "../Dashboard/Admin/Users/ProfileView/UserProfileDetails";
 const ProfileDetails = lazy(() => import("../Profile/ProfileDetails"));
 const HandleRouter = () => {
   return (
@@ -62,17 +71,29 @@ const HandleRouter = () => {
           <PrivateRoute path="/admin/dashboard">
             <Admin />
           </PrivateRoute>
-          <Route path="/dashboard/profile">
+          <PrivateRoute path="/dashboard/profile">
             <Profile />
-          </Route>
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/referral">
+            <Referral />
+          </PrivateRoute>
           <Route path="/login">
             <Login />
           </Route>
           <Route path="/registration">
             <Register />
           </Route>
+          <Route path="/registration-verify-otp">
+            <RegisterOtp />
+          </Route>
           <Route path="/forgot-password">
             <ForgetPassword />
+          </Route>
+          <Route path="/verify-otp">
+            <VerifyOtp />
+          </Route>
+          <Route path="/confirm-password">
+            <ChangePassword />
           </Route>
           <PrivateRoute path="/withdraw">
             <Withdraw />
@@ -139,6 +160,10 @@ const HandleRouter = () => {
           <PrivateRoute path="/admin/editAd/:id">
             <EditAds />
           </PrivateRoute>
+
+          <Route path="/admin/depositdetails/:id">
+            <WithdrawDetails />
+          </Route>
           <Route path="/getSignUp/referral/:referralId">
             <Register />
           </Route>
@@ -149,11 +174,25 @@ const HandleRouter = () => {
           <PrivateRoute path="/admin/allusers">
             <Users />
           </PrivateRoute>
-          <PrivateRoute path="/admin/userprofile">
+          <PrivateRoute path="/admin/user/details/:id">
             <UserProfile />
           </PrivateRoute>
           <PrivateRoute path="/admin/incentive">
             <AdminIncentive />
+          </PrivateRoute>
+          <PrivateRoute path="/admin/depositmethod">
+            <DepositMethod />
+          </PrivateRoute>
+          <PrivateRoute path="/admin/addnew">
+            <AddPaymentMethod />
+          </PrivateRoute>
+          <PrivateRoute path="/admin/setting">
+            <AdminSetting />
+          </PrivateRoute>
+          <PrivateRoute path="/admin/users/profile/details/:username">
+            <Suspense fallback={<p>Loading...</p>}>
+              <UserProfileDetails />
+            </Suspense>
           </PrivateRoute>
         </Switch>
       </Router>

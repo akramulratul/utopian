@@ -16,6 +16,7 @@ const Sidebar = () => {
   const dispatch = useDispatch();
   const getProfile = useSelector((state) => state.getProfile);
   const { loading, userInfo } = getProfile;
+  console.log(userInfo);
   const stopLoading = () => {
     setIsLoading(false);
   };
@@ -34,7 +35,7 @@ const Sidebar = () => {
         <div className="sidebar">
           <div className="profile-info py-5  d-flex justify-content-center flex-column align-items-center">
             <div className="profile-image pb-3">
-              <img src={avater} alt="" />
+              <img src={userInfo.profilePhotoLink} alt="" />
             </div>
             <div className="profile-name">
               <h5>{userInfo.name}</h5>
@@ -134,16 +135,18 @@ const Sidebar = () => {
                     </Dropdown.Item>
 
                     <Dropdown.Item>
-                      <div className="down">
-                        <div className="d-flex py-">
-                          <div className="px-2">
-                            <img src={rightArrow} alt="" />
-                          </div>
-                          <div>
-                            <h6 className="pt-1">Refrence Bonus</h6>
+                      <Link to="/dashboard/referral">
+                        <div className="down">
+                          <div className="d-flex py-">
+                            <div className="px-2">
+                              <img src={rightArrow} alt="" />
+                            </div>
+                            <div>
+                              <h6 className="pt-1">Refrence Bonus</h6>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </Link>
                     </Dropdown.Item>
 
                     <Dropdown.Item>
@@ -153,7 +156,7 @@ const Sidebar = () => {
                             <img src={rightArrow} alt="" />
                           </div>
                           <div>
-                            <h6 className="pt-1">Generation Bonus</h6>
+                            <h6 className="pt-1">Generations</h6>
                           </div>
                         </div>
                       </div>

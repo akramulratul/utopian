@@ -1,16 +1,58 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import { toast } from "react-toastify";
 import {
   CountryDropdown,
   RegionDropdown,
   CountryRegionData,
 } from "react-country-region-selector";
 import { useDispatch } from "react-redux";
-import { userProfileUpdate } from "../Redux/Actions/userAction";
+import {
+  userProfileUpdate,
+  userProfileUpdateByPictureAction,
+} from "../Redux/Actions/userAction";
+import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import { Button } from "react-bootstrap";
 
 const UpdateProfile = ({ userInfo }) => {
   const [country, setCountry] = useState("");
   const dispatch = useDispatch();
+
+  //
+  const [image, setImage] = useState("");
+  console.log(image);
+  const [url, setUrl] = useState();
+  console.log("url", url);
+
+  const postDetails = () => {
+    const data = new FormData();
+    data.append("file", image);
+    data.append("upload_preset", "iypf1xxa");
+    data.append("cloud_name", "utopiansglobal");
+    console.log(image);
+    if (image) {
+      fetch("https://api.cloudinary.com/v1_1/utopiansglobal/image/upload", {
+        method: "post",
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setUrl(data.url);
+          dispatch(userProfileUpdateByPictureAction(data.url));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+
+  const updatePhoto = (file) => {
+    setImage(file);
+  };
+
   const [region, setRegion] = useState("");
   const {
     register,
@@ -28,11 +70,10 @@ const UpdateProfile = ({ userInfo }) => {
       phoneNo: data.phone,
       thana: data.about,
     };
+
     dispatch(userProfileUpdate(userData));
     console.log(userData);
   };
-
-  //
 
   return (
     <div className="p-1 p-lg-3">
@@ -60,7 +101,7 @@ const UpdateProfile = ({ userInfo }) => {
         </div>
 
         <div className="email-phone row">
-          <div className="col-lg-6">
+          <div className="col-lg-6" disabled="true">
             <label htmlFor="email">Email</label>
             <input
               className="form-control"
@@ -71,7 +112,7 @@ const UpdateProfile = ({ userInfo }) => {
             <br />
           </div>
 
-          <div className="col-lg-6">
+          <div className="col-lg-6" disabled="true">
             <label htmlFor="phone">Phone</label>
             <input
               className="form-control"
@@ -101,6 +142,18 @@ const UpdateProfile = ({ userInfo }) => {
           />
         </div>
 
+        {/* <div class="mb-3">
+          <label for="formFile" class="form-label">Picture</label>
+          <input class="form-control" type="file"
+            accept="image/png, image/jpg, image/jpeg, image/pdf"
+            name="pictures"
+            mode="append"
+            id="formFile"
+            onChange={(e) => updatePhoto(e.target.files[0])}
+            onBlur={() => postDetails()}
+          />
+        </div> */}
+
         <div className="name-row mt-2 row">
           <div className="col-lg-6">
             <label htmlFor="address">Country</label>
@@ -127,6 +180,29 @@ const UpdateProfile = ({ userInfo }) => {
           Save Changes
         </button>
       </form>
+      <div>
+        <div class="mb-3">
+          <label for="formFile" class="form-label mt-3">
+            Picture
+          </label>
+          <input
+            class="form-control"
+            type="file"
+            accept="image/png, image/jpg, image/jpeg, image/pdf"
+            name="pictures"
+            mode="append"
+            id="formFile"
+            onChange={(e) => updatePhoto(e.target.files[0])}
+          />
+        </div>
+        <Button
+          className="btn-update border-0 py-2 px-5 mt-3"
+          onClick={() => postDetails()}
+        >
+          Profile Update
+        </Button>
+      </div>
+      <ToastContainer />
     </div>
   );
 };
