@@ -9,7 +9,7 @@ const LandingTop = () => {
       <div className="page-container d-flex align-items-center align-items-center">
         <div className="row m-0 p-0">
           <div className="col-lg-5 text-left d-flex align-items-center">
-            <div className="text-white p-5">
+            <div className="text-white p-lg-5">
               <h1>
                 {" "}
                 <b> Complicated life turns into a simpler profit here.</b>

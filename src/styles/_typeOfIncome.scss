@@ -13,3 +13,10 @@
   position: relative;
   top: 5rem;
 }
+@media (max-width: 768px) {
+  .image-holder {
+    img {
+      width: 100%;
+    }
+  }
+}
