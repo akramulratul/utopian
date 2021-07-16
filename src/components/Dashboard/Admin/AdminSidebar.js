@@ -45,7 +45,7 @@ const Sidebar = () => {
             </div>
             <div>
               <h6>
-                <Link to="/dashboard/user/profile/details">Admin Profile</Link>
+                <Link to="/dashboard/admin/profile/details">Admin Profile</Link>
               </h6>
             </div>
           </div>
