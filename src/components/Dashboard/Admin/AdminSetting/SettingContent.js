@@ -3,6 +3,7 @@ import SettingTableRow from "./SettingTableRow";
 import { Button, Modal } from "react-bootstrap";
 import { useState } from "react";
 import TeamIncentive from "./TeamIncentive";
+import PromotionalPopup from "./PromotionalPopup";
 const SettingContent = () => {
   const [show, setShow] = useState(false);
   const [directAmount, setDirectAmount] = useState();
@@ -21,17 +22,12 @@ const SettingContent = () => {
   return (
     <div className="bg-white justify-content-between rounded mt-3 ml-3 mr-3">
       <div>
-        <h1>General Settings</h1>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-          maxime unde rerum!
-        </p>
+        <h3>General Settings</h3>
+        <p>You can select your all manual features here.</p>
       </div>
       <div>
-        <h1>Incentive Setting</h1>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias, est!
-        </p>
+        <h3>Incentive Setting</h3>
+        <p>You can select direct incentive and deposit amount manually</p>
       </div>
       <div>
         <div className="details-wrapper bg-white">
@@ -47,21 +43,29 @@ const SettingContent = () => {
           />
         </div>
         <div className="ml-2 mt-3">
-          <Button variant="primary" onClick={handleShow}>
+          <Button
+            className="btn-update border-0 py-2 px-5 mt-3"
+            variant="primary"
+            onClick={handleShow}
+          >
             Incentive List
           </Button>{" "}
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>Modal heading</Modal.Title>
+              <Modal.Title>Incentive List</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
-              Woohoo, you're reading this text in a modal!
-            </Modal.Body>
+            <Modal.Body>Incentive list will be here</Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
+              <Button
+                className="btn-update border-0 py-2 px-5 mt-3"
+                onClick={handleClose}
+              >
                 Close
               </Button>
-              <Button variant="primary" onClick={handleSubmit}>
+              <Button
+                className="btn-update border-0 py-2 px-5 mt-3"
+                onClick={handleSubmit}
+              >
                 Save Changes
               </Button>
             </Modal.Footer>
@@ -70,6 +74,16 @@ const SettingContent = () => {
       </div>
       <div>
         <TeamIncentive />
+      </div>
+      <div>
+        <PromotionalPopup />
+      </div>
+      <div className="justify-content-end">
+        {" "}
+        <Button className="btn-update border-0 py-2 px-5 mt-3">
+          Save
+        </Button>{" "}
+        <Button className="btn-update border-0 py-2 px-5 mt-3">Reset</Button>{" "}
       </div>
     </div>
   );

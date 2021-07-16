@@ -1,4 +1,6 @@
 import React from "react";
+import { useState } from "react";
+import { ButtonGroup, ToggleButton, Form } from "react-bootstrap";
 
 const SettingTableRow = ({
   title,
@@ -9,7 +11,17 @@ const SettingTableRow = ({
   setDirectBonus,
   TeamAmount,
   setTeamBonus,
+  setTeamAmount,
+  toggle,
+  promotion,
 }) => {
+  const [checked, setChecked] = useState(false);
+  const [radioValue, setRadioValue] = useState("1");
+
+  const radios = [
+    { name: "Active", value: "1" },
+    { name: "Deactivate", value: "2" },
+  ];
   return (
     <div className="row p-0 m-0">
       <div className="col-4 border">
@@ -44,7 +56,7 @@ const SettingTableRow = ({
               aria-describedby="emailHelp"
               placeholder="Direct Bonus Amount"
               onChange={(e) => setDirectBonus(e.target.value)}
-            ></input>
+            />
           </div>
         )}
         {TeamAmount && (
@@ -53,6 +65,7 @@ const SettingTableRow = ({
               type="email"
               className="form-control"
               placeholder="Team Incentive Amount"
+              onChange={(e) => setTeamAmount(e.target.value)}
             />
           </div>
         )}
@@ -62,7 +75,36 @@ const SettingTableRow = ({
               type="email"
               className="form-control"
               placeholder="Team Bonus Incentive Amount"
+              onChange={(e) => setTeamBonus(e.target.value)}
             />
+          </div>
+        )}
+        {toggle && (
+          <div className="mt-2">
+            <ButtonGroup>
+              {radios.map((radio, idx) => (
+                <ToggleButton
+                  key={idx}
+                  id={`radio-${idx}`}
+                  type="radio"
+                  variant={idx % 2 ? "outline-danger" : "outline-success"}
+                  name="radio"
+                  value={radio.value}
+                  checked={radioValue === radio.value}
+                  onChange={(e) => setRadioValue(e.currentTarget.value)}
+                >
+                  {radio.name}
+                </ToggleButton>
+              ))}
+            </ButtonGroup>
+          </div>
+        )}
+        {promotion && (
+          <div className="mt-2">
+            <Form.Group controlId="formFile" className="mb-3">
+              <Form.Label>Input your offer picture</Form.Label>
+              <Form.Control type="file" />
+            </Form.Group>
           </div>
         )}
       </div>
