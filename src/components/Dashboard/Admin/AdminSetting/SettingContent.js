@@ -2,14 +2,21 @@ import React from "react";
 import SettingTableRow from "./SettingTableRow";
 import { Button, Modal } from "react-bootstrap";
 import { useState } from "react";
+import TeamIncentive from "./TeamIncentive";
 const SettingContent = () => {
   const [show, setShow] = useState(false);
+  const [directAmount, setDirectAmount] = useState();
+  const [directBonus, setDirectBonus] = useState();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  // onSubmit(){
-  //   console.log(this.refs.directAmount);
-  //   e.preventDefault();
-  // }
+
+  const handleSubmit = () => {
+    const data = {
+      directAmount,
+      directBonus,
+    };
+    console.log(data);
+  };
 
   return (
     <div className="bg-white justify-content-between rounded mt-3 ml-3 mr-3">
@@ -31,10 +38,12 @@ const SettingContent = () => {
           <SettingTableRow
             title="Direct Incentive"
             directAmount="Direct Amount"
+            setDirectAmount={setDirectAmount}
           />
           <SettingTableRow
             title="Direct Incentive"
             directBonus="Bonus Amount"
+            setDirectBonus={setDirectBonus}
           />
         </div>
         <div className="ml-2 mt-3">
@@ -52,14 +61,16 @@ const SettingContent = () => {
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
-              <Button variant="primary" onClick={handleClose}>
+              <Button variant="primary" onClick={handleSubmit}>
                 Save Changes
               </Button>
             </Modal.Footer>
           </Modal>
         </div>
       </div>
-      <div></div>
+      <div>
+        <TeamIncentive />
+      </div>
     </div>
   );
 };

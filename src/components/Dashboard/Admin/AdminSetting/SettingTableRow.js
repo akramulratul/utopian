@@ -1,6 +1,15 @@
 import React from "react";
 
-const SettingTableRow = ({ title, data, directAmount, directBonus }) => {
+const SettingTableRow = ({
+  title,
+  data,
+  directAmount,
+  directBonus,
+  setDirectAmount,
+  setDirectBonus,
+  TeamAmount,
+  setTeamBonus,
+}) => {
   return (
     <div className="row p-0 m-0">
       <div className="col-4 border">
@@ -22,6 +31,7 @@ const SettingTableRow = ({ title, data, directAmount, directBonus }) => {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Direct Deposit Amount"
+              onChange={(e) => setDirectAmount(e.target.value)}
             ></input>
           </div>
         )}
@@ -33,7 +43,26 @@ const SettingTableRow = ({ title, data, directAmount, directBonus }) => {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Direct Bonus Amount"
+              onChange={(e) => setDirectBonus(e.target.value)}
             ></input>
+          </div>
+        )}
+        {TeamAmount && (
+          <div className="mt-2">
+            <input
+              type="email"
+              className="form-control"
+              placeholder="Team Incentive Amount"
+            />
+          </div>
+        )}
+        {setTeamBonus && (
+          <div className="mt-2">
+            <input
+              type="email"
+              className="form-control"
+              placeholder="Team Bonus Incentive Amount"
+            />
           </div>
         )}
       </div>
