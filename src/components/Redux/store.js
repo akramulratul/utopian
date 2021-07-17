@@ -31,7 +31,7 @@ import {
 } from "./Reducers/adControllReducer";
 
 import { incentiveHistoryReducer } from "./Reducers/incentiveReducer";
-import { adminDashboardReducer, adminUserDetailsListReducer, adminUserListReducer } from "./Reducers/adminDashboardReducer";
+import { adminDashboardReducer, adminUserDetailsListReducer, adminUserListReducer, adminUserSuspendReducer, adminUserTemporarySuspendReducer } from "./Reducers/adminDashboardReducer";
 
 import {
   sendWithdrawOtp,
@@ -43,6 +43,7 @@ import { confirmPasswordReducer, forgetPasswordByPhoneNumberReducer, forgetPassw
 
 
 import { referralReducers } from "./Reducers/referralReducers";
+import { graphReducer } from "./Reducers/graphReducer";
 
 
 const reducer = combineReducers({
@@ -79,6 +80,9 @@ const reducer = combineReducers({
   getReferral: referralReducers,
   adminUserList: adminUserListReducer,
   adminUserDetailsList: adminUserDetailsListReducer,
+  userSuspend: adminUserSuspendReducer,
+  temporarySuspend: adminUserTemporarySuspendReducer,
+  graph: graphReducer,
 
 });
 
