@@ -14,9 +14,11 @@ import Incentive from "../Incentive/DirectIncentive/Incentive";
 import TeamIncentive from "../Incentive/TeamIncentive/TeamIncentive";
 import ProfileUpdate from "../Profile/ProfileUpdate";
 import PasswordChange from "../Profile/PasswordChange";
+import AdminPasswordChange from "../Dashboard/Admin/AdminProfile/AdminPasswordChange";
 import AdminWithdrawals from "../Dashboard/Admin/AdminWithdraw/AllWithdrawals/AdminWithdrawals";
 import TodaysWithdraw from "../Dashboard/Admin/AdminWithdraw/TodaysWithdraw/TodaysWithdraw";
 import { Suspense } from "react";
+import AdminProfileDetails from "../Dashboard/Admin/AdminProfile/AdminProfileDetails";
 // import ProfileDetails from "../Profile/ProfileDetails";
 import Earning from "../Earning/Earning";
 import ViewAdd from "../Earning/ViewAdd";
@@ -40,7 +42,7 @@ import UserProfile from "../Dashboard/Admin/Users/ProfileView/UserProfile";
 import VerifyOtp from "../Authentication/ForgetPassword/VerifyOtp";
 import ChangePassword from "../Authentication/ForgetPassword/ConfirmPassword";
 import Referral from "../Referral/Referral";
-
+import AdminProfileUpdate from "../Dashboard/Admin/AdminProfile/AdminProfileUpdate";
 import RegisterOtp from "../Authentication/RegisterOtp";
 
 import DepositMethod from "../Dashboard/Admin/AdminPaymentMethod/DepositMethod";
@@ -115,11 +117,22 @@ const HandleRouter = () => {
               <ProfileDetails />
             </Suspense>
           </PrivateRoute>
+          <PrivateRoute path="/dashboard/admin/profile/details">
+            <Suspense fallback={<p>Loading...</p>}>
+              <AdminProfileDetails />
+            </Suspense>
+          </PrivateRoute>
           <PrivateRoute path="/dashboard/user/profile/update-profile">
             <ProfileUpdate />
           </PrivateRoute>
+          <PrivateRoute path="/dashboard/admin/profile/update-profile">
+            <AdminProfileUpdate />
+          </PrivateRoute>
           <PrivateRoute path="/dashboard/user/profile/change-password">
             <PasswordChange />
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/admin/profile/change-password">
+            <AdminPasswordChange />
           </PrivateRoute>
           <PrivateRoute path="/teamincentive">
             <TeamIncentive />

@@ -1,6 +1,6 @@
 import React from "react";
 
-const TableRow = ({ title, data }) => {
+const AdminTableRow = ({ title, data }) => {
   return (
     <div className="row p-0 m-0">
       <div className="col-5 border">
@@ -17,4 +17,4 @@ const TableRow = ({ title, data }) => {
   );
 };
 
-export default TableRow;
+export default AdminTableRow;

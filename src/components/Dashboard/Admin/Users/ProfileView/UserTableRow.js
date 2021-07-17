@@ -10,7 +10,7 @@ const UserTableRow = ({ title, data }) => {
       </div>
       <div className="col-7 border">
         <div className="p-lg-3">
-          <small calassName="text-secondary">{data}</small>
+          <small className="text-secondary">{data}</small>
         </div>
       </div>
     </div>

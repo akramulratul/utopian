@@ -30,3 +30,8 @@
 .text-highlight {
   color: $second;
 }
+@media (max-width: 768px) {
+  .page-container {
+    padding: 0rem 1rem;
+  }
+}

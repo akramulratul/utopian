@@ -42,7 +42,7 @@ const Affiliate = () => {
                   </p>
                 </div>
               </div>
-              <div className="col-6  d-flex justify-content-start align-items-center">
+              <div className="col-lg-6  d-flex justify-content-start align-items-center">
                 <div className="comission">
                   <div className="comission-text">
                     <h1>20%</h1>

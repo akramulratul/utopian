@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import profilePhoto from "../../image/bp.png";
+import profilePhoto from "../../../../image/bp.png";
 import {
   getUserProfile,
   userProfileUpdateByPictureAction,
-} from "../Redux/Actions/userAction";
-import ReferalModal from "./ReferalModal";
+} from "../../../Redux/Actions/userAction";
+import ReferalModal from "./AdminReferalModal";
 
 const ProfileCard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

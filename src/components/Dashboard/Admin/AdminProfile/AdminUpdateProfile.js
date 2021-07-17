@@ -9,12 +9,11 @@ import { useDispatch } from "react-redux";
 import {
   userProfileUpdate,
   userProfileUpdateByPictureAction,
-} from "../Redux/Actions/userAction";
-import { useEffect } from "react";
+} from "../../../Redux/Actions/userAction";
 import { ToastContainer } from "react-toastify";
 import { Button } from "react-bootstrap";
 
-const UpdateProfile = ({ userInfo }) => {
+const AdminUpdateProfile = ({ userInfo }) => {
   const [country, setCountry] = useState("");
   const dispatch = useDispatch();
 
@@ -205,4 +204,4 @@ const UpdateProfile = ({ userInfo }) => {
   );
 };
 
-export default UpdateProfile;
+export default AdminUpdateProfile;
