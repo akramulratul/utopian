@@ -32,7 +32,7 @@ const WithdrawNow = () => {
       </div>
       <div className="right-content d-flex align-items-center m-3 p-2 border-left">
         <div className="px-3">
-          <h2>৳{(userInfo && userInfo.incomeTotal) || 0}</h2>
+          <h2>৳{(userInfo && userInfo.totalIncome) || 0}</h2>
           <small>Availabale for Withdrawal</small>
         </div>
         <div className="px-3">

@@ -29,7 +29,7 @@ export const createAd = (adInfo, thumbnail) => async (dispatch, getState) => {
         thumbnailImage: imageUrl,
       };
       const { data } = await axios.post(
-        "http://api.utopiansglobal.com/admin/ads",
+        "https://utopain-backend.herokuapp.com/admin/ads",
         adData,
         config
       );
@@ -72,7 +72,7 @@ export const getAds = () => async (dispatch, getState) => {
     });
 
     const response = await axios.get(
-      "http://api.utopiansglobal.com/admin/ads"
+      "https://utopain-backend.herokuapp.com/admin/ads"
     );
     dispatch({
       type: "GET_ADS_SUCCESS",
@@ -108,7 +108,7 @@ export const deleteAd = (id) => async (dispatch, getState) => {
     };
 
     const response = await axios.delete(
-      `http://api.utopiansglobal.com/admin/ads/${id}`,
+      `https://utopain-backend.herokuapp.com/admin/ads/${id}`,
       config
     );
     dispatch({
@@ -137,7 +137,7 @@ export const getAdById = (adId) => async (dispatch, getState) => {
     });
 
     const response = await axios.get(
-      `http://api.utopiansglobal.com/admin/ads/${adId}`
+      `https://utopain-backend.herokuapp.com/admin/ads/${adId}`
     );
     dispatch({
       type: "GET_ADS_BY_ID_SUCCESS",
@@ -183,7 +183,7 @@ export const editAdAction =
           thumbnailImage: imageUrl,
         };
         const { data } = await axios.put(
-          `http://api.utopiansglobal.com/admin/ads/${id}`,
+          `https://utopain-backend.herokuapp.com/admin/ads/${id}`,
           adData,
           config
         );
@@ -231,7 +231,7 @@ export const userGetAllAds = () => async (dispatch, getState) => {
       payload: {},
     });
 
-    const response = await axios.get(`http://api.utopiansglobal.com/users/ads`);
+    const response = await axios.get(`https://utopain-backend.herokuapp.com/users/ads`);
 
     dispatch({
       type: "USER_GET_ADS_SUCCESS",
@@ -266,7 +266,7 @@ export const watchedAd = (id) => async (dispatch, getState) => {
       },
     };
 
-    fetch(`http://api.utopiansglobal.com/users/ads/watch/${id}`, {
+    fetch(`https://utopain-backend.herokuapp.com/users/ads/watch/${id}`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -314,4 +314,3 @@ export const watchedAd = (id) => async (dispatch, getState) => {
     });
   }
 };
-450

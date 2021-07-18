@@ -25,7 +25,7 @@ const DepositHistory = () => {
       ) : loading ? (
         <p>Loading...</p>
       ) : (
-        <div className="bg-white  rounded p-3 mr-2 ml-2">
+        <div className="bg-white  rounded p-3 mr-lg-2 ml-lg-2">
           <table className="table table-hover">
             <thead className="table-light">
               <tr>

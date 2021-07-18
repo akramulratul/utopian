@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef,useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useDispatch } from 'react-redux';
 import { changePassword } from '../Redux/Actions/userAction';
@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 const ChangePassword = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const [isSideBarOpen, setIsSideBarOpen] = useState(false);
     //password matching && react hook form
     const password = useRef({});
     password.current = watch("password", "");
