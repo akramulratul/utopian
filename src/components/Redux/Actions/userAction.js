@@ -318,7 +318,7 @@ export const getUserProfile = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/auth/profile",
+      "http://api.utopiansglobal.com/profile",
       config
     );
     dispatch({
@@ -355,7 +355,7 @@ export const userProfileUpdate = (userData) => async (dispatch) => {
       },
     };
 
-    fetch("http://api.utopiansglobal.com/auth/profile", {
+    fetch("http://api.utopiansglobal.com/profile", {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -423,7 +423,7 @@ export const userProfileUpdateByPictureAction = (url) => async (dispatch) => {
     };
 
     fetch(
-      `http://api.utopiansglobal.com/auth/profile/uploadProfile?imageLink=${url}`,
+      `http://api.utopiansglobal.com/profile/uploadProfile?imageLink=${url}`,
       {
         method: "POST",
         headers: {
