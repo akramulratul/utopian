@@ -1,7 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer } from "react-toastify";
 import profilePhoto from "../../../../../image/profile.png";
+import { adminUserSuspendAction, adminUserTemporarySuspendAction } from "../../../../Redux/Actions/adminDashboardAction";
 
 const ProfileCard = () => {
   // const dispatch = useDispatch();
@@ -16,6 +19,20 @@ const ProfileCard = () => {
   };
   const [info, setInfo] = useState("")
 
+  const dispatch = useDispatch()
+
+  const Suspend = () => {
+    console.log(userListInfo.data[0].username);
+    const username = userListInfo.data[0].username
+    dispatch(adminUserSuspendAction(username));
+
+  }
+  const temporarySuspend = () => {
+    console.log(userListInfo.data[0].username);
+    const username = userListInfo.data[0].username
+    dispatch(adminUserTemporarySuspendAction(username));
+
+  }
 
   return (
     <>
@@ -61,13 +78,13 @@ const ProfileCard = () => {
               </div>
             </div>
           </div>
-          <div className="btn button-decline btn-brand w-100 py-2 mt-2">
+          <Button type="submit" className="button btn-danger" onClick={Suspend}>
             <h6>Suspend</h6>
-          </div>
-          <div className="btn btn-warning w-100 py-2 mt-2">
-            <h6>Temporary Suspend</h6>
-          </div>
-          <div></div>
+          </Button>
+          <button type="submit" className="button btn-warning m-2 " onClick={temporarySuspend}>
+            <h6>Temporary Suspend </h6>
+          </button>
+          <ToastContainer />
         </div>
       )}
     </>
