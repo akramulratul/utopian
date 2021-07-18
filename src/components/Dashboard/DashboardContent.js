@@ -3,7 +3,7 @@ import DashboardNav from "./DashboardNav";
 import DashboardTopInfo from "./Shared/DashboardTopInfo";
 import Graph from "./Graph";
 
-const DashboardContent = ({ closeSidebar,depositeData }) => {
+const DashboardContent = ({ closeSidebar, depositeData }) => {
   return (
     <div className="dashboard-content">
       <div>
@@ -19,7 +19,7 @@ const DashboardContent = ({ closeSidebar,depositeData }) => {
                   <div className="graph-holder d-flex justify-content-center align-items-center">
                     {/* Graph will add here */}
                     <div className="col-lg-8 pt-0 mt-4  bg-white border">
-                      <Graph />
+                      {/* <Graph /> */}
                     </div>
                   </div>
                   {/* This section will remove */}

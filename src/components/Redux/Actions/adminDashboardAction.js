@@ -115,8 +115,6 @@ export const adminUserDetailsListAction = (username) => async (dispatch) => {
   }
 };
 
-
-
 // export const adminUserSuspendAction = (username) => async (dispatch) => {
 //   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 //   const {
@@ -155,7 +153,6 @@ export const adminUserDetailsListAction = (username) => async (dispatch) => {
 //   }
 // };
 
-
 export const adminUserSuspendAction = (username) => async (dispatch) => {
   console.log(username);
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -175,17 +172,14 @@ export const adminUserSuspendAction = (username) => async (dispatch) => {
       },
     };
 
-    fetch(
-      `http://api.utopiansglobal.com/auth/ban/${username}`,
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${token}`,
-        },
-        // body: JSON.stringify(userData),
-      }
-    )
+    fetch(`http://api.utopiansglobal.com/auth/ban/${username}`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+      // body: JSON.stringify(userData),
+    })
       .then((res) => res.json())
       .then((data) => {
         dispatch({
@@ -226,74 +220,70 @@ export const adminUserSuspendAction = (username) => async (dispatch) => {
   }
 };
 
+export const adminUserTemporarySuspendAction =
+  (username) => async (dispatch) => {
+    console.log(username);
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    const {
+      data: { token },
+    } = userInfo;
+    try {
+      dispatch({
+        type: "ADMIN_USER_TEMPORARY_SUSPEND_REQUEST",
+        payload: {},
+      });
 
-export const adminUserTemporarySuspendAction = (username) => async (dispatch) => {
-  console.log(username);
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  const {
-    data: { token },
-  } = userInfo;
-  try {
-    dispatch({
-      type: "ADMIN_USER_TEMPORARY_SUSPEND_REQUEST",
-      payload: {},
-    });
+      const config = {
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+      };
 
-    const config = {
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${token}`,
-      },
-    };
-
-    fetch(
-      `http://api.utopiansglobal.com/auth/tempBan/${username}`,
-      {
+      fetch(`http://api.utopiansglobal.com/auth/tempBan/${username}`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
           authorization: `Bearer ${token}`,
         },
         // body: JSON.stringify(userData),
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        dispatch({
-          type: "ADMIN_USER_TEMPORARY_SUSPEND_SUCCESS",
-          payload: data,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          dispatch({
+            type: "ADMIN_USER_TEMPORARY_SUSPEND_SUCCESS",
+            payload: data,
+          });
+          console.log(data.statusCode);
+          if (data.statusCode == 200) {
+            toast.success(`${data.message}`, {
+              position: "top-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+          } else {
+            toast.error(`${data.message}`, {
+              position: "top-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+          }
         });
-        console.log(data.statusCode);
-        if (data.statusCode == 200) {
-          toast.success(`${data.message}`, {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-        } else {
-          toast.error(`${data.message}`, {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-        }
+    } catch (error) {
+      dispatch({
+        type: "ADMIN_USER_TEMPORARY_SUSPEND_FAIL",
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
       });
-  } catch (error) {
-    dispatch({
-      type: "ADMIN_USER_TEMPORARY_SUSPEND_FAIL",
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    });
-  }
-};
-
+    }
+  };

@@ -109,7 +109,7 @@ const HandleRouter = () => {
           <PrivateRoute path="/otp">
             <WithdrawOtp />
           </PrivateRoute>
-          <PrivateRoute path="/incentive">
+          <PrivateRoute path="/dashboard/user/incentive">
             <Incentive />
           </PrivateRoute>
           <PrivateRoute path="/dashboard/user/profile/details">
@@ -134,7 +134,7 @@ const HandleRouter = () => {
           <PrivateRoute path="/dashboard/admin/profile/change-password">
             <AdminPasswordChange />
           </PrivateRoute>
-          <PrivateRoute path="/teamincentive">
+          <PrivateRoute path="/dashboard/user/teamincentive">
             <TeamIncentive />
           </PrivateRoute>
           <PrivateRoute path="/earning">
