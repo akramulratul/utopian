@@ -3,11 +3,11 @@ import DashboardNav from "./DashboardNav";
 import DashboardTopInfo from "./Shared/DashboardTopInfo";
 import Graph from "./Graph";
 
-const DashboardContent = ({ depositeData }) => {
+const DashboardContent = ({ closeSidebar,depositeData }) => {
   return (
     <div className="dashboard-content">
       <div>
-        <DashboardNav />
+        <DashboardNav closeSidebar={closeSidebar} />
         <div className="body-content px-4 pt-4">
           <DashboardTopInfo transactionInfo={depositeData} />
 
@@ -31,7 +31,7 @@ const DashboardContent = ({ depositeData }) => {
                         <h6>AD REWARD</h6>
                       </div>
                       <div className="balance">
-                        <h4>৳ {depositeData.incentiveWithdrawal}</h4>
+                        <h4>৳ {depositeData.adIncome}</h4>
                       </div>
                     </div>
 

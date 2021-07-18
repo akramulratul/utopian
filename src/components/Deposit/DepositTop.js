@@ -12,7 +12,7 @@ const DepositTop = () => {
     console.log("isDeposit");
   };
   return (
-    <div className="bg-white d-flex justify-content-between rounded mt-3 ml-4 mr-4">
+    <div className="bg-white d-flex justify-content-between rounded mt-3 ml-lg-4 mr-lg-4">
       <div className="left-content d-flex align-items-center ">
         <div>
           <nav aria-label="breadcrumb">

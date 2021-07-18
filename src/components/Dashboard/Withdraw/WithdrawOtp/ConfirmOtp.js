@@ -24,10 +24,10 @@ const ConfirmOtp = () => {
     setOtp(e);
   };
   return (
-    <div class="container">
+    <div class="">
       <div class="row d-flex">
         <div class="col mt-5">
-          <img className="rounded mx-auto d-block" src={frame} alt="" />
+          <img style={{width: '100%'}} className="rounded mx-auto d-block" src={frame} alt="" />
         </div>
         <div class="border-left col mt-5 ml-5">
           <h4>Confirm OTP</h4>

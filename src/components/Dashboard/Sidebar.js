@@ -10,8 +10,12 @@ import { Link } from "react-router-dom";
 import { DropdownButton, Dropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserProfile } from "../Redux/Actions/userAction";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faTimesCircle} from "@fortawesome/free-solid-svg-icons"
 
-const Sidebar = () => {
+
+
+const Sidebar = ({closeSidebar}) => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const getProfile = useSelector((state) => state.getProfile);
@@ -33,8 +37,11 @@ const Sidebar = () => {
         <p>Loading</p>
       ) : (
         <div className="sidebar">
+          
           <div className="profile-info py-5  d-flex justify-content-center flex-column align-items-center">
+          <FontAwesomeIcon onClick={closeSidebar} style={{position: 'absolute',top:'2px',right:'2px'}} icon={faTimesCircle} size="2x"/>
             <div className="profile-image pb-3">
+            
               <img src={userInfo.profilePhotoLink} alt="" />
             </div>
             <div className="profile-name">
@@ -167,6 +174,8 @@ const Sidebar = () => {
             </div>
           </div>
         </div>
+
+       
       )}
     </>
   );
