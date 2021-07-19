@@ -37,3 +37,24 @@ export const depositHistoryReducer = (state = {}, action) => {
             return state;
     }
 }
+
+
+export const getUserDepositMethodReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'DEPOSIT_METHOD_HISTORY_REQUEST':
+            return {
+                loading: true, depositMethodHistory: action.payload
+            }
+        case 'DEPOSIT_METHOD_HISTORY_SUCCESS':
+            return {
+                loading: false, depositMethodHistory: action.payload
+            }
+        case 'DEPOSIT_METHOD_HISTORY_FAIL':
+            return {
+                loading: false, error: action.payload
+            }
+
+        default:
+            return state;
+    }
+}

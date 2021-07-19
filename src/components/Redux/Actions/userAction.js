@@ -12,7 +12,7 @@ export const login = (userName, password) => async (dispatch) => {
       username: userName,
     };
 
-    fetch("http://api.utopiansglobal.com/auth/signIn", {
+    fetch("https://utopain-backend.herokuapp.com/auth/signIn", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -79,7 +79,7 @@ export const registerNewUser = (userData, history) => async (dispatch) => {
       type: "USER_REGISTRATION_REQUEST",
     });
 
-    fetch("http://api.utopiansglobal.com/auth/signUp", {
+    fetch("https://utopain-backend.herokuapp.com/auth/signUp", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -139,7 +139,7 @@ export const userRegisterOtpVerifyAction =
         type: "USER_REGISTER_OTP_VERIFY_REQUEST",
       });
 
-      fetch(`http://api.utopiansglobal.com/auth/signUp/generateOtp`, {
+      fetch(`https://utopain-backend.herokuapp.com/auth/signUp/generateOtp`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -247,7 +247,7 @@ export const changePassword = (confirmPass) => async (dispatch) => {
       type: "USER_PASSWORDCHANGE_REQUEST",
     });
 
-    fetch("http://api.utopiansglobal.com/auth/changePass", {
+    fetch("https://utopain-backend.herokuapp.com/auth/profile/changePass", {
       method: "PUT",
       headers: {
         authorization: `Bearer ${token}`,
@@ -318,7 +318,7 @@ export const getUserProfile = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/auth/profile",
+      "https://utopain-backend.herokuapp.com/profile",
       config
     );
     dispatch({
@@ -355,7 +355,7 @@ export const userProfileUpdate = (userData) => async (dispatch) => {
       },
     };
 
-    fetch("http://api.utopiansglobal.com/auth/profile", {
+    fetch("https://utopain-backend.herokuapp.com/profile", {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -423,7 +423,7 @@ export const userProfileUpdateByPictureAction = (url) => async (dispatch) => {
     };
 
     fetch(
-      `http://api.utopiansglobal.com/auth/profile/uploadProfile?imageLink=${url}`,
+      `https://utopain-backend.herokuapp.com/profile/uploadProfile?imageLink=${url}`,
       {
         method: "POST",
         headers: {

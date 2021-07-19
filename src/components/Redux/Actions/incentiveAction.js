@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-export const incentiveHistory = () => async (dispatch) => {
+export const incentiveHistoryAction = () => async (dispatch) => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const {
     data: { token },
@@ -21,7 +21,7 @@ export const incentiveHistory = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/admin/balance/incentives",
+      "https://utopain-backend.herokuapp.com/admin/incentives",
       config
     );
     dispatch({

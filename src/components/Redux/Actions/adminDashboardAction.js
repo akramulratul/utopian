@@ -21,7 +21,7 @@ export const adminDashboardHistory = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/dashboard/admin",
+      "https://utopain-backend.herokuapp.com/dashboard/admin",
       config
     );
     dispatch({
@@ -59,7 +59,7 @@ export const adminUserListAction = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/auth/profile/admin/users",
+      "https://utopain-backend.herokuapp.com/profile/admin/users",
       config
     );
     dispatch({
@@ -97,7 +97,7 @@ export const adminUserDetailsListAction = (username) => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      `http://api.utopiansglobal.com/auth/profile/admin/users?userName=${username}`,
+      `https://utopain-backend.herokuapp.com/profile/admin/users?userName=${username}`,
       config
     );
     dispatch({
@@ -137,7 +137,7 @@ export const adminUserDetailsListAction = (username) => async (dispatch) => {
 //     };
 
 //     const { data } = await axios.get(
-//       `http://api.utopiansglobal.com/auth/ban/${username}`,
+//       `https://utopain-backend.herokuapp.com/auth/ban/${username}`,
 //       config
 //     );
 //     dispatch({
@@ -176,7 +176,7 @@ export const adminUserSuspendAction = (username) => async (dispatch) => {
     };
 
     fetch(
-      `http://api.utopiansglobal.com/auth/ban/${username}`,
+      `https://utopain-backend.herokuapp.com/auth/admin/ban/${username}`,
       {
         method: "POST",
         headers: {
@@ -192,7 +192,7 @@ export const adminUserSuspendAction = (username) => async (dispatch) => {
           type: "ADMIN_USER_SUSPEND_SUCCESS",
           payload: data,
         });
-        console.log(data.statusCode);
+        console.log(data);
         if (data.statusCode == 200) {
           toast.success(`${data.message}`, {
             position: "top-right",
@@ -247,7 +247,7 @@ export const adminUserTemporarySuspendAction = (username) => async (dispatch) =>
     };
 
     fetch(
-      `http://api.utopiansglobal.com/auth/tempBan/${username}`,
+      `https://utopain-backend.herokuapp.com/auth/admin/tempBan/${username}`,
       {
         method: "POST",
         headers: {
