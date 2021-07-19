@@ -5,10 +5,11 @@ import Graph from "./Graph";
 
 const DashboardContent = ({ depositeData }) => {
   console.log(depositeData);
+
   return (
     <div className="dashboard-content">
       <div>
-        <DashboardNav />
+        <DashboardNav closeSidebar={closeSidebar} />
         <div className="body-content px-4 pt-4">
           <DashboardTopInfo transactionInfo={depositeData} />
 
@@ -32,7 +33,9 @@ const DashboardContent = ({ depositeData }) => {
                         <h6>AD REWARD</h6>
                       </div>
                       <div className="balance">
+
                         <h4>৳ {depositeData.adIncome || "0.00"}</h4>
+
                       </div>
                     </div>
 

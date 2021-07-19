@@ -16,8 +16,8 @@ const ReferalModal = ({ userInfo, modalCloseHandler }) => {
         </Modal.Header>
 
         <Modal.Body>
-          <h6 className="text-primary">
-            <b>{refUrl}</b>
+          <h6 className="text-primary text-warp">
+            <small><b>{refUrl}</b></small>
           </h6>
           <CopyToClipboard text={refUrl} onCopy={() => setCopied(true)}>
             <button className="btn-brand px-3 py-1 mt-3">

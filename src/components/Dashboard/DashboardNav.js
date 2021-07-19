@@ -6,7 +6,7 @@ import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logout } from '../Redux/Actions/userAction';
-const DashboardNav = () => {
+const DashboardNav = ({closeSidebar}) => {
     const history = useHistory();
     const dispatch = useDispatch()
 
@@ -15,9 +15,9 @@ const DashboardNav = () => {
         history.push('/login')
     }
     return (
-        <div className="header bg-white px-4 py-3 d-flex justify-content-between">
+        <div className="header bg-white px-lg-4 py-3 d-flex justify-content-between">
             <div className="left-content d-flex align-items-center ">
-                <div className="toogle-b pr-3">
+                <div className="toogle-b pr-3" onClick={closeSidebar}>
                     <img src={toggleIcon} alt="" />
                 </div>
                 <div className="logo px-lg-5">

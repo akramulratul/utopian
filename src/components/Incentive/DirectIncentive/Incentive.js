@@ -8,10 +8,10 @@ import IncentiveHistory from "../../Incentive/DirectIncentive/IncentiveHistory";
 const Incentive = () => {
   return (
     <div className="row m-0 p-0">
-      <div className="col-lg-2 m-0 p-0">
+      <div className="col-lg-3 m-0 p-0">
         <Sidebar />
       </div>
-      <div className="content-holder col-lg-10 m-0 p-0 incentive-background">
+      <div className="content-holder col-lg-9 m-0 p-0 incentive-background">
         <div className="dash-nav">
           <DashboardNav />
         </div>

@@ -7,6 +7,10 @@ import Tree from "./Tree";
 
 const Referral = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isSideBarOpen, setIsSideBarOpen] = useState(false);
+  const closeSidebar=()=>{
+    setIsSideBarOpen(!isSideBarOpen);
+  }
   const dispatch = useDispatch();
   const referralHistory = useSelector((state) => state.getReferral);
   const { referralInfo, loading } = referralHistory;
@@ -19,12 +23,14 @@ const Referral = () => {
   }, []);
   return (
     <div className="row m-0 p-0 ">
-      <div className="col-lg-3 m-0 p-0">
-        <Sidebar />
-      </div>
-      <div className="content-holder col-lg-9 m-0 p-0 Deposit-bg">
+       {
+           isSideBarOpen && <div className={`sidebar-container p-0 ${isSideBarOpen&& "sidebar-active col-lg-3"}`}>
+           <Sidebar closeSidebar={closeSidebar}/>
+         </div>
+         }
+      <div className={`p-0 m-0 content-holder ${isSideBarOpen ? "col-9":"col-12"}`}>
         <div>
-          <DashboardNav />
+          <DashboardNav closeSidebar={closeSidebar}/>
         </div>
         <div className="ml-2">
           <div

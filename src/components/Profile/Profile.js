@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../Dashboard/Sidebar";
 import DashboardNav from "../Dashboard/DashboardNav";
 import axios from "axios";
@@ -6,15 +6,21 @@ import SubNav from "../Dashboard/Shared/SubNav";
 import ProfileCard from "./ProfileCard";
 
 const Profile = () => {
+  const [isSideBarOpen, setIsSideBarOpen] = useState(false);
   useEffect(() => {
     axios.get("");
   }, []);
+  const closeSidebar=()=>{
+    setIsSideBarOpen(!isSideBarOpen);
+  }
   return (
     <div className="profile-container">
       <div className="row m-0 p-0">
-        <div className="col-lg-3 m-0 p-0">
-          <Sidebar />
-        </div>
+      {
+           isSideBarOpen && <div className={`sidebar-container p-0 ${isSideBarOpen&& "sidebar-active col-lg-3"}`}>
+           <Sidebar closeSidebar={closeSidebar}/>
+         </div>
+         }
         <div className="content-holder col-lg-9 m-0 p-0">
           <div className="dash-nav">
             <DashboardNav />
