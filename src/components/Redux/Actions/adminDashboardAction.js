@@ -59,7 +59,7 @@ export const adminUserListAction = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/auth/profile/admin/users",
+      "http://api.utopiansglobal.com/profile/admin/users",
       config
     );
     dispatch({
@@ -97,7 +97,7 @@ export const adminUserDetailsListAction = (username) => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      `http://api.utopiansglobal.com/auth/profile/admin/users?userName=${username}`,
+      `http://api.utopiansglobal.com/profile/admin/users?userName=${username}`,
       config
     );
     dispatch({
@@ -172,21 +172,26 @@ export const adminUserSuspendAction = (username) => async (dispatch) => {
       },
     };
 
-    fetch(`http://api.utopiansglobal.com/auth/ban/${username}`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${token}`,
-      },
-      // body: JSON.stringify(userData),
-    })
+
+    fetch(
+      `http://api.utopiansglobal.com/auth/admin/ban/${username}`,
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+        // body: JSON.stringify(userData),
+      }
+    )
+
       .then((res) => res.json())
       .then((data) => {
         dispatch({
           type: "ADMIN_USER_SUSPEND_SUCCESS",
           payload: data,
         });
-        console.log(data.statusCode);
+        console.log(data);
         if (data.statusCode == 200) {
           toast.success(`${data.message}`, {
             position: "top-right",
@@ -240,7 +245,11 @@ export const adminUserTemporarySuspendAction =
         },
       };
 
-      fetch(`http://api.utopiansglobal.com/auth/tempBan/${username}`, {
+
+    fetch(
+      `http://api.utopiansglobal.com/auth/admin/tempBan/${username}`,
+      {
+
         method: "POST",
         headers: {
           "content-type": "application/json",

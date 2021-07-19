@@ -247,7 +247,7 @@ export const changePassword = (confirmPass) => async (dispatch) => {
       type: "USER_PASSWORDCHANGE_REQUEST",
     });
 
-    fetch("http://api.utopiansglobal.com/auth/changePass", {
+    fetch("http://api.utopiansglobal.com/auth/profile/changePass", {
       method: "PUT",
       headers: {
         authorization: `Bearer ${token}`,

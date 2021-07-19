@@ -30,7 +30,7 @@ const DashboardTopInfo = ({ transactionInfo }) => {
                 <p>
                   <b>TOTAL WITHDRAWAL</b>
                 </p>
-                <h3>৳ {transactionInfo.totalWithdrawal}</h3>
+                <h3>৳ {transactionInfo.totalWithdrawal || "0.00"}</h3>
               </div>
               <div className="right-icon">
                 <img src={totalWid} alt="" />
@@ -45,7 +45,8 @@ const DashboardTopInfo = ({ transactionInfo }) => {
                 <p>
                   <b>TOTAL INCOME</b>
                 </p>
-                <h3>৳ {transactionInfo.totalIncome}</h3>
+                <h3>৳ {transactionInfo.totalIncome || "0.00"}</h3>
+
               </div>
               <div className="right-icon">
                 <img src={totalInc} alt="" />

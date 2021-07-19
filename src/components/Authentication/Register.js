@@ -90,7 +90,7 @@ const Registration = () => {
     setLoader(true)
     setTimeout(() => {
       setLoader(false)
-    }, 60000);
+    }, 40000);
     sessionStorage.setItem("verifyData", JSON.stringify(userData));
     const phone = {
       phoneNo: phoneNumber

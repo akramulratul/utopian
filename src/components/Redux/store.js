@@ -13,6 +13,7 @@ import {
 import {
   addDepositeReducer,
   depositHistoryReducer,
+  getUserDepositMethodReducer,
 } from "./Reducers/depositeReducer";
 import {
   adminDepositHistoryReducer,
@@ -44,6 +45,7 @@ import { confirmPasswordReducer, forgetPasswordByPhoneNumberReducer, forgetPassw
 
 import { referralReducers } from "./Reducers/referralReducers";
 import { graphReducer } from "./Reducers/graphReducer";
+import { deleteDepositMethodReducer, depositMethodHistoryReducer, depositMethodReducer, updateDepositMethodHistoryReducer } from "./Reducers/adminDepositMethodReducer";
 
 
 const reducer = combineReducers({
@@ -83,7 +85,12 @@ const reducer = combineReducers({
   userSuspend: adminUserSuspendReducer,
   temporarySuspend: adminUserTemporarySuspendReducer,
   graph: graphReducer,
+  depositMethod: depositMethodReducer,
+  depositMethodHistory: depositMethodHistoryReducer,
+  updateDepositMethodHistory: updateDepositMethodHistoryReducer,
+  deleteDepositMethod: deleteDepositMethodReducer,
 
+  getUserDepositMethod: getUserDepositMethodReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

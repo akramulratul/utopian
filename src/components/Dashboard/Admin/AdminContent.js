@@ -10,7 +10,7 @@ const AdminContent = () => {
       <div className="dashboard-container py-5 px-4">
         <div className="row">
           <div className="col-lg-8 bg-white">
-            <Graph />
+            {/* <Graph /> */}
           </div>
           <div className="col-lg-4 admin-right-area">
             <AdminRightContent />
