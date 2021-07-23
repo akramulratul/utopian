@@ -59,7 +59,7 @@ export const adminUserListAction = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/auth/profile/admin/users",
+      "http://api.utopiansglobal.com/profile/admin/users",
       config
     );
     dispatch({
@@ -97,7 +97,7 @@ export const adminUserDetailsListAction = (username) => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      `http://api.utopiansglobal.com/auth/profile/admin/users?userName=${username}`,
+      `http://api.utopiansglobal.com/profile/admin/users?userName=${username}`,
       config
     );
     dispatch({
