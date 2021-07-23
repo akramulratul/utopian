@@ -2,8 +2,18 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import { useState } from "react";
 import updownIcon from "../../../image/icons/updown_icon.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { incentiveHistoryAction } from "../../Redux/Actions/incentiveAction";
 const IncentiveHistory = () => {
-  const [incentiveData, setIncentiveData] = useState([]);
+  const incentiveData = useSelector(state => state.incentiveHistory)
+  // const {error,loading,}
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(incentiveHistoryAction())
+
+  }, [])
+
   return (
     <div className="bg-white mt-2 ml-2 p-3 m-3">
       <Table striped bordered hover>
@@ -24,17 +34,16 @@ const IncentiveHistory = () => {
             </th>
           </tr>
         </thead>
-        {incentiveData.map((incentiveInfo) => {
-          return (
-            <tbody>
-              <tr>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-            </tbody>
-          );
-        })}
+
+
+        <tbody>
+          <tr>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+        </tbody>
+
       </Table>
     </div>
   );

@@ -1,5 +1,8 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserDepositMethodAction } from "../../Redux/Actions/depositeAction";
 import DepositBanking from "./DepositGateWay/DepositBanking";
 import Rocket from "./DepositGateWay/Rocket";
 const DepositGateway = ({ setMethod }) => {
@@ -29,6 +32,21 @@ const DepositGateway = ({ setMethod }) => {
     }
   };
   setMethod(value);
+
+  // const dispatch = useDispatch();
+  // const depositHistory = useSelector((state) => state.depositMethodHistory);
+  // const { loading, error, depositMethodHistory } = depositHistory;
+  // console.log(depositMethodHistory);
+
+  // const [isloading, setIsloading] = useState(true);
+  // const stopLoading = () => {
+  //   setIsloading(false);
+  // };
+
+  // useEffect(() => {
+  //   dispatch(getUserDepositMethodAction());
+  //   stopLoading();
+  // }, [dispatch]);
 
   return (
     <div className="Container pl-5">
@@ -71,7 +89,7 @@ const DepositGateway = ({ setMethod }) => {
             Rocket
           </label>
           <br />
-          {isRocketChecked && <Rocket />}
+          {isRocketChecked && <Rocket rocket={"Rocket"} />}
         </div>
       </form>
     </div>
