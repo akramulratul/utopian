@@ -172,19 +172,14 @@ export const adminUserSuspendAction = (username) => async (dispatch) => {
       },
     };
 
-
-    fetch(
-      `http://api.utopiansglobal.com/auth/admin/ban/${username}`,
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${token}`,
-        },
-        // body: JSON.stringify(userData),
-      }
-    )
-
+    fetch(`http://api.utopiansglobal.com/auth/admin/ban/${username}`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+      // body: JSON.stringify(userData),
+    })
       .then((res) => res.json())
       .then((data) => {
         dispatch({
@@ -245,11 +240,7 @@ export const adminUserTemporarySuspendAction =
         },
       };
 
-
-    fetch(
-      `http://api.utopiansglobal.com/auth/admin/tempBan/${username}`,
-      {
-
+      fetch(`http://api.utopiansglobal.com/auth/admin/tempBan/${username}`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

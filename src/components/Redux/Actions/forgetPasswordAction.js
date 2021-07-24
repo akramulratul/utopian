@@ -10,7 +10,7 @@ export const forgetPasswordByPhoneNumber =
         payload: {},
       });
 
-      fetch("http://api.utopiansglobal.com/auth/forgetPass/generateOtp", {
+      fetch("http://api.utopiansglobal.com/forgetPass/generateOtp", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -71,7 +71,7 @@ export const forgetPasswordByVerifyOtp =
         payload: {},
       });
 
-      fetch("http://api.utopiansglobal.com/auth/forgetPass/verifyOTP", {
+      fetch("http://api.utopiansglobal.com/forgetPass/verifyOTP", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -131,7 +131,7 @@ export const confirmPasswordAction =
         payload: {},
       });
 
-      fetch("http://api.utopiansglobal.com/auth/forgetPass/changePass", {
+      fetch("http://api.utopiansglobal.com/forgetPass/changePass", {
         method: "POST",
         headers: {
           "content-type": "application/json",
