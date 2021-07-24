@@ -3,7 +3,7 @@ import DashboardNav from "./DashboardNav";
 import DashboardTopInfo from "./Shared/DashboardTopInfo";
 import Graph from "./Graph";
 
-const DashboardContent = ({ depositeData }) => {
+const DashboardContent = ({ closeSidebar, depositeData }) => {
   console.log(depositeData);
 
   return (
@@ -33,9 +33,7 @@ const DashboardContent = ({ depositeData }) => {
                         <h6>AD REWARD</h6>
                       </div>
                       <div className="balance">
-
                         <h4>৳ {depositeData.adIncome || "0.00"}</h4>
-
                       </div>
                     </div>
 
@@ -77,7 +75,7 @@ const DashboardContent = ({ depositeData }) => {
 
                       <div className="dash-right-card bg-white border d-flex justify-content-between py-4  px-3">
                         <div className="title pt-1">
-                          <h6>  INCENTIVE BALANCE</h6>
+                          <h6> INCENTIVE BALANCE</h6>
                         </div>
                         <div className="balance">
                           <h4>৳ {depositeData.incentiveBalance || "0.00"}</h4>
