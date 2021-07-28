@@ -4,6 +4,7 @@ import Dashboard from "../Dashboard/Dashboard";
 import Login from "../Authentication/Login";
 import Register from "../Authentication/Register";
 import PrivateRoute from "../privateRoute/privateRoute";
+import AdminRoute from "../privateRoute/adminRoute";
 import Profile from "../Profile/Profile";
 import Admin from "../Dashboard/Admin/Admin";
 import Withdraw from "../Dashboard/Withdraw/Withdraw";
@@ -70,9 +71,9 @@ const HandleRouter = () => {
           <PrivateRoute path="/dashboard" exact>
             <Dashboard />
           </PrivateRoute>
-          <PrivateRoute path="/admin/dashboard">
+          <AdminRoute path="/admin/dashboard">
             <Admin />
-          </PrivateRoute>
+          </AdminRoute>
           <PrivateRoute path="/dashboard/profile">
             <Profile />
           </PrivateRoute>
@@ -117,11 +118,11 @@ const HandleRouter = () => {
               <ProfileDetails />
             </Suspense>
           </PrivateRoute>
-          <PrivateRoute path="/dashboard/admin/profile/details">
+          <AdminRoute path="/dashboard/admin/profile/details">
             <Suspense fallback={<p>Loading...</p>}>
               <AdminProfileDetails />
             </Suspense>
-          </PrivateRoute>
+          </AdminRoute>
           <PrivateRoute path="/dashboard/user/profile/update-profile">
             <ProfileUpdate />
           </PrivateRoute>
@@ -149,64 +150,64 @@ const HandleRouter = () => {
           <PrivateRoute path="/depositnow">
             <DepositNow />
           </PrivateRoute>
-          <PrivateRoute path="/admin/deposit">
+          <AdminRoute path="/admin/deposit">
             <AdminDeposit />
-          </PrivateRoute>
-          <PrivateRoute path="/today/deposit">
+          </AdminRoute>
+          <AdminRoute path="/today/deposit">
             <TodayDeposit />
-          </PrivateRoute>
-          <PrivateRoute path="/admin/details">
+          </AdminRoute>
+          <AdminRoute path="/admin/details">
             <DepositDetails />
-          </PrivateRoute>
-          <PrivateRoute path="/admin/withdrawal">
+          </AdminRoute>
+          <AdminRoute path="/admin/withdrawal">
             <AdminWithdrawals />
-          </PrivateRoute>
-          <PrivateRoute path="/admin/todays/withdrawal">
+          </AdminRoute>
+          <AdminRoute path="/admin/todays/withdrawal">
             <TodaysWithdraw />
-          </PrivateRoute>
-          <PrivateRoute path="/admin/createAds">
+          </AdminRoute>
+          <AdminRoute path="/admin/createAds">
             <CreateAds />
-          </PrivateRoute>
-          <PrivateRoute path="/admin/allAds">
+          </AdminRoute>
+          <AdminRoute path="/admin/allAds">
             <AllAds />
-          </PrivateRoute>
-          <PrivateRoute path="/admin/editAd/:id">
+          </AdminRoute>
+          <AdminRoute path="/admin/editAd/:id">
             <EditAds />
-          </PrivateRoute>
+          </AdminRoute>
 
-          <Route path="/admin/depositdetails/:id">
+          <AdminRoute path="/admin/depositdetails/:id">
             <WithdrawDetails />
-          </Route>
+          </AdminRoute>
           <Route path="/getSignUp/referral/:referralId">
             <Register />
           </Route>
 
-          <PrivateRoute path="/admin/withdrawDetails">
+          <AdminRoute path="/admin/withdrawDetails">
             <WithdrawDetails />
-          </PrivateRoute>
-          <PrivateRoute path="/admin/allusers">
+          </AdminRoute>
+          <AdminRoute path="/admin/allusers">
             <Users />
-          </PrivateRoute>
-          <PrivateRoute path="/admin/user/details/:id">
+          </AdminRoute>
+          <AdminRoute path="/admin/user/details/:id">
             <UserProfile />
-          </PrivateRoute>
-          <PrivateRoute path="/admin/incentive">
+          </AdminRoute>
+          <AdminRoute path="/admin/incentive">
             <AdminIncentive />
-          </PrivateRoute>
-          <PrivateRoute path="/admin/depositmethod">
+          </AdminRoute>
+          <AdminRoute path="/admin/depositmethod">
             <DepositMethod />
-          </PrivateRoute>
-          <PrivateRoute path="/admin/addnew">
+          </AdminRoute>
+          <AdminRoute path="/admin/addnew">
             <AddPaymentMethod />
-          </PrivateRoute>
-          <PrivateRoute path="/admin/setting">
+          </AdminRoute>
+          <AdminRoute path="/admin/setting">
             <AdminSetting />
-          </PrivateRoute>
-          <PrivateRoute path="/admin/users/profile/details/:username">
+          </AdminRoute>
+          <AdminRoute path="/admin/users/profile/details/:username">
             <Suspense fallback={<p>Loading...</p>}>
               <UserProfileDetails />
             </Suspense>
-          </PrivateRoute>
+          </AdminRoute>
         </Switch>
       </Router>
     </>

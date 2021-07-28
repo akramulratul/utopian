@@ -20,7 +20,7 @@ const Graph = () => {
     stopLoading();
   }, [dispatch])
 
-  isloading ? console.log("loading") : loading ? console.log("load") : console.log(graphData.graphDepositResponses[0].depositAmount);
+  // isloading ? console.log("loading") : loading ? console.log("load") : console.log(graphData.graphDepositResponses[0].depositAmount);
 
   return (
     <div>
@@ -38,7 +38,7 @@ const Graph = () => {
         </div>
       ) :
 
-        graphData.graphDepositResponses.map((data) => {
+        graphData && graphData.graphDepositResponses.map((data) => {
           return (
             <Line
               data={{

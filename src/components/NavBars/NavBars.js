@@ -15,8 +15,7 @@ const NavBars = () => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     token = userInfo.data.token;
     let decoded = jwt_decode(token);
-    console.log(decoded);
-    console.log(decoded.scopes === "USER");
+    
     // let a = decoded.scopes
     // let b = "ADMIN"
     // let c = a = b
@@ -26,7 +25,7 @@ const NavBars = () => {
       isAdmin = false;
     }
   }
-  console.log(isAdmin);
+ 
 
   const logIn = () => {
     history.push("/login");
