@@ -10,12 +10,12 @@ import { Link } from "react-router-dom";
 import { DropdownButton, Dropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserProfile } from "../Redux/Actions/userAction";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faTimesCircle} from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import balanceReport from "../../image/icons/IconBalanceReport.svg";
+import downArrow from "../../image/icons/down.svg";
 
-
-
-const Sidebar = ({closeSidebar}) => {
+const Sidebar = ({ closeSidebar }) => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const getProfile = useSelector((state) => state.getProfile);
@@ -37,11 +37,14 @@ const Sidebar = ({closeSidebar}) => {
         <p>Loading</p>
       ) : (
         <div className="sidebar">
-          
           <div className="profile-info py-5  d-flex justify-content-center flex-column align-items-center">
-          <FontAwesomeIcon onClick={closeSidebar} style={{position: 'absolute',top:'2px',right:'2px'}} icon={faTimesCircle} size="2x"/>
+            <FontAwesomeIcon
+              onClick={closeSidebar}
+              style={{ position: "absolute", top: "2px", right: "2px" }}
+              icon={faTimesCircle}
+              size="2x"
+            />
             <div className="profile-image pb-3">
-            
               <img src={userInfo.profilePhotoLink} alt="" />
             </div>
             <div className="profile-name">
@@ -172,10 +175,50 @@ const Sidebar = ({closeSidebar}) => {
                 </div>
               </div>
             </div>
+            <div className="dashboard-menu">
+              <div className="d-flex py-3">
+                <div className="px-5">
+                  <img src={balanceReport} alt="" />
+                </div>
+                <div>
+                  <h6>
+                    <Link to="/admin/allusers">Balance Report</Link>
+                  </h6>
+                </div>
+                <div className="pl-5">
+                  <img src={downArrow} alt="" />
+                </div>
+              </div>
+            </div>
+            <div className="dashboard-menu">
+              <div className="d-flex py-3">
+                <div className="px-5">
+                  <h6>
+                    <Link to="/dashboard/user/incentive">Direct Incentive</Link>
+                  </h6>
+                </div>
+              </div>
+            </div>
+            <div className="dashboard-menu">
+              <div className="d-flex py-3">
+                <div className="px-5">
+                  <h6>
+                    <Link to="/dashboard/user/teamincentive">
+                      Team Incentive
+                    </Link>
+                  </h6>
+                </div>
+              </div>
+            </div>
+            <div className="dashboard-menu">
+              <div className="d-flex py-3">
+                <div className="px-5">
+                  <h6>Salary</h6>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-       
       )}
     </>
   );

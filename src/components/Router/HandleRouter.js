@@ -50,6 +50,8 @@ import DepositMethod from "../Dashboard/Admin/AdminPaymentMethod/DepositMethod";
 import AddPaymentMethod from "../Dashboard/Admin/AdminPaymentMethod/AddPaymentMethod";
 import AdminSetting from "../Dashboard/Admin/AdminSetting/AdminSetting";
 import UserProfileDetails from "../Dashboard/Admin/Users/ProfileView/UserProfileDetails";
+import PaymentEdit from "../Dashboard/Admin/AdminPaymentMethod/PaymentEdit";
+import EditPaymentMethod from "../Dashboard/Admin/AdminPaymentMethod/EditPaymentMethod";
 const ProfileDetails = lazy(() => import("../Profile/ProfileDetails"));
 const HandleRouter = () => {
   return (
@@ -110,7 +112,7 @@ const HandleRouter = () => {
           <PrivateRoute path="/otp">
             <WithdrawOtp />
           </PrivateRoute>
-          <PrivateRoute path="/incentive">
+          <PrivateRoute path="/dashboard/user/incentive">
             <Incentive />
           </PrivateRoute>
           <PrivateRoute path="/dashboard/user/profile/details">
@@ -135,7 +137,7 @@ const HandleRouter = () => {
           <PrivateRoute path="/dashboard/admin/profile/change-password">
             <AdminPasswordChange />
           </PrivateRoute>
-          <PrivateRoute path="/teamincentive">
+          <PrivateRoute path="/dashboard/user/teamincentive">
             <TeamIncentive />
           </PrivateRoute>
           <PrivateRoute path="/earning">

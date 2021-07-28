@@ -111,16 +111,13 @@ export const sendOtp = () => async (dispatch) => {
       payload: {},
     });
 
-    fetch(
-      "http://api.utopiansglobal.com/user/balance/withdraws/generate/otp",
-      {
-        method: "POST",
-        headers: {
-          authorization: `Bearer ${token}`,
-          "content-type": "application/json",
-        },
-      }
-    )
+    fetch("http://api.utopiansglobal.com/user/balance/withdraws/generate/otp", {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${token}`,
+        "content-type": "application/json",
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         dispatch({

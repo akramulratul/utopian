@@ -71,9 +71,7 @@ export const getAds = () => async (dispatch, getState) => {
       payload: {},
     });
 
-    const response = await axios.get(
-      "http://api.utopiansglobal.com/admin/ads"
-    );
+    const response = await axios.get("http://api.utopiansglobal.com/admin/ads");
     dispatch({
       type: "GET_ADS_SUCCESS",
       payload: response.data.data,

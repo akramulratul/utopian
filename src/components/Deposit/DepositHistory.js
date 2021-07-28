@@ -59,7 +59,7 @@ const DepositHistory = () => {
               </tr>
             </thead>
             <tbody>
-              {depositInfo.data.map((deposite) => {
+              {depositInfo ? depositInfo.data.map((deposite) => {
                 return (
                   <tr>
                     <td>{deposite.transactionId}</td>
@@ -71,8 +71,9 @@ const DepositHistory = () => {
                       {new Date(deposite.createdOn).getFullYear()}
                     </td>
                   </tr>
-                );
-              })}
+                )
+              }) : ""
+              }
             </tbody>
           </table>
         </div>
