@@ -90,6 +90,29 @@ export const getAdbyIdReducer = (state = {}, action) => {
   }
 };
 
+export const getAdbyIdAdminReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "GET_ADS_BY_ID_ADMIN_REQUEST":
+      return {
+        loading: true,
+        adDetails: action.payload,
+      };
+    case "GET_ADS_BY_ID_ADMIN_SUCCESS":
+      return {
+        loading: false,
+        adDetails: action.payload,
+      };
+    case "GET_ADS_BY_ID_ADMIN_FAILED":
+      return {
+        loading: false,
+        error: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};
+
 export const editAdReducer = (state = {}, action) => {
   switch (action.type) {
     case "EDIT_AD_REQUEST":

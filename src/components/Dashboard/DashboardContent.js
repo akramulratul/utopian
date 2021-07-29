@@ -39,10 +39,10 @@ const DashboardContent = ({ closeSidebar, depositeData }) => {
 
                     <div className="dash-right-card bg-white d-flex justify-content-between mx-1 my-3 py-4 rounded px-3">
                       <div className="title pt-1">
-                        <h6> TEAM DEPOSIT</h6>
+                        <h6> GENERATION INCOME</h6>
                       </div>
                       <div className="balance">
-                        <h4>৳ {depositeData.teamDepositAmount || "0.00"}</h4>
+                        <h4>৳ {depositeData.generationIncome || "0.00"}</h4>
                       </div>
                     </div>
                   </div>
@@ -53,7 +53,7 @@ const DashboardContent = ({ closeSidebar, depositeData }) => {
                         <div className="col-lg-4 right-second-card text-center py-3">
                           <div className="">
                             <small>
-                              <b>Team Deposit</b>
+                              <b>Deposit</b>
                             </small>
                           </div>
                         </div>
@@ -75,19 +75,19 @@ const DashboardContent = ({ closeSidebar, depositeData }) => {
 
                       <div className="dash-right-card bg-white border d-flex justify-content-between py-4  px-3">
                         <div className="title pt-1">
-                          <h6> INCENTIVE BALANCE</h6>
+                          <h6>TEAM DEPOSIT</h6>
                         </div>
                         <div className="balance">
-                          <h4>৳ {depositeData.incentiveBalance || "0.00"}</h4>
+                          <h4>৳ {depositeData.teamDepositAmount || "0.00"}</h4>
                         </div>
                       </div>
                     </div>
                     <div className="dash-right-card bg-white d-flex justify-content-between mx-1 my-3 py-4 rounded px-3">
                       <div className="title pt-1">
-                        <h6> TOTAL AMOUNT</h6>
+                        <h6> DIRECT DEPOSIT</h6>
                       </div>
                       <div className="balance">
-                        <h4>৳ {depositeData.totalAmount || "0.00"}</h4>
+                        <h4>৳ {depositeData.directReferAmount || "0.00"}</h4>
                       </div>
                     </div>
                   </div>

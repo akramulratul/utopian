@@ -113,68 +113,47 @@ const Sidebar = ({ closeSidebar }) => {
               </div>
             </div>
 
-            <div className="dashboard-menu">
+           
+
+      <div className="dashboard-menu">
               <div className="d-flex py-3">
                 <div className="px-5">
                   <img src={earningIcon} alt="" />
                 </div>
-                <div className="pr-5">
+                <div>
                   <h6>
-                    <strong>Earning</strong>
+                    <b>Earning</b>
                   </h6>
                 </div>
-                <div className="pl-5 ml-5">
-                  <DropdownButton
-                    id="dropdown-basic-button"
-                    className="bg-light"
-                    title=""
-                  >
-                    <Dropdown.Item>
-                      <Link to="/earning">
-                        <div className="down">
-                          <div className="d-flex py-">
-                            <div className="px-2">
-                              <img src={rightArrow} alt="" />
-                            </div>
-                            <div>
-                              <h6 className="pt-1">Daily Earning</h6>
-                            </div>
-                          </div>
-                        </div>
-                      </Link>
-                    </Dropdown.Item>
-
-                    <Dropdown.Item>
-                      <Link to="/dashboard/referral">
-                        <div className="down">
-                          <div className="d-flex py-">
-                            <div className="px-2">
-                              <img src={rightArrow} alt="" />
-                            </div>
-                            <div>
-                              <h6 className="pt-1">Refrence Bonus</h6>
-                            </div>
-                          </div>
-                        </div>
-                      </Link>
-                    </Dropdown.Item>
-
-                    <Dropdown.Item>
-                      <div className="down">
-                        <div className="d-flex py-">
-                          <div className="px-2">
-                            <img src={rightArrow} alt="" />
-                          </div>
-                          <div>
-                            <h6 className="pt-1">Generations</h6>
-                          </div>
-                        </div>
-                      </div>
-                    </Dropdown.Item>
-                  </DropdownButton>
+                <div className="pl-5">
+                  <img src={downArrow} alt="" />
                 </div>
               </div>
             </div>
+            <div className="dashboard-menu">
+              <div className="d-flex py-3">
+                <div className="px-5">
+                  <h6>
+                    <Link to="/earning">Daily Earning</Link>
+                  </h6>
+                </div>
+              </div>
+            </div>
+            <div className="dashboard-menu">
+              <div className="d-flex py-3">
+                <div className="px-5">
+                  <h6>
+                    <Link to="/dashboard/referral">
+                    Refrence Bonus
+                    </Link>
+                  </h6>
+                </div>
+              </div>
+            </div>
+           
+
+
+
             <div className="dashboard-menu">
               <div className="d-flex py-3">
                 <div className="px-5">
@@ -182,7 +161,7 @@ const Sidebar = ({ closeSidebar }) => {
                 </div>
                 <div>
                   <h6>
-                    <Link to="/admin/allusers">Balance Report</Link>
+                    <b>Balance Report</b>
                   </h6>
                 </div>
                 <div className="pl-5">
