@@ -17,6 +17,8 @@ import downArrow from "../../image/icons/down.svg";
 
 const Sidebar = ({ closeSidebar }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isEarningOpen, setIsEarningOpen] = useState(false)
+  const [isBalanceOpen, setIsBalanceOpen] = useState(false)
   const dispatch = useDispatch();
   const getProfile = useSelector((state) => state.getProfile);
   const { loading, userInfo } = getProfile;
@@ -29,6 +31,13 @@ const Sidebar = ({ closeSidebar }) => {
     dispatch(getUserProfile());
     stopLoading();
   }, [dispatch]);
+
+  const handleEarningDropdown=()=>{
+    setIsEarningOpen(!isEarningOpen);
+  }
+  const handleBalanceDropdown=()=>{
+    setIsBalanceOpen(!isBalanceOpen);
+  }
   return (
     <>
       {isLoading ? (
@@ -116,7 +125,7 @@ const Sidebar = ({ closeSidebar }) => {
            
 
       <div className="dashboard-menu">
-              <div className="d-flex py-3">
+              <div className="d-flex py-3" onClick={handleEarningDropdown}>
                 <div className="px-5">
                   <img src={earningIcon} alt="" />
                 </div>
@@ -130,32 +139,36 @@ const Sidebar = ({ closeSidebar }) => {
                 </div>
               </div>
             </div>
-            <div className="dashboard-menu">
-              <div className="d-flex py-3">
-                <div className="px-5">
-                  <h6>
-                    <Link to="/earning">Daily Earning</Link>
-                  </h6>
+            {
+              isEarningOpen && <div className="earning-dropdown">
+              <div className="dashboard-menu">
+                <div className="d-flex py-3">
+                  <div className="px-5">
+                    <h6 className='d-flex justify-content-center'>
+                      <Link to="/earning">Daily Earning</Link>
+                    </h6>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="dashboard-menu">
-              <div className="d-flex py-3">
-                <div className="px-5">
-                  <h6>
-                    <Link to="/dashboard/referral">
-                    Refrence Bonus
-                    </Link>
-                  </h6>
+              <div className="dashboard-menu">
+                <div className="d-flex py-3">
+                  <div className="px-5">
+                    <h6>
+                      <Link to="/dashboard/referral">
+                      Refrence Bonus
+                      </Link>
+                    </h6>
+                  </div>
                 </div>
               </div>
-            </div>
+              </div>
+            }
            
 
 
 
             <div className="dashboard-menu">
-              <div className="d-flex py-3">
+              <div className="d-flex py-3" onClick={handleBalanceDropdown}>
                 <div className="px-5">
                   <img src={balanceReport} alt="" />
                 </div>
@@ -169,26 +182,32 @@ const Sidebar = ({ closeSidebar }) => {
                 </div>
               </div>
             </div>
-            <div className="dashboard-menu">
-              <div className="d-flex py-3">
-                <div className="px-5">
-                  <h6>
-                    <Link to="/dashboard/user/incentive">Direct Incentive</Link>
-                  </h6>
-                </div>
-              </div>
-            </div>
-            <div className="dashboard-menu">
-              <div className="d-flex py-3">
-                <div className="px-5">
-                  <h6>
-                    <Link to="/dashboard/user/teamincentive">
-                      Team Incentive
-                    </Link>
-                  </h6>
-                </div>
-              </div>
-            </div>
+            
+{
+  isBalanceOpen && <div className="balance-dropdown">
+  <div className="dashboard-menu">
+    <div className="d-flex py-3">
+      <div className="px-5">
+        <h6>
+          <Link to="/dashboard/user/incentive">Direct Incentive</Link>
+        </h6>
+      </div>
+    </div>
+  </div>
+  <div className="dashboard-menu">
+    <div className="d-flex py-3">
+      <div className="px-5">
+        <h6>
+          <Link to="/dashboard/user/teamincentive">
+            Team Incentive
+          </Link>
+        </h6>
+      </div>
+    </div>
+  </div>
+  </div>
+}
+
             <div className="dashboard-menu">
               <div className="d-flex py-3">
                 <div className="px-5">
