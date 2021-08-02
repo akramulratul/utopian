@@ -68,3 +68,24 @@
     }
   }
 }
+.sidebar-container {
+  left: 0;
+  top: 0;
+
+  // height: 100%;
+  transform: translateX(-100%);
+  transition: height 0.5s linear;
+}
+.sidebar-active {
+  transform: translateX(0%);
+}
+@media screen and (max-width: 768px) {
+  .sidebar-container {
+    width: 100%;
+    position: absolute;
+    z-index: 5;
+    background-color: white;
+    transition: 0.3s;
+    border-bottom: 3px solid rgba(146, 146, 146, 0.507);
+  }
+}

@@ -5,20 +5,27 @@ import axios from "axios";
 import SubNav from "../Dashboard/Shared/SubNav";
 import ProfileCard from "./ProfileCard";
 import ChangePassword from "./ChangePassword";
+import { useState } from "react";
 
 const PasswordChange = () => {
+  const [isSideBarOpen, setIsSideBarOpen] = useState(false)
   useEffect(() => {
     axios.get("");
   }, []);
+  const closeSidebar=()=>{
+    setIsSideBarOpen(!isSideBarOpen);
+  }
   return (
     <div className="profile-container">
       <div className="row m-0 p-0">
-        <div className="col-lg-3 m-0 p-0">
-          <Sidebar />
-        </div>
-        <div className="content-holder col-lg-9 m-0 p-0">
+      {
+           isSideBarOpen && <div className={`sidebar-container p-0 ${isSideBarOpen&& "sidebar-active col-lg-3"}`}>
+           <Sidebar closeSidebar={closeSidebar}/>
+         </div>
+         }
+        <div className={`p-0 m-0 content-holder ${isSideBarOpen ? "col-9":"col-12"}`}>
           <div className="dash-nav">
-            <DashboardNav />
+            <DashboardNav closeSidebar={closeSidebar}/>
           </div>
           <div className=" row m-0 p-0 profile-content-wrpper">
             <div className="col-lg-8 m-0 p-0 p-lg-3">

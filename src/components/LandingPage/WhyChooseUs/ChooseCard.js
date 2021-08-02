@@ -1,7 +1,7 @@
 import React from "react";
 
 const ChooseCard = ({ reason }) => {
-  console.log(reason);
+
   return (
     <div className="col-lg-4">
       <div className="reason-card">

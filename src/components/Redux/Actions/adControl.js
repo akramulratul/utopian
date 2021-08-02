@@ -65,15 +65,24 @@ export const createAd = (adInfo, thumbnail) => async (dispatch, getState) => {
   }
 };
 export const getAds = () => async (dispatch, getState) => {
+   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const {
+    data: { token },
+  } = userInfo;
+
+  const config = {
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  };
   try {
     dispatch({
       type: "GET_ADS_REQUEST",
       payload: {},
     });
 
-    const response = await axios.get(
-      "http://api.utopiansglobal.com/admin/ads"
-    );
+    const response = await axios.get(`http://api.utopiansglobal.com/admin/ads`,config);
     dispatch({
       type: "GET_ADS_SUCCESS",
       payload: response.data.data,
@@ -136,16 +145,71 @@ export const getAdById = (adId) => async (dispatch, getState) => {
       payload: {},
     });
 
-    const response = await axios.get(
-      `http://api.utopiansglobal.com/admin/ads/${adId}`
-    );
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    const {
+      data: { token },
+    } = userInfo;
+
+    const config = {
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    };
+
+    const response = await axios.get(`http://api.utopiansglobal.com/users/ads?adId=${adId}`,config);
+
     dispatch({
       type: "GET_ADS_BY_ID_SUCCESS",
-      payload: response.data.data,
+      payload: response.data.data[0],
     });
+    console.log(response.data.data[0]);
+
+
+    
   } catch (error) {
     dispatch({
       type: "GET_ADS_BY_ID_FAIL",
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const getAdByIdAdmin = (adId) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: "GET_ADS_BY_ID_ADMIN_REQUEST",
+      payload: {},
+    });
+
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    const {
+      data: { token },
+    } = userInfo;
+
+    const config = {
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    };
+
+    const response = await axios.get(`http://api.utopiansglobal.com/admin/ads/${adId}`,config);
+
+    dispatch({
+      type: "GET_ADS_BY_ID_ADMIN_SUCCESS",
+      payload: response.data.data,
+    });
+    console.log(response.data.data);
+
+
+    
+  } catch (error) {
+    dispatch({
+      type: "GET_ADS_BY_ID_ADMIN_FAILED",
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
@@ -225,13 +289,24 @@ export const editAdAction =
   };
 
 export const userGetAllAds = () => async (dispatch, getState) => {
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    const {
+      data: { token },
+    } = userInfo;
+
+    const config = {
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    };
   try {
     dispatch({
       type: "USER_GET_ADS_REQUEST",
       payload: {},
     });
 
-    const response = await axios.get(`http://api.utopiansglobal.com/users/ads`);
+    const response = await axios.get(`http://api.utopiansglobal.com/users/ads`,config);
 
     dispatch({
       type: "USER_GET_ADS_SUCCESS",

@@ -3,7 +3,6 @@ import reasons from "./reason";
 import ChooseCard from "./ChooseCard";
 
 const WhyChooseUs = () => {
-  console.log(reasons);
   return (
     <div className="reason-container">
       <div className="heading-text">

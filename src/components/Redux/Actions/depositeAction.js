@@ -103,7 +103,6 @@ export const getDepositeHistory = () => async (dispatch) => {
   }
 };
 
-
 export const getUserDepositMethodAction = () => async (dispatch) => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const {

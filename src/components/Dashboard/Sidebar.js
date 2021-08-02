@@ -10,9 +10,15 @@ import { Link } from "react-router-dom";
 import { DropdownButton, Dropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserProfile } from "../Redux/Actions/userAction";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import balanceReport from "../../image/icons/IconBalanceReport.svg";
+import downArrow from "../../image/icons/down.svg";
 
-const Sidebar = () => {
+const Sidebar = ({ closeSidebar }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isEarningOpen, setIsEarningOpen] = useState(false)
+  const [isBalanceOpen, setIsBalanceOpen] = useState(false)
   const dispatch = useDispatch();
   const getProfile = useSelector((state) => state.getProfile);
   const { loading, userInfo } = getProfile;
@@ -25,6 +31,13 @@ const Sidebar = () => {
     dispatch(getUserProfile());
     stopLoading();
   }, [dispatch]);
+
+  const handleEarningDropdown=()=>{
+    setIsEarningOpen(!isEarningOpen);
+  }
+  const handleBalanceDropdown=()=>{
+    setIsBalanceOpen(!isBalanceOpen);
+  }
   return (
     <>
       {isLoading ? (
@@ -34,6 +47,12 @@ const Sidebar = () => {
       ) : (
         <div className="sidebar">
           <div className="profile-info py-5  d-flex justify-content-center flex-column align-items-center">
+            <FontAwesomeIcon
+              onClick={closeSidebar}
+              style={{ position: "absolute", top: "2px", right: "2px" }}
+              icon={faTimesCircle}
+              size="2x"
+            />
             <div className="profile-image pb-3">
               <img src={userInfo.profilePhotoLink} alt="" />
             </div>
@@ -103,65 +122,96 @@ const Sidebar = () => {
               </div>
             </div>
 
-            <div className="dashboard-menu">
-              <div className="d-flex py-3">
+           
+
+      <div className="dashboard-menu">
+              <div className="d-flex py-3" onClick={handleEarningDropdown}>
                 <div className="px-5">
                   <img src={earningIcon} alt="" />
                 </div>
-                <div className="pr-5">
+                <div>
                   <h6>
-                    <strong>Earning</strong>
+                    <b>Earning</b>
                   </h6>
                 </div>
-                <div className="pl-5 ml-5">
-                  <DropdownButton
-                    id="dropdown-basic-button"
-                    className="bg-light"
-                    title=""
-                  >
-                    <Dropdown.Item>
-                      <Link to="/earning">
-                        <div className="down">
-                          <div className="d-flex py-">
-                            <div className="px-2">
-                              <img src={rightArrow} alt="" />
-                            </div>
-                            <div>
-                              <h6 className="pt-1">Daily Earning</h6>
-                            </div>
-                          </div>
-                        </div>
-                      </Link>
-                    </Dropdown.Item>
-
-                    <Dropdown.Item>
+                <div className="pl-5">
+                  <img src={downArrow} alt="" />
+                </div>
+              </div>
+            </div>
+            {
+              isEarningOpen && <div className="earning-dropdown">
+              <div className="dashboard-menu">
+                <div className="d-flex py-3">
+                  <div className="px-5">
+                    <h6 className='d-flex justify-content-center'>
+                      <Link to="/earning">Daily Earning</Link>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div className="dashboard-menu">
+                <div className="d-flex py-3">
+                  <div className="px-5">
+                    <h6>
                       <Link to="/dashboard/referral">
-                        <div className="down">
-                          <div className="d-flex py-">
-                            <div className="px-2">
-                              <img src={rightArrow} alt="" />
-                            </div>
-                            <div>
-                              <h6 className="pt-1">Refrence Bonus</h6>
-                            </div>
-                          </div>
-                        </div>
+                      Refrence Bonus
                       </Link>
-                    </Dropdown.Item>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              </div>
+            }
+           
 
-                    <Dropdown.Item>
-                      <div className="down">
-                        <div className="d-flex py-">
-                          <div className="px-2">
-                            <img src={rightArrow} alt="" />
-                          </div>
-                          <div>
-                            <h6 className="pt-1">Generations</h6>
-                          </div>
-                        </div>
-                      </div>
-                    </Dropdown.Item>
-                  </DropdownButton>
+
+
+            <div className="dashboard-menu">
+              <div className="d-flex py-3" onClick={handleBalanceDropdown}>
+                <div className="px-5">
+                  <img src={balanceReport} alt="" />
+                </div>
+                <div>
+                  <h6>
+                    <b>Balance Report</b>
+                  </h6>
+                </div>
+                <div className="pl-5">
+                  <img src={downArrow} alt="" />
+                </div>
+              </div>
+            </div>
+            
+{
+  isBalanceOpen && <div className="balance-dropdown">
+  <div className="dashboard-menu">
+    <div className="d-flex py-3">
+      <div className="px-5">
+        <h6>
+          <Link to="/dashboard/user/incentive">Direct Incentive</Link>
+        </h6>
+      </div>
+    </div>
+  </div>
+  <div className="dashboard-menu">
+    <div className="d-flex py-3">
+      <div className="px-5">
+        <h6>
+          <Link to="/dashboard/user/teamincentive">
+            Team Incentive
+          </Link>
+        </h6>
+      </div>
+    </div>
+  </div>
+  </div>
+}
+
+            <div className="dashboard-menu">
+              <div className="d-flex py-3">
+                <div className="px-5">
+                  <h6>Salary</h6>
                 </div>
               </div>
             </div>

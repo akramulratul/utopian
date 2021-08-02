@@ -6,14 +6,14 @@ import AdminSidebar from "../AdminSidebar";
 import {
   createAd,
   editAdAction,
-  getAdById,
+  getAdByIdAdmin,
 } from "../../../Redux/Actions/adControl";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
 const EditAds = () => {
   const { id } = useParams();
-  const getAdByIdInfo = useSelector((state) => state.getAdById);
+  const getAdByIdInfo = useSelector((state) => state.getAdByIdAdmin);
   const [isLoading, setIsLoading] = useState(true);
   const { loading, adDetails, error } = getAdByIdInfo;
   const [title, setTitle] = useState();
@@ -27,7 +27,7 @@ const EditAds = () => {
     setIsLoading(false);
   };
   useEffect(() => {
-    dispatch(getAdById(id));
+    dispatch(getAdByIdAdmin(id));
     stopLoading();
   }, [dispatch, id]);
 

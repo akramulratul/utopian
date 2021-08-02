@@ -46,6 +46,7 @@ const DashboardTopInfo = ({ transactionInfo }) => {
                   <b>TOTAL INCOME</b>
                 </p>
                 <h3>৳ {transactionInfo.totalIncome || "0.00"}</h3>
+
               </div>
               <div className="right-icon">
                 <img src={totalInc} alt="" />

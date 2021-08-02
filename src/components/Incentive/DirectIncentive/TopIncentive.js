@@ -21,7 +21,7 @@ const TopIncentive = () => {
       </div>
       <div className="right-content d-flex align-items-center m-3 p-2 border-left">
         <div className="px-3">
-          <h2>৳2100.96</h2>
+          <h2>৳00.00</h2>
           <small>Current Incentive Balance</small>
         </div>
         <div className="px-3">

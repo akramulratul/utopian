@@ -38,9 +38,9 @@ const IncentiveHistory = () => {
 
         <tbody>
           <tr>
-            <td>Mark</td>
+            {/* <td>Mark</td>
             <td>Otto</td>
-            <td>@mdo</td>
+            <td>@mdo</td> */}
           </tr>
         </tbody>
 

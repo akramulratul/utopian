@@ -82,7 +82,7 @@ const UsersHistory = () => {
               {userListInfo.data.map((user) => {
                 return (
                   <tr>
-                    <td>{user.name}</td>
+                    <td>{user.username}</td>
                     <td>{user.email}</td>
                     <td>{user.userLevel}</td>
                     <td>Active</td>
@@ -98,7 +98,9 @@ const UsersHistory = () => {
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                           <Dropdown.Item className="dropdown">
-                            <Link to={`/admin/users/profile/details/${user.username}`}>
+                            <Link
+                              to={`/admin/users/profile/details/${user.username}`}
+                            >
                               <b>View Details</b>
                             </Link>
                           </Dropdown.Item>

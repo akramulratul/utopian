@@ -25,6 +25,7 @@ import {
   createAdreducer,
   deleteAdReducer,
   editAdReducer,
+  getAdbyIdAdminReducer,
   getAdbyIdReducer,
   getAdsReducer,
   userGetAllAdsReducer,
@@ -63,6 +64,7 @@ const reducer = combineReducers({
   getAds: getAdsReducer,
   deleteAd: deleteAdReducer,
   getAdById: getAdbyIdReducer,
+  getAdByIdAdmin: getAdbyIdAdminReducer,
   editAd: editAdReducer,
   userGetAds: userGetAllAdsReducer,
   watchedAd: watchedAddReducer,
@@ -91,6 +93,7 @@ const reducer = combineReducers({
   deleteDepositMethod: deleteDepositMethodReducer,
 
   getUserDepositMethod: getUserDepositMethodReducer,
+
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")
