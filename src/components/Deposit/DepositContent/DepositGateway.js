@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserDepositMethodAction } from "../../Redux/Actions/depositeAction";
 import DepositBanking from "./DepositGateWay/DepositBanking";
+import Nagad from "./DepositGateWay/Nagad";
 import Rocket from "./DepositGateWay/Rocket";
 const DepositGateway = ({ setMethod }) => {
   const [value, setValue] = useState("");
@@ -62,7 +63,7 @@ const DepositGateway = ({ setMethod }) => {
             B-kash
           </label>
           <br />
-          {isBkashChecked && <DepositBanking />}
+          {isBkashChecked && <DepositBanking bkash={"Bkash"} />}
         </div>
 
         <div className="radio">
@@ -76,7 +77,7 @@ const DepositGateway = ({ setMethod }) => {
             Nagad
           </label>
           <br />
-          {isNagadChecked && <DepositBanking />}
+          {isNagadChecked && <Nagad nagad={"Nagad"} />}
         </div>
         <div className="radio">
           <label>

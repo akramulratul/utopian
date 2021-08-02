@@ -6,10 +6,12 @@ import { getUserDepositMethodAction } from "../../../Redux/Actions/depositeActio
 
 
 const Rocket = ({ rocket }) => {
+  // console.log(rocket);
   const dispatch = useDispatch();
   const depositHistory = useSelector((state) => state.depositMethodHistory);
   const { loading, error, depositMethodHistory } = depositHistory;
   console.log(depositMethodHistory);
+
 
   const [isloading, setIsloading] = useState(true);
   const stopLoading = () => {
@@ -21,15 +23,25 @@ const Rocket = ({ rocket }) => {
     stopLoading();
   }, [dispatch]);
 
-  // const roc = depositHistory && depositHistory.filter(data => { return data.depositOption === "Rocket" })
-  // console.log(roc);
+  const test = isloading ? undefined : loading ? undefined : depositMethodHistory.find(function (data) {
+    return data.depositOption == rocket
+  });
+  console.log(test)
+  // var filtered = depositMethodHistory?.filter(function (data) {
+  //   return data.depositOption === "Rocket"
+  // });
+
 
 
   return (
     <div>
-      <h3>Deposit details</h3>
-      <p>Please cashout on this number</p>
-      <h4>01618338733-3</h4>
+      {
+        test && <div>
+          <h3>Deposit details</h3>
+          <p>Please cashout on this number</p>
+          <h4>{test.accountNo}</h4>
+        </div>
+      }
     </div>
   );
 };
