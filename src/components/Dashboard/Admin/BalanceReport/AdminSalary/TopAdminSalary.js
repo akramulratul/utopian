@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-const TopAdminIncentive = () => {
+const TopAdminSalary = () => {
   return (
     <div className="header bg-white mt-3 mr-3 ml-3 d-flex justify-content-between rounded">
       <div className="left-content d-flex align-items-center ">
@@ -12,7 +12,7 @@ const TopAdminIncentive = () => {
                 <a href="/admin/dashboard">Dashboard</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
-                Incentive
+                Salary
               </li>
             </ol>
           </nav>
@@ -21,12 +21,12 @@ const TopAdminIncentive = () => {
       <div className="right-content d-flex align-items-center m-3 p-2 border-left">
         <div className="px-3">
           <h2>৳2100.96</h2>
-          <small>Current Incentive Balance</small>
+          <small>Total Salary Given</small>
         </div>
         <div className="px-3">
           <Button className="withdraw-btn ml-5">
             <Link to="/admin/dashboard">
-              <p>Incentive Balance</p>
+              <p>Salary</p>
             </Link>
           </Button>
         </div>
@@ -35,4 +35,4 @@ const TopAdminIncentive = () => {
   );
 };
 
-export default TopAdminIncentive;
+export default TopAdminSalary;

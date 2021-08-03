@@ -19,21 +19,21 @@ export const graphAction = () => async (dispatch) => {
       },
     };
 
-        const { data } = await axios.get("http://api.utopiansglobal.com/dashboard/user/graph",
-            config
-        );
-        dispatch({
-            type: "GRAPH_SUCCESS",
-            payload: data.data,
-        });
-    } catch (error) {
-        dispatch({
-            type: "GRAPH_FAIL",
-            payload:
-            
-                error.response && error.response.data.message
-                    ? error.response.data.message
-                    : error.message,
-        });
-    }
+    const { data } = await axios.get(
+      "https://utopain-backend.herokuapp.com/dashboard/user/graph",
+      config
+    );
+    dispatch({
+      type: "GRAPH_SUCCESS",
+      payload: data.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: "GRAPH_FAIL",
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
 };

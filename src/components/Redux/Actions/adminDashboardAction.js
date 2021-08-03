@@ -21,7 +21,7 @@ export const adminDashboardHistory = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/dashboard/admin",
+      "https://utopain-backend.herokuapp.com/dashboard/admin",
       config
     );
     dispatch({
@@ -59,7 +59,7 @@ export const adminUserListAction = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/profile/admin/users",
+      "https://utopain-backend.herokuapp.com/profile/admin/users",
       config
     );
     dispatch({
@@ -97,7 +97,7 @@ export const adminUserDetailsListAction = (username) => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      `http://api.utopiansglobal.com/profile/admin/users?userName=${username}`,
+      `https://utopain-backend.herokuapp.com/profile/admin/users?userName=${username}`,
       config
     );
     dispatch({
@@ -135,7 +135,7 @@ export const adminUserDetailsListAction = (username) => async (dispatch) => {
 //     };
 
 //     const { data } = await axios.get(
-//       `http://api.utopiansglobal.com/auth/ban/${username}`,
+//       `https://utopain-backend.herokuapp.com/auth/ban/${username}`,
 //       config
 //     );
 //     dispatch({
@@ -172,7 +172,7 @@ export const adminUserSuspendAction = (username) => async (dispatch) => {
       },
     };
 
-    fetch(`http://api.utopiansglobal.com/auth/admin/ban/${username}`, {
+    fetch(`https://utopain-backend.herokuapp.com/auth/admin/ban/${username}`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -240,14 +240,17 @@ export const adminUserTemporarySuspendAction =
         },
       };
 
-      fetch(`http://api.utopiansglobal.com/auth/admin/tempBan/${username}`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${token}`,
-        },
-        // body: JSON.stringify(userData),
-      })
+      fetch(
+        `https://utopain-backend.herokuapp.com/auth/admin/tempBan/${username}`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${token}`,
+          },
+          // body: JSON.stringify(userData),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           dispatch({

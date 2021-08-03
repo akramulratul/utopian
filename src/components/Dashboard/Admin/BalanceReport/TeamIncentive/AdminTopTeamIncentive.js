@@ -1,7 +1,8 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-const TopAdminIncentive = () => {
+
+const AdminTopTeamIncentive = () => {
   return (
     <div className="header bg-white mt-3 mr-3 ml-3 d-flex justify-content-between rounded">
       <div className="left-content d-flex align-items-center ">
@@ -35,4 +36,4 @@ const TopAdminIncentive = () => {
   );
 };
 
-export default TopAdminIncentive;
+export default AdminTopTeamIncentive;

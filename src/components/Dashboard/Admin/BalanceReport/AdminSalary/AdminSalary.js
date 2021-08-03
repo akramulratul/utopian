@@ -1,10 +1,9 @@
 import React from "react";
-import AdminSidebar from "../AdminSidebar";
-import DashboardNav from "../../DashboardNav";
-import TopAdminIncentive from "./TopAdminIncentive";
-import AdminIncentiveHistory from "./AdminIncentiveHistory";
-
-const AdminIncentive = () => {
+import DashboardNav from "../../../DashboardNav";
+import AdminSidebar from "../../AdminSidebar";
+import AdminSalaryHistory from "./AdminSalaryHistory";
+import TopAdminSalary from "./TopAdminSalary";
+const AdminSalary = () => {
   return (
     <div className="row m-0 p-0">
       <div className="col-lg-3 m-0 p-0">
@@ -14,11 +13,11 @@ const AdminIncentive = () => {
         <div className="dash-nav">
           <DashboardNav />
         </div>
-        <TopAdminIncentive />
-        <AdminIncentiveHistory />
+        <TopAdminSalary />
+        <AdminSalaryHistory />
       </div>
     </div>
   );
 };
 
-export default AdminIncentive;
+export default AdminSalary;
