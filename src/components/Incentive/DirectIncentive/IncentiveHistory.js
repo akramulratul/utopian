@@ -25,7 +25,7 @@ const IncentiveHistory = () => {
                 <img src={updownIcon} alt="" />
               </div>
             </th>
-            <th>Status</th>
+            <th>Statuss</th>
             <th className="d-flex">
               Date
               <div>

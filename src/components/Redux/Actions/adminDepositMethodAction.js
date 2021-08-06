@@ -22,7 +22,7 @@ export const depositMethodAction = (depositOption) => async (dispatch) => {
 
     axios
       .post(
-        "http://api.utopiansglobal.com/deposit/admin/options",
+        "https://utopain-backend.herokuapp.com/deposit/admin/options",
         depositOption,
         config
       )
@@ -85,7 +85,7 @@ export const getDepositMethodHistory = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/deposit/admin/options",
+      "https://utopain-backend.herokuapp.com/deposit/admin/options",
       config
     );
     dispatch({
@@ -125,7 +125,7 @@ export const updateDepositMethodHistory =
       };
 
       fetch(
-        `http://api.utopiansglobal.com/deposit/admin/options/${depositMethodInfo.id}`,
+        `https://utopain-backend.herokuapp.com/deposit/admin/options/${depositMethodInfo.id}`,
         {
           method: "PUT",
           headers: {
@@ -193,7 +193,7 @@ export const deleteDepositMethodHistory = (id) => async (dispatch) => {
       },
     };
 
-    fetch(`http://api.utopiansglobal.com/deposit/admin/options/${id}`, {
+    fetch(`https://utopain-backend.herokuapp.com/deposit/admin/options/${id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

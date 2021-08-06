@@ -8,6 +8,7 @@ const WithdrawHistory = () => {
   const dispatch = useDispatch();
   const withdrawHistory = useSelector((state) => state.withdrawHistory);
   const { loading, error, withdrawInfo } = withdrawHistory;
+  console.log(withdrawInfo);
   const stopLoading = () => {
     setIsLoading(false);
   };
@@ -68,7 +69,7 @@ const WithdrawHistory = () => {
             <p>Loading Data...</p>
           ) : loading ? (
             <p>Loading Data...</p>
-          ) : (
+          ) : withdrawInfo && (
             withdrawInfo.map((info) => {
               return (
                 <tr>

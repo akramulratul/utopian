@@ -22,7 +22,7 @@ export const addDeposit = (addDepositeData) => async (dispatch) => {
 
     axios
       .post(
-        "http://api.utopiansglobal.com/user/balance/deposits",
+        "https://utopain-backend.herokuapp.com/user/balance/deposits",
         addDepositeData,
         config
       )
@@ -85,7 +85,7 @@ export const getDepositeHistory = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/user/balance/deposits",
+      "https://utopain-backend.herokuapp.com/user/balance/deposits",
       config
     );
     dispatch({
@@ -123,7 +123,7 @@ export const getUserDepositMethodAction = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/deposit/user/options",
+      "https://utopain-backend.herokuapp.com/deposit/user/options",
       config
     );
     dispatch({

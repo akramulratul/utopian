@@ -21,7 +21,7 @@ export const incentiveHistoryAction = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/admin/incentives",
+      "https://utopain-backend.herokuapp.com/admin/incentives",
       config
     );
     dispatch({

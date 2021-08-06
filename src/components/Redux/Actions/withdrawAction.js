@@ -13,7 +13,7 @@ export const addWithdraw = (newWithdrawInfo) => async (dispatch) => {
       payload: {},
     });
 
-    fetch("http://api.utopiansglobal.com/user/balance/withdraws", {
+    fetch("https://utopain-backend.herokuapp.com/user/balance/withdraws", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -81,7 +81,7 @@ export const getWithdrawHistory = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/user/balance/withdraws",
+      "https://utopain-backend.herokuapp.com/user/balance/withdraws",
       config
     );
     dispatch({
@@ -111,7 +111,7 @@ export const sendOtp = () => async (dispatch) => {
       payload: {},
     });
 
-    fetch("http://api.utopiansglobal.com/user/balance/withdraws/generate/otp", {
+    fetch("https://utopain-backend.herokuapp.com/user/balance/withdraws/generate/otp", {
       method: "POST",
       headers: {
         authorization: `Bearer ${token}`,
