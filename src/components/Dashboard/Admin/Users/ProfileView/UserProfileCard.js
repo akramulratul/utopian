@@ -10,8 +10,6 @@ const ProfileCard = () => {
   // const dispatch = useDispatch();
   const UserList = useSelector((state) => state.adminUserDetailsList);
   const { loading, error, userListInfo } = UserList;
-  console.log(loading, error, userListInfo);
-  // loading ? console.log("notfound") : console.log(userListInfo.data);
   const [isLoading, setIsLoading] = useState(true);
 
   const stopLoading = () => {
@@ -50,7 +48,7 @@ const ProfileCard = () => {
                 <img src={profilePhoto} alt="" />
               </div>
               <div className="name-level p-2 text-center">
-                <h4>{userListInfo.data[0].name}</h4>
+                <h4>{userListInfo.data[0].username}</h4>
                 <h6>User Level</h6>
               </div>
             </div>

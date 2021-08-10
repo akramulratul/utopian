@@ -12,43 +12,61 @@ const WithdrawContant = () => {
 
   const adminDeposit = useSelector((state) => state.adminDeposit);
   const { loading, error, depositInfo } = adminDeposit;
-  // console.log(depositInfo.data);
-  const { id } = useParams();
-  console.log(id);
-  const info = depositInfo.data.find((deposit) => (deposit.id = id));
-  console.log(info);
+  console.log(depositInfo);
+  const [isloading, setIsloading] = useState(true);
+  const stopLoading = () => {
+    setIsloading(false);
+  };
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getAdminDepositeHistory())
+    stopLoading();
+  }, [])
+  const { id } = useParams()
+  console.log(id)
+
+  const info = isloading ? undefined : loading ? undefined : depositInfo.data.find(function (deposit) {
+    console.log(deposit.id === parseInt(id))
+    return deposit.id === parseInt(id)
+  });
 
   return (
     <div className="dashboard-container py-5 px-4">
       <div className="row d-flex">
-        <div className="col-lg-8">
-          <div className="mt-3 bg-white p-4">
-            <h4 className="border-bottom">Deposit Details</h4> <br />
-            <h6>
-              Txn Id: <span> {info.transactionId}</span>
-            </h6>
-            <br />
-            <h6>
-              Withdrawal Amount: <span>৳{info.depositAmount}</span>{" "}
-            </h6>{" "}
-            <br />
-            <h6>
-              Status: <span>{info.status}</span>
-            </h6>{" "}
-            <br />
-            <h6>
-              Created At: {new Date(info.createdOn).getDate()}/
-              {new Date(info.createdOn).getMonth()}/
-              {new Date(info.createdOn).getFullYear()}
-            </h6>
+        {
+          info ? <div className="col-lg-8">
+            <div className="mt-3 bg-white p-4">
+              <h4 className="border-bottom">Deposit Details</h4> <br />
+              <h6>
+                Txn Id: <span> {info.transactionId}</span>
+              </h6>
+              <br />
+              <h6>
+                Withdrawal Amount: <span>৳{info.depositAmount}</span>{" "}
+              </h6>{" "}
+              <br />
+              <h6>
+                Status: <span>{info.status}</span>
+              </h6>{" "}
+              <br />
+              <h6>
+                Created At: {new Date(info.createdOn).getDate()}/
+                {new Date(info.createdOn).getMonth()}/
+                {new Date(info.createdOn).getFullYear()}
+              </h6>
+            </div>
+            <div className="mt-3 bg-white">
+              <h4 className="border-bottom p-2">
+                Payment Method : {info.paidBy}
+              </h4>
+              <h4 className=" p-2">Phone Number: {info.sendFrom}</h4>
+            </div>
+          </div> : <div className="d-flex justify-content-center text-primary">
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden"></span>
+            </div>
           </div>
-          <div className="mt-3 bg-white">
-            <h4 className="border-bottom p-2">
-              Payment Method : {info.paidBy}
-            </h4>
-            <h4 className=" p-2">Phone Number: {info.sendFrom}</h4>
-          </div>
-        </div>
+        }
 
         <div className="col-lg-4 admin-right-area bg-white">
           <div>

@@ -11,12 +11,9 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 const UserProfileDetails = () => {
   const { username } = useParams()
-  console.log(username);
   const dispatch = useDispatch();
   const UserList = useSelector((state) => state.adminUserDetailsList);
   const { loading, error, userListInfo } = UserList;
-  // console.log(loading, error, userListInfo);
-  // loading ? console.log("notfound") : console.log(userListInfo.data);
   const [isLoading, setIsLoading] = useState(true);
 
   const stopLoading = () => {

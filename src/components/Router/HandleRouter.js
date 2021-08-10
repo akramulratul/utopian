@@ -52,6 +52,8 @@ import AdminSetting from "../Dashboard/Admin/AdminSetting/AdminSetting";
 import UserProfileDetails from "../Dashboard/Admin/Users/ProfileView/UserProfileDetails";
 import PaymentEdit from "../Dashboard/Admin/AdminPaymentMethod/PaymentEdit";
 import EditPaymentMethod from "../Dashboard/Admin/AdminPaymentMethod/EditPaymentMethod";
+import AdminTeamIncentive from "../Dashboard/Admin/BalanceReport/TeamIncentive/AdminTeamIncentive";
+import AdminSalary from "../Dashboard/Admin/BalanceReport/AdminSalary/AdminSalary";
 const ProfileDetails = lazy(() => import("../Profile/ProfileDetails"));
 const HandleRouter = () => {
   return (
@@ -195,6 +197,12 @@ const HandleRouter = () => {
           </AdminRoute>
           <AdminRoute path="/admin/incentive">
             <AdminIncentive />
+          </AdminRoute>
+          <AdminRoute path="/admin/team/incentive">
+            <AdminTeamIncentive />
+          </AdminRoute>
+          <AdminRoute path="/admin/salary">
+            <AdminSalary />
           </AdminRoute>
           <AdminRoute path="/admin/depositmethod">
             <DepositMethod />

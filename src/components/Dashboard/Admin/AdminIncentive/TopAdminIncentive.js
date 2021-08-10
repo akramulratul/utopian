@@ -9,7 +9,7 @@ const TopAdminIncentive = () => {
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-white">
               <li class="breadcrumb-item">
-                <a href="#">Dashboard</a>
+                <a href="/admin/dashboard">Dashboard</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
                 Incentive
@@ -25,7 +25,7 @@ const TopAdminIncentive = () => {
         </div>
         <div className="px-3">
           <Button className="withdraw-btn ml-5">
-            <Link to="/dashboard">
+            <Link to="/admin/dashboard">
               <p>Incentive Balance</p>
             </Link>
           </Button>

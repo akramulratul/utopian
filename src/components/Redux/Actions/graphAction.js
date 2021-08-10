@@ -30,7 +30,6 @@ export const graphAction = () => async (dispatch) => {
     dispatch({
       type: "GRAPH_FAIL",
       payload:
-
         error.response && error.response.data.message
           ? error.response.data.message
           : error.message,

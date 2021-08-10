@@ -12,13 +12,13 @@ import {
 import Withdrawal from "../../Withdraw/Withdrawal/Withdrawal";
 
 const ADHistory = () => {
-  const [isloading, setIsloading] = useState(true);
   const dispatch = useDispatch();
   const adminDeposit = useSelector((state) => state.adminDeposit);
   const { loading, error, depositInfo } = adminDeposit;
 
   const depositManage = useSelector((state) => state.depositManage);
   const { depositStatus } = depositManage;
+  const [isloading, setIsloading] = useState(true);
   const stopLoading = () => {
     setIsloading(false);
   };
