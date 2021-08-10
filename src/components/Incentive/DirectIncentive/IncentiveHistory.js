@@ -6,17 +6,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { incentiveHistoryAction } from "../../Redux/Actions/incentiveAction";
 const IncentiveHistory = () => {
-  const incentiveData = useSelector(state => state.incentiveHistory)
+  const incentiveData = useSelector((state) => state.incentiveHistory);
   // const {error,loading,}
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(incentiveHistoryAction())
-
-  }, [])
+    dispatch(incentiveHistoryAction());
+  }, []);
 
   return (
-    <div className="bg-white mt-2 ml-2 p-3 m-3">
-      <Table striped bordered hover>
+    <div className="bg-white mt-2 ml-2 p-3 m-3 table-responsive">
+      <Table striped bordered hover className="table table-hover">
         <thead>
           <tr>
             <th className="d-flex">
@@ -35,15 +34,14 @@ const IncentiveHistory = () => {
           </tr>
         </thead>
 
-
         <tbody>
           <tr>
-            {/* <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td> */}
+            <th scope="row">1</th>
+            <td>৳1000</td>
+            <td>pending</td>
+            <td>15-August-2021</td>
           </tr>
         </tbody>
-
       </Table>
     </div>
   );

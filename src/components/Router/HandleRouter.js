@@ -130,9 +130,6 @@ const HandleRouter = () => {
           <PrivateRoute path="/dashboard/user/profile/update-profile">
             <ProfileUpdate />
           </PrivateRoute>
-          <PrivateRoute path="/dashboard/admin/profile/update-profile">
-            <AdminProfileUpdate />
-          </PrivateRoute>
           <PrivateRoute path="/dashboard/user/profile/change-password">
             <PasswordChange />
           </PrivateRoute>
@@ -177,6 +174,9 @@ const HandleRouter = () => {
           </AdminRoute>
           <AdminRoute path="/admin/editAd/:id">
             <EditAds />
+          </AdminRoute>
+          <AdminRoute path="/dashboard/admin/profile/update-profile">
+            <AdminProfileUpdate />
           </AdminRoute>
 
           <AdminRoute path="/admin/depositdetails/:id">
