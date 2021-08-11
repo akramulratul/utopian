@@ -1,7 +1,9 @@
 import React from "react";
 import DashboardNav from "../../../DashboardNav";
 import AdminSidebar from "../../AdminSidebar";
+import AdminTeamIncentiveHstry from "./AdminTeamIncentiveHstry";
 import AdminTopTeamIncentive from "./AdminTopTeamIncentive";
+
 const AdminTeamIncentive = () => {
   return (
     <div className="row m-0 p-0">
@@ -10,9 +12,10 @@ const AdminTeamIncentive = () => {
       </div>
       <div className="content-holder col-lg-9 m-0 p-0 incentive-background">
         <div className="dash-nav">
-          <DashboardNav />
+          <DashboardNav />{" "}
         </div>
         <AdminTopTeamIncentive />
+        <AdminTeamIncentiveHstry />
       </div>
     </div>
   );

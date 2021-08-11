@@ -20,7 +20,7 @@ export const graphAction = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "https://utopain-backend.herokuapp.com/dashboard/user/graph",
+      "http://api.utopiansglobal.com/dashboard/user/graph",
       config
     );
     dispatch({
