@@ -1,6 +1,5 @@
 import React from "react";
 import { Table } from "react-bootstrap";
-import { useState } from "react";
 import updownIcon from "../../../image/icons/updown_icon.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -15,7 +14,13 @@ const IncentiveHistory = () => {
 
   return (
     <div className="bg-white mt-2 ml-2 p-3 m-3 table-responsive">
-      <Table striped bordered hover className="table table-hover">
+      <Table
+        striped
+        bordered
+        hover
+        className="table table-hover"
+        responsive="sm md lg xl"
+      >
         <thead>
           <tr>
             <th className="d-flex">
@@ -33,11 +38,9 @@ const IncentiveHistory = () => {
             </th>
           </tr>
         </thead>
-
         <tbody>
           <tr>
-            <th scope="row">1</th>
-            <td>৳1000</td>
+            <th scope="row">৳1000</th>
             <td>pending</td>
             <td>15-August-2021</td>
           </tr>
