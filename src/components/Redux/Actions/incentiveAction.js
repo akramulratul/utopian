@@ -21,7 +21,7 @@ export const incentiveHistoryAction = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "https://utopain-backend.herokuapp.com/admin/incentives",
+      "http://api.utopiansglobal.com/admin/incentives",
       config
     );
     dispatch({
@@ -62,7 +62,7 @@ export const adminIncentiveApproved = (approvedData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `https://utopain-backend.herokuapp.com/admin/incentives/${approvedData.id}/manage`,
+      `http://api.utopiansglobal.com/admin/incentives/${approvedData.id}/manage`,
       statusData,
       config
     );
@@ -108,7 +108,7 @@ export const adminIncentiveDecline = (declineData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `https://utopain-backend.herokuapp.com/admin/incentives/${declineData.id}/manage`,
+      `http://api.utopiansglobal.com/admin/incentives/${declineData.id}/manage`,
       statusData,
       config
     );
