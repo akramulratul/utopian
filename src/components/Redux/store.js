@@ -32,7 +32,7 @@ import {
   watchedAddReducer,
 } from "./Reducers/adControllReducer";
 
-import { incentiveHistoryReducer } from "./Reducers/incentiveReducer";
+import { adminIncentiveApprovedReducer, adminIncentiveDeclineReducer, incentiveHistoryReducer } from "./Reducers/incentiveReducer";
 import { adminDashboardReducer, adminUserDetailsListReducer, adminUserListReducer, adminUserSuspendReducer, adminUserTemporarySuspendReducer } from "./Reducers/adminDashboardReducer";
 
 import {
@@ -72,6 +72,8 @@ const reducer = combineReducers({
   withdrawHistory: withdrawHistoryReducer,
   passChange: passwordChangeReducer,
   incentiveHistory: incentiveHistoryReducer,
+  adminIncentiveApproved: adminIncentiveApprovedReducer,
+  adminIncentiveDecline: adminIncentiveDeclineReducer,
   adminDashboardData: adminDashboardReducer,
   updateProfile: updateProfileReducer,
   userProfileUpdateByPicture: userProfileUpdateByPicture,

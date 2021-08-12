@@ -38,3 +38,95 @@ export const incentiveHistoryAction = () => async (dispatch) => {
     });
   }
 };
+
+export const adminIncentiveApproved = (approvedData) => async (dispatch) => {
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const {
+    data: { token },
+  } = userInfo;
+
+  try {
+    dispatch({
+      type: "ADMIN_INCENTIVE_APPROVED_REQUEST",
+      payload: {},
+    });
+
+    const config = {
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    };
+    const statusData = {
+      status: approvedData.status,
+    };
+
+    const { data } = await axios.post(
+      `http://api.utopiansglobal.com/admin/incentives/${approvedData.id}/manage`,
+      statusData,
+      config
+    );
+    console.log(data);
+    dispatch({
+      type: "ADMIN_INCENTIVE_APPROVED_SUCCESS",
+      payload: data.data,
+    });
+    if (data.data) {
+      window.location.reload();
+    }
+  } catch (error) {
+    dispatch({
+      type: "ADMIN_INCENTIVE_APPROVED_FAIL",
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const adminIncentiveDecline = (declineData) => async (dispatch) => {
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const {
+    data: { token },
+  } = userInfo;
+
+  try {
+    dispatch({
+      type: "ADMIN_INCENTIVE_DECLINE_REQUEST",
+      payload: {},
+    });
+
+    const config = {
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    };
+    const statusData = {
+      status: declineData.status,
+    };
+
+    const { data } = await axios.post(
+      `http://api.utopiansglobal.com/admin/incentives/${declineData.id}/manage`,
+      statusData,
+      config
+    );
+    console.log(data);
+    dispatch({
+      type: "ADMIN_INCENTIVE_DECLINE_SUCCESS",
+      payload: data.data,
+    });
+    if (data.data) {
+      window.location.reload();
+    }
+  } catch (error) {
+    dispatch({
+      type: "ADMIN_INCENTIVE_DECLINE_FAIL",
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};

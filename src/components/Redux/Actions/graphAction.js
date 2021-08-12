@@ -19,8 +19,8 @@ export const graphAction = () => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.get(
-      "http://api.utopiansglobal.com/dashboard/user/graph",
+    const { data } = await axios.get("http://api.utopiansglobal.com/dashboard/user/graph",
+
       config
     );
     dispatch({
