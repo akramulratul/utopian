@@ -205,12 +205,28 @@ const Sidebar = ({ closeSidebar }) => {
                 <div className="dashboard-menu">
                   <div className="d-flex py-3">
                     <div className="px-5">
-                      <h6>Salary</h6>
+                      <h6>
+                        <Link to="/dashboard/user/salary">Salary</Link>
+                      </h6>
                     </div>
                   </div>
                 </div>
               </div>
             )}
+            <div className="dashboard-menu">
+              <div className="d-flex py-3">
+                <div className="px-5">
+                  <img src={withdrawIcon} alt="" />
+                </div>
+                <div>
+                  <h6>
+                    <Link to="/dashboard/incentive/paymentMethod">
+                      <strong> Incentive Withdrawal</strong>
+                    </Link>
+                  </h6>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}

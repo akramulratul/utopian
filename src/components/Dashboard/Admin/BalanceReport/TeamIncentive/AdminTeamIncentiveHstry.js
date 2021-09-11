@@ -1,10 +1,9 @@
 import React from "react";
-import { Table, Button } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
 import setting from "../../../../../image/settings.svg";
 const AdminTeamIncentiveHstry = () => {
   //   const [show, setShow] = useState(false);
-
   //   const handleClose = () => setShow(false);
   //   const handleShow = () => setShow(true);
   return (

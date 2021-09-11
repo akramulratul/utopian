@@ -5,8 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { graphAction } from "../Redux/Actions/graphAction";
 
 const Graph = () => {
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const graph = useSelector((state) => state.graph);
   // console.log(allUserList.adminInfo);
   const { loading, error, graphData } = graph;
@@ -16,9 +15,9 @@ const Graph = () => {
     setIsloading(false);
   };
   useEffect(() => {
-    dispatch(graphAction())
+    dispatch(graphAction());
     stopLoading();
-  }, [dispatch])
+  }, [dispatch]);
 
   // isloading ? console.log("loading") : loading ? console.log("load") : console.log(graphData.graphDepositResponses[0].depositAmount);
 
@@ -36,16 +35,22 @@ const Graph = () => {
             <span className="visually-hidden"></span>
           </div>
         </div>
-      ) :
-
-        graphData && graphData.graphDepositResponses.map((data) => {
+      ) : (
+        graphData &&
+        graphData.graphDepositResponses.map((data) => {
           return (
             <Line
               data={{
                 // labels: [graphData.graphDepositResponses[0].depositOn],
-                labels: [String(new Date(parseInt(data.depositOn)).getDay()) + "/" +
-                  String(new Date(parseInt(data.depositOn)).getMonth() + "/" +
-                    String(new Date(parseInt(data.depositOn)).getFullYear()))],
+                labels: [
+                  String(new Date(parseInt(data.depositOn)).getDay()) +
+                    "/" +
+                    String(
+                      new Date(parseInt(data.depositOn)).getMonth() +
+                        "/" +
+                        String(new Date(parseInt(data.depositOn)).getFullYear())
+                    ),
+                ],
                 datasets: [
                   {
                     label: "Total Deposit",
@@ -92,10 +97,9 @@ const Graph = () => {
                 },
               }}
             />
-          )
+          );
         })
-
-      }
+      )}
     </div>
   );
 };
