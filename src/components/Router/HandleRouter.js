@@ -54,6 +54,12 @@ import PaymentEdit from "../Dashboard/Admin/AdminPaymentMethod/PaymentEdit";
 import EditPaymentMethod from "../Dashboard/Admin/AdminPaymentMethod/EditPaymentMethod";
 import AdminTeamIncentive from "../Dashboard/Admin/BalanceReport/TeamIncentive/AdminTeamIncentive";
 import AdminSalary from "../Dashboard/Admin/BalanceReport/AdminSalary/AdminSalary";
+import Salary from "../Earning/Salary/Salary";
+import IncentiveWithdraw from "../Incentive/IncentiveWithdraw/IncentiveWithdraw";
+import IncentiveWithdrawal from "../Incentive/IncentiveWithdraw/IncentiveWithdrawal/IncentiveWithdrawal";
+import IncentiveWithdrawOtp from "../Incentive/IncentiveWithdraw/IncentiveWithdrawOtp/IncentiveWithdrawOtp";
+import IncentivePaymentMethod from "../Incentive/IncentiveWithdraw/IncentivePaymentMethod/IncentivePaymentMethod";
+import IncentiveWithdrawHistory from "../Incentive/IncentiveWithdraw/IncentiveWithdrawHistory/IncentiveWithdrawHistory";
 const ProfileDetails = lazy(() => import("../Profile/ProfileDetails"));
 const HandleRouter = () => {
   return (
@@ -141,6 +147,24 @@ const HandleRouter = () => {
           </PrivateRoute>
           <PrivateRoute path="/earning">
             <Earning />
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/user/salary">
+            <Salary />
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/incentiveWithdraw">
+            <IncentiveWithdraw />
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/incentiveWithdrawal">
+            <IncentiveWithdrawal />
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/incentive/paymentMethod">
+            <IncentivePaymentMethod />
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/incentive/otp">
+            <IncentiveWithdrawOtp />
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/incentive/withdraw/history">
+            <IncentiveWithdrawHistory />
           </PrivateRoute>
           <PrivateRoute path="/viewad/:id">
             <ViewAdd />
