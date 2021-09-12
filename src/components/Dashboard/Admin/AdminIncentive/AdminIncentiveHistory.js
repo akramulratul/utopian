@@ -67,7 +67,11 @@ const AdminIncentiveHistory = () => {
                       <td>{data.username}</td>
                       <td>{data.status}</td>
                       <td>{data.amount}</td>
-                      <td>12-12-2121</td>
+                      <td>
+                        {new Date(data.createdOn).getDate()}/
+                        {new Date(data.createdOn).getMonth()}/
+                        {new Date(data.createdOn).getFullYear()}
+                      </td>
                       <td>
                         <Dropdown>
                           <Dropdown.Toggle variant="" id="dropdown-basic">
