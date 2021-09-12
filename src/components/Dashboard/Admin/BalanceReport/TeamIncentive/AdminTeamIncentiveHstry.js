@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useEffect } from "react";
 import { useState } from "react";
 import { Table, Button } from "react-bootstrap";
@@ -7,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import setting from "../../../../../image/settings.svg";
 import { adminTeamIncentiveApproved, adminTeamIncentiveDecline, incentiveTeamHistoryAction } from "../../../../Redux/Actions/incentiveAction";
 const AdminTeamIncentiveHstry = () => {
+
   const incentiveData = useSelector(state => state.incentiveHistory)
   const { loading, incentiveInfo } = incentiveData
   console.log(incentiveInfo)
