@@ -32,7 +32,12 @@ import {
   watchedAddReducer,
 } from "./Reducers/adControllReducer";
 
-import { adminIncentiveApprovedReducer, adminIncentiveDeclineReducer, adminTeamIncentiveApprovedReducer, adminTeamIncentiveDeclineReducer, incentiveHistoryReducer, incentiveTeamHistoryReducer } from "./Reducers/incentiveReducer";
+import { adminIncentiveApprovedReducer, adminIncentiveDeclineReducer, adminTeamIncentiveApprovedReducer,
+   adminTeamIncentiveDeclineReducer,incentiveHistoryReducer, incentiveTeamHistoryReducer,
+   salariesHistoryReducer, 
+   salaryApproved,
+   salaryDecline} from "./Reducers/incentiveReducer";
+
 import { adminDashboardReducer, adminUserDetailsListReducer, adminUserListReducer, adminUserSuspendReducer, adminUserTemporarySuspendReducer } from "./Reducers/adminDashboardReducer";
 
 import {
@@ -79,6 +84,11 @@ const reducer = combineReducers({
   incentiveTeamHistory: incentiveTeamHistoryReducer,
   adminTeamIncentiveApproved: adminTeamIncentiveApprovedReducer,
   adminTeamIncentiveDeclineReducer: adminTeamIncentiveDeclineReducer,
+
+  //Admin_salaries
+  salariesHistory:salariesHistoryReducer,
+  salaryApproved:salaryApproved,
+  salaryDecline:salaryDecline,
 
   adminDashboardData: adminDashboardReducer,
   updateProfile: updateProfileReducer,

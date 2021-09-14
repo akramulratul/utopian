@@ -7,7 +7,7 @@ import setting from "../../../../image/settings.svg";
 import { incentiveHistoryAction, adminIncentiveApproved, adminIncentiveDecline } from "../../../Redux/Actions/incentiveAction";
 const AdminIncentiveHistory = () => {
   const incentiveData = useSelector(state => state.incentiveHistory)
-  console.log(incentiveData)
+  // console.log(incentiveData)
   const { loading, incentiveInfo } = incentiveData
   console.log(incentiveInfo)
   const dispatch = useDispatch()
