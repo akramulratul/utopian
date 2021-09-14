@@ -121,3 +121,65 @@ export const adminTeamIncentiveDeclineReducer = (state = {}, action) => {
     }
 }
 
+
+
+// Admin_salaries 
+export const salariesHistoryReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'INCENTIVE_HISTORY_REQUEST':
+            return {
+                loading: true, salaryInfo: action.payload
+            }
+        case 'INCENTIVE_HISTORY_SUCCESS':
+            return {
+                loading: false, salaryInfo: action.payload
+            }
+        case 'INCENTIVE_HISTORY_FAIL':
+            return {
+                loading: false, error: action.payload
+            }
+
+        default:
+            return state;
+    }
+}
+
+export const salaryApproved = (state = {}, action) => {
+    switch (action.type) {
+        case 'ADMIN_INCENTIVE_APPROVED_REQUEST':
+            return {
+                loading: true, ApprovedInfo: action.payload
+            }
+        case 'ADMIN_INCENTIVE_APPROVED_SUCCESS':
+            return {
+                loading: false, ApprovedInfo: action.payload
+            }
+        case 'ADMIN_INCENTIVE_APPROVED_FAIL':
+            return {
+                loading: false, error: action.payload
+            }
+
+        default:
+            return state;
+    }
+}
+
+export const salaryDecline = (state = {}, action) => {
+    switch (action.type) {
+        case 'ADMIN_INCENTIVE_APPROVED_REQUEST':
+            return {
+                loading: true, ApprovedInfo: action.payload
+            }
+        case 'ADMIN_INCENTIVE_APPROVED_SUCCESS':
+            return {
+                loading: false, ApprovedInfo: action.payload
+            }
+        case 'ADMIN_INCENTIVE_APPROVED_FAIL':
+            return {
+                loading: false, error: action.payload
+            }
+
+        default:
+            return state;
+    }
+}
