@@ -52,6 +52,7 @@ import { confirmPasswordReducer, forgetPasswordByPhoneNumberReducer, forgetPassw
 import { referralReducers } from "./Reducers/referralReducers";
 import { graphReducer } from "./Reducers/graphReducer";
 import { deleteDepositMethodReducer, depositMethodHistoryReducer, depositMethodReducer, updateDepositMethodHistoryReducer } from "./Reducers/adminDepositMethodReducer";
+import { incentiveSendWithdrawOtp, incentiveWithdrawReducer } from "./Reducers/incentiveWithdrawReducer";
 
 
 const reducer = combineReducers({
@@ -89,6 +90,11 @@ const reducer = combineReducers({
   salariesHistory:salariesHistoryReducer,
   salaryApproved:salaryApproved,
   salaryDecline:salaryDecline,
+
+  //IncentiveWithdraw
+  incentiveWithdrawReducer:incentiveWithdrawReducer,
+  incentiveSendWithdrawOtp:incentiveSendWithdrawOtp,
+
 
   adminDashboardData: adminDashboardReducer,
   updateProfile: updateProfileReducer,

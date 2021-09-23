@@ -37,6 +37,9 @@ const IncentivePaymentMethod = () => {
     method: method,
     number: phoneNumber,
   };
+  sessionStorage.setItem("incentiveWithdraw", JSON.stringify(IncentivePaymentMethod));
+
+
   const setPaymentMethod = (method) => {
     console.log(method);
     setMethod(method);

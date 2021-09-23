@@ -23,6 +23,7 @@ export const addWithdraw = (newWithdrawInfo) => async (dispatch) => {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         dispatch({
           type: "ADD_WITHDRAW_SUCCESS",
           payload: data,
@@ -120,6 +121,7 @@ export const sendOtp = () => async (dispatch) => {
     })
       .then((res) => res.json())
       .then((data) => {
+      console.log(data)
         dispatch({
           type: "WITHDRAW_OTP_SUCCESS",
           payload: data,
