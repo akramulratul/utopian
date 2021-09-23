@@ -12,12 +12,12 @@ const IncentiveNumberCheck = () => {
       <div className="right-content d-flex  align-items-center  border-left">
         <div className="px-3 ">
           <small>
-            <span></span> Number
+            <span>Number</span>
           </small>
           <h4>dgfg</h4>
         </div>
         <div className="align-items-end">
-          <Link to="/payment-method">
+          <Link to="/dashboard/incentive/paymentMethod">
             <Button variant="primary" className="btn-change">
               <h5 className="text-center">Change</h5>
             </Button>
