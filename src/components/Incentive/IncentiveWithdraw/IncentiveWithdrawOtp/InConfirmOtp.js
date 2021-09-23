@@ -3,9 +3,25 @@ import { ToastContainer } from "react-toastify";
 import OTPInput, { ResendOTP } from "otp-input-react";
 import frame from "../../../../image/Frame.svg";
 import { useDispatch } from "react-redux";
+import { incentiveSendOtp,incentiveAddWithdraw } from "../../../Redux/Actions/incentiveWithdrawAction";
+
 const InConfirmOtp = () => {
   const [otp, setOtp] = useState();
   const dispatch = useDispatch();
+
+  const confirmClicked = () => {
+    const withdrawInfo = JSON.parse(sessionStorage.getItem("incentiveWithdraw"));
+    const newWithdrawInfo = {
+      withdrawMethod: withdrawInfo.method,
+      amount: parseInt(withdrawInfo.Amount),
+      contactNo: withdrawInfo.number,
+      otp: parseInt(otp),
+      // withdrawType: "TotalIncome"
+    };
+    // console.log(newWithdrawInfo)
+    dispatch(incentiveAddWithdraw(newWithdrawInfo,withdrawInfo.withdrawType));
+  };
+
   const evenHandler = (e) => {
     setOtp(e);
   };
@@ -35,11 +51,16 @@ const InConfirmOtp = () => {
               disabled={false}
               secure
             />
-            <ResendOTP className="btn-brand py-2 my-2" />
+            <ResendOTP className="btn-brand py-2 my-2" 
+              onResendClick={() => dispatch(incentiveSendOtp())}
+            />
           </div>
 
           <div>
-            <button type="button" className="btn btn-primary btn-change">
+            <button type="button" 
+            className="btn btn-primary btn-change"
+            onClick={confirmClicked}
+            >
               Confirm
             </button>
           </div>

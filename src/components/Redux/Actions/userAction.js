@@ -26,7 +26,7 @@ export const login = (userName, password) => async (dispatch) => {
           payload: data,
         });
         if (data.statusCode !== 200) {
-          toast.error(`${data.message}`, {
+          toast.error("username/password incorrect", {
             position: "top-right",
             autoClose: 2000,
             hideProgressBar: false,
