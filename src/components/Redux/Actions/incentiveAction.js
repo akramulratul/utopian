@@ -131,7 +131,6 @@ export const adminIncentiveDecline = (declineData) => async (dispatch) => {
   }
 };
 
-
 export const incentiveTeamHistoryAction = () => async (dispatch) => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const {
@@ -170,51 +169,52 @@ export const incentiveTeamHistoryAction = () => async (dispatch) => {
   }
 };
 
-export const adminTeamIncentiveApproved = (approvedData) => async (dispatch) => {
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  const {
-    data: { token },
-  } = userInfo;
+export const adminTeamIncentiveApproved =
+  (approvedData) => async (dispatch) => {
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    const {
+      data: { token },
+    } = userInfo;
 
-  try {
-    dispatch({
-      type: "ADMIN_INCENTIVE_APPROVED_REQUEST",
-      payload: {},
-    });
+    try {
+      dispatch({
+        type: "ADMIN_INCENTIVE_APPROVED_REQUEST",
+        payload: {},
+      });
 
-    const config = {
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${token}`,
-      },
-    };
-    const statusData = {
-      status: approvedData.status,
-    };
+      const config = {
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+      };
+      const statusData = {
+        status: approvedData.status,
+      };
 
-    const { data } = await axios.post(
-      `http://api.utopiansglobal.com/admin/teamIncentives/${approvedData.id}/manage`,
-      statusData,
-      config
-    );
-    console.log(data);
-    dispatch({
-      type: "ADMIN_INCENTIVE_APPROVED_SUCCESS",
-      payload: data.data,
-    });
-    if (data.data) {
-      window.location.reload();
+      const { data } = await axios.post(
+        `http://api.utopiansglobal.com/admin/teamIncentives/${approvedData.id}/manage`,
+        statusData,
+        config
+      );
+      console.log(data);
+      dispatch({
+        type: "ADMIN_INCENTIVE_APPROVED_SUCCESS",
+        payload: data.data,
+      });
+      if (data.data) {
+        window.location.reload();
+      }
+    } catch (error) {
+      dispatch({
+        type: "ADMIN_INCENTIVE_APPROVED_FAIL",
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
     }
-  } catch (error) {
-    dispatch({
-      type: "ADMIN_INCENTIVE_APPROVED_FAIL",
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    });
-  }
-};
+  };
 
 export const adminTeamIncentiveDecline = (declineData) => async (dispatch) => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -262,7 +262,7 @@ export const adminTeamIncentiveDecline = (declineData) => async (dispatch) => {
   }
 };
 
-// Admin_salaries 
+// Admin_salaries
 export const salariesHistoryAction = () => async (dispatch) => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const {
@@ -302,7 +302,7 @@ export const salariesHistoryAction = () => async (dispatch) => {
 };
 
 export const salaryApproved = (approvedData) => async (dispatch) => {
-  console.log(approvedData)
+  console.log(approvedData);
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const {
     data: { token },
@@ -393,7 +393,6 @@ export const salaryDecline = (declineData) => async (dispatch) => {
     });
   }
 };
-
 
 // user incentive
 export const userIncentiveHistory = () => async (dispatch) => {

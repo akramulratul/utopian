@@ -69,7 +69,8 @@ const WithdrawHistory = () => {
             <p>Loading Data...</p>
           ) : loading ? (
             <p>Loading Data...</p>
-          ) : withdrawInfo && (
+          ) : (
+            withdrawInfo &&
             withdrawInfo.map((info) => {
               return (
                 <tr>
@@ -85,7 +86,7 @@ const WithdrawHistory = () => {
                     <b>{info.status}</b>
                   </td>
                   <td>BDT {info.amount}/-</td>
-                  <td>BDT {info.amount - info.amount * 0.05}/-</td>
+                  <td>BDT {info.amount - info.amount * 0.8}/-</td>
                   <td>
                     {new Date(info.createdOn).getDate()} /
                     {new Date(info.createdOn).getMonth()} /

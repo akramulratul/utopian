@@ -82,8 +82,10 @@ export const getAds = () => async (dispatch, getState) => {
       payload: {},
     });
 
-
-    const response = await axios.get(`http://api.utopiansglobal.com/admin/ads`, config);
+    const response = await axios.get(
+      `http://api.utopiansglobal.com/admin/ads`,
+      config
+    );
 
     dispatch({
       type: "GET_ADS_SUCCESS",
@@ -159,18 +161,16 @@ export const getAdById = (adId) => async (dispatch, getState) => {
       },
     };
 
-
-    const response = await axios.get(`http://api.utopiansglobal.com/users/ads?adId=${adId}`, config);
-
+    const response = await axios.get(
+      `http://api.utopiansglobal.com/users/ads?adId=${adId}`,
+      config
+    );
 
     dispatch({
       type: "GET_ADS_BY_ID_SUCCESS",
       payload: response.data.data[0],
     });
     console.log(response.data.data[0]);
-
-
-
   } catch (error) {
     dispatch({
       type: "GET_ADS_BY_ID_FAIL",
@@ -201,18 +201,16 @@ export const getAdByIdAdmin = (adId) => async (dispatch, getState) => {
       },
     };
 
-
-    const response = await axios.get(`http://api.utopiansglobal.com/admin/ads/${adId}`, config);
-
+    const response = await axios.get(
+      `http://api.utopiansglobal.com/admin/ads/${adId}`,
+      config
+    );
 
     dispatch({
       type: "GET_ADS_BY_ID_ADMIN_SUCCESS",
       payload: response.data.data,
     });
     console.log(response.data.data);
-
-
-
   } catch (error) {
     dispatch({
       type: "GET_ADS_BY_ID_ADMIN_FAILED",
@@ -312,8 +310,10 @@ export const userGetAllAds = () => async (dispatch, getState) => {
       payload: {},
     });
 
-    const response = await axios.get(`http://api.utopiansglobal.com/users/ads`, config);
-
+    const response = await axios.get(
+      `http://api.utopiansglobal.com/users/ads`,
+      config
+    );
 
     dispatch({
       type: "USER_GET_ADS_SUCCESS",

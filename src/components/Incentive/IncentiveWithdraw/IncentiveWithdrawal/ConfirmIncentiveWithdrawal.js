@@ -16,7 +16,7 @@ const ConfirmIncentiveWithdrawal = () => {
                   <Form.Group controlId="formBasicEmail">
                     <Form.Control type="string" placeholder="Give Amount" />
                     <br />
-                    <Link to="/otp">
+                    <Link to="/dashboard/incentive/otp">
                       <Button
                         className="btn-confirmWithdrawal"
                         variant="success"

@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import OTPInput, { ResendOTP } from "otp-input-react";
 import frame from "../../../../image/Frame.svg";
+import { useDispatch } from "react-redux";
 const InConfirmOtp = () => {
   const [otp, setOtp] = useState();
+  const dispatch = useDispatch();
+  const evenHandler = (e) => {
+    setOtp(e);
+  };
   return (
     <div class="">
       <div class="row d-flex">
@@ -24,6 +29,7 @@ const InConfirmOtp = () => {
             <OTPInput
               value={otp}
               autoFocus
+              onChange={(e) => evenHandler(e)}
               OTPLength={6}
               otpType="number"
               disabled={false}
