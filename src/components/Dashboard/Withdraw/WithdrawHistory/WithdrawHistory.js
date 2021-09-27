@@ -86,7 +86,10 @@ const WithdrawHistory = () => {
                     <b>{info.status}</b>
                   </td>
                   <td>BDT {info.amount}/-</td>
-                  <td>BDT {info.amount - info.amount * 0.8}/-</td>
+                  <td>
+                    BDT {info.withdrawPayment || 0}
+                    /-
+                  </td>
                   <td>
                     {new Date(info.createdOn).getDate()} /
                     {new Date(info.createdOn).getMonth()} /

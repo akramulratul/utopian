@@ -5,14 +5,18 @@ import setting from "../../../../../image/icons/settings.svg";
 import { Dropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import Paginate from "../Paginate";
 import {
   adminWithdrawManageAction,
   getAdminWithdrawHistory,
 } from "../../../../Redux/Actions/adminBalanceControlAction";
+import ReactPaginate from "react-paginate";
 const AdminWithdrawHistory = () => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const withdrawHistory = useSelector((state) => state.adminWithdraw);
+  // const { pageNo, lastPage, pageSize, totalPages, itemCount, totalItems } =
+  //   withdrawHistory;
   const { loading, withdrawInfo } = withdrawHistory;
   const stopLoading = () => {
     setIsLoading(false);
@@ -36,6 +40,10 @@ const AdminWithdrawHistory = () => {
     };
     dispatch(adminWithdrawManageAction(data));
   };
+
+  // const handlePageClick = (data) => {
+  //   console.log(data.selected);
+  // };
   return (
     <div>
       <div className="mt-3 bg-white p-3 m-3 rounded">
@@ -85,6 +93,14 @@ const AdminWithdrawHistory = () => {
               </th>
               <th scope="col">
                 <div className="d-flex">
+                  Type{" "}
+                  <div>
+                    <img src={updownIcon} alt="" />
+                  </div>
+                </div>
+              </th>
+              <th scope="col">
+                <div className="d-flex">
                   Created At{" "}
                   <div>
                     <img src={updownIcon} alt="" />
@@ -110,8 +126,9 @@ const AdminWithdrawHistory = () => {
                       {info.contactNo} ( {info.withdrawMethod} )
                     </td>
                     <td>{info.amount} TK</td>
-                    <td>{info.amount - info.amount * 0.05} TK</td>
+                    <td>{info.withdrawPayment || 0} TK</td>
                     <td>{info.status}</td>
+                    <td>{info.withdrawType}</td>
                     <td>
                       {new Date(info.createdOn).getDate()}/
                       {new Date(info.createdOn).getMonth()}/
@@ -150,6 +167,21 @@ const AdminWithdrawHistory = () => {
           </tbody>
         </table>
       </div>
+      {/* <ReactPaginate
+        previousLabel={"previous"}
+        nextLabel={"next"}
+        breakLabel={"..."}
+        pageCount={25}
+        marginPageDisplayed={4}
+        pageRangeDisplayed={3}
+        onPageChange={handlePageClick}
+        pageClassName={'page-item'}
+        pageLinkClassName=
+
+
+
+
+      /> */}
     </div>
   );
 };

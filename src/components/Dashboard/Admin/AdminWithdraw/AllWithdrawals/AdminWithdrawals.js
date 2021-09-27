@@ -1,10 +1,15 @@
 import React from "react";
 import DashboardNav from "../../../DashboardNav";
 import AdminSidebar from "../../AdminSidebar";
+import { useSelector } from "react-redux";
 import Paginations from "../../Paginations/Paginations";
 import AdminWithdrawHistory from "./AdminWithdrawHistory";
 import AdminWithdrawTop from "./AdminWithdrawTop";
+import Paginate from "../Paginate";
 const Deposit = () => {
+  const withdrawHistory = useSelector((state) => state.adminWithdraw);
+  const { pageNo, lastPage, pageSize, totalPages, itemCount, totalItems } =
+    withdrawHistory;
   return (
     <div>
       <div className="row mr-0">
@@ -19,9 +24,17 @@ const Deposit = () => {
           <div>
             <AdminWithdrawHistory />
           </div>
-          <div>
+          {/* <div>
             <Paginations />
-          </div>
+          </div> */}
+          <Paginate
+            pageNo={pageNo}
+            itemCount={itemCount}
+            lastPage={true}
+            pageSize={pageSize}
+            totalItems={totalItems}
+            totalPages={totalPages}
+          />
         </div>
       </div>
     </div>
