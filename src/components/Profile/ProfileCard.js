@@ -13,7 +13,7 @@ const ProfileCard = () => {
   const dispatch = useDispatch();
   const getProfile = useSelector((state) => state.getProfile);
   const { loading, error, userInfo } = getProfile;
-  console.log(userInfo);
+  // console.log(userInfo);
   const stopLoading = () => {
     setIsLoading(false);
   };
@@ -31,9 +31,9 @@ const ProfileCard = () => {
   };
 
   const [image, setImage] = useState("");
-  console.log(image);
+  // console.log(image);
   const [url, setUrl] = useState();
-  console.log("url", url);
+  // console.log("url", url);
   const updatePhoto = (file) => {
     setImage(file);
   };

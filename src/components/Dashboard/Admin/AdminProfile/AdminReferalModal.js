@@ -6,7 +6,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 const AdminReferalModal = ({ userInfo, modalCloseHandler }) => {
   const [value, setValue] = useState("");
   const [copied, setCopied] = useState(false);
-  const refUrl = `http://api.utopiansglobal.com/getSignUp/referral/${userInfo.referralId}`;
+  const refUrl = `https://api.utopiansglobal.com/getSignUp/referral/${userInfo.referralId}`;
 
   return (
     <div>

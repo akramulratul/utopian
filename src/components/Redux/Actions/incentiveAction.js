@@ -21,7 +21,7 @@ export const incentiveHistoryAction = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/admin/incentives",
+      "https://api.utopiansglobal.com/admin/incentives",
       config
     );
     dispatch({
@@ -62,7 +62,7 @@ export const adminIncentiveApproved = (approvedData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `http://api.utopiansglobal.com/admin/incentives/${approvedData.id}/manage`,
+      `https://api.utopiansglobal.com/admin/incentives/${approvedData.id}/manage`,
       statusData,
       config
     );
@@ -108,7 +108,7 @@ export const adminIncentiveDecline = (declineData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `http://api.utopiansglobal.com/admin/incentives/${declineData.id}/manage`,
+      `https://api.utopiansglobal.com/admin/incentives/${declineData.id}/manage`,
       statusData,
       config
     );
@@ -151,7 +151,7 @@ export const incentiveTeamHistoryAction = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/admin/teamIncentives",
+      "https://api.utopiansglobal.com/admin/teamIncentives",
       config
     );
     dispatch({
@@ -193,7 +193,7 @@ export const adminTeamIncentiveApproved =
       };
 
       const { data } = await axios.post(
-        `http://api.utopiansglobal.com/admin/teamIncentives/${approvedData.id}/manage`,
+        `https://api.utopiansglobal.com/admin/teamIncentives/${approvedData.id}/manage`,
         statusData,
         config
       );
@@ -239,7 +239,7 @@ export const adminTeamIncentiveDecline = (declineData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `http://api.utopiansglobal.com/admin/teamIncentives/${declineData.id}/manage`,
+      `https://api.utopiansglobal.com/admin/teamIncentives/${declineData.id}/manage`,
       statusData,
       config
     );
@@ -283,7 +283,7 @@ export const salariesHistoryAction = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/admin/salaries",
+      "https://api.utopiansglobal.com/admin/salaries",
       config
     );
     dispatch({
@@ -325,7 +325,7 @@ export const salaryApproved = (approvedData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `http://api.utopiansglobal.com/admin/salaries/${approvedData.id}/manage`,
+      `https://api.utopiansglobal.com/admin/salaries/${approvedData.id}/manage`,
       statusData,
       config
     );
@@ -371,7 +371,7 @@ export const salaryDecline = (declineData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `http://api.utopiansglobal.com/admin/salaries/${declineData.id}/manage`,
+      `https://api.utopiansglobal.com/admin/salaries/${declineData.id}/manage`,
       statusData,
       config
     );
@@ -415,7 +415,7 @@ export const userIncentiveHistory = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/admin/incentives",
+      "https://api.utopiansglobal.com/admin/incentives",
       config
     );
     dispatch({

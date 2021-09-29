@@ -9,6 +9,7 @@ const WithdrawNow = () => {
   const [isClicked, setIsClicked] = useState(false);
 
   const getProfile = useSelector((state) => state.getProfile);
+  console.log(getProfile)
   const { userInfo } = getProfile;
   const buttonClicked = () => {
     isClicked ? setIsClicked(false) : setIsClicked(true);

@@ -4,7 +4,7 @@ import DashboardTopInfo from "./Shared/DashboardTopInfo";
 import Graph from "./Graph";
 
 const DashboardContent = ({ closeSidebar, depositeData }) => {
-  console.log(depositeData);
+  // console.log(depositeData);
 
   return (
     <div className="dashboard-content">

@@ -9,7 +9,6 @@ const IncentiveWithdrawal = () => {
   const [method, setMethod] = useState("");
   const [Amount, setAmount] = useState("");
   const [withdrawType, setWithdrawType] = useState("");
-  console.log(withdrawType)
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
   const WithdrawalMethod = {
     method: method,
@@ -23,8 +22,7 @@ const IncentiveWithdrawal = () => {
       setAmount(number);
     }
   };
-  // console.log(WithdrawalMethod);
-  console.log(Amount);
+  
 
   if (sessionStorage.getItem("incentiveWithdraw")) {
     const { method, number } = JSON.parse(sessionStorage.getItem("incentiveWithdraw"));
@@ -34,7 +32,7 @@ const IncentiveWithdrawal = () => {
       Amount,
       withdrawType,
     };
-    console.log(incentiveWithdrawInfo);
+   
     sessionStorage.setItem("incentiveWithdraw", JSON.stringify(incentiveWithdrawInfo));
   }
   const closeSidebar = () => {

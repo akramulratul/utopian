@@ -1,8 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getWithdrawIncentiveHistory } from "../../Redux/Actions/incentiveWithdrawAction";
+import { getUserProfile } from "../../Redux/Actions/userAction";
+
 
 const IncentiveWithdrawNow = () => {
+  const dispatch = useDispatch();
+  const [isloading, setIsloading] = useState(true);
+  const [isLoading, setisLoading] = useState(true);
+
+  const stopLoading = () => {
+    setisLoading(false);
+  };
+  useEffect(() => {
+    dispatch(getUserProfile());
+    stopLoading();
+  }, [dispatch]);
+  const getProfile = useSelector((state) => state.getProfile);
+  const { loading, error, userInfo } = getProfile;
+
+  
   const [isClicked, setIsClicked] = useState(false);
+ 
   const buttonClicked = () => {
     isClicked ? setIsClicked(false) : setIsClicked(true);
   };
@@ -24,7 +44,8 @@ const IncentiveWithdrawNow = () => {
       </div>
       <div className="right-content d-flex align-items-center m-3 p-2 border-left">
         <div className="px-3">
-          <h2>৳ 24000</h2>
+          {/* <h2>৳ 24000</h2> */}
+          <h2>৳{(userInfo && userInfo.totalIncome) || "00"}</h2>
           <small>Availabale for Withdrawal</small>
         </div>
         <div className="px-3">

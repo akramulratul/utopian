@@ -22,7 +22,7 @@ const Sidebar = ({ closeSidebar }) => {
   const dispatch = useDispatch();
   const getProfile = useSelector((state) => state.getProfile);
   const { loading, userInfo } = getProfile;
-  console.log(userInfo);
+  // console.log(userInfo);
   const stopLoading = () => {
     setIsLoading(false);
   };

@@ -14,7 +14,7 @@ export const incentiveAddWithdraw = (newWithdrawInfo,withdrawType) => async (dis
       payload: {},
     });
 
-    fetch(`http://api.utopiansglobal.com/user/balance/withdraws?withdrawType=${withdrawType}`, {
+    fetch(`https://api.utopiansglobal.com/user/balance/withdraws?withdrawType=${withdrawType}`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -75,7 +75,7 @@ export const incentiveSendOtp = () => async (dispatch) => {
         payload: {},
       });
   
-      fetch("http://api.utopiansglobal.com/user/balance/withdraws/generate/otp", {
+      fetch("https://api.utopiansglobal.com/user/balance/withdraws/generate/otp", {
         method: "POST",
         headers: {
           authorization: `Bearer ${token}`,
@@ -92,6 +92,44 @@ export const incentiveSendOtp = () => async (dispatch) => {
     } catch (error) {
       dispatch({
         type: "WITHDRAW_OTP_FAIL",
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };
+
+  export const getWithdrawIncentiveHistory = () => async (dispatch) => {
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    const {
+      data: { token },
+    } = userInfo;
+  
+    try {
+      dispatch({
+        type: "INCENTIVE_WITHDRAW_HISTORY_REQUEST",
+        payload: {},
+      });
+  
+      const config = {
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+      };
+  
+      const { data } = await axios.get(
+        "https://api.utopiansglobal.com/user/balance/withdraws",
+        config
+      );
+      dispatch({
+        type: "INCENTIVE_WITHDRAW_HISTORY_SUCCESS",
+        payload: data.data.data,
+      });
+    } catch (error) {
+      dispatch({
+        type: "INCENTIVE_WITHDRAW_HISTORY_FAIL",
         payload:
           error.response && error.response.data.message
             ? error.response.data.message

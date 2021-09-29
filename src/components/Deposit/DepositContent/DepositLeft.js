@@ -14,7 +14,7 @@ const DepositLeft = ({ data, setDepositeData, method }) => {
   const addDeposite = useSelector((state) => state.addDeposite);
   const { loading, error, depositeInfo } = addDeposite;
   const tansectionHandler = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setTransection(e.target.value);
   };
   const amountHandler = (e) => {

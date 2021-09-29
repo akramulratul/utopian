@@ -6,7 +6,7 @@ export const addDeposit = (addDepositeData) => async (dispatch) => {
   const {
     data: { token },
   } = userInfo;
-  console.log(addDepositeData);
+  // console.log(addDepositeData);
   try {
     dispatch({
       type: "ADD_DEPOSITE_REQUEST",
@@ -22,7 +22,7 @@ export const addDeposit = (addDepositeData) => async (dispatch) => {
 
     axios
       .post(
-        "http://api.utopiansglobal.com/user/balance/deposits",
+        "https://api.utopiansglobal.com/user/balance/deposits",
         addDepositeData,
         config
       )
@@ -52,7 +52,7 @@ export const addDeposit = (addDepositeData) => async (dispatch) => {
             progress: undefined,
           });
         }
-        console.log(response.data);
+        // console.log(response.data);
       });
   } catch (error) {
     dispatch({
@@ -85,7 +85,7 @@ export const getDepositeHistory = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/user/balance/deposits",
+      "https://api.utopiansglobal.com/user/balance/deposits",
       config
     );
     dispatch({
@@ -108,7 +108,7 @@ export const getUserDepositMethodAction = () => async (dispatch) => {
   const {
     data: { token },
   } = userInfo;
-  console.log(token);
+  // console.log(token);
   try {
     dispatch({
       type: "DEPOSIT_METHOD_HISTORY_REQUEST",
@@ -123,7 +123,7 @@ export const getUserDepositMethodAction = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/deposit/user/options",
+      "https://api.utopiansglobal.com/deposit/user/options",
       config
     );
     dispatch({

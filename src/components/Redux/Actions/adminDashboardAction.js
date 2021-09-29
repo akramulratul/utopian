@@ -21,7 +21,7 @@ export const adminDashboardHistory = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/dashboard/admin",
+      "https://api.utopiansglobal.com/dashboard/admin",
       config
     );
     dispatch({
@@ -59,7 +59,7 @@ export const adminUserListAction = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/profile/admin/users",
+      "https://api.utopiansglobal.com/profile/admin/users",
       config
     );
     dispatch({
@@ -97,7 +97,7 @@ export const adminUserDetailsListAction = (username) => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      `http://api.utopiansglobal.com/profile/admin/users?userName=${username}`,
+      `https://api.utopiansglobal.com/profile/admin/users?userName=${username}`,
       config
     );
     dispatch({
@@ -135,7 +135,7 @@ export const adminUserDetailsListAction = (username) => async (dispatch) => {
 //     };
 
 //     const { data } = await axios.get(
-//       `http://api.utopiansglobal.com/auth/ban/${username}`,
+//       `https://api.utopiansglobal.com/auth/ban/${username}`,
 //       config
 //     );
 //     dispatch({
@@ -172,7 +172,7 @@ export const adminUserSuspendAction = (username) => async (dispatch) => {
       },
     };
 
-    fetch(`http://api.utopiansglobal.com/auth/admin/ban/${username}`, {
+    fetch(`https://api.utopiansglobal.com/auth/admin/ban/${username}`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -240,7 +240,7 @@ export const adminUserTemporarySuspendAction =
         },
       };
 
-      fetch(`http://api.utopiansglobal.com/auth/admin/tempBan/${username}`, {
+      fetch(`https://api.utopiansglobal.com/auth/admin/tempBan/${username}`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

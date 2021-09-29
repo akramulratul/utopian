@@ -12,7 +12,7 @@ export const login = (userName, password) => async (dispatch) => {
       username: userName,
     };
 
-    fetch("http://api.utopiansglobal.com/auth/signIn", {
+    fetch("https://api.utopiansglobal.com/auth/signIn", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -47,14 +47,14 @@ export const login = (userName, password) => async (dispatch) => {
           });
         }
         // });
-        console.log(data);
+        // console.log(data);
 
         if (data.statusCode === 200) {
           localStorage.setItem("userInfo", JSON.stringify(data));
         }
       });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     dispatch({
       type: "USER_LOGIN_FAIL",
       payload:
@@ -79,7 +79,7 @@ export const registerNewUser = (userData, history) => async (dispatch) => {
       type: "USER_REGISTRATION_REQUEST",
     });
 
-    fetch("http://api.utopiansglobal.com/auth/signUp", {
+    fetch("https://api.utopiansglobal.com/auth/signUp", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -88,7 +88,7 @@ export const registerNewUser = (userData, history) => async (dispatch) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         dispatch({
           type: "USER_REGISTRATION_SUCCESS",
           payload: data,
@@ -120,7 +120,7 @@ export const registerNewUser = (userData, history) => async (dispatch) => {
         // localStorage.setItem('userInfo', JSON.stringify(data))
       });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     dispatch({
       type: "USER_REGISTRATION_FAIL",
       payload:
@@ -133,13 +133,13 @@ export const registerNewUser = (userData, history) => async (dispatch) => {
 
 export const userRegisterOtpVerifyAction =
   (phoneNumber, history) => async (dispatch) => {
-    console.log(phoneNumber);
+    // console.log(phoneNumber);
     try {
       dispatch({
         type: "USER_REGISTER_OTP_VERIFY_REQUEST",
       });
 
-      fetch(`http://api.utopiansglobal.com/auth/signUp/generateOtp`, {
+      fetch(`https://api.utopiansglobal.com/auth/signUp/generateOtp`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -148,12 +148,12 @@ export const userRegisterOtpVerifyAction =
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           dispatch({
             type: "USER_REGISTER_OTP_VERIFY_SUCCESS",
             payload: data,
           });
-          console.log(data);
+          // console.log(data);
           if (data.statusCode === 200) {
             setTimeout(function () {
               history.push("/registration-verify-otp");
@@ -181,7 +181,7 @@ export const userRegisterOtpVerifyAction =
           // localStorage.setItem('userInfo', JSON.stringify(data))
         });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       dispatch({
         type: "USER_REGISTER_OTP_VERIFY_FAIL",
         payload:
@@ -192,49 +192,7 @@ export const userRegisterOtpVerifyAction =
     }
   };
 
-// export const getUserProfile = () => async (dispatch) => {
-//     const userInfo = JSON.parse(localStorage.getItem('userInfo'))
-//     const { data: { token } } = userInfo
-//     console.log(token);
-//     try {
-//         dispatch({
-//           type: "USER_REGISTRATION_SUCCESS",
-//           payload: data,
-//         });
-//         if (data.statusCode !== 201) {
-//           toast.error(`${ data.message }`, {
-//             position: "top-right",
-//             autoClose: 2000,
-//             hideProgressBar: false,
-//             closeOnClick: true,
-//             pauseOnHover: true,
-//             draggable: true,
-//             progress: undefined,
-//           });
-//         } else {
-//           toast.success(`${ data.message }`, {
-//             position: "top-right",
-//             autoClose: 2000,
-//             hideProgressBar: false,
-//             closeOnClick: true,
-//             pauseOnHover: true,
-//             draggable: true,
-//             progress: undefined,
-//           });
-//         }
-//         // localStorage.setItem('userInfo', JSON.stringify(data))
-//       });
-//   } catch (error) {
-//     console.log(error);
-//     dispatch({
-//       type: "USER_REGISTRATION_FAIL",
-//       payload:
-//         error.response && error.response.data.message
-//           ? error.response.data.message
-//           : error.message,
-//     });
-//   }
-// };
+
 
 export const changePassword = (confirmPass) => async (dispatch) => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -247,7 +205,7 @@ export const changePassword = (confirmPass) => async (dispatch) => {
       type: "USER_PASSWORDCHANGE_REQUEST",
     });
 
-    fetch("http://api.utopiansglobal.com/auth/profile/changePass", {
+    fetch("https://api.utopiansglobal.com/auth/profile/changePass", {
       method: "PUT",
       headers: {
         authorization: `Bearer ${token}`,
@@ -257,7 +215,7 @@ export const changePassword = (confirmPass) => async (dispatch) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         dispatch({
           type: "USER_PASSWORDCHANGE_SUCCESS",
           payload: data,
@@ -284,10 +242,10 @@ export const changePassword = (confirmPass) => async (dispatch) => {
           });
         }
         // });
-        console.log(data);
+        // console.log(data);
       });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     dispatch({
       type: "USER_PASSWORDCHANGE_FAIL",
       payload:
@@ -303,7 +261,7 @@ export const getUserProfile = () => async (dispatch) => {
   const {
     data: { token },
   } = userInfo;
-  console.log(token);
+  // console.log(token);
   try {
     dispatch({
       type: "USER_PROFILEDETAILS_REQUEST",
@@ -318,7 +276,7 @@ export const getUserProfile = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "http://api.utopiansglobal.com/profile",
+      "https://api.utopiansglobal.com/profile",
       config
     );
     dispatch({
@@ -337,7 +295,7 @@ export const getUserProfile = () => async (dispatch) => {
 };
 
 export const userProfileUpdate = (userData) => async (dispatch) => {
-  console.log(userData);
+  // console.log(userData);
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const {
     data: { token },
@@ -355,7 +313,7 @@ export const userProfileUpdate = (userData) => async (dispatch) => {
       },
     };
 
-    fetch("http://api.utopiansglobal.com/profile", {
+    fetch("https://api.utopiansglobal.com/profile", {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -423,7 +381,7 @@ export const userProfileUpdateByPictureAction = (url) => async (dispatch) => {
     };
 
     fetch(
-      `http://api.utopiansglobal.com/profile/uploadProfile?imageLink=${url}`,
+      `https://api.utopiansglobal.com/profile/uploadProfile?imageLink=${url}`,
       {
         method: "POST",
         headers: {
