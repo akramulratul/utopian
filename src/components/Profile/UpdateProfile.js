@@ -20,16 +20,16 @@ const UpdateProfile = ({ userInfo }) => {
 
   //
   const [image, setImage] = useState("");
-  console.log(image);
+  // console.log(image);
   const [url, setUrl] = useState();
-  console.log("url", url);
+  // console.log("url", url);
 
   const postDetails = () => {
     const data = new FormData();
     data.append("file", image);
     data.append("upload_preset", "iypf1xxa");
     data.append("cloud_name", "utopiansglobal");
-    console.log(image);
+    // console.log(image);
     if (image) {
       fetch("https://api.cloudinary.com/v1_1/utopiansglobal/image/upload", {
         method: "post",

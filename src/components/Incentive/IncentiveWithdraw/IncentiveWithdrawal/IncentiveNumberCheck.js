@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import "../../../../styles/_Withdraw.scss";
 
 const IncentiveNumberCheck = () => {
+  const { method, number } = JSON.parse(sessionStorage.getItem("incentiveWithdraw"));
+  // console.log(method,number)
   return (
     <div className=" d-flex justify-content-between rounded mt-3 ml-4 mr-4 border">
       <div className="left-content d-flex align-items-center">
@@ -14,7 +16,7 @@ const IncentiveNumberCheck = () => {
           <small>
             <span>Number</span>
           </small>
-          <h4>dgfg</h4>
+          <h4>{number || "00" }</h4>
         </div>
         <div className="align-items-end">
           <Link to="/dashboard/incentive/paymentMethod">

@@ -18,7 +18,7 @@ const Dashboard = () => {
   }, [dispatch]);
   const getProfile = useSelector((state) => state.getProfile);
   const { loading, error, userInfo } = getProfile;
-  console.log(userInfo);
+  // console.log(userInfo);
   const closeSidebar=()=>{
     setIsSideBarOpen(!isSideBarOpen);
   }

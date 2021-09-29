@@ -20,7 +20,7 @@ const IncentivePaymentMethod = () => {
 
   const changeHandler = (value) => {
     if (value.value === "BD") {
-      console.log("clicked");
+      // console.log("clicked");
       setValue(value.label);
     } else {
       setValue("");
@@ -41,13 +41,13 @@ const IncentivePaymentMethod = () => {
 
 
   const setPaymentMethod = (method) => {
-    console.log(method);
+    // console.log(method);
     setMethod(method);
   };
   const setNumber = (number) => {
     setPhoneNumber(number);
   };
-  console.log(IncentivePaymentMethod);
+  // console.log(IncentivePaymentMethod);
   return (
     <div className="row mr-0">
       {isSideBarOpen && (

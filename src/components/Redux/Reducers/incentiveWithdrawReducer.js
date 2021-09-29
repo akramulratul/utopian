@@ -23,17 +23,17 @@ export const incentiveWithdrawReducer = (state = {}, action) => {
   
   export const incentiveWithdrawHistoryReducer = (state = {}, action) => {
     switch (action.type) {
-      case "WITHDRAW_HISTORY_REQUEST":
+      case "INCENTIVE_WITHDRAW_HISTORY_REQUEST":
         return {
           loading: true,
           withdrawInfo: action.payload,
         };
-      case "WITHDRAW_HISTORY_SUCCESS":
+      case "INCENTIVE_WITHDRAW_HISTORY_SUCCESS":
         return {
           loading: false,
           withdrawInfo: action.payload,
         };
-      case "WITHDRAW_HISTORY_FAIL":
+      case "INCENTIVE_WITHDRAW_HISTORY_FAIL":
         return {
           loading: false,
           error: action.payload,

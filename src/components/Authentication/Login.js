@@ -19,13 +19,13 @@ const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const showPasswordHandle = () => {
     setShowPassword(!showPassword);
-    console.log(showPassword);
+    // console.log(showPassword);
   };
   //click input field thn hidden icon show
   const [iconHide1, setIconHide1] = React.useState(false);
   const hideIcon1 = () => {
     setIconHide1(true);
-    console.log(iconHide1);
+    // console.log(iconHide1);
   };
 
   const {
@@ -45,16 +45,16 @@ const Login = () => {
       if (userInfo) {
         if (userInfo.statusCode === 200) {
           history.push(redirect);
-          console.log(userInfo);
+          // console.log(userInfo);
         }
       }
     }, 2000);
   }, [history, userInfo, redirect]);
   const onSubmit = (data, e) => {
     e.preventDefault();
-    console.log(data);
+    // console.log(data);
     dispatch(login(data.username, data.password));
-    console.log(userInfo);
+    // console.log(userInfo);
 
     // if (userInfo.statusCode === 200) {
     //     setTimeout(() => {
