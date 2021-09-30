@@ -50,6 +50,7 @@ import { confirmPasswordReducer, forgetPasswordByPhoneNumberReducer, forgetPassw
 
 
 import { referralReducers } from "./Reducers/referralReducers";
+import { incentiveBalanceReportHistory} from "./Reducers/balanceReportReducer";
 import { graphReducer } from "./Reducers/graphReducer";
 import { deleteDepositMethodReducer, depositMethodHistoryReducer, depositMethodReducer, updateDepositMethodHistoryReducer } from "./Reducers/adminDepositMethodReducer";
 import { incentiveSendWithdrawOtp, incentiveWithdrawReducer,incentiveWithdrawHistoryReducer } from "./Reducers/incentiveWithdrawReducer";
@@ -96,6 +97,8 @@ const reducer = combineReducers({
   incentiveSendWithdrawOtp:incentiveSendWithdrawOtp,
   incentiveWithdrawHistoryReducer:incentiveWithdrawHistoryReducer,
 
+  //Balance Report
+  incentiveBalanceReportHistory:incentiveBalanceReportHistory,
 
   adminDashboardData: adminDashboardReducer,
   updateProfile: updateProfileReducer,
