@@ -18,7 +18,7 @@ const TopIncentive = () => {
   }, [dispatch]);
   const getProfile = useSelector((state) => state.getProfile);
   const { loading, error, userInfo } = getProfile;
-  console.log(userInfo);
+  // console.log(userInfo);
 
   return (
     <div className="header bg-white mt-3 mr-3 ml-3 d-flex justify-content-between rounded">
